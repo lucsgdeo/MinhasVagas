@@ -1,0 +1,38 @@
+name: Monitor de Vagas Gupy
+
+on:
+  schedule:
+    # Executa a cada 1 hora (Cron em UTC)
+    - cron: '0 * * * *'
+  workflow_dispatch: # Permite disparar manualmente na aba Actions do GitHub
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Garante permissão para comitar o histórico
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Executar Script de Monitoramento
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_TOPIC_ID: ${{ secrets.TELEGRAM_TOPIC_ID }}
+        run: python suporte.py
+
+      - name: Salvar histórico de vagas vistas no repositório
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add vagas_vistas.json
+          git commit -m "chore: atualiza historico de vagas vistas [skip ci]" || exit 0
+          git push
