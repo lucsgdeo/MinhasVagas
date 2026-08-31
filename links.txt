@@ -1,0 +1,11 @@
+Suporte:                https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=Suporte&limit=20&offset=0&state=S%C3%A3o%20Paulo
+Suporte REMOTO:         https://employability-portal.gupy.io/api/v1/jobs?jobName=Suporte&limit=12&offset=0&workplaceType=remote
+TI:                     https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=ti&limit=12&offset=0&state=S%C3%A3o%20Paulo
+TI REMOTO:              https://employability-portal.gupy.io/api/v1/jobs?jobName=ti&limit=12&offset=0&workplaceType=remote
+INFRA:                  https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=infra&limit=12&offset=0&state=S%C3%A3o%20Paulo
+SERVICE DESK:           https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=Service%20Desk&limit=12&offset=0&state=S%C3%A3o%20Paulo
+SERVICE DESK REMOTO:    https://employability-portal.gupy.io/api/v1/jobs?jobName=Service%20Desk&limit=12&offset=0&workplaceType=remote
+JUNIOR:                 https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=J%C3%BAnior&limit=12&offset=0&state=S%C3%A3o%20Paulo
+JUNIOR REMOTO:          https://employability-portal.gupy.io/api/v1/jobs?jobName=J%C3%BAnior&limit=12&offset=0&workplaceType=remote
+HELP DESK:              https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=HELP%20DESK&limit=12&offset=0&state=S%C3%A3o%20Paulo
+HELP DESK REMOTO:       https://employability-portal.gupy.io/api/v1/jobs?jobName=help%20desk&limit=12&offset=0&workplaceType=remote
