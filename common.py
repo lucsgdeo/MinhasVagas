@@ -1,19 +1,26 @@
 import json
 import os
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+# Diretório raiz do projeto
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Fuso Horário de Brasília
 FUSO_SP = ZoneInfo("America/Sao_Paulo")
-CACHE_FILE_DEFAULT = "vagas_vistas.json"
-MAX_DIAS_PUBLICACAO_DEFAULT = 2
+CACHE_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_vistas.json")
+MAX_DIAS_PUBLICACAO_DEFAULT = 4
 DIAS_RETENCAO_CACHE_DEFAULT = 7
 
 
-def carregar_env(env_path: str = ".env"):
+def carregar_env(env_path: str = None):
     """Carrega variáveis do arquivo .env caso existam e não estejam no ambiente."""
+    if env_path is None:
+        env_path = os.path.join(ROOT_DIR, ".env")
+
     if not os.path.exists(env_path):
         return
 
@@ -46,7 +53,6 @@ def carregar_e_limpar_cache(cache_file: str = CACHE_FILE_DEFAULT, dias_retencao:
                 return {}
             dados = json.loads(conteudo)
 
-        # Suporte para converter estrutura legada caso o JSON seja uma lista []
         if isinstance(dados, list):
             data_hoje_iso = agora_br.isoformat()
             return {str(vaga_id): data_hoje_iso for vaga_id in dados}
@@ -61,7 +67,6 @@ def carregar_e_limpar_cache(cache_file: str = CACHE_FILE_DEFAULT, dias_retencao:
             try:
                 data_vista = datetime.fromisoformat(data_iso)
                 if data_vista > data_limite:
-                    # Normaliza para manter o ID puro da vaga caso haja prefixo anterior
                     id_str = str(vaga_id)
                     id_puro = id_str.rsplit("_", 1)[-1] if ("_" in id_str and id_str.rsplit("_", 1)[-1].isdigit()) else id_str
                     cache_limpo[id_puro] = data_iso
@@ -84,8 +89,8 @@ def salvar_cache(cache_dados: dict, cache_file: str = CACHE_FILE_DEFAULT):
         print(f"❌ Erro ao salvar o cache em {cache_file}: {err}")
 
 
-def enviar_telegram(mensagem: str, topic_id: str | int | None = None) -> bool:
-    """Envia uma mensagem formatada em HTML para o Telegram (chat ou tópico específico)."""
+def enviar_telegram(mensagem: str, topic_id: str | int | None = None, max_tentativas: int = 3) -> bool:
+    """Envia uma mensagem formatada em HTML para o Telegram com retentativas automáticas."""
     carregar_env()
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
@@ -108,23 +113,46 @@ def enviar_telegram(mensagem: str, topic_id: str | int | None = None) -> bool:
         except ValueError:
             print(f"⚠️ AVISO: topic_id '{topic_id}' inválido. Enviando para o canal principal.")
 
-    try:
-        data = json.dumps(payload).encode("utf-8")
-        req = urllib.request.Request(
-            url,
-            data=data,
-            headers={"Content-Type": "application/json"}
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            if resp.status == 200:
-                print("✅ Notificação enviada para o Telegram com sucesso!")
-                return True
-            else:
-                print(f"❌ Erro ao enviar para o Telegram: Status HTTP {resp.status}")
-                return False
-    except Exception as err:
-        print(f"❌ Exceção ao enviar notificação para o Telegram: {err}")
-        return False
+    data = json.dumps(payload).encode("utf-8")
+
+    for tentativa in range(1, max_tentativas + 1):
+        try:
+            req = urllib.request.Request(
+                url,
+                data=data,
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                if resp.status == 200:
+                    print("✅ Notificação enviada para o Telegram com sucesso!")
+                    return True
+                else:
+                    print(f"❌ Erro ao enviar para o Telegram (tentativa {tentativa}/{max_tentativas}): Status HTTP {resp.status}")
+        except Exception as err:
+            print(f"⚠️ Tentativa {tentativa}/{max_tentativas} falhou ao notificar Telegram: {err}")
+            if tentativa < max_tentativas:
+                time.sleep(2)
+
+    print("❌ Todas as tentativas de envio ao Telegram falharam.")
+    return False
+
+
+def consultar_api_gupy(api_url: str, max_tentativas: int = 3) -> list:
+    """Consulta a API da Gupy com retentativas automáticas."""
+    req = urllib.request.Request(
+        api_url,
+        headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
+    )
+    for tentativa in range(1, max_tentativas + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as response:
+                data = json.loads(response.read().decode("utf-8"))
+                return data.get("data", [])
+        except Exception as err:
+            print(f"⚠️ Tentativa {tentativa}/{max_tentativas} falhou na API da Gupy: {err}")
+            if tentativa < max_tentativas:
+                time.sleep(2)
+    raise RuntimeError("Falha ao consultar a API da Gupy após múltiplas tentativas.")
 
 
 def executar_monitoramento(
@@ -142,78 +170,71 @@ def executar_monitoramento(
     carregar_env()
     agora_br = datetime.now(FUSO_SP)
 
-    # 1. Carrega e limpa o cache (IDs puros)
+    # 1. Carrega e limpa o cache
     cache_vagas = carregar_e_limpar_cache(cache_file, dias_retencao_cache)
 
-    # 2. Requisição para a API da Gupy
-    req = urllib.request.Request(
-        api_url,
-        headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
-    )
-
     try:
-        with urllib.request.urlopen(req, timeout=20) as response:
-            data = json.loads(response.read().decode("utf-8"))
-            vagas = data.get("data", [])
+        # 2. Requisição para a API da Gupy
+        vagas = consultar_api_gupy(api_url)
 
-            novas_vagas = []
+        novas_vagas = []
 
-            for vaga in vagas:
-                vaga_id = str(vaga.get("id"))
-                raw_date = vaga.get("publishedDate")
+        for vaga in vagas:
+            vaga_id = str(vaga.get("id"))
+            raw_date = vaga.get("publishedDate")
 
-                if raw_date:
-                    data_utc = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
-                    data_br = data_utc.astimezone(FUSO_SP)
+            if raw_date:
+                data_utc = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+                data_br = data_utc.astimezone(FUSO_SP)
 
-                    # Filtro: descarta se a vaga tiver sido publicada há mais de max_dias_pub dias
-                    if (agora_br - data_br).days > max_dias_pub:
-                        continue
+                # Filtro: descarta se a vaga tiver sido publicada há mais de max_dias_pub dias
+                if (agora_br - data_br).days > max_dias_pub:
+                    continue
 
-                    vaga["data_formatada_br"] = data_br.strftime("%d/%m/%Y às %H:%M")
+                vaga["data_formatada_br"] = data_br.strftime("%d/%m/%Y às %H:%M")
 
-                # Checa se o ID original da vaga já foi notificado anteriormente
-                if vaga_id not in cache_vagas:
-                    novas_vagas.append(vaga)
-                    cache_vagas[vaga_id] = agora_br.isoformat()
+            # Checa se o ID original da vaga já foi notificado anteriormente
+            if vaga_id not in cache_vagas:
+                novas_vagas.append(vaga)
+                cache_vagas[vaga_id] = agora_br.isoformat()
 
-            # 3. Processa alertas e salva cache
-            if novas_vagas:
-                print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{topic_name}]!")
+        # 3. Processa alertas e salva cache
+        if novas_vagas:
+            print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{topic_name}]!")
 
-                # Agrupa vagas em mensagens respeitando o limite do Telegram (~4000 caracteres)
-                msg_header = f"🚀 <b>{len(novas_vagas)} Nova(s) Vaga(s) Encontrada(s)!</b>\n\n"
-                msg_atual = msg_header
+            # Agrupa vagas em mensagens respeitando o limite do Telegram (~4000 caracteres)
+            msg_header = f"🚀 <b>{len(novas_vagas)} Nova(s) Vaga(s) Encontrada(s)!</b>\n\n"
+            msg_atual = msg_header
 
-                for v in novas_vagas:
-                    nome = v.get("name", "Não informado")
-                    modalidade = v.get("workplaceType", "N/I")
-                    link = v.get("jobUrl", "")
-                    data_pub = v.get("data_formatada_br", "N/I")
+            for v in novas_vagas:
+                nome = v.get("name", "Não informado")
+                modalidade = v.get("workplaceType", "N/I")
+                link = v.get("jobUrl", "")
+                data_pub = v.get("data_formatada_br", "N/I")
 
-                    bloco_vaga = (
-                        f"📌 <b>{nome}</b>\n"
-                        f"🏢 Modalidade: <i>{modalidade}</i>\n"
-                        f"📅 Publicada em: {data_pub}\n"
-                        f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
-                    )
+                bloco_vaga = (
+                    f"📌 <b>{nome}</b>\n"
+                    f"🏢 Modalidade: <i>{modalidade}</i>\n"
+                    f"📅 Publicada em: {data_pub}\n"
+                    f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
+                )
 
-                    if len(msg_atual) + len(bloco_vaga) > 4000:
-                        enviar_telegram(msg_atual, topic_id=topic_id)
-                        msg_atual = bloco_vaga
-                    else:
-                        msg_atual += bloco_vaga
-
-                if msg_atual.strip():
+                if len(msg_atual) + len(bloco_vaga) > 4000:
                     enviar_telegram(msg_atual, topic_id=topic_id)
+                    msg_atual = bloco_vaga
+                else:
+                    msg_atual += bloco_vaga
 
-                salvar_cache(cache_vagas, cache_file)
-                return len(novas_vagas)
-            else:
-                salvar_cache(cache_vagas, cache_file)
-                print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{topic_name}].")
-                return 0
+            if msg_atual.strip():
+                enviar_telegram(msg_atual, topic_id=topic_id)
+
+            salvar_cache(cache_vagas, cache_file)
+            return len(novas_vagas)
+        else:
+            salvar_cache(cache_vagas, cache_file)
+            print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{topic_name}].")
+            return 0
 
     except Exception as e:
-        print(f"❌ Erro ao consultar a API da Gupy para [{topic_name}]: {e}")
+        print(f"❌ Erro ao consultar/processar vagas para [{topic_name}]: {e}")
         return 0

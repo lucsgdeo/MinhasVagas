@@ -3,7 +3,7 @@ name: Monitor de Vagas Gupy
 on:
   schedule:
     # Executa a cada 1 hora (Cron em UTC)
-    - cron: '22 * * * *'
+    - cron: '0 * * * *'
   workflow_dispatch: # Permite disparar manualmente na aba Actions do GitHub
 
 jobs:
@@ -26,17 +26,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_TOPIC_SUPORTE_ID: ${{ secrets.TELEGRAM_TOPIC_SUPORTE_ID }}
-          TELEGRAM_TOPIC_SUPORTE_REMOTO_ID: ${{ secrets.TELEGRAM_TOPIC_SUPORTE_REMOTO_ID }}
-          TELEGRAM_TOPIC_TI_ID: ${{ secrets.TELEGRAM_TOPIC_TI_ID }}
-          TELEGRAM_TOPIC_TI_REMOTO_ID: ${{ secrets.TELEGRAM_TOPIC_TI_REMOTO_ID }}
-          TELEGRAM_TOPIC_INFRA_ID: ${{ secrets.TELEGRAM_TOPIC_INFRA_ID }}
-          TELEGRAM_TOPIC_SERVICE_DESK_ID: ${{ secrets.TELEGRAM_TOPIC_SERVICE_DESK_ID }}
-          TELEGRAM_TOPIC_SERVICE_DESK_REMOTO_ID: ${{ secrets.TELEGRAM_TOPIC_SERVICE_DESK_REMOTO_ID }}
-          TELEGRAM_TOPIC_JUNIOR_ID: ${{ secrets.TELEGRAM_TOPIC_JUNIOR_ID }}
-          TELEGRAM_TOPIC_JUNIOR_REMOTO_ID: ${{ secrets.TELEGRAM_TOPIC_JUNIOR_REMOTO_ID }}
-          TELEGRAM_TOPIC_HELP_DESK_ID: ${{ secrets.TELEGRAM_TOPIC_HELP_DESK_ID }}
-          TELEGRAM_TOPIC_HELP_DESK_REMOTO_ID: ${{ secrets.TELEGRAM_TOPIC_HELP_DESK_REMOTO_ID }}
         run: python main.py
 
       - name: Salvar histórico de vagas vistas no repositório

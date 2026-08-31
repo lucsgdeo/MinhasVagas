@@ -1,30 +1,6 @@
 import time
 from common import carregar_env
-import suporte
-import suporte_remoto
-import ti
-import ti_remoto
-import infra
-import service_desk
-import service_desk_remoto
-import junior
-import junior_remoto
-import help_desk
-import help_desk_remoto
-
-MODULOS = [
-    suporte,
-    suporte_remoto,
-    ti,
-    ti_remoto,
-    infra,
-    service_desk,
-    service_desk_remoto,
-    junior,
-    junior_remoto,
-    help_desk,
-    help_desk_remoto,
-]
+from topics import TODOS_TOPICOS
 
 
 def main():
@@ -36,7 +12,7 @@ def main():
     total_novas_geral = 0
     resultados = []
 
-    for mod in MODULOS:
+    for mod in TODOS_TOPICOS:
         nome = getattr(mod, "TOPIC_NAME", mod.__name__)
         print(f"\n--- Processando: {nome} ---")
         try:
@@ -47,7 +23,7 @@ def main():
             print(f"❌ Erro ao processar módulo {nome}: {e}")
             resultados.append((nome, f"Erro: {e}", 0))
 
-        # Pequeno intervalo para respeitar taxas de requisição
+        # Intervalo entre tópicos para evitar rate limits da API e do Telegram
         time.sleep(1)
 
     print("\n" + "=" * 60)
