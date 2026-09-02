@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'minhasvagas_applied';
+const THEME_STORAGE_KEY = 'minhasvagas_theme';
 
 const state = {
     allVagas: [],
@@ -6,7 +7,8 @@ const state = {
     currentFilter: 'todas',
     currentScheduleFilter: 'todas',
     searchTerm: '',
-    appliedIds: new Set()
+    appliedIds: new Set(),
+    currentTheme: 'red'
 };
 
 const els = {
@@ -28,10 +30,12 @@ const els = {
     errorMessage: document.getElementById('error-message'),
     retryBtn: document.getElementById('retry-btn'),
     stats: document.getElementById('stats'),
-    statTotal: document.getElementById('stat-total')
+    statTotal: document.getElementById('stat-total'),
+    themeOptions: document.querySelectorAll('.theme-option')
 };
 
 function init() {
+    loadThemeFromStorage();
     loadAppliedFromStorage();
     loadVagas();
     setupEventListeners();
@@ -89,6 +93,14 @@ function setupEventListeners() {
             }
         }
     });
+
+    // Theme selector
+    els.themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.dataset.theme;
+            setTheme(theme);
+        });
+    });
 }
 
 function loadAppliedFromStorage() {
@@ -101,6 +113,46 @@ function loadAppliedFromStorage() {
     } catch (e) {
         console.warn('Erro ao ler localStorage:', e);
     }
+}
+
+function loadThemeFromStorage() {
+    try {
+        const stored = localStorage.getItem(THEME_STORAGE_KEY);
+        if (stored) {
+            state.currentTheme = stored;
+            applyTheme(stored);
+        } else {
+            applyTheme('red');
+        }
+    } catch (e) {
+        console.warn('Erro ao ler tema do localStorage:', e);
+        applyTheme('red');
+    }
+}
+
+function saveThemeToStorage() {
+    try {
+        localStorage.setItem(THEME_STORAGE_KEY, state.currentTheme);
+    } catch (e) {
+        console.warn('Erro ao salvar tema no localStorage:', e);
+    }
+}
+
+function setTheme(theme) {
+    state.currentTheme = theme;
+    applyTheme(theme);
+    saveThemeToStorage();
+    updateThemeOptions(theme);
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
+function updateThemeOptions(activeTheme) {
+    els.themeOptions.forEach(option => {
+        option.classList.toggle('active', option.dataset.theme === activeTheme);
+    });
 }
 
 function saveAppliedToStorage() {
