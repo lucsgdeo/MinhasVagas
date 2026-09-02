@@ -9,3 +9,17 @@ JUNIOR:                 https://employability-portal.gupy.io/api/v1/jobs?city=S%
 JUNIOR REMOTO:          https://employability-portal.gupy.io/api/v1/jobs?jobName=J%C3%BAnior&limit=12&offset=0&workplaceType=remote
 HELP DESK:              https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=HELP%20DESK&limit=12&offset=0&state=S%C3%A3o%20Paulo
 HELP DESK REMOTO:       https://employability-portal.gupy.io/api/v1/jobs?jobName=help%20desk&limit=12&offset=0&workplaceType=remote
+
+DISCORD IDS:
+
+Suporte:                1544508440750198824
+Suporte REMOTO:         1544511090933633025
+TI:                     1544511117189976135
+TI REMOTO:              1544511138434252940
+INFRA:                  1544511165227597885
+SERVICE DESK:           1544511187885105292
+SERVICE DESK REMOTO:    1544511219531124838
+JUNIOR:                 1544511235469475881
+JUNIOR REMOTO:          1544511253010055289
+HELP DESK:              1544511274774437888
+HELP DESK REMOTO:       1544511302196797490

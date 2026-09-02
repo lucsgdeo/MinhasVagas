@@ -1,0 +1,73 @@
+Role & Context:
+Você é um Engenheiro de Software Full-Stack especialista em Python, GitHub Actions e desenvolvimento Web moderno (HTML5, Tailwind CSS, JavaScript Vanilla).
+Preciso atualizar o repositório "MinhasVagas" para implementar:
+1. Notificações no Discord por Tópicos/Threads específicos via Webhook nativo.
+2. Exportação de dados das vagas para visualização pública.
+3. Dashboard Web no GitHub Pages com filtros rápidos, abas de período e botão de acionamento manual da automação.
+
+Regras de Otimização:
+- Responda de forma concisa e focada estritamente no código dos arquivos modificados.
+- Não utilize dependências de terceiros no Python (mantenha apenas urllib, json, datetime, zoneinfo, os, sys).
+- No Frontend, utilize HTML5, Tailwind CSS (via CDN) e JS Vanilla (sem frameworks pesados).
+
+---
+
+### TAREFA 1: Suporte a Tópicos no Discord (`common.py` e módulos em `topics/`)
+
+1. Em `common.py`, atualize/crie a função `enviar_discord(vagas: list, topic_name: str, discord_thread_id: int = None)` usando `urllib.request`.
+   - Lê a variável `DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")`. Se não existir, desativa o envio sem falhar.
+   - Se `discord_thread_id` for fornecido, anexa `?thread_id={discord_thread_id}` à URL do Webhook.
+   - Formata a mensagem utilizando Embeds nativos do Discord (título com link, cor, campos inline para Tópico e Modalidade, e data formatada).
+2. Atualize a função `executar_monitoramento()` em `common.py` para aceitar `discord_thread_id: int = None` e disparar o envio tanto para o Telegram quanto para o Discord.
+3. Atualize a assinatura das chamadas nos arquivos dentro de `topics/` para permitir passar o `DISCORD_THREAD_ID`.
+
+---
+
+### TAREFA 2: Exportação de Histórico para o Dashboard (`vagas_recentes.json`)
+
+1. No `common.py`, implemente a gravação de um arquivo `vagas_recentes.json` na raiz do projeto.
+2. O arquivo deve armazenar a lista completa dos objetos das vagas notificadas nos últimos 7 dias:
+   `[{"id": "...", "name": "...", "workplaceType": "...", "jobUrl": "...", "publishedDate": "...", "topic": "...", "data_formatada_br": "..."}]`
+3. A limpeza de 7 dias também deve expurgar vagas antigas de `vagas_recentes.json`.
+4. Garanta que o `main.py` salve/atualize o `vagas_recentes.json` junto com o `vagas_vistas.json`.
+
+---
+
+### TAREFA 3: Frontend no GitHub Pages (`index.html`)
+
+Crie o arquivo `index.html` na raiz do projeto com layout moderno e responsivo usando Tailwind CSS:
+
+1. **Abas Superiores por Período:**
+   - [Aba 1] "Últimas 24 Horas" (Filtra vagas publicadas nas últimas 24h).
+   - [Aba 2] "Últimos 7 Dias" (Exibe todas as vagas registradas em `vagas_recentes.json`).
+
+2. **Filtros Rápidos por Botões (Pills Clicáveis):**
+   - Fileira de botões clicáveis no topo da lista para filtragem instantânea:
+     - `Todas`
+     - `100% Remoto`
+     - `Presencial`
+     - `Suporte`
+     - `TI`
+     - `Infraestrutura`
+     - `Service Desk`
+     - `Júnior`
+     - `Help Desk`
+   - Campo de busca textual (input) para pesquisar títulos de vagas em tempo real.
+
+3. **Grid de Vagas:**
+   - Cards com: Título, Badge de Modalidade (Remoto/Presencial), Tag da Área/Tópico, Data de Publicação e Botão "Candidatar-se" (link externo Gupy).
+
+4. **Botão de Sincronização Manual (GitHub Actions):**
+   - Botão "🔄 Sincronizar Agora" no header.
+   - Ao clicar, solicita o GitHub Personal Access Token (PAT) via modal/prompt e dispara uma requisição `POST` para a API do GitHub (`/actions/workflows/main.yml/dispatches` com `{"ref": "main"}`).
+   - Exibe feedback de sucesso/erro ao disparar.
+
+---
+
+### TAREFA 4: Configuração no Workflow (`.github/workflows/main.yml`)
+
+1. Adicione a variável `DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}` nas variáveis de ambiente do passo de execução Python.
+2. Atualize a etapa do Git commit para incluir o novo arquivo `vagas_recentes.json`:
+   `git add vagas_vistas.json vagas_recentes.json`
+
+Gere o código completo para `common.py`, `index.html`, um exemplo atualizado de módulo de tópico (ex: `topics/suporte.py`), e a alteração no `.github/workflows/main.yml`.
