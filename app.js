@@ -11,30 +11,32 @@ const state = {
     currentTheme: 'red'
 };
 
-const els = {
-    tab24h: document.getElementById('tab-24h'),
-    tab7d: document.getElementById('tab-7d'),
-    tabSchedule: document.getElementById('tab-schedule'),
-    searchInput: document.getElementById('search-input'),
-    filterPills: document.querySelectorAll('.filter-pill'),
-    scheduleFilterPills: document.querySelectorAll('#schedule-filter-pills .filter-pill'),
-    vacanciesGrid: document.getElementById('vacancies-grid'),
-    scheduleContainer: document.getElementById('schedule-container'),
-    scheduleBars: document.getElementById('schedule-bars'),
-    scheduleSummary: document.getElementById('schedule-summary'),
-    filtersContainer: document.getElementById('filters-container'),
-    scheduleFiltersContainer: document.getElementById('schedule-filters-container'),
-    emptyState: document.getElementById('empty-state'),
-    loading: document.getElementById('loading'),
-    errorState: document.getElementById('error-state'),
-    errorMessage: document.getElementById('error-message'),
-    retryBtn: document.getElementById('retry-btn'),
-    stats: document.getElementById('stats'),
-    statTotal: document.getElementById('stat-total'),
-    themeOptions: document.querySelectorAll('.theme-option')
-};
+let els = {};
 
 function init() {
+    els = {
+        tab24h: document.getElementById('tab-24h'),
+        tab7d: document.getElementById('tab-7d'),
+        tabSchedule: document.getElementById('tab-schedule'),
+        searchInput: document.getElementById('search-input'),
+        filterPills: document.querySelectorAll('.filter-pill'),
+        scheduleFilterPills: document.querySelectorAll('#schedule-filter-pills .filter-pill'),
+        vacanciesGrid: document.getElementById('vacancies-grid'),
+        scheduleContainer: document.getElementById('schedule-container'),
+        scheduleBars: document.getElementById('schedule-bars'),
+        scheduleSummary: document.getElementById('schedule-summary'),
+        filtersContainer: document.getElementById('filters-container'),
+        scheduleFiltersContainer: document.getElementById('schedule-filters-container'),
+        emptyState: document.getElementById('empty-state'),
+        loading: document.getElementById('loading'),
+        errorState: document.getElementById('error-state'),
+        errorMessage: document.getElementById('error-message'),
+        retryBtn: document.getElementById('retry-btn'),
+        stats: document.getElementById('stats'),
+        statTotal: document.getElementById('stat-total'),
+        themeOptions: document.querySelectorAll('.theme-option')
+    };
+
     loadThemeFromStorage();
     loadAppliedFromStorage();
     loadVagas();
@@ -438,7 +440,6 @@ function escapeHtml(text) {
 function showLoading(show) {
     els.loading.classList.toggle('hidden', !show);
     els.vacanciesGrid.classList.toggle('hidden', show);
-    els.scheduleContainer.classList.toggle('hidden', show);
 }
 
 function showError(msg) {
