@@ -21,17 +21,9 @@
 <body class="bg-gray-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header -->
-        <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-            <div>
-                <h1 class="text-3xl font-bold text-gray-900">MinhasVagas</h1>
-                <p class="text-gray-600 mt-1">Dashboard de vagas do Gupy</p>
-            </div>
-            <a href="https://github.com/lucas/MinhasVagas/actions" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                </svg>
-                <span>Sincronizar (Actions)</span>
-            </a>
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">MinhasVagas</h1>
+            <p class="text-gray-600 mt-1">Dashboard de vagas do Gupy</p>
         </header>
 
         <!-- Tabs -->
@@ -39,16 +31,15 @@
             <div class="flex border-b border-gray-200" role="tablist">
                 <button id="tab-24h" role="tab" aria-selected="true" class="tab-btn px-6 py-3 font-medium text-sm border-b-2 border-blue-600 text-blue-600">Últimas 24 Horas</button>
                 <button id="tab-7d" role="tab" aria-selected="false" class="tab-btn px-6 py-3 font-medium text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-700">Últimos 7 Dias</button>
+                <button id="tab-schedule" role="tab" aria-selected="false" class="tab-btn px-6 py-3 font-medium text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-700">Horários de Postagem</button>
             </div>
         </div>
 
-        <!-- Filters -->
-        <div class="mb-6 flex flex-wrap gap-2">
+        <!-- Filters (only for vacancy list tabs) -->
+        <div id="filters-container" class="mb-6 flex flex-wrap gap-2">
             <input type="text" id="search-input" placeholder="Buscar por título..." class="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
             <div class="flex flex-wrap gap-2" id="filter-pills">
                 <button class="filter-pill active px-4 py-2 bg-blue-600 text-white text-sm rounded-full" data-filter="todas">Todas</button>
-                <button class="filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="remoto">100% Remoto</button>
-                <button class="filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="presencial">Presencial</button>
                 <button class="filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="suporte">Suporte</button>
                 <button class="filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="ti">TI</button>
                 <button class="filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="infraestrutura">Infraestrutura</button>
@@ -58,16 +49,38 @@
             </div>
         </div>
 
+        <!-- Schedule Filters (only for schedule tab) -->
+        <div id="schedule-filters-container" class="mb-6 hidden flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2" id="schedule-filter-pills">
+                <button class="schedule-filter-pill active px-4 py-2 bg-blue-600 text-white text-sm rounded-full" data-filter="todas">Todas</button>
+                <button class="schedule-filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="suporte">Suporte</button>
+                <button class="schedule-filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="ti">TI</button>
+                <button class="schedule-filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="infraestrutura">Infraestrutura</button>
+                <button class="schedule-filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="service-desk">Service Desk</button>
+                <button class="schedule-filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="junior">Júnior</button>
+                <button class="schedule-filter-pill px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200" data-filter="help-desk">Help Desk</button>
+            </div>
+        </div>
+
         <!-- Stats -->
         <div id="stats" class="mb-4 flex flex-wrap gap-4 text-sm text-gray-600 hidden">
             <span id="stat-total"></span>
-            <span id="stat-remoto"></span>
-            <span id="stat-presencial"></span>
         </div>
 
         <!-- Vacancies Grid -->
         <div id="vacancies-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <!-- Cards will be inserted here -->
+        </div>
+
+        <!-- Schedule Chart Container -->
+        <div id="schedule-container" class="hidden">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Distribuição de Vagas por Hora de Publicação</h3>
+                <div class="space-y-3" id="schedule-bars"></div>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <h4 class="text-sm font-medium text-gray-700 mb-2">Resumo</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm" id="schedule-summary"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Empty State -->
@@ -101,14 +114,22 @@
         let allVagas = [];
         let currentTab = '24h';
         let currentFilter = 'todas';
+        let currentScheduleFilter = 'todas';
         let searchTerm = '';
 
         // DOM Elements
         const tab24h = document.getElementById('tab-24h');
         const tab7d = document.getElementById('tab-7d');
+        const tabSchedule = document.getElementById('tab-schedule');
         const searchInput = document.getElementById('search-input');
         const filterPills = document.querySelectorAll('.filter-pill');
+        const scheduleFilterPills = document.querySelectorAll('.schedule-filter-pill');
         const vacanciesGrid = document.getElementById('vacancies-grid');
+        const scheduleContainer = document.getElementById('schedule-container');
+        const scheduleBars = document.getElementById('schedule-bars');
+        const scheduleSummary = document.getElementById('schedule-summary');
+        const filtersContainer = document.getElementById('filters-container');
+        const scheduleFiltersContainer = document.getElementById('schedule-filters-container');
         const emptyState = document.getElementById('empty-state');
         const loading = document.getElementById('loading');
         const errorState = document.getElementById('error-state');
@@ -116,8 +137,6 @@
         const retryBtn = document.getElementById('retry-btn');
         const stats = document.getElementById('stats');
         const statTotal = document.getElementById('stat-total');
-        const statRemoto = document.getElementById('stat-remoto');
-        const statPresencial = document.getElementById('stat-presencial');
 
         // Init
         document.addEventListener('DOMContentLoaded', () => {
@@ -129,14 +148,15 @@
             // Tabs
             tab24h.addEventListener('click', () => switchTab('24h'));
             tab7d.addEventListener('click', () => switchTab('7d'));
+            tabSchedule.addEventListener('click', () => switchTab('schedule'));
 
             // Search
             searchInput.addEventListener('input', (e) => {
                 searchTerm = e.target.value.toLowerCase();
-                renderVagas();
+                if (currentTab !== 'schedule') renderVagas();
             });
 
-            // Filter pills
+            // Filter pills (vacancy list)
             filterPills.forEach(pill => {
                 pill.addEventListener('click', () => {
                     filterPills.forEach(p => {
@@ -150,27 +170,63 @@
                 });
             });
 
+            // Schedule filter pills
+            scheduleFilterPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    scheduleFilterPills.forEach(p => {
+                        p.classList.remove('active', 'bg-blue-600', 'text-white');
+                        p.classList.add('bg-gray-100', 'text-gray-700');
+                    });
+                    pill.classList.add('active', 'bg-blue-600', 'text-white');
+                    pill.classList.remove('bg-gray-100', 'text-gray-700');
+                    currentScheduleFilter = pill.dataset.filter;
+                    renderSchedule();
+                });
+            });
+
             retryBtn.addEventListener('click', loadVagas);
         }
 
         function switchTab(tab) {
             currentTab = tab;
+
+            // Update tab buttons
+            [tab24h, tab7d, tabSchedule].forEach(btn => {
+                btn.classList.remove('border-blue-600', 'text-blue-600');
+                btn.classList.add('border-transparent', 'text-gray-500');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
             if (tab === '24h') {
                 tab24h.classList.add('border-blue-600', 'text-blue-600');
                 tab24h.classList.remove('border-transparent', 'text-gray-500');
                 tab24h.setAttribute('aria-selected', 'true');
-                tab7d.classList.add('border-transparent', 'text-gray-500');
-                tab7d.classList.remove('border-blue-600', 'text-blue-600');
-                tab7d.setAttribute('aria-selected', 'false');
-            } else {
+            } else if (tab === '7d') {
                 tab7d.classList.add('border-blue-600', 'text-blue-600');
                 tab7d.classList.remove('border-transparent', 'text-gray-500');
                 tab7d.setAttribute('aria-selected', 'true');
-                tab24h.classList.add('border-transparent', 'text-gray-500');
-                tab24h.classList.remove('border-blue-600', 'text-blue-600');
-                tab24h.setAttribute('aria-selected', 'false');
+            } else if (tab === 'schedule') {
+                tabSchedule.classList.add('border-blue-600', 'text-blue-600');
+                tabSchedule.classList.remove('border-transparent', 'text-gray-500');
+                tabSchedule.setAttribute('aria-selected', 'true');
             }
-            renderVagas();
+
+            // Show/hide containers
+            const isSchedule = tab === 'schedule';
+            vacanciesGrid.classList.toggle('hidden', isSchedule);
+            scheduleContainer.classList.toggle('hidden', !isSchedule);
+            filtersContainer.classList.toggle('hidden', isSchedule);
+            scheduleFiltersContainer.classList.toggle('hidden', !isSchedule);
+            stats.classList.toggle('hidden', isSchedule);
+            emptyState.classList.add('hidden');
+            searchInput.value = '';
+            searchTerm = '';
+
+            if (isSchedule) {
+                renderSchedule();
+            } else {
+                renderVagas();
+            }
         }
 
         async function loadVagas() {
@@ -189,7 +245,11 @@
                     throw new Error(`HTTP ${response.status}`);
                 }
                 allVagas = await response.json();
-                renderVagas();
+                if (currentTab === 'schedule') {
+                    renderSchedule();
+                } else {
+                    renderVagas();
+                }
             } catch (err) {
                 console.error('Erro ao carregar vagas:', err);
                 showError(`Não foi possível carregar as vagas: ${err.message}`);
@@ -222,13 +282,8 @@
             if (currentFilter !== 'todas') {
                 filtered = filtered.filter(v => {
                     const topic = v.topic.toLowerCase();
-                    const modalidade = v.workplaceType.toLowerCase();
 
                     switch (currentFilter) {
-                        case 'remoto':
-                            return modalidade === 'remote' || modalidade === 'remoto';
-                        case 'presencial':
-                            return modalidade === 'onsite' || modalidade === 'presencial';
                         case 'suporte':
                             return topic.includes('suporte');
                         case 'ti':
@@ -252,6 +307,9 @@
 
         function renderVagas() {
             const filtered = filterVagas();
+
+            // Always show the grid container
+            vacanciesGrid.classList.remove('hidden');
 
             if (filtered.length === 0) {
                 vacanciesGrid.innerHTML = '';
@@ -293,14 +351,104 @@
             `;
         }
 
+        function renderSchedule() {
+            let filtered = allVagas;
+
+            // Schedule filter by topic
+            if (currentScheduleFilter !== 'todas') {
+                filtered = filtered.filter(v => {
+                    const topic = v.topic.toLowerCase();
+
+                    switch (currentScheduleFilter) {
+                        case 'suporte':
+                            return topic.includes('suporte');
+                        case 'ti':
+                            return topic.includes('ti');
+                        case 'infraestrutura':
+                            return topic.includes('infra');
+                        case 'service-desk':
+                            return topic.includes('service desk');
+                        case 'junior':
+                            return topic.includes('júnior') || topic.includes('junior');
+                        case 'help-desk':
+                            return topic.includes('help desk');
+                        default:
+                            return true;
+                    }
+                });
+            }
+
+            // Count vacancies by hour
+            const hourCounts = Array(24).fill(0);
+            filtered.forEach(vaga => {
+                const pubDate = vaga.publishedDate;
+                if (pubDate) {
+                    try {
+                        const date = new Date(pubDate.replace('Z', '+00:00'));
+                        const hour = date.getHours();
+                        hourCounts[hour]++;
+                    } catch (e) {
+                        // Ignore invalid dates
+                    }
+                }
+            });
+
+            const maxCount = Math.max(...hourCounts);
+            const totalVagas = filtered.length;
+
+            // Render bars
+            scheduleBars.innerHTML = hourCounts.map((count, hour) => {
+                const percentage = maxCount > 0 ? (count / maxCount) * 100 : 0;
+                const label = `${hour.toString().padStart(2, '0')}:00`;
+                return `
+                    <div class="flex items-center gap-4">
+                        <span class="w-16 text-right text-sm text-gray-500 font-mono">${label}</span>
+                        <div class="flex-1 h-6 bg-gray-100 rounded overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded transition-all duration-300" style="width: ${percentage}%"></div>
+                        </div>
+                        <span class="w-12 text-sm font-medium text-gray-700">${count}</span>
+                    </div>
+                `;
+            }).join('');
+
+            // Render summary
+            const peakHour = hourCounts.indexOf(maxCount);
+            const morningCount = hourCounts.slice(6, 12).reduce((a, b) => a + b, 0);
+            const afternoonCount = hourCounts.slice(12, 18).reduce((a, b) => a + b, 0);
+            const nightCount = hourCounts.slice(18, 24).reduce((a, b) => a + b, 0);
+            const earlyCount = hourCounts.slice(0, 6).reduce((a, b) => a + b, 0);
+
+            scheduleSummary.innerHTML = `
+                <div>
+                    <p class="text-gray-500">Total</p>
+                    <p class="font-semibold text-gray-900">${totalVagas}</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Pico</p>
+                    <p class="font-semibold text-gray-900">${peakHour}h (${maxCount})</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Manhã (6-12h)</p>
+                    <p class="font-semibold text-gray-900">${morningCount}</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Tarde (12-18h)</p>
+                    <p class="font-semibold text-gray-900">${afternoonCount}</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Noite (18-24h)</p>
+                    <p class="font-semibold text-gray-900">${nightCount}</p>
+                </div>
+                <div>
+                    <p class="text-gray-500">Madrugada (0-6h)</p>
+                    <p class="font-semibold text-gray-900">${earlyCount}</p>
+                </div>
+            `;
+        }
+
         function showStats(vagas) {
             const total = vagas.length;
-            const remoto = vagas.filter(v => (v.workplaceType || '').toLowerCase() === 'remote' || (v.workplaceType || '').toLowerCase() === 'remoto').length;
-            const presencial = vagas.filter(v => (v.workplaceType || '').toLowerCase() === 'onsite' || (v.workplaceType || '').toLowerCase() === 'presencial').length;
-
-            statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} total`;
-            statRemoto.textContent = `${remoto} remota${remoto !== 1 ? 's' : ''}`;
-            statPresencial.textContent = `${presencial} presencial${presencial !== 1 ? 's' : ''}`;
+            statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
             stats.classList.remove('hidden');
         }
 
@@ -327,12 +475,14 @@
         function showLoading(show) {
             loading.classList.toggle('hidden', !show);
             vacanciesGrid.classList.toggle('hidden', show);
+            scheduleContainer.classList.toggle('hidden', show);
         }
 
         function showError(msg) {
             errorMessage.textContent = msg;
             errorState.classList.remove('hidden');
             vacanciesGrid.classList.add('hidden');
+            scheduleContainer.classList.add('hidden');
             emptyState.classList.add('hidden');
             hideStats();
         }
