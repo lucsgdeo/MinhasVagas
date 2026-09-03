@@ -138,75 +138,7 @@ def enviar_telegram(mensagem: str, topic_id: str | int | None = None, max_tentat
     return False
 
 
-def enviar_discord(vagas: list, topic_name: str, discord_thread_id: int = None, max_tentativas: int = 3) -> bool:
-    """Envia notificação para o Discord via Webhook usando Embeds nativos."""
-    carregar_env()
-    webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
 
-    if not webhook_url:
-        print("⚠️ AVISO: DISCORD_WEBHOOK_URL não configurado. Pulando envio.")
-        return False
-
-    if discord_thread_id:
-        webhook_url = f"{webhook_url}?thread_id={discord_thread_id}"
-
-    agora_br = datetime.now(FUSO_SP)
-    embeds = []
-
-    for v in vagas:
-        nome = v.get("name", "Não informado")
-        modalidade = v.get("workplaceType", "N/I")
-        link = v.get("jobUrl", "")
-        data_pub = v.get("data_formatada_br", "N/I")
-
-        embed = {
-            "title": nome,
-            "url": link,
-            "color": 0x00BFFF,
-            "fields": [
-                {"name": "Tópico", "value": topic_name, "inline": True},
-                {"name": "Modalidade", "value": modalidade, "inline": True},
-                {"name": "Publicada em", "value": data_pub, "inline": False}
-            ],
-            "footer": {"text": f"MinhasVagas • {agora_br.strftime('%d/%m/%Y %H:%M')}"},
-            "timestamp": agora_br.isoformat()
-        }
-        embeds.append(embed)
-
-        if len(embeds) >= 10:
-            payload = {"embeds": embeds}
-            _enviar_webhook_discord(webhook_url, payload, max_tentativas)
-            embeds = []
-
-    if embeds:
-        payload = {"embeds": embeds}
-        _enviar_webhook_discord(webhook_url, payload, max_tentativas)
-
-    return True
-
-
-def _enviar_webhook_discord(url: str, payload: dict, max_tentativas: int) -> bool:
-    data = json.dumps(payload).encode("utf-8")
-    for tentativa in range(1, max_tentativas + 1):
-        try:
-            req = urllib.request.Request(
-                url,
-                data=data,
-                headers={"Content-Type": "application/json"}
-            )
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                if 200 <= resp.status < 300:
-                    print("✅ Notificação enviada para o Discord com sucesso!")
-                    return True
-                else:
-                    print(f"❌ Erro ao enviar para o Discord (tentativa {tentativa}/{max_tentativas}): Status HTTP {resp.status}")
-        except Exception as err:
-            print(f"⚠️ Tentativa {tentativa}/{max_tentativas} falhou ao notificar Discord: {err}")
-            if tentativa < max_tentativas:
-                time.sleep(2)
-
-    print("❌ Todas as tentativas de envio ao Discord falharam.")
-    return False
 
 
 def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT, dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT) -> list:
@@ -299,7 +231,6 @@ def executar_monitoramento(
     topic_name: str,
     api_url: str,
     topic_id: str | int | None = None,
-    discord_thread_id: int = None,
     max_dias_pub: int = MAX_DIAS_PUBLICACAO_DEFAULT,
     dias_retencao_cache: int = DIAS_RETENCAO_CACHE_DEFAULT,
     cache_file: str = CACHE_FILE_DEFAULT,
@@ -307,7 +238,7 @@ def executar_monitoramento(
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
-    notificação no Telegram e Discord, e atualização do cache e histórico em disco.
+    notificação no Telegram, e atualização do cache e histórico em disco.
     """
     carregar_env()
     agora_br = datetime.now(FUSO_SP)
@@ -369,9 +300,6 @@ def executar_monitoramento(
 
             if msg_atual.strip():
                 enviar_telegram(msg_atual, topic_id=topic_id)
-
-            # Envia para Discord
-            enviar_discord(novas_vagas, topic_name, discord_thread_id)
 
             # Salva no histórico de vagas recentes (para dashboard)
             salvar_vagas_recentes(novas_vagas, topic_name, vagas_recentes_file)

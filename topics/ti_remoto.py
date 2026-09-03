@@ -8,7 +8,6 @@ from common import executar_monitoramento
 TOPIC_NAME = "TI Remoto"
 LIMIT = 50
 TELEGRAM_TOPIC_ID = 19
-DISCORD_THREAD_ID = 1544511138434252940
 API_URL = f"https://employability-portal.gupy.io/api/v1/jobs?jobName=ti&limit={LIMIT}&offset=0&workplaceType=remote"
 
 
@@ -16,8 +15,7 @@ def processar_vagas():
     return executar_monitoramento(
         topic_name=TOPIC_NAME,
         api_url=API_URL,
-        topic_id=TELEGRAM_TOPIC_ID,
-        discord_thread_id=DISCORD_THREAD_ID
+        topic_id=TELEGRAM_TOPIC_ID
     )
 
 
