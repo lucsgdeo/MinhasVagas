@@ -37,7 +37,9 @@ MinhasVagas/
 │   ├── junior.py                  # Júnior (Presencial SP/ABC)
 │   ├── junior_remoto.py           # Júnior (Remoto)
 │   ├── help_desk.py               # Help Desk (Presencial SP/ABC)
-│   └── help_desk_remoto.py        # Help Desk (Remoto)
+│   ├── help_desk_remoto.py        # Help Desk (Remoto)
+│   ├── jr.py                      # JR (Presencial SP/ABC)
+│   └── jr_remoto.py               # JR (Remoto)
 ├── common.py                      # Funções centrais (API Gupy, Telegram, Cache, .env)
 ├── main.py                        # Arquivo principal que executa todos os tópicos
 ├── links.txt                      # Referência de URLs e filtros da Gupy
@@ -64,6 +66,8 @@ MinhasVagas/
 | **Júnior Remoto** | `topics/junior_remoto.py` | `Júnior` | 100% Remoto | `24` |
 | **Help Desk** | `topics/help_desk.py` | `HELP DESK` | Presencial (SP / ABC) | `25` |
 | **Help Desk Remoto** | `topics/help_desk_remoto.py` | `help desk` | 100% Remoto | `26` |
+| **JR** | `topics/jr.py` | `jr` | Presencial (SP / ABC) | `131` |
+| **JR Remoto** | `topics/jr_remoto.py` | `jr` | 100% Remoto | `132` |
 
 ---
 
@@ -149,5 +153,3 @@ O workflow configurado em `.github/workflows/main.yml` executa a cada 1 hora via
    if __name__ == "__main__":
        processar_vagas()
    ```
-
-2. Registre o novo módulo em [topics/\_\_init\_\_.py](file:///home/lucas/Documents/Tests/topics/__init__.py).

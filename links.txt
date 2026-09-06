@@ -9,3 +9,6 @@ JUNIOR:                 https://employability-portal.gupy.io/api/v1/jobs?city=S%
 JUNIOR REMOTO:          https://employability-portal.gupy.io/api/v1/jobs?jobName=J%C3%BAnior&limit=100&offset=0&workplaceType=remote
 HELP DESK:              https://employability-portal.gupy.io/api/v1/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=HELP%20DESK&limit=100&offset=0&state=S%C3%A3o%20Paulo
 HELP DESK REMOTO:       https://employability-portal.gupy.io/api/v1/jobs?jobName=help%20desk&limit=100&offset=0&workplaceType=remote
+
+JR:                     https://portal.gupy.io/api/job-search/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&jobName=jr&limit=100&offset=0&state=S%C3%A3o%20Paulo
+JR REMOTO:              https://portal.gupy.io/api/job-search/jobs?jobName=jr&limit=100&offset=0&workplaceType=remote

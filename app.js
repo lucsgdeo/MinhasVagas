@@ -270,6 +270,7 @@ function filterVagas() {
                 case 'service-desk': return topic.includes('service desk');
                 case 'junior': return topic.includes('júnior') || topic.includes('junior');
                 case 'help-desk': return topic.includes('help desk');
+                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
                 default: return true;
             }
         });
@@ -343,6 +344,7 @@ function renderSchedule() {
                 case 'service-desk': return topic.includes('service desk');
                 case 'junior': return topic.includes('júnior') || topic.includes('junior');
                 case 'help-desk': return topic.includes('help desk');
+                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
                 default: return true;
             }
         });
