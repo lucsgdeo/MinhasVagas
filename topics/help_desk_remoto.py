@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from common import executar_monitoramento
 
 TOPIC_NAME = "Help Desk Remoto"
-LIMIT = 50
+LIMIT = 100
 TELEGRAM_TOPIC_ID = 26
 API_URL = f"https://employability-portal.gupy.io/api/v1/jobs?jobName=help%20desk&limit={LIMIT}&offset=0&workplaceType=remote"
 
