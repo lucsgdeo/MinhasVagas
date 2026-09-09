@@ -1,19 +1,27 @@
-# 🤖 MinhasVagas - Automatizador de Vagas Gupy com Alertas no Telegram
+# 🤖 MinhasVagas - Dashboard e Monitoramento de Vagas Gupy
 
-Sistema automatizado em Python para monitoramento periódico de vagas na plataforma **Gupy**, com filtragem inteligente por data, deduplicação global de vagas e envio automático de alertas para tópicos dedicados em um supergrupo do **Telegram**.
+Sistema automatizado em Python para monitoramento periódico de vagas na plataforma **Gupy**, com deduplicação global, envio de alertas no **Telegram** e **Dashboard Web interativo** hospedado no GitHub Pages.
 
 ---
 
 ## 📌 Funcionalidades
 
-- **Monitoramento Multitópico**: Realiza buscas segmentadas por áreas (Suporte, TI, Infraestrutura, Service Desk, Júnior, Help Desk) tanto presenciais (São Paulo/ABC) quanto 100% remotas.
+- **Dashboard Web Moderno**:
+  - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia (Suporte, TI, Infra, Service Desk, Júnior, Help Desk, JR) com filtros rápidos por cargo e busca textual em tempo real.
+  - **Aba "Vagas Gerais"**: Exibe vagas gerais da Grande SP e Remotas em arquivo dedicado (`vagas_gerais.json`), com separação clara entre vagas **Presenciais** e **Remotas** e visualização agrupada em seções.
+  - **Aba "Horários de Postagem"**: Gráfico analítico de distribuição de publicações por hora, pico e períodos do dia, calculado estritamente com base nas **vagas de tecnologia**.
+  - **Personalização de Temas**: 8 opções de cores de tema persistidas no navegador (Vermelho, Azul, Verde, Roxo, Laranja, Teal, Índigo, Rosa).
+  - **Marcação de Candidaturas**: Controle local com checkbox "Candidatei-me" salvo no `localStorage`.
+- **Monitoramento Multitópico**: Realiza buscas segmentadas por áreas especializadas de TI e buscas amplas gerais.
+- **Isolamento de Dados**: Separação física entre o histórico de tech (`vagas_recentes.json`) e vagas gerais (`vagas_gerais.json`).
+- **Ordem de Execução Prioritária**: Módulos de tech rodam primeiro, garantindo prioridade no registro do cache (`vagas_vistas.json`) e evitando que vagas técnicas sejam duplicadas na listagem geral.
 - **Deduplicação Global**: Armazena o ID original de cada vaga no arquivo de histórico (`vagas_vistas.json`). Se uma vaga contiver múltiplos termos (ex: *"Suporte Júnior"*), ela é notificada no primeiro tópico correspondente e não gera alertas duplicados nos demais.
 - **Filtro de Recorrência**: Notifica apenas vagas publicadas nos últimos 4 dias e limpa automaticamente registros do cache com mais de 7 dias.
 - **Resiliência e Retentativas**: Sistema de retentativas automáticas (`retry`) com tolerância a falhas na API da Gupy e na API do Telegram.
 - **Divisão de Mensagens**: Agrupa as vagas em blocos compatíveis com o limite de 4.096 caracteres do Telegram.
 - **Execução Modular**: Cada tópico pode ser executado individualmente ou de forma unificada através do orquestrador principal `main.py`.
-- **Zero Dependências Externas**: Utiliza estritamente a biblioteca padrão do Python (`urllib`, `json`, `datetime`, `zoneinfo`).
-- **CI/CD com GitHub Actions**: Roda automaticamente a cada hora na nuvem e comita o histórico de vagas vistas de volta no repositório.
+- **Zero Dependências Externas**: Utiliza estritamente a biblioteca padrão do Python (`urllib`, `json`, `datetime`, `zoneinfo`) e Vanilla JS/CSS no frontend.
+- **CI/CD com GitHub Actions**: Roda na nuvem e comita os históricos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`) de volta no repositório.
 
 ---
 
@@ -23,8 +31,7 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
 MinhasVagas/
 ├── .github/
 │   └── workflows/
-│       ├── main.yml               # Pipeline de monitoramento periódico (GitHub Actions)
-│       └── monitor.yml            # Pipeline alternativo para execuções manuais/agendadas
+│       └── main.yml               # Pipeline de monitoramento e commit (GitHub Actions)
 ├── topics/                        # Módulos individuais de cada tópico
 │   ├── __init__.py                # Exporta TODOS_TOPICOS para o orquestrador
 │   ├── suporte.py                 # Suporte (Presencial SP/ABC)
@@ -39,11 +46,18 @@ MinhasVagas/
 │   ├── help_desk.py               # Help Desk (Presencial SP/ABC)
 │   ├── help_desk_remoto.py        # Help Desk (Remoto)
 │   ├── jr.py                      # JR (Presencial SP/ABC)
-│   └── jr_remoto.py               # JR (Remoto)
+│   ├── jr_remoto.py               # JR (Remoto)
+│   ├── geral_presencial.py        # Geral Presencial (Grande SP)
+│   └── geral_remoto.py            # Geral Remoto
 ├── common.py                      # Funções centrais (API Gupy, Telegram, Cache, .env)
-├── main.py                        # Arquivo principal que executa todos os tópicos
+├── main.py                        # Orquestrador principal que executa todos os tópicos
+├── index.html                     # Interface do Dashboard (GitHub Pages)
+├── styles.css                     # Estilos visuais e temas
+├── app.js                         # Lógica do Dashboard, filtros, temas e gráficos
 ├── links.txt                      # Referência de URLs e filtros da Gupy
-├── vagas_vistas.json              # Cache de vagas já notificadas (JSON)
+├── vagas_vistas.json              # Cache de controle de IDs já processados
+├── vagas_recentes.json            # Histórico dos últimos 7 dias (Vagas Tech)
+├── vagas_gerais.json              # Histórico dos últimos 7 dias (Vagas Gerais)
 ├── .env                           # Credenciais locais (ignorado no Git)
 ├── .gitignore                     # Configuração de arquivos ignorados pelo Git
 └── README.md                      # Documentação do projeto
@@ -53,21 +67,23 @@ MinhasVagas/
 
 ## 🧭 Tópicos e IDs Configurados
 
-| Módulo | Arquivo | Termo Gupy | Modalidade / Região | ID do Tópico Telegram |
+| Módulo | Arquivo | Termo / Filtro Gupy | Modalidade / Região | ID Telegram |
 |---|---|---|---|---|
 | **Suporte** | `topics/suporte.py` | `Suporte` | Presencial (SP / ABC) | `7` |
-| **Suporte Remoto** | `topics/suporte_remoto.py` | `Suporte` | 100% Remoto | `17` |
+| **Suporte Remoto** | `topics/suporte_remoto.py` | `Suporte` | Remoto | `17` |
 | **TI** | `topics/ti.py` | `ti` | Presencial (SP / ABC) | `18` |
-| **TI Remoto** | `topics/ti_remoto.py` | `ti` | 100% Remoto | `19` |
+| **TI Remoto** | `topics/ti_remoto.py` | `ti` | Remoto | `19` |
 | **Infraestrutura** | `topics/infra.py` | `infra` | Presencial (SP / ABC) | `20` |
 | **Service Desk** | `topics/service_desk.py` | `Service Desk` | Presencial (SP / ABC) | `21` |
-| **Service Desk Remoto** | `topics/service_desk_remoto.py` | `Service Desk` | 100% Remoto | `22` |
+| **Service Desk Remoto** | `topics/service_desk_remoto.py` | `Service Desk` | Remoto | `22` |
 | **Júnior** | `topics/junior.py` | `Júnior` | Presencial (SP / ABC) | `23` |
-| **Júnior Remoto** | `topics/junior_remoto.py` | `Júnior` | 100% Remoto | `24` |
+| **Júnior Remoto** | `topics/junior_remoto.py` | `Júnior` | Remoto | `24` |
 | **Help Desk** | `topics/help_desk.py` | `HELP DESK` | Presencial (SP / ABC) | `25` |
-| **Help Desk Remoto** | `topics/help_desk_remoto.py` | `help desk` | 100% Remoto | `26` |
+| **Help Desk Remoto** | `topics/help_desk_remoto.py` | `help desk` | Remoto | `26` |
 | **JR** | `topics/jr.py` | `jr` | Presencial (SP / ABC) | `131` |
-| **JR Remoto** | `topics/jr_remoto.py` | `jr` | 100% Remoto | `132` |
+| **JR Remoto** | `topics/jr_remoto.py` | `jr` | Remoto | `132` |
+| **Geral Presencial** | `topics/geral_presencial.py` | Todas as vagas | Presencial (SP / ABC) | *(Pendente // TODO)* |
+| **Geral Remoto** | `topics/geral_remoto.py` | Todas as vagas | Remoto | *(Pendente // TODO)* |
 
 ---
 
@@ -124,7 +140,7 @@ O workflow configurado em `.github/workflows/main.yml` executa a cada 1 hora via
 1. Faz checkout do código.
 2. Configura o ambiente Python 3.11.
 3. Executa `python main.py` utilizando os secrets configurados.
-4. Salva e comita automaticamente o histórico atualizado em `vagas_vistas.json` no repositório.
+4. Salva e comita automaticamente os históricos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`) no repositório.
 
 ---
 

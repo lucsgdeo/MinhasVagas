@@ -13,6 +13,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 FUSO_SP = ZoneInfo("America/Sao_Paulo")
 CACHE_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_vistas.json")
 VAGAS_RECENTES_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_recentes.json")
+VAGAS_GERAIS_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_gerais.json")
 MAX_DIAS_PUBLICACAO_DEFAULT = 4
 DIAS_RETENCAO_CACHE_DEFAULT = 7
 
@@ -235,10 +236,13 @@ def executar_monitoramento(
     dias_retencao_cache: int = DIAS_RETENCAO_CACHE_DEFAULT,
     cache_file: str = CACHE_FILE_DEFAULT,
     vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT
+    vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
+    notificar_telegram: bool = True
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
     notificação no Telegram, e atualização do cache e histórico em disco.
+    notificação no Telegram (opcional), e atualização do cache e histórico em disco.
     """
     carregar_env()
     agora_br = datetime.now(FUSO_SP)
@@ -278,12 +282,21 @@ def executar_monitoramento(
             # Envia para Telegram
             msg_header = f"🚀 <b>{len(novas_vagas)} Nova(s) Vaga(s) Encontrada(s)!</b>\n\n"
             msg_atual = msg_header
+            if notificar_telegram:
+                # Envia para Telegram
+                msg_header = f"🚀 <b>{len(novas_vagas)} Nova(s) Vaga(s) Encontrada(s)!</b>\n\n"
+                msg_atual = msg_header
 
             for v in novas_vagas:
                 nome = v.get("name", "Não informado")
                 modalidade = v.get("workplaceType", "N/I")
                 link = v.get("jobUrl", "")
                 data_pub = v.get("data_formatada_br", "N/I")
+                for v in novas_vagas:
+                    nome = v.get("name", "Não informado")
+                    modalidade = v.get("workplaceType", "N/I")
+                    link = v.get("jobUrl", "")
+                    data_pub = v.get("data_formatada_br", "N/I")
 
                 bloco_vaga = (
                     f"📌 <b>{nome}</b>\n"
@@ -291,12 +304,27 @@ def executar_monitoramento(
                     f"📅 Publicada em: {data_pub}\n"
                     f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
                 )
+                    bloco_vaga = (
+                        f"📌 <b>{nome}</b>\n"
+                        f"🏢 Modalidade: <i>{modalidade}</i>\n"
+                        f"📅 Publicada em: {data_pub}\n"
+                        f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
+                    )
 
                 if len(msg_atual) + len(bloco_vaga) > 4000:
+                    if len(msg_atual) + len(bloco_vaga) > 4000:
+                        enviar_telegram(msg_atual, topic_id=topic_id)
+                        msg_atual = bloco_vaga
+                    else:
+                        msg_atual += bloco_vaga
+
+                if msg_atual.strip():
                     enviar_telegram(msg_atual, topic_id=topic_id)
                     msg_atual = bloco_vaga
                 else:
                     msg_atual += bloco_vaga
+            else:
+                print(f"ℹ️ Notificação Telegram desativada para [{topic_name}].")
 
             if msg_atual.strip():
                 enviar_telegram(msg_atual, topic_id=topic_id)

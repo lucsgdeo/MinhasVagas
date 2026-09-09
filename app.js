@@ -5,6 +5,11 @@ const state = {
     allVagas: [],
     currentTab: '24h',
     currentFilter: 'todas',
+    techVagas: [],
+    geralVagas: [],
+    currentTab: 'tech',
+    currentTechFilter: 'todas',
+    currentGeralFilter: 'todas',
     currentScheduleFilter: 'todas',
     searchTerm: '',
     appliedIds: new Set(),
@@ -17,9 +22,15 @@ function init() {
     els = {
         tab24h: document.getElementById('tab-24h'),
         tab7d: document.getElementById('tab-7d'),
+        tabTech: document.getElementById('tab-tech'),
+        tabGeral: document.getElementById('tab-geral'),
         tabSchedule: document.getElementById('tab-schedule'),
         searchInput: document.getElementById('search-input'),
         filterPills: document.querySelectorAll('.filter-pill'),
+        techFilterPillsContainer: document.getElementById('tech-filter-pills'),
+        geralFilterPillsContainer: document.getElementById('geral-filter-pills'),
+        techFilterPills: document.querySelectorAll('#tech-filter-pills .filter-pill'),
+        geralFilterPills: document.querySelectorAll('#geral-filter-pills .filter-pill'),
         scheduleFilterPills: document.querySelectorAll('#schedule-filter-pills .filter-pill'),
         vacanciesGrid: document.getElementById('vacancies-grid'),
         scheduleContainer: document.getElementById('schedule-container'),
@@ -47,6 +58,9 @@ function setupEventListeners() {
     els.tab24h.addEventListener('click', () => switchTab('24h'));
     els.tab7d.addEventListener('click', () => switchTab('7d'));
     els.tabSchedule.addEventListener('click', () => switchTab('schedule'));
+    if (els.tabTech) els.tabTech.addEventListener('click', () => switchTab('tech'));
+    if (els.tabGeral) els.tabGeral.addEventListener('click', () => switchTab('geral'));
+    if (els.tabSchedule) els.tabSchedule.addEventListener('click', () => switchTab('schedule'));
 
     els.searchInput.addEventListener('input', (e) => {
         state.searchTerm = e.target.value.toLowerCase();
@@ -54,12 +68,24 @@ function setupEventListeners() {
     });
 
     els.filterPills.forEach(pill => {
+    els.techFilterPills.forEach(pill => {
         pill.addEventListener('click', () => {
             els.filterPills.forEach(p => {
                 p.classList.remove('active');
             });
+            els.techFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             state.currentFilter = pill.dataset.filter;
+            state.currentTechFilter = pill.dataset.filter;
+            renderVagas();
+        });
+    });
+
+    els.geralFilterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            els.geralFilterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            state.currentGeralFilter = pill.dataset.filter;
             renderVagas();
         });
     });
@@ -69,6 +95,7 @@ function setupEventListeners() {
             els.scheduleFilterPills.forEach(p => {
                 p.classList.remove('active');
             });
+            els.scheduleFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             state.currentScheduleFilter = pill.dataset.filter;
             renderSchedule();
@@ -188,21 +215,34 @@ function switchTab(tab) {
     [els.tab24h, els.tab7d, els.tabSchedule].forEach(btn => {
         btn.classList.remove('active');
         btn.setAttribute('aria-selected', 'false');
+    [els.tabTech, els.tabGeral, els.tabSchedule].forEach(btn => {
+        if (btn) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+        }
     });
 
     const activeTab = document.getElementById(`tab-${tab === '24h' ? '24h' : tab === '7d' ? '7d' : 'schedule'}`);
+    const activeTab = document.getElementById(`tab-${tab}`);
     if (activeTab) {
         activeTab.classList.add('active');
         activeTab.setAttribute('aria-selected', 'true');
     }
 
     const isSchedule = tab === 'schedule';
+    const isTech = tab === 'tech';
+    const isGeral = tab === 'geral';
+
     els.vacanciesGrid.classList.toggle('hidden', isSchedule);
     els.scheduleContainer.classList.toggle('hidden', !isSchedule);
     els.filtersContainer.classList.toggle('hidden', isSchedule);
     els.scheduleFiltersContainer.classList.toggle('hidden', !isSchedule);
     els.stats.classList.toggle('hidden', isSchedule);
     els.emptyState.classList.add('hidden');
+
+    if (els.techFilterPillsContainer) els.techFilterPillsContainer.classList.toggle('hidden', !isTech);
+    if (els.geralFilterPillsContainer) els.geralFilterPillsContainer.classList.toggle('hidden', !isGeral);
+
     els.searchInput.value = '';
     state.searchTerm = '';
 
@@ -227,8 +267,30 @@ async function loadVagas() {
                 return;
             }
             throw new Error(`HTTP ${response.status}`);
+        const [resTech, resGeral] = await Promise.allSettled([
+            fetch('vagas_recentes.json'),
+            fetch('vagas_gerais.json')
+        ]);
+
+        if (resTech.status === 'fulfilled' && resTech.value.ok) {
+            state.techVagas = await resTech.value.json();
+        } else if (resTech.status === 'fulfilled' && resTech.value.status === 404) {
+            state.techVagas = [];
+        } else if (resTech.status === 'rejected') {
+            console.warn('Erro ao carregar vagas_recentes.json:', resTech.reason);
+            state.techVagas = [];
         }
         state.allVagas = await response.json();
+
+        if (resGeral.status === 'fulfilled' && resGeral.value.ok) {
+            state.geralVagas = await resGeral.value.json();
+        } else if (resGeral.status === 'fulfilled' && resGeral.value.status === 404) {
+            state.geralVagas = [];
+        } else if (resGeral.status === 'rejected') {
+            console.warn('Erro ao carregar vagas_gerais.json:', resGeral.reason);
+            state.geralVagas = [];
+        }
+
         if (state.currentTab === 'schedule') {
             renderSchedule();
         } else {
@@ -242,8 +304,16 @@ async function loadVagas() {
     }
 }
 
+function isVagaRemota(vaga) {
+    const modalidade = (vaga.workplaceType || '').toLowerCase();
+    const topic = (vaga.topic || '').toLowerCase();
+    return modalidade === 'remote' || modalidade === 'remoto' || topic.includes('remoto');
+}
+
 function filterVagas() {
     let filtered = state.allVagas;
+    if (state.currentTab === 'tech') {
+        let filtered = state.techVagas;
 
     if (state.currentTab === '24h') {
         const now = new Date();
@@ -253,11 +323,32 @@ function filterVagas() {
             return pubDate >= dayAgo;
         });
     }
+        if (state.searchTerm) {
+            filtered = filtered.filter(v =>
+                (v.name || '').toLowerCase().includes(state.searchTerm)
+            );
+        }
 
     if (state.searchTerm) {
         filtered = filtered.filter(v =>
             v.name.toLowerCase().includes(state.searchTerm)
         );
+        if (state.currentTechFilter !== 'todas') {
+            filtered = filtered.filter(v => {
+                const topic = (v.topic || '').toLowerCase();
+                switch (state.currentTechFilter) {
+                    case 'suporte': return topic.includes('suporte');
+                    case 'ti': return topic.includes('ti');
+                    case 'infraestrutura': return topic.includes('infra');
+                    case 'service-desk': return topic.includes('service desk');
+                    case 'junior': return topic.includes('júnior') || topic.includes('junior');
+                    case 'help-desk': return topic.includes('help desk');
+                    case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
+                    default: return true;
+                }
+            });
+        }
+        return filtered;
     }
 
     if (state.currentFilter !== 'todas') {
@@ -274,9 +365,26 @@ function filterVagas() {
                 default: return true;
             }
         });
+    if (state.currentTab === 'geral') {
+        let filtered = state.geralVagas;
+
+        if (state.searchTerm) {
+            filtered = filtered.filter(v =>
+                (v.name || '').toLowerCase().includes(state.searchTerm)
+            );
+        }
+
+        if (state.currentGeralFilter === 'presencial') {
+            filtered = filtered.filter(v => !isVagaRemota(v));
+        } else if (state.currentGeralFilter === 'remoto') {
+            filtered = filtered.filter(v => isVagaRemota(v));
+        }
+
+        return filtered;
     }
 
     return filtered;
+    return [];
 }
 
 function renderVagas() {
@@ -294,6 +402,41 @@ function renderVagas() {
     hideEmpty();
     showStats(filtered);
     els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
+
+    if (state.currentTab === 'geral' && state.currentGeralFilter === 'todas') {
+        const presencialVagas = filtered.filter(v => !isVagaRemota(v));
+        const remotoVagas = filtered.filter(v => isVagaRemota(v));
+
+        let html = '';
+
+        if (presencialVagas.length > 0) {
+            html += `
+                <div class="vagas-section">
+                    <div class="vagas-section-header">
+                        <h2 class="vagas-section-title">🏢 Vagas Presenciais</h2>
+                        <span class="vagas-section-count">${presencialVagas.length} vaga${presencialVagas.length !== 1 ? 's' : ''}</span>
+                    </div>
+                </div>
+                ${presencialVagas.map(vaga => createCard(vaga)).join('')}
+            `;
+        }
+
+        if (remotoVagas.length > 0) {
+            html += `
+                <div class="vagas-section">
+                    <div class="vagas-section-header">
+                        <h2 class="vagas-section-title">🌐 Vagas Remotas</h2>
+                        <span class="vagas-section-count">${remotoVagas.length} vaga${remotoVagas.length !== 1 ? 's' : ''}</span>
+                    </div>
+                </div>
+                ${remotoVagas.map(vaga => createCard(vaga)).join('')}
+            `;
+        }
+
+        els.vacanciesGrid.innerHTML = html;
+    } else {
+        els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
+    }
 }
 
 function createCard(vaga) {
@@ -301,8 +444,10 @@ function createCard(vaga) {
     const isApplied = state.appliedIds.has(vagaId);
     const modalidade = vaga.workplaceType || 'N/I';
     const isRemote = modalidade.toLowerCase() === 'remote' || modalidade.toLowerCase() === 'remoto';
+    const isRemote = isVagaRemota(vaga);
     const badgeClass = isRemote ? 'remote' : 'onsite';
     const badgeText = isRemote ? '100% Remoto' : 'Presencial';
+    const badgeText = isRemote ? 'Remoto' : 'Presencial';
     const topic = vaga.topic || 'Geral';
     const dataPub = formatDateShort(vaga.publishedDate);
     const link = vaga.jobUrl || '#';
@@ -333,10 +478,13 @@ function createCard(vaga) {
 
 function renderSchedule() {
     let filtered = state.allVagas;
+    // Gráfico contém exclusivamente dados das vagas de tecnologia
+    let filtered = state.techVagas;
 
     if (state.currentScheduleFilter !== 'todas') {
         filtered = filtered.filter(v => {
             const topic = v.topic.toLowerCase();
+            const topic = (v.topic || '').toLowerCase();
             switch (state.currentScheduleFilter) {
                 case 'suporte': return topic.includes('suporte');
                 case 'ti': return topic.includes('ti');
@@ -416,6 +564,13 @@ function renderSchedule() {
 function showStats(vagas) {
     const total = vagas.length;
     els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
+    if (state.currentTab === 'geral' && state.currentGeralFilter === 'todas') {
+        const presencialCount = vagas.filter(v => !isVagaRemota(v)).length;
+        const remotoCount = vagas.filter(v => isVagaRemota(v)).length;
+        els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''} (${presencialCount} presencial, ${remotoCount} remota${remotoCount !== 1 ? 's' : ''})`;
+    } else {
+        els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
+    }
     els.stats.classList.remove('hidden');
 }
 

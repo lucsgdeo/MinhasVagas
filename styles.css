@@ -966,3 +966,37 @@ body {
 .vacancies-grid > *:nth-child(6) { animation-delay: 150ms; }
 .vacancies-grid > *:nth-child(7) { animation-delay: 180ms; }
 .vacancies-grid > *:nth-child(8) { animation-delay: 210ms; }
+
+/* General Vacancies Sections */
+.vagas-section {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.vagas-section:first-child {
+    margin-top: 0;
+}
+
+.vagas-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.vagas-section-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.vagas-section-count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-full);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}

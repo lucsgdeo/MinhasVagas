@@ -34,6 +34,8 @@
         <div class="tabs" role="tablist">
             <button id="tab-24h" role="tab" aria-selected="true" class="tab-btn active" data-tab="24h">Últimas 24 Horas</button>
             <button id="tab-7d" role="tab" aria-selected="false" class="tab-btn" data-tab="7d">Últimos 7 Dias</button>
+            <button id="tab-tech" role="tab" aria-selected="true" class="tab-btn active" data-tab="tech">Vagas Tech</button>
+            <button id="tab-geral" role="tab" aria-selected="false" class="tab-btn" data-tab="geral">Vagas Gerais</button>
             <button id="tab-schedule" role="tab" aria-selected="false" class="tab-btn" data-tab="schedule">Horários de Postagem</button>
         </div>
 
@@ -41,6 +43,7 @@
         <div id="filters-container" class="filters">
             <input type="text" id="search-input" placeholder="Buscar por título..." class="search-input">
             <div class="filter-pills" id="filter-pills">
+            <div class="filter-pills" id="tech-filter-pills">
                 <button class="filter-pill active" data-filter="todas">Todas</button>
                 <button class="filter-pill" data-filter="suporte">Suporte</button>
                 <button class="filter-pill" data-filter="ti">TI</button>
@@ -49,6 +52,11 @@
                 <button class="filter-pill" data-filter="junior">Júnior</button>
                 <button class="filter-pill" data-filter="help-desk">Help Desk</button>
                 <button class="filter-pill" data-filter="jr">JR</button>
+            </div>
+            <div class="filter-pills hidden" id="geral-filter-pills">
+                <button class="filter-pill active" data-filter="todas">Todas</button>
+                <button class="filter-pill" data-filter="presencial">Presencial</button>
+                <button class="filter-pill" data-filter="remoto">Remoto</button>
             </div>
         </div>
 
