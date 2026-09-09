@@ -1,9 +1,6 @@
 name: Monitor de Vagas Gupy
 
 on:
-  schedule:
-    # Executa a cada 1 hora (Cron em UTC)
-    - cron: '0 * * * *'
   workflow_dispatch: # Permite disparar manualmente na aba Actions do GitHub
 
 jobs:
