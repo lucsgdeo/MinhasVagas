@@ -1,5 +1,761 @@
 [
   {
+    "id": "12418221",
+    "name": "Analista de Excelência Operacional Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://tenda.gupy.io/job/eyJqb2JJZCI6MTI0MTgyMjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T21:50:26.709Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 18:50"
+  },
+  {
+    "id": "12443239",
+    "name": "Analista de Dados Jr - Nike",
+    "workplaceType": "on-site",
+    "jobUrl": "https://fisiatalentos.gupy.io/job/eyJqb2JJZCI6MTI0NDMyMzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T21:17:46.470Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 18:17"
+  },
+  {
+    "id": "12303600",
+    "name": "Técnico de Suporte Jr - São Paulo/SP",
+    "workplaceType": "on-site",
+    "jobUrl": "https://minsait.gupy.io/job/eyJqb2JJZCI6MTIzMDM2MDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T21:07:17.524Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 18:07"
+  },
+  {
+    "id": "12435769",
+    "name": "Analista de Segurança da Informação Jr. - SOC (Exclusiva para Pessoas com Deficiência)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://pagseguro.gupy.io/job/eyJqb2JJZCI6MTI0MzU3NjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:52:36.758Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 17:52"
+  },
+  {
+    "id": "12414655",
+    "name": "Consultor Negócios Junior 6H l IGUATEMI SP",
+    "workplaceType": "on-site",
+    "jobUrl": "https://lojasvivo.gupy.io/job/eyJqb2JJZCI6MTI0MTQ2NTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:50:34.384Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 17:50"
+  },
+  {
+    "id": "12434997",
+    "name": "Analista Desenvolvedor Salesforce Junior [JF 46699-12434997]",
+    "workplaceType": "remote",
+    "jobUrl": "https://xfckvnq.gupy.io/job/eyJqb2JJZCI6MTI0MzQ5OTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:46:35.657Z",
+    "topic": "Júnior Remoto",
+    "data_formatada_br": "09/09/2026 às 17:46"
+  },
+  {
+    "id": "12400180",
+    "name": "Consultor Negócios Junior 6H (Vaga Exclusiva para Pessoas com Deficiência) l Loja Shop Penha/SP",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vivodiversidade.gupy.io/job/eyJqb2JJZCI6MTI0MDAxODAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:45:21.120Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 17:45"
+  },
+  {
+    "id": "12438984",
+    "name": "Analista administrativo Jr.",
+    "workplaceType": "on-site",
+    "jobUrl": "https://grupocrm.gupy.io/job/eyJqb2JJZCI6MTI0Mzg5ODQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:42:20.495Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 17:42"
+  },
+  {
+    "id": "12449599",
+    "name": "Analista de Suporte Pleno ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://eletronet.gupy.io/job/eyJqb2JJZCI6MTI0NDk1OTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:34:58.905Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 17:34"
+  },
+  {
+    "id": "12449079",
+    "name": "Analista Financeiro Jr.",
+    "workplaceType": "on-site",
+    "jobUrl": "https://grupoeducacionalconfidencial.gupy.io/job/eyJqb2JJZCI6MTI0NDkwNzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:08:38.094Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 17:08"
+  },
+  {
+    "id": "12443758",
+    "name": "Analista de Media Lab Júnior - Pesquisa e Experimentação em Tecnologia",
+    "workplaceType": "on-site",
+    "jobUrl": "https://fundacaoitau.gupy.io/job/eyJqb2JJZCI6MTI0NDM3NTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T20:05:16.440Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 17:05"
+  },
+  {
+    "id": "12443213",
+    "name": "Analista de Treinamento Junior",
+    "workplaceType": "on-site",
+    "jobUrl": "https://jazztech.gupy.io/job/eyJqb2JJZCI6MTI0NDMyMTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T19:08:06.612Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 16:08"
+  },
+  {
+    "id": "12447813",
+    "name": "Analista Suporte Redes Pleno",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivovita.gupy.io/job/eyJqb2JJZCI6MTI0NDc4MTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T19:03:00.465Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 16:03"
+  },
+  {
+    "id": "12447787",
+    "name": "Analista de Engenharia de Dados Jr ",
+    "workplaceType": "remote",
+    "jobUrl": "https://vempralibbs.gupy.io/job/eyJqb2JJZCI6MTI0NDc3ODcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:59:17.705Z",
+    "topic": "JR Remoto",
+    "data_formatada_br": "09/09/2026 às 15:59"
+  },
+  {
+    "id": "12437173",
+    "name": "Analista Jr de IA, Automação e Transformação Digital - Exclusiva Para PcD",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivodigital.gupy.io/job/eyJqb2JJZCI6MTI0MzcxNzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:54:34.298Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 15:54"
+  },
+  {
+    "id": "12444725",
+    "name": "Analista Suporte Redes Jr",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivovita.gupy.io/job/eyJqb2JJZCI6MTI0NDQ3MjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:45:00.579Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 15:45"
+  },
+  {
+    "id": "12447583",
+    "name": "Analista Service Desk Jr - Unidade São Bento",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://atentocorporate.gupy.io/job/eyJqb2JJZCI6MTI0NDc1ODMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:42:46.017Z",
+    "topic": "Service Desk",
+    "data_formatada_br": "09/09/2026 às 15:42"
+  },
+  {
+    "id": "12447388",
+    "name": "Analista de Marketing JR - São Paulo ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://premierpet.gupy.io/job/eyJqb2JJZCI6MTI0NDczODgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:27:10.871Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 15:27"
+  },
+  {
+    "id": "12438382",
+    "name": "Analista Telecom Júnior - Vaga afirmativa para Pessoas Com Deficiência | SP",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://confidencialidade.gupy.io/job/eyJqb2JJZCI6MTI0MzgzODIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:24:57.011Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 15:24"
+  },
+  {
+    "id": "12445496",
+    "name": "ANL OPERACOES JR",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0NDU0OTYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:16:53.178Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 15:16"
+  },
+  {
+    "id": "12447205",
+    "name": "Advogado(a) Cível - JÚNIOR - HÍBRIDO",
+    "workplaceType": "remote",
+    "jobUrl": "https://deciofreireadv.gupy.io/job/eyJqb2JJZCI6MTI0NDcyMDUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T18:08:22.894Z",
+    "topic": "Júnior Remoto",
+    "data_formatada_br": "09/09/2026 às 15:08"
+  },
+  {
+    "id": "12442376",
+    "name": "Gerente de Projeto de TI",
+    "workplaceType": "remote",
+    "jobUrl": "https://trescon.gupy.io/job/eyJqb2JJZCI6MTI0NDIzNzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T17:48:18.039Z",
+    "topic": "TI Remoto",
+    "data_formatada_br": "09/09/2026 às 14:48"
+  },
+  {
+    "id": "11381606",
+    "name": "Faturista Jr.",
+    "workplaceType": "on-site",
+    "jobUrl": "https://flora.gupy.io/job/eyJqb2JJZCI6MTEzODE2MDYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T17:29:41.934Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 14:29"
+  },
+  {
+    "id": "12446274",
+    "name": "Analista de Controladoria Jr",
+    "workplaceType": "on-site",
+    "jobUrl": "https://nantesfinancial.gupy.io/job/eyJqb2JJZCI6MTI0NDYyNzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T17:25:25.709Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 14:25"
+  },
+  {
+    "id": "12439662",
+    "name": "ANL OPER CAMBIO JR",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0Mzk2NjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T17:16:55.104Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 14:16"
+  },
+  {
+    "id": "12421702",
+    "name": "Analista de Administração de Pessoal JR",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vivaracorporativo.gupy.io/job/eyJqb2JJZCI6MTI0MjE3MDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T16:52:20.614Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 13:52"
+  },
+  {
+    "id": "12305394",
+    "name": "Analista Logística Jr",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vagasi2go.gupy.io/job/eyJqb2JJZCI6MTIzMDUzOTQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T16:47:33.753Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 13:47"
+  },
+  {
+    "id": "12445457",
+    "name": "Analista Contábil Jr (vaga também para PcD e reabilitados INSS)",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://isaenergiabrasil.gupy.io/job/eyJqb2JJZCI6MTI0NDU0NTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T16:25:53.064Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 13:25"
+  },
+  {
+    "id": "12416310",
+    "name": "Analista de Administração de Vendas Jr.",
+    "workplaceType": "on-site",
+    "jobUrl": "https://polinutri.gupy.io/job/eyJqb2JJZCI6MTI0MTYzMTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T16:24:32.665Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 13:24"
+  },
+  {
+    "id": "12445018",
+    "name": "Analista de Câmbio Júnior",
+    "workplaceType": "on-site",
+    "jobUrl": "https://bancodaycoval.gupy.io/job/eyJqb2JJZCI6MTI0NDUwMTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T16:09:59.454Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 13:09"
+  },
+  {
+    "id": "12444918",
+    "name": "Operador(a) de Suporte – Departamento Pessoal",
+    "workplaceType": "remote",
+    "jobUrl": "https://nasajon.gupy.io/job/eyJqb2JJZCI6MTI0NDQ5MTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T15:41:40.176Z",
+    "topic": "Suporte Remoto",
+    "data_formatada_br": "09/09/2026 às 12:41"
+  },
+  {
+    "id": "12444727",
+    "name": "Analista de Criação / Designer Jr.",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://hospitalveros.gupy.io/job/eyJqb2JJZCI6MTI0NDQ3MjcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T15:25:00.903Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 12:25"
+  },
+  {
+    "id": "12436836",
+    "name": "Analista Suporte Jr. Exclusiva para pessoas com deficiência",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivodiversidade.gupy.io/job/eyJqb2JJZCI6MTI0MzY4MzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T15:15:46.306Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 12:15"
+  },
+  {
+    "id": "12444303",
+    "name": "Analista Suporte Redes Sr ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivovita.gupy.io/job/eyJqb2JJZCI6MTI0NDQzMDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T15:06:53.665Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 12:06"
+  },
+  {
+    "id": "12435561",
+    "name": "Técnico Suporte Operação Sr",
+    "workplaceType": "on-site",
+    "jobUrl": "https://confidencialidade.gupy.io/job/eyJqb2JJZCI6MTI0MzU1NjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T14:53:20.361Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 11:53"
+  },
+  {
+    "id": "12444052",
+    "name": "Analista Controles Gerenciais Junior",
+    "workplaceType": "on-site",
+    "jobUrl": "https://unimednacional.gupy.io/job/eyJqb2JJZCI6MTI0NDQwNTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T14:38:09.495Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 11:38"
+  },
+  {
+    "id": "12443910",
+    "name": "Analista de Controladoria Comercial Júnior ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://hyperapharma.gupy.io/job/eyJqb2JJZCI6MTI0NDM5MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T14:28:45.961Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 11:28"
+  },
+  {
+    "id": "12044349",
+    "name": "Consultor(a) de Viagens Corporativas Junior - Flytour Business Travel - BeFly",
+    "workplaceType": "on-site",
+    "jobUrl": "https://befly.gupy.io/job/eyJqb2JJZCI6MTIwNDQzNDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T14:07:42.107Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 11:07"
+  },
+  {
+    "id": "12443310",
+    "name": "Analista de Eventos Jr",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://cadastra.gupy.io/job/eyJqb2JJZCI6MTI0NDMzMTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T13:59:17.977Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 10:59"
+  },
+  {
+    "id": "12328928",
+    "name": "ANALISTA ADMINISTRATIVO JR",
+    "workplaceType": "on-site",
+    "jobUrl": "https://automob.gupy.io/job/eyJqb2JJZCI6MTIzMjg5MjgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T13:15:41.364Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 10:15"
+  },
+  {
+    "id": "12425462",
+    "name": "Desenvolvedor .NET/ Angular - Júnior - Exclusiva São Paulo",
+    "workplaceType": "remote",
+    "jobUrl": "https://confitec.gupy.io/job/eyJqb2JJZCI6MTI0MjU0NjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T13:13:57.339Z",
+    "topic": "Júnior Remoto",
+    "data_formatada_br": "09/09/2026 às 10:13"
+  },
+  {
+    "id": "12442402",
+    "name": "Analista de Customer Onboarding JR ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://f360.gupy.io/job/eyJqb2JJZCI6MTI0NDI0MDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T12:46:34.577Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 09:46"
+  },
+  {
+    "id": "12414149",
+    "name": "ANALISTA PLANEJAMENTO LOGISTICO JR",
+    "workplaceType": "on-site",
+    "jobUrl": "https://simpress.gupy.io/job/eyJqb2JJZCI6MTI0MTQxNDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T11:03:47.177Z",
+    "topic": "JR",
+    "data_formatada_br": "09/09/2026 às 08:03"
+  },
+  {
+    "id": "12440605",
+    "name": "Suporte de Vendas | São Paulo | Viveo ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://viveo.gupy.io/job/eyJqb2JJZCI6MTI0NDA2MDUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T04:02:19.212Z",
+    "topic": "Suporte",
+    "data_formatada_br": "09/09/2026 às 01:02"
+  },
+  {
+    "id": "12390732",
+    "name": "Analista de Engenharia Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://tenda.gupy.io/job/eyJqb2JJZCI6MTIzOTA3MzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T22:48:19.713Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 19:48"
+  },
+  {
+    "id": "12439107",
+    "name": "Analista Jr Customer Experience (Pesquisas)",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://rdsaude-corporativo.gupy.io/job/eyJqb2JJZCI6MTI0MzkxMDcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T20:51:21.339Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 17:51"
+  },
+  {
+    "id": "12438872",
+    "name": "Atendimento de Marcas Júnior ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://umauma.gupy.io/job/eyJqb2JJZCI6MTI0Mzg4NzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T20:40:29.969Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 17:40"
+  },
+  {
+    "id": "12436658",
+    "name": "Analista de Importação e Exportação Júnior - Campinas",
+    "workplaceType": "remote",
+    "jobUrl": "https://vemsercomexport.gupy.io/job/eyJqb2JJZCI6MTI0MzY2NTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T20:07:12.242Z",
+    "topic": "Júnior Remoto",
+    "data_formatada_br": "08/09/2026 às 17:07"
+  },
+  {
+    "id": "12428180",
+    "name": "Social Media Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://decorafit.gupy.io/job/eyJqb2JJZCI6MTI0MjgxODAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:53:16.846Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 16:53"
+  },
+  {
+    "id": "12428167",
+    "name": "Editor(a) de Vídeo Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://decorafit.gupy.io/job/eyJqb2JJZCI6MTI0MjgxNjcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:52:16.887Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 16:52"
+  },
+  {
+    "id": "12421219",
+    "name": "Analista de governança financeira Junior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0MjEyMTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:44:28.906Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 16:44"
+  },
+  {
+    "id": "12437524",
+    "name": "Assistente de Suporte Técnico - Banco de Talentos ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://seconci-sp.gupy.io/job/eyJqb2JJZCI6MTI0Mzc1MjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:34:48.830Z",
+    "topic": "Suporte",
+    "data_formatada_br": "08/09/2026 às 16:34"
+  },
+  {
+    "id": "12391737",
+    "name": "Analista de Operações de RH Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vtal.gupy.io/job/eyJqb2JJZCI6MTIzOTE3MzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:34:06.165Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 16:34"
+  },
+  {
+    "id": "12317410",
+    "name": "ANALISTA DE OPERAÇÕES JR",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vemsermds.gupy.io/job/eyJqb2JJZCI6MTIzMTc0MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:31:12.448Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 16:31"
+  },
+  {
+    "id": "12420165",
+    "name": "Analista de Suporte ao Contador Júnior",
+    "workplaceType": "remote",
+    "jobUrl": "https://carreirasomie.gupy.io/job/eyJqb2JJZCI6MTI0MjAxNjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:24:34.667Z",
+    "topic": "Suporte Remoto",
+    "data_formatada_br": "08/09/2026 às 16:24"
+  },
+  {
+    "id": "12331197",
+    "name": "Analista de Captação Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://bmg.gupy.io/job/eyJqb2JJZCI6MTIzMzExOTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T19:03:17.683Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 16:03"
+  },
+  {
+    "id": "12437423",
+    "name": "Desenvolvedor(a) de TI Pleno",
+    "workplaceType": "on-site",
+    "jobUrl": "https://scania.gupy.io/job/eyJqb2JJZCI6MTI0Mzc0MjMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:57:50.449Z",
+    "topic": "TI",
+    "data_formatada_br": "08/09/2026 às 15:57"
+  },
+  {
+    "id": "12216067",
+    "name": "Nutricionista Júnior - Produção ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://gruposantajoana.gupy.io/job/eyJqb2JJZCI6MTIyMTYwNjcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:54:43.624Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 15:54"
+  },
+  {
+    "id": "12437557",
+    "name": " Especialista TI - Desenvolvedor Mobile Especialista ",
+    "workplaceType": "remote",
+    "jobUrl": "https://ipiranga.gupy.io/job/eyJqb2JJZCI6MTI0Mzc1NTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:49:41.321Z",
+    "topic": "TI Remoto",
+    "data_formatada_br": "08/09/2026 às 15:49"
+  },
+  {
+    "id": "12437393",
+    "name": "Analista de Atendimento - Júnior |TFSports | São Paulo",
+    "workplaceType": "on-site",
+    "jobUrl": "https://tfcarreira.gupy.io/job/eyJqb2JJZCI6MTI0MzczOTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:39:12.004Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 15:39"
+  },
+  {
+    "id": "12437266",
+    "name": "Analista Fiscal Jr ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://gruposantajoana.gupy.io/job/eyJqb2JJZCI6MTI0MzcyNjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:37:11.455Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 15:37"
+  },
+  {
+    "id": "12436676",
+    "name": "Analista de Estratégia Comercial Jr",
+    "workplaceType": "on-site",
+    "jobUrl": "https://cimed.gupy.io/job/eyJqb2JJZCI6MTI0MzY2NzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:25:27.110Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 15:25"
+  },
+  {
+    "id": "12417144",
+    "name": "Analista de Arranjos de Pagamento Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://bancosofisa.gupy.io/job/eyJqb2JJZCI6MTI0MTcxNDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:17:49.944Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 15:17"
+  },
+  {
+    "id": "12329311",
+    "name": "ANALISTA DE AUDITORIA JR - DADOS E AUTOMAÇÃO",
+    "workplaceType": "on-site",
+    "jobUrl": "https://carreirasquali.gupy.io/job/eyJqb2JJZCI6MTIzMjkzMTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:07:23.120Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 15:07"
+  },
+  {
+    "id": "12436785",
+    "name": "Analista de Data Center Júnior",
+    "workplaceType": "on-site",
+    "jobUrl": "https://americatecnologia.gupy.io/job/eyJqb2JJZCI6MTI0MzY3ODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T18:04:21.929Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 15:04"
+  },
+  {
+    "id": "12436826",
+    "name": "Desenvolvedor Junior ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vagasisasaude.gupy.io/job/eyJqb2JJZCI6MTI0MzY4MjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T17:57:28.495Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 14:57"
+  },
+  {
+    "id": "12436508",
+    "name": "Estagiário(a) de TI | Santo André",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://wilsonsons.gupy.io/job/eyJqb2JJZCI6MTI0MzY1MDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T17:30:14.134Z",
+    "topic": "TI",
+    "data_formatada_br": "08/09/2026 às 14:30"
+  },
+  {
+    "id": "12436376",
+    "name": "Consultor de Investimentos Junior",
+    "workplaceType": "remote",
+    "jobUrl": "https://gruposunojobs.gupy.io/job/eyJqb2JJZCI6MTI0MzYzNzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T17:16:37.814Z",
+    "topic": "Júnior Remoto",
+    "data_formatada_br": "08/09/2026 às 14:16"
+  },
+  {
+    "id": "12181610",
+    "name": "Consultor(a) de Viagens Nacional Jr - Flytour Consolidadora - BeFly ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://befly.gupy.io/job/eyJqb2JJZCI6MTIxODE2MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T17:08:13.672Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 14:08"
+  },
+  {
+    "id": "12432525",
+    "name": "Analista M&A - Jr.|Pl.",
+    "workplaceType": "on-site",
+    "jobUrl": "https://carreirasfator.gupy.io/job/eyJqb2JJZCI6MTI0MzI1MjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T17:07:05.442Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 14:07"
+  },
+  {
+    "id": "12435651",
+    "name": "Analista de Tesouraria Júnior - Fluxo de Caixa",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://golcarreiras.gupy.io/job/eyJqb2JJZCI6MTI0MzU2NTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T16:33:40.749Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 13:33"
+  },
+  {
+    "id": "12421155",
+    "name": "Analista de Controladoria Jr - Exclusivo para profissionais com deficiência",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0MjExNTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T15:57:07.374Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 12:57"
+  },
+  {
+    "id": "12435303",
+    "name": "Advogado(a) Junior/ Pleno - Consultoria de Tributos Indiretos",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://kla.gupy.io/job/eyJqb2JJZCI6MTI0MzUzMDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T15:34:13.303Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 12:34"
+  },
+  {
+    "id": "12434975",
+    "name": "Analista de Administração Contratual Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://eletromidia.gupy.io/job/eyJqb2JJZCI6MTI0MzQ5NzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T15:22:13.571Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 12:22"
+  },
+  {
+    "id": "12433081",
+    "name": "Analista Financeiro Jr",
+    "workplaceType": "on-site",
+    "jobUrl": "https://confidencialib.gupy.io/job/eyJqb2JJZCI6MTI0MzMwODEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T15:04:24.206Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 12:04"
+  },
+  {
+    "id": "12376329",
+    "name": "ANL OPER ATACADO JR",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTIzNzYzMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T14:53:22.327Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 11:53"
+  },
+  {
+    "id": "12434695",
+    "name": "Estagiário(a) de TI  ",
+    "workplaceType": "remote",
+    "jobUrl": "https://ativagr.gupy.io/job/eyJqb2JJZCI6MTI0MzQ2OTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T14:34:33.367Z",
+    "topic": "TI Remoto",
+    "data_formatada_br": "08/09/2026 às 11:34"
+  },
+  {
+    "id": "12391307",
+    "name": "Pessoa Analista de Suporte em Licitações",
+    "workplaceType": "remote",
+    "jobUrl": "https://effecti.gupy.io/job/eyJqb2JJZCI6MTIzOTEzMDcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T14:06:11.537Z",
+    "topic": "Suporte Remoto",
+    "data_formatada_br": "08/09/2026 às 11:06"
+  },
+  {
+    "id": "12426310",
+    "name": "DNA Cury Jr | Jovem Aprendiz IMESC Barra funda ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://cury.gupy.io/job/eyJqb2JJZCI6MTI0MjYzMTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T13:42:30.598Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 10:42"
+  },
+  {
+    "id": "12288534",
+    "name": "Analista Administrativo Jr - Vila Olímpia/SP",
+    "workplaceType": "on-site",
+    "jobUrl": "https://magnumtires.gupy.io/job/eyJqb2JJZCI6MTIyODg1MzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T13:41:47.751Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 10:41"
+  },
+  {
+    "id": "12433761",
+    "name": "Analista de Segurança da Informação Júnior |Inclusiva para PCD",
+    "workplaceType": "on-site",
+    "jobUrl": "https://genial.gupy.io/job/eyJqb2JJZCI6MTI0MzM3NjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T13:22:09.881Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 10:22"
+  },
+  {
+    "id": "12433567",
+    "name": "Advogado Jr - Contratos | Viveo | São Paulo/SP",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://viveo.gupy.io/job/eyJqb2JJZCI6MTI0MzM1NjcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T13:05:20.121Z",
+    "topic": "JR",
+    "data_formatada_br": "08/09/2026 às 10:05"
+  },
+  {
+    "id": "12418366",
+    "name": "Analista de Testes Júnior - Testes Funcionais e Automação (Salesforce Service Cloud) [JF 46699-12418366]",
+    "workplaceType": "remote",
+    "jobUrl": "https://xfckvnq.gupy.io/job/eyJqb2JJZCI6MTI0MTgzNjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T12:38:22.825Z",
+    "topic": "Júnior Remoto",
+    "data_formatada_br": "08/09/2026 às 09:38"
+  },
+  {
+    "id": "12432979",
+    "name": "Analista de Gestão de Rede Júnior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://temsaude.gupy.io/job/eyJqb2JJZCI6MTI0MzI5NzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-08T12:15:23.067Z",
+    "topic": "Júnior",
+    "data_formatada_br": "08/09/2026 às 09:15"
+  },
+  {
     "id": "12299600",
     "name": "Assistente Service Desk | Afirmativa PcD | Teletrabalho",
     "workplaceType": "on-site",
@@ -1033,779 +1789,5 @@
     "publishedDate": "2026-09-02T23:21:18.264Z",
     "topic": "JR",
     "data_formatada_br": "02/09/2026 às 20:21"
-  },
-  {
-    "id": "12393557",
-    "name": "ANL OPERACOES JR",
-    "workplaceType": "on-site",
-    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTIzOTM1NTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T21:11:25.441Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 18:11"
-  },
-  {
-    "id": "12373889",
-    "name": "Analista de Garantia júnior- Porto Renova Ecopeças",
-    "workplaceType": "on-site",
-    "jobUrl": "https://porto.gupy.io/job/eyJqb2JJZCI6MTIzNzM4ODksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T21:02:07.531Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 18:02"
-  },
-  {
-    "id": "12170231",
-    "name": "Estágio em TI (Help Desk)",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://ecogenbrasil.gupy.io/job/eyJqb2JJZCI6MTIxNzAyMzEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:49:13.334Z",
-    "topic": "TI",
-    "data_formatada_br": "02/09/2026 às 17:49"
-  },
-  {
-    "id": "12286710",
-    "name": "Analista de Operações Júnior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cvccorp.gupy.io/job/eyJqb2JJZCI6MTIyODY3MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:47:19.989Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 17:47"
-  },
-  {
-    "id": "12383397",
-    "name": "Aprendiz em TI",
-    "workplaceType": "on-site",
-    "jobUrl": "https://gertec.gupy.io/job/eyJqb2JJZCI6MTIzODMzOTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:32:53.640Z",
-    "topic": "TI",
-    "data_formatada_br": "02/09/2026 às 17:32"
-  },
-  {
-    "id": "12141737",
-    "name": "Estagiário TI",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://vagasituran.gupy.io/job/eyJqb2JJZCI6MTIxNDE3MzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:23:28.776Z",
-    "topic": "TI",
-    "data_formatada_br": "02/09/2026 às 17:23"
-  },
-  {
-    "id": "12333790",
-    "name": "Analista de Processos Jr I - Sacomã",
-    "workplaceType": "on-site",
-    "jobUrl": "https://sejaelgin.gupy.io/job/eyJqb2JJZCI6MTIzMzM3OTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:12:16.843Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 17:12"
-  },
-  {
-    "id": "12413504",
-    "name": "Analista Financeiro Júnior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://vagasvagasconfi.gupy.io/job/eyJqb2JJZCI6MTI0MTM1MDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:04:18.450Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 17:04"
-  },
-  {
-    "id": "12413539",
-    "name": "Analista de PCP Júnior | TRACK&FIELD | São Paulo ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://tfcarreira.gupy.io/job/eyJqb2JJZCI6MTI0MTM1MzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:03:44.218Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 17:03"
-  },
-  {
-    "id": "12384316",
-    "name": "Auditor Interno Especialista (Foco em TI)",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://unicredbr.gupy.io/job/eyJqb2JJZCI6MTIzODQzMTYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T20:00:25.395Z",
-    "topic": "TI",
-    "data_formatada_br": "02/09/2026 às 17:00"
-  },
-  {
-    "id": "12413498",
-    "name": "Analista de Pesquisa Clínica Júnior ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://synvia.gupy.io/job/eyJqb2JJZCI6MTI0MTM0OTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T19:49:31.545Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 16:49"
-  },
-  {
-    "id": "12413174",
-    "name": "Analista de Business Control Jr - Riscos e Tesouraria GMT - Exclusiva PCD",
-    "workplaceType": "on-site",
-    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0MTMxNzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T19:27:36.026Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 16:27"
-  },
-  {
-    "id": "12411552",
-    "name": "TICKET MANAGER JR",
-    "workplaceType": "on-site",
-    "jobUrl": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTI0MTE1NTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T19:25:00.047Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 16:25"
-  },
-  {
-    "id": "12412228",
-    "name": "TECNICO SUPORTE I",
-    "workplaceType": "on-site",
-    "jobUrl": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTI0MTIyMjgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T19:19:36.975Z",
-    "topic": "Suporte",
-    "data_formatada_br": "02/09/2026 às 16:19"
-  },
-  {
-    "id": "12412909",
-    "name": "Auxiliar de Suporte de Atendimento (Presencial)",
-    "workplaceType": "on-site",
-    "jobUrl": "https://farmaciasapp.gupy.io/job/eyJqb2JJZCI6MTI0MTI5MDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T19:09:07.655Z",
-    "topic": "Suporte",
-    "data_formatada_br": "02/09/2026 às 16:09"
-  },
-  {
-    "id": "12411550",
-    "name": "ANALISTA SUPORTE JR",
-    "workplaceType": "on-site",
-    "jobUrl": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTI0MTE1NTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T19:05:46.052Z",
-    "topic": "Suporte",
-    "data_formatada_br": "02/09/2026 às 16:05"
-  },
-  {
-    "id": "12410672",
-    "name": "Programa de estágio - TI  ",
-    "workplaceType": "remote",
-    "jobUrl": "https://solveplan.gupy.io/job/eyJqb2JJZCI6MTI0MTA2NzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T17:26:40.103Z",
-    "topic": "TI Remoto",
-    "data_formatada_br": "02/09/2026 às 14:26"
-  },
-  {
-    "id": "12380677",
-    "name": "Advogado(a) Júnior - Empresarial: Societário e Regulatório Minerário ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://machadomeyer.gupy.io/job/eyJqb2JJZCI6MTIzODA2NzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T17:21:34.179Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 14:21"
-  },
-  {
-    "id": "12411804",
-    "name": "Arquiteto(a) Júnior – Compatibilização de Projetos",
-    "workplaceType": "on-site",
-    "jobUrl": "https://dialogo.gupy.io/job/eyJqb2JJZCI6MTI0MTE4MDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T17:10:40.380Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 14:10"
-  },
-  {
-    "id": "12378360",
-    "name": "[SÃO PAULO] ADVOGADO(A) JR ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://leao.gupy.io/job/eyJqb2JJZCI6MTIzNzgzNjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T15:18:30.995Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 12:18"
-  },
-  {
-    "id": "12410445",
-    "name": "Analista Financeiro Jr - Afip ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://afip.gupy.io/job/eyJqb2JJZCI6MTI0MTA0NDUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T15:08:12.446Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 12:08"
-  },
-  {
-    "id": "12410200",
-    "name": "Analista de Orçamentos Civil Jr. | São Paulo ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cyrela.gupy.io/job/eyJqb2JJZCI6MTI0MTAyMDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T14:49:27.185Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 11:49"
-  },
-  {
-    "id": "12409033",
-    "name": "Analista Financeiro Junior ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://fmu.gupy.io/job/eyJqb2JJZCI6MTI0MDkwMzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T14:27:02.623Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 11:27"
-  },
-  {
-    "id": "12396630",
-    "name": "ANL OPERACOES JR",
-    "workplaceType": "on-site",
-    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTIzOTY2MzAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T14:04:19.266Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 11:04"
-  },
-  {
-    "id": "12409029",
-    "name": "Analista de Suporte - Profissional de Help Desk",
-    "workplaceType": "on-site",
-    "jobUrl": "https://montreal.gupy.io/job/eyJqb2JJZCI6MTI0MDkwMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T13:54:35.469Z",
-    "topic": "Suporte",
-    "data_formatada_br": "02/09/2026 às 10:54"
-  },
-  {
-    "id": "12409010",
-    "name": "Analista de Seguros Jr",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://motz.gupy.io/job/eyJqb2JJZCI6MTI0MDkwMTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T13:48:04.138Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 10:48"
-  },
-  {
-    "id": "12320260",
-    "name": "Advogado Junior ",
-    "workplaceType": "remote",
-    "jobUrl": "https://sanchezadv.gupy.io/job/eyJqb2JJZCI6MTIzMjAyNjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T13:44:04.078Z",
-    "topic": "Júnior Remoto",
-    "data_formatada_br": "02/09/2026 às 10:44"
-  },
-  {
-    "id": "12407534",
-    "name": "TESTADOR JR PCD (100% REMOTO) - RHA3413",
-    "workplaceType": "remote",
-    "jobUrl": "https://spread.gupy.io/job/eyJqb2JJZCI6MTI0MDc1MzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T13:30:01.796Z",
-    "topic": "JR Remoto",
-    "data_formatada_br": "02/09/2026 às 10:30"
-  },
-  {
-    "id": "12408214",
-    "name": "Analista de Planejamento de Vendas Jr. ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://pluxee-br.gupy.io/job/eyJqb2JJZCI6MTI0MDgyMTQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T13:11:34.106Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 10:11"
-  },
-  {
-    "id": "12407920",
-    "name": "TECNICO DE SUPORTE SR - Telefonia Móvel & MDM - PRESENCIAL (São Caetano e Berrini /SP )- RHA3613",
-    "workplaceType": "on-site",
-    "jobUrl": "https://spread.gupy.io/job/eyJqb2JJZCI6MTI0MDc5MjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T13:11:02.533Z",
-    "topic": "Suporte",
-    "data_formatada_br": "02/09/2026 às 10:11"
-  },
-  {
-    "id": "12408032",
-    "name": "Analista de Inteligência Comercial Júnior",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://pagaleve.gupy.io/job/eyJqb2JJZCI6MTI0MDgwMzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:47:02.199Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 09:47"
-  },
-  {
-    "id": "12407868",
-    "name": "Assistente de BackOffice Jr",
-    "workplaceType": "on-site",
-    "jobUrl": "https://grupoelo.gupy.io/job/eyJqb2JJZCI6MTI0MDc4NjgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:45:42.238Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 09:45"
-  },
-  {
-    "id": "12381474",
-    "name": "[BRAZ TRATTORIA] PINHEIROS - COZINHEIRO JUNIOR – 1353",
-    "workplaceType": "on-site",
-    "jobUrl": "https://ciatc.gupy.io/job/eyJqb2JJZCI6MTIzODE0NzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:44:34.699Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 09:44"
-  },
-  {
-    "id": "12381672",
-    "name": "[BRAZ TRATTORIA] PINHEIROS - COZINHEIRO JUNIOR – 1353",
-    "workplaceType": "on-site",
-    "jobUrl": "https://ciatc.gupy.io/job/eyJqb2JJZCI6MTIzODE2NzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:40:40.445Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 09:40"
-  },
-  {
-    "id": "12407819",
-    "name": "ANALISTA DESENV NEGOCIOS VENDAS JR (SCPay)",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://gruposc.gupy.io/job/eyJqb2JJZCI6MTI0MDc4MTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:36:17.060Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 09:36"
-  },
-  {
-    "id": "12407925",
-    "name": "Analista de Qualidade Jr. (Engenharia Civil) | São Paulo",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cyrela.gupy.io/job/eyJqb2JJZCI6MTI0MDc5MjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:35:34.304Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 09:35"
-  },
-  {
-    "id": "12407700",
-    "name": "Gestor (a) de Obras Júnior (vaga também para PcD e reabilitados INSS)",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://isaenergiabrasil.gupy.io/job/eyJqb2JJZCI6MTI0MDc3MDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:25:06.959Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 09:25"
-  },
-  {
-    "id": "12262998",
-    "name": "Analista de Marketing Junior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://hyperapharma.gupy.io/job/eyJqb2JJZCI6MTIyNjI5OTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:21:11.363Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 09:21"
-  },
-  {
-    "id": "12407329",
-    "name": "Analista de Faturamento Júnior/Pleno",
-    "workplaceType": "on-site",
-    "jobUrl": "https://confidencial72736.gupy.io/job/eyJqb2JJZCI6MTI0MDczMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T12:01:53.719Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 09:01"
-  },
-  {
-    "id": "12406927",
-    "name": "Especialista Suporte de Atendimento l (BKO) - Escala Híbrida -  Unidade Base: São Caetano do Sul",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://atento.gupy.io/job/eyJqb2JJZCI6MTI0MDY5MjcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T11:31:53.550Z",
-    "topic": "Suporte",
-    "data_formatada_br": "02/09/2026 às 08:31"
-  },
-  {
-    "id": "12406773",
-    "name": "Analista da BI | SIstemas JR - Friboi",
-    "workplaceType": "on-site",
-    "jobUrl": "https://grupojbs.gupy.io/job/eyJqb2JJZCI6MTI0MDY3NzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T11:19:56.562Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 08:19"
-  },
-  {
-    "id": "12139371",
-    "name": "Engenheiro(a) ou Arquiteto(a) de Obras Jr. (Temporário) - São José do Rio Preto",
-    "workplaceType": "on-site",
-    "jobUrl": "https://fast.gupy.io/job/eyJqb2JJZCI6MTIxMzkzNzEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T02:10:36.349Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 23:10"
-  },
-  {
-    "id": "12399188",
-    "name": "Assistente de Back Office Jr.",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cmmm.gupy.io/job/eyJqb2JJZCI6MTIzOTkxODgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T21:05:55.176Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 18:05"
-  },
-  {
-    "id": "12261178",
-    "name": "FARMACEUTICO CLINICO JR - HOSPITAL INFANTIL MENINO JESUS",
-    "workplaceType": "on-site",
-    "jobUrl": "https://irssl.gupy.io/job/eyJqb2JJZCI6MTIyNjExNzgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T20:26:39.846Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 17:26"
-  },
-  {
-    "id": "12270498",
-    "name": "Auditor(a) Júnior - Jardim Paulista (578466)",
-    "workplaceType": "on-site",
-    "jobUrl": "https://corporacaogpa.gupy.io/job/eyJqb2JJZCI6MTIyNzA0OTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T20:03:59.597Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 17:03"
-  },
-  {
-    "id": "12288483",
-    "name": "Analista de Dados Júnior",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://suhaiseguradora.gupy.io/job/eyJqb2JJZCI6MTIyODg0ODMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:56:42.353Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 16:56"
-  },
-  {
-    "id": "12205473",
-    "name": "Analista Funcional TI II",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://vtal.gupy.io/job/eyJqb2JJZCI6MTIyMDU0NzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:55:50.413Z",
-    "topic": "TI",
-    "data_formatada_br": "01/09/2026 às 16:55"
-  },
-  {
-    "id": "12398635",
-    "name": "Executivo de Relacionamento Jr",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://unimednacional.gupy.io/job/eyJqb2JJZCI6MTIzOTg2MzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:40:28.449Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 16:40"
-  },
-  {
-    "id": "12398074",
-    "name": "PESSOA COMPRADORA JR ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://vagasadministrativashaoc.gupy.io/job/eyJqb2JJZCI6MTIzOTgwNzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:36:14.050Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 16:36"
-  },
-  {
-    "id": "12398524",
-    "name": "Analista de Compras Júnior  ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://gestaodetalentos.gupy.io/job/eyJqb2JJZCI6MTIzOTg1MjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:31:51.580Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 16:31"
-  },
-  {
-    "id": "12398385",
-    "name": "Produção Audiovisual Jr.",
-    "workplaceType": "on-site",
-    "jobUrl": "https://estadao.gupy.io/job/eyJqb2JJZCI6MTIzOTgzODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:19:56.584Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 16:19"
-  },
-  {
-    "id": "12398359",
-    "name": "AGENTE DE REGISTRO JR",
-    "workplaceType": "on-site",
-    "jobUrl": "https://venhafazerparte.gupy.io/job/eyJqb2JJZCI6MTIzOTgzNTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:17:32.294Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 16:17"
-  },
-  {
-    "id": "12393417",
-    "name": "Assistente Executivo Jr",
-    "workplaceType": "on-site",
-    "jobUrl": "https://talentosorrohome.gupy.io/job/eyJqb2JJZCI6MTIzOTM0MTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:16:41.072Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 16:16"
-  },
-  {
-    "id": "12398039",
-    "name": " Dev Full Stack Jr. - PHP/Symfony + Angular - Florianópolis -SC",
-    "workplaceType": "remote",
-    "jobUrl": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTIzOTgwMzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:14:21.148Z",
-    "topic": "JR Remoto",
-    "data_formatada_br": "01/09/2026 às 16:14"
-  },
-  {
-    "id": "12021477",
-    "name": "Consultor(a) de Viagens Internacional Jr - Flytour Consolidadora - BeFly ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://befly.gupy.io/job/eyJqb2JJZCI6MTIwMjE0NzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T19:00:40.799Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 16:00"
-  },
-  {
-    "id": "12331519",
-    "name": "ANALISTA DE SUPORTE TÉCNICO PL",
-    "workplaceType": "on-site",
-    "jobUrl": "https://ituniverse.gupy.io/job/eyJqb2JJZCI6MTIzMzE1MTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T18:55:17.153Z",
-    "topic": "Suporte",
-    "data_formatada_br": "01/09/2026 às 15:55"
-  },
-  {
-    "id": "12151910",
-    "name": "Analista Controles Administrativos Junior ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://honda.gupy.io/job/eyJqb2JJZCI6MTIxNTE5MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T18:47:38.470Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 15:47"
-  },
-  {
-    "id": "12397510",
-    "name": " ENFERMEIRO JR - LABORATORIO - BOSQUE DA SAÚDE",
-    "workplaceType": "on-site",
-    "jobUrl": "https://hapvidandi.gupy.io/job/eyJqb2JJZCI6MTIzOTc1MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T18:28:56.290Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 15:28"
-  },
-  {
-    "id": "12397223",
-    "name": "Vendedor(a) E-commerce Júnior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://nobelpack.gupy.io/job/eyJqb2JJZCI6MTIzOTcyMjMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T18:13:43.131Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 15:13"
-  },
-  {
-    "id": "12396617",
-    "name": "Analista de Planejamento e Relacionamento Jr. ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://porschegt3cup.gupy.io/job/eyJqb2JJZCI6MTIzOTY2MTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T18:08:27.117Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 15:08"
-  },
-  {
-    "id": "12395808",
-    "name": "Analista de Suprimentos JR - Supply Chain",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cba.gupy.io/job/eyJqb2JJZCI6MTIzOTU4MDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T18:00:12.878Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 15:00"
-  },
-  {
-    "id": "12396640",
-    "name": "Analista de Qualidade Júnior",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://temsaude.gupy.io/job/eyJqb2JJZCI6MTIzOTY2NDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T17:58:02.905Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 14:58"
-  },
-  {
-    "id": "12323275",
-    "name": "Coordenador de Suporte ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://vagasselecaoconfidencial.gupy.io/job/eyJqb2JJZCI6MTIzMjMyNzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T17:46:11.376Z",
-    "topic": "Suporte",
-    "data_formatada_br": "01/09/2026 às 14:46"
-  },
-  {
-    "id": "12315288",
-    "name": "ANALISTA DE SUPORTE JR",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://acrisure.gupy.io/job/eyJqb2JJZCI6MTIzMTUyODgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T17:41:52.080Z",
-    "topic": "Suporte",
-    "data_formatada_br": "01/09/2026 às 14:41"
-  },
-  {
-    "id": "12330361",
-    "name": "ANALISTA SUPORTE JR",
-    "workplaceType": "on-site",
-    "jobUrl": "https://simpress.gupy.io/job/eyJqb2JJZCI6MTIzMzAzNjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T17:32:35.813Z",
-    "topic": "Suporte",
-    "data_formatada_br": "01/09/2026 às 14:32"
-  },
-  {
-    "id": "12395644",
-    "name": "Analista Inteligência de Mercado Externo Júnior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://dexco.gupy.io/job/eyJqb2JJZCI6MTIzOTU2NDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T17:26:45.788Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 14:26"
-  },
-  {
-    "id": "12394210",
-    "name": "Assistente de Geoprocessamento Junior - 12394210G",
-    "workplaceType": "remote",
-    "jobUrl": "https://geopixel.gupy.io/job/eyJqb2JJZCI6MTIzOTQyMTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T16:57:59.336Z",
-    "topic": "Júnior Remoto",
-    "data_formatada_br": "01/09/2026 às 13:57"
-  },
-  {
-    "id": "12395365",
-    "name": "Analista Suporte Junior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTIzOTUzNjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T16:54:47.364Z",
-    "topic": "Suporte",
-    "data_formatada_br": "01/09/2026 às 13:54"
-  },
-  {
-    "id": "12393873",
-    "name": "Assistente de Geoprocessamento Junior - 12393873B",
-    "workplaceType": "remote",
-    "jobUrl": "https://geopixel.gupy.io/job/eyJqb2JJZCI6MTIzOTM4NzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T16:52:06.860Z",
-    "topic": "Júnior Remoto",
-    "data_formatada_br": "01/09/2026 às 13:52"
-  },
-  {
-    "id": "12393612",
-    "name": "Analista Fiscal Júnior | TRACK&FIELD | Ipiranga  ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://tfcarreira.gupy.io/job/eyJqb2JJZCI6MTIzOTM2MTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T15:12:09.702Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 12:12"
-  },
-  {
-    "id": "12335058",
-    "name": "Analista Documentação Técnica Jr",
-    "workplaceType": "on-site",
-    "jobUrl": "https://assai.gupy.io/job/eyJqb2JJZCI6MTIzMzUwNTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T14:55:30.196Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 11:55"
-  },
-  {
-    "id": "12390547",
-    "name": "Analista Sistema de Gestão JR - Energia",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cba.gupy.io/job/eyJqb2JJZCI6MTIzOTA1NDcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T14:43:08.585Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 11:43"
-  },
-  {
-    "id": "12393397",
-    "name": "Analista Financeiro Jr (Temporária) ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://unimed-brasil.gupy.io/job/eyJqb2JJZCI6MTIzOTMzOTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T14:15:39.870Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 11:15"
-  },
-  {
-    "id": "12393015",
-    "name": "Consultor/a de Logística Júnior - São Paulo (Presencial)",
-    "workplaceType": "on-site",
-    "jobUrl": "https://targetsistemas.gupy.io/job/eyJqb2JJZCI6MTIzOTMwMTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T14:07:49.881Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 11:07"
-  },
-  {
-    "id": "12383585",
-    "name": "Gerente de Infraestrutura de TI - LATAM (São Paulo)",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://fabercastell.gupy.io/job/eyJqb2JJZCI6MTIzODM1ODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T14:05:01.032Z",
-    "topic": "TI",
-    "data_formatada_br": "01/09/2026 às 11:05"
-  },
-  {
-    "id": "12392592",
-    "name": "Analista Técnico de Data Center Júnior",
-    "workplaceType": "on-site",
-    "jobUrl": "https://americatecnologia.gupy.io/job/eyJqb2JJZCI6MTIzOTI1OTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T13:41:50.388Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 10:41"
-  },
-  {
-    "id": "12391911",
-    "name": "Fibra Asset - Analista Jr.",
-    "workplaceType": "on-site",
-    "jobUrl": "https://fibraasset.gupy.io/job/eyJqb2JJZCI6MTIzOTE5MTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T13:17:14.739Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 10:17"
-  },
-  {
-    "id": "12279002",
-    "name": "Analista de Produtos de TI Pleno - Exclusiva para Pessoas Pretas e Pardas",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://vivo.gupy.io/job/eyJqb2JJZCI6MTIyNzkwMDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T13:12:54.716Z",
-    "topic": "TI",
-    "data_formatada_br": "01/09/2026 às 10:12"
-  },
-  {
-    "id": "12392217",
-    "name": "Analista de Gestão Documental Júnior - Corporativo ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://viaappia.gupy.io/job/eyJqb2JJZCI6MTIzOTIyMTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T13:11:28.625Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 10:11"
-  },
-  {
-    "id": "12391867",
-    "name": " ENFERMEIRO JR - LABORATORIO - SBC",
-    "workplaceType": "on-site",
-    "jobUrl": "https://hapvidandi.gupy.io/job/eyJqb2JJZCI6MTIzOTE4NjcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T12:51:32.519Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 09:51"
-  },
-  {
-    "id": "11468462",
-    "name": "Analista de Repasse Jr | São Paulo/SP",
-    "workplaceType": "on-site",
-    "jobUrl": "https://cyrela.gupy.io/job/eyJqb2JJZCI6MTE0Njg0NjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T12:36:54.006Z",
-    "topic": "JR",
-    "data_formatada_br": "01/09/2026 às 09:36"
-  },
-  {
-    "id": "12384396",
-    "name": "Subscritor Marine - Junior",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://ffseguros_carreira.gupy.io/job/eyJqb2JJZCI6MTIzODQzOTYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T11:42:33.334Z",
-    "topic": "Júnior",
-    "data_formatada_br": "01/09/2026 às 08:42"
-  },
-  {
-    "id": "12385934",
-    "name": "Comprador Sênior TI - AmPm ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://ipiranga.gupy.io/job/eyJqb2JJZCI6MTIzODU5MzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-01T00:04:36.859Z",
-    "topic": "TI",
-    "data_formatada_br": "31/08/2026 às 21:04"
-  },
-  {
-    "id": "12280124",
-    "name": "Advogado Júnior | Contratos",
-    "workplaceType": "on-site",
-    "jobUrl": "https://fundacaoitau.gupy.io/job/eyJqb2JJZCI6MTIyODAxMjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-08-31T21:11:52.347Z",
-    "topic": "Júnior",
-    "data_formatada_br": "31/08/2026 às 18:11"
-  },
-  {
-    "id": "12383448",
-    "name": "ESTÁGIO EM TI",
-    "workplaceType": "on-site",
-    "jobUrl": "https://sodramar.gupy.io/job/eyJqb2JJZCI6MTIzODM0NDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-08-31T21:08:39.870Z",
-    "topic": "TI",
-    "data_formatada_br": "31/08/2026 às 18:08"
-  },
-  {
-    "id": "12384262",
-    "name": "Analista Relacionamento Cliente Júnior ",
-    "workplaceType": "on-site",
-    "jobUrl": "https://tegraincorporadora.gupy.io/job/eyJqb2JJZCI6MTIzODQyNjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-08-31T20:57:30.953Z",
-    "topic": "Júnior",
-    "data_formatada_br": "31/08/2026 às 17:57"
   }
 ]
