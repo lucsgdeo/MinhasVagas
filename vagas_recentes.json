@@ -1,5 +1,32 @@
 [
   {
+    "id": "12412777",
+    "name": "Analista de Relacionamento com o Cliente Junior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://suhaiseguradora.gupy.io/job/eyJqb2JJZCI6MTI0MTI3NzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T23:48:08.288Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 20:48"
+  },
+  {
+    "id": "12447476",
+    "name": "ASSISTENTE ADMINISTRATIVO / TI",
+    "workplaceType": "on-site",
+    "jobUrl": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTI0NDc0NzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T22:27:22.915Z",
+    "topic": "TI",
+    "data_formatada_br": "09/09/2026 às 19:27"
+  },
+  {
+    "id": "12450466",
+    "name": "ANALISTA CONTÁBIL JÚNIOR | ESTOQUE E CONCILIAÇÕES",
+    "workplaceType": "on-site",
+    "jobUrl": "https://lojastorra.gupy.io/job/eyJqb2JJZCI6MTI0NTA0NjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-09T21:58:39.473Z",
+    "topic": "Júnior",
+    "data_formatada_br": "09/09/2026 às 18:58"
+  },
+  {
     "id": "12418221",
     "name": "Analista de Excelência Operacional Júnior",
     "workplaceType": "hybrid",
@@ -1771,23 +1798,5 @@
     "publishedDate": "2026-09-03T11:13:18.209Z",
     "topic": "Júnior",
     "data_formatada_br": "03/09/2026 às 08:13"
-  },
-  {
-    "id": "12414733",
-    "name": "Analista de Marketing Junior - São Paulo/SP ",
-    "workplaceType": "hybrid",
-    "jobUrl": "https://colliers.gupy.io/job/eyJqb2JJZCI6MTI0MTQ3MzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T23:42:07.419Z",
-    "topic": "Júnior",
-    "data_formatada_br": "02/09/2026 às 20:42"
-  },
-  {
-    "id": "12171274",
-    "name": "ENFERMEIRO JR - CLINICA MEDICA - DIURNO - HOSPITAL VILA PENTEADO",
-    "workplaceType": "on-site",
-    "jobUrl": "https://irssl.gupy.io/job/eyJqb2JJZCI6MTIxNzEyNzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publishedDate": "2026-09-02T23:21:18.264Z",
-    "topic": "JR",
-    "data_formatada_br": "02/09/2026 às 20:21"
   }
 ]
