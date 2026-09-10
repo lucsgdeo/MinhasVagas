@@ -236,7 +236,7 @@ def executar_monitoramento(
     dias_retencao_cache: int = DIAS_RETENCAO_CACHE_DEFAULT,
     cache_file: str = CACHE_FILE_DEFAULT,
     vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
-    notificar_telegram: bool = True,
+    notificar_telegram: bool = False,
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
@@ -298,23 +298,23 @@ def executar_monitoramento(
                     f"🔖 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
                 )
 
-                if len(msg_atual) + len(bloco_vaga) > 4000:
-                    if len(msg_atual) + len(bloco_vaga) > 4000:
-                        enviar_telegram(msg_atual, topic_id=topic_id)
-                        msg_atual = bloco_vaga
-                    else:
-                        msg_atual += bloco_vaga
-
-                if msg_atual.strip():
-                    enviar_telegram(msg_atual, topic_id=topic_id)
-                    msg_atual = bloco_vaga
-                else:
-                    msg_atual += bloco_vaga
-            else:
-                print(f"ℹ️ Notificação Telegram desativada para [{topic_name}].")
-
-            if msg_atual.strip():
-                enviar_telegram(msg_atual, topic_id=topic_id)
+                # Telegram notifications are currently disabled.
+                # The following block was disabled to prevent sending messages.
+                # if len(msg_atual) + len(bloco_vaga) > 4000:
+                #     if len(msg_atual) + len(bloco_vaga) > 4000:
+                #         enviar_telegram(msg_atual, topic_id=topic_id)
+                #         msg_atual = bloco_vaga
+                #     else:
+                #         msg_atual += bloco_vaga
+                #
+                # if msg_atual.strip():
+                #     enviar_telegram(msg_atual, topic_id=topic_id)
+                #     msg_atual = bloco_vaga
+                # else:
+                #     msg_atual += bloco_vaga
+                #
+                # if msg_atual.strip():
+                #     enviar_telegram(msg_atual, topic_id=topic_id)
 
             # Salva no histórico de vagas recentes (para dashboard)
             salvar_vagas_recentes(novas_vagas, topic_name, vagas_recentes_file)
