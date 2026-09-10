@@ -2,9 +2,6 @@ const STORAGE_KEY = 'minhasvagas_applied';
 const THEME_STORAGE_KEY = 'minhasvagas_theme';
 
 const state = {
-    allVagas: [],
-    currentTab: '24h',
-    currentFilter: 'todas',
     techVagas: [],
     geralVagas: [],
     currentTab: 'tech',
@@ -20,13 +17,10 @@ let els = {};
 
 function init() {
     els = {
-        tab24h: document.getElementById('tab-24h'),
-        tab7d: document.getElementById('tab-7d'),
         tabTech: document.getElementById('tab-tech'),
         tabGeral: document.getElementById('tab-geral'),
         tabSchedule: document.getElementById('tab-schedule'),
         searchInput: document.getElementById('search-input'),
-        filterPills: document.querySelectorAll('.filter-pill'),
         techFilterPillsContainer: document.getElementById('tech-filter-pills'),
         geralFilterPillsContainer: document.getElementById('geral-filter-pills'),
         techFilterPills: document.querySelectorAll('#tech-filter-pills .filter-pill'),
@@ -55,27 +49,21 @@ function init() {
 }
 
 function setupEventListeners() {
-    els.tab24h.addEventListener('click', () => switchTab('24h'));
-    els.tab7d.addEventListener('click', () => switchTab('7d'));
-    els.tabSchedule.addEventListener('click', () => switchTab('schedule'));
     if (els.tabTech) els.tabTech.addEventListener('click', () => switchTab('tech'));
     if (els.tabGeral) els.tabGeral.addEventListener('click', () => switchTab('geral'));
     if (els.tabSchedule) els.tabSchedule.addEventListener('click', () => switchTab('schedule'));
 
-    els.searchInput.addEventListener('input', (e) => {
-        state.searchTerm = e.target.value.toLowerCase();
-        if (state.currentTab !== 'schedule') renderVagas();
-    });
+    if (els.searchInput) {
+        els.searchInput.addEventListener('input', (e) => {
+            state.searchTerm = e.target.value.toLowerCase();
+            if (state.currentTab !== 'schedule') renderVagas();
+        });
+    }
 
-    els.filterPills.forEach(pill => {
     els.techFilterPills.forEach(pill => {
         pill.addEventListener('click', () => {
-            els.filterPills.forEach(p => {
-                p.classList.remove('active');
-            });
             els.techFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
-            state.currentFilter = pill.dataset.filter;
             state.currentTechFilter = pill.dataset.filter;
             renderVagas();
         });
@@ -92,9 +80,6 @@ function setupEventListeners() {
 
     els.scheduleFilterPills.forEach(pill => {
         pill.addEventListener('click', () => {
-            els.scheduleFilterPills.forEach(p => {
-                p.classList.remove('active');
-            });
             els.scheduleFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             state.currentScheduleFilter = pill.dataset.filter;
@@ -102,26 +87,28 @@ function setupEventListeners() {
         });
     });
 
-    els.retryBtn.addEventListener('click', loadVagas);
+    if (els.retryBtn) els.retryBtn.addEventListener('click', loadVagas);
 
-    els.vacanciesGrid.addEventListener('change', (e) => {
-        if (e.target.matches('.apply-toggle input')) {
-            const vagaId = e.target.dataset.vagaId;
-            toggleApplied(vagaId, e.target.checked);
-        }
-    });
-
-    els.vacanciesGrid.addEventListener('click', (e) => {
-        if (e.target.closest('.apply-btn')) {
-            const link = e.target.closest('.apply-btn');
-            const vagaId = link.dataset.vagaId;
-            if (vagaId && !state.appliedIds.has(vagaId)) {
-                toggleApplied(vagaId, true);
-                const checkbox = document.querySelector(`.apply-toggle input[data-vaga-id="${vagaId}"]`);
-                if (checkbox) checkbox.checked = true;
+    if (els.vacanciesGrid) {
+        els.vacanciesGrid.addEventListener('change', (e) => {
+            if (e.target.matches('.apply-toggle input')) {
+                const vagaId = e.target.dataset.vagaId;
+                toggleApplied(vagaId, e.target.checked);
             }
-        }
-    });
+        });
+
+        els.vacanciesGrid.addEventListener('click', (e) => {
+            if (e.target.closest('.apply-btn')) {
+                const link = e.target.closest('.apply-btn');
+                const vagaId = link.dataset.vagaId;
+                if (vagaId && !state.appliedIds.has(vagaId)) {
+                    toggleApplied(vagaId, true);
+                    const checkbox = document.querySelector(`.apply-toggle input[data-vaga-id="${vagaId}"]`);
+                    if (checkbox) checkbox.checked = true;
+                }
+            }
+        });
+    }
 
     // Theme selector
     els.themeOptions.forEach(option => {
@@ -212,9 +199,6 @@ function updateCardAppliedState(vagaId, applied) {
 function switchTab(tab) {
     state.currentTab = tab;
 
-    [els.tab24h, els.tab7d, els.tabSchedule].forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
     [els.tabTech, els.tabGeral, els.tabSchedule].forEach(btn => {
         if (btn) {
             btn.classList.remove('active');
@@ -222,7 +206,6 @@ function switchTab(tab) {
         }
     });
 
-    const activeTab = document.getElementById(`tab-${tab === '24h' ? '24h' : tab === '7d' ? '7d' : 'schedule'}`);
     const activeTab = document.getElementById(`tab-${tab}`);
     if (activeTab) {
         activeTab.classList.add('active');
@@ -259,14 +242,6 @@ async function loadVagas() {
     hideEmpty();
 
     try {
-        const response = await fetch('vagas_recentes.json');
-        if (!response.ok) {
-            if (response.status === 404) {
-                state.allVagas = [];
-                showEmpty();
-                return;
-            }
-            throw new Error(`HTTP ${response.status}`);
         const [resTech, resGeral] = await Promise.allSettled([
             fetch('vagas_recentes.json'),
             fetch('vagas_gerais.json')
@@ -274,20 +249,13 @@ async function loadVagas() {
 
         if (resTech.status === 'fulfilled' && resTech.value.ok) {
             state.techVagas = await resTech.value.json();
-        } else if (resTech.status === 'fulfilled' && resTech.value.status === 404) {
-            state.techVagas = [];
-        } else if (resTech.status === 'rejected') {
-            console.warn('Erro ao carregar vagas_recentes.json:', resTech.reason);
+        } else {
             state.techVagas = [];
         }
-        state.allVagas = await response.json();
 
         if (resGeral.status === 'fulfilled' && resGeral.value.ok) {
             state.geralVagas = await resGeral.value.json();
-        } else if (resGeral.status === 'fulfilled' && resGeral.value.status === 404) {
-            state.geralVagas = [];
-        } else if (resGeral.status === 'rejected') {
-            console.warn('Erro ao carregar vagas_gerais.json:', resGeral.reason);
+        } else {
             state.geralVagas = [];
         }
 
@@ -311,28 +279,15 @@ function isVagaRemota(vaga) {
 }
 
 function filterVagas() {
-    let filtered = state.allVagas;
     if (state.currentTab === 'tech') {
         let filtered = state.techVagas;
 
-    if (state.currentTab === '24h') {
-        const now = new Date();
-        const dayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-        filtered = filtered.filter(v => {
-            const pubDate = new Date(v.publishedDate.replace('Z', '+00:00'));
-            return pubDate >= dayAgo;
-        });
-    }
         if (state.searchTerm) {
             filtered = filtered.filter(v =>
                 (v.name || '').toLowerCase().includes(state.searchTerm)
             );
         }
 
-    if (state.searchTerm) {
-        filtered = filtered.filter(v =>
-            v.name.toLowerCase().includes(state.searchTerm)
-        );
         if (state.currentTechFilter !== 'todas') {
             filtered = filtered.filter(v => {
                 const topic = (v.topic || '').toLowerCase();
@@ -351,20 +306,6 @@ function filterVagas() {
         return filtered;
     }
 
-    if (state.currentFilter !== 'todas') {
-        filtered = filtered.filter(v => {
-            const topic = v.topic.toLowerCase();
-            switch (state.currentFilter) {
-                case 'suporte': return topic.includes('suporte');
-                case 'ti': return topic.includes('ti');
-                case 'infraestrutura': return topic.includes('infra');
-                case 'service-desk': return topic.includes('service desk');
-                case 'junior': return topic.includes('júnior') || topic.includes('junior');
-                case 'help-desk': return topic.includes('help desk');
-                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
-                default: return true;
-            }
-        });
     if (state.currentTab === 'geral') {
         let filtered = state.geralVagas;
 
@@ -383,7 +324,6 @@ function filterVagas() {
         return filtered;
     }
 
-    return filtered;
     return [];
 }
 
@@ -401,7 +341,6 @@ function renderVagas() {
 
     hideEmpty();
     showStats(filtered);
-    els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
 
     if (state.currentTab === 'geral' && state.currentGeralFilter === 'todas') {
         const presencialVagas = filtered.filter(v => !isVagaRemota(v));
@@ -442,11 +381,8 @@ function renderVagas() {
 function createCard(vaga) {
     const vagaId = vaga.id || '';
     const isApplied = state.appliedIds.has(vagaId);
-    const modalidade = vaga.workplaceType || 'N/I';
-    const isRemote = modalidade.toLowerCase() === 'remote' || modalidade.toLowerCase() === 'remoto';
     const isRemote = isVagaRemota(vaga);
     const badgeClass = isRemote ? 'remote' : 'onsite';
-    const badgeText = isRemote ? '100% Remoto' : 'Presencial';
     const badgeText = isRemote ? 'Remoto' : 'Presencial';
     const topic = vaga.topic || 'Geral';
     const dataPub = formatDateShort(vaga.publishedDate);
@@ -477,13 +413,10 @@ function createCard(vaga) {
 }
 
 function renderSchedule() {
-    let filtered = state.allVagas;
-    // Gráfico contém exclusivamente dados das vagas de tecnologia
     let filtered = state.techVagas;
 
     if (state.currentScheduleFilter !== 'todas') {
         filtered = filtered.filter(v => {
-            const topic = v.topic.toLowerCase();
             const topic = (v.topic || '').toLowerCase();
             switch (state.currentScheduleFilter) {
                 case 'suporte': return topic.includes('suporte');
@@ -563,7 +496,6 @@ function renderSchedule() {
 
 function showStats(vagas) {
     const total = vagas.length;
-    els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
     if (state.currentTab === 'geral' && state.currentGeralFilter === 'todas') {
         const presencialCount = vagas.filter(v => !isVagaRemota(v)).length;
         const remotoCount = vagas.filter(v => isVagaRemota(v)).length;
