@@ -235,9 +235,8 @@ def executar_monitoramento(
     max_dias_pub: int = MAX_DIAS_PUBLICACAO_DEFAULT,
     dias_retencao_cache: int = DIAS_RETENCAO_CACHE_DEFAULT,
     cache_file: str = CACHE_FILE_DEFAULT,
-    vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT
     vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
-    notificar_telegram: bool = True
+    notificar_telegram: bool = True,
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
@@ -292,24 +291,12 @@ def executar_monitoramento(
                 modalidade = v.get("workplaceType", "N/I")
                 link = v.get("jobUrl", "")
                 data_pub = v.get("data_formatada_br", "N/I")
-                for v in novas_vagas:
-                    nome = v.get("name", "Não informado")
-                    modalidade = v.get("workplaceType", "N/I")
-                    link = v.get("jobUrl", "")
-                    data_pub = v.get("data_formatada_br", "N/I")
-
                 bloco_vaga = (
                     f"📌 <b>{nome}</b>\n"
                     f"🏢 Modalidade: <i>{modalidade}</i>\n"
                     f"📅 Publicada em: {data_pub}\n"
-                    f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
+                    f"🔖 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
                 )
-                    bloco_vaga = (
-                        f"📌 <b>{nome}</b>\n"
-                        f"🏢 Modalidade: <i>{modalidade}</i>\n"
-                        f"📅 Publicada em: {data_pub}\n"
-                        f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
-                    )
 
                 if len(msg_atual) + len(bloco_vaga) > 4000:
                     if len(msg_atual) + len(bloco_vaga) > 4000:
