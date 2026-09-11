@@ -1,5 +1,851 @@
 [
   {
+    "id": "12454196",
+    "name": "Pessoa Consultora de Vendas Responsável Loja O boticário Bairro Limão | São Paulo/ SP",
+    "workplaceType": "on-site",
+    "jobUrl": "https://grupoboticario.gupy.io/job/eyJqb2JJZCI6MTI0NTQxOTYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:28:15.826Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:28"
+  },
+  {
+    "id": "12471274",
+    "name": "Especialista em Licitação ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://lbrengenharia.gupy.io/job/eyJqb2JJZCI6MTI0NzEyNzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:27:52.880Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:27"
+  },
+  {
+    "id": "12471947",
+    "name": "Paralegal - Mercado de Capitais/Imobiliário ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://kla.gupy.io/job/eyJqb2JJZCI6MTI0NzE5NDcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:23:10.232Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:23"
+  },
+  {
+    "id": "12471926",
+    "name": "|LOJAS RENNER| Assistente de Produtos Financeiros - SH SP Market",
+    "workplaceType": "on-site",
+    "jobUrl": "https://lojasrenner.gupy.io/job/eyJqb2JJZCI6MTI0NzE5MjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:20:58.968Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:20"
+  },
+  {
+    "id": "12471685",
+    "name": "Desenvolvedor Backend Sênior",
+    "workplaceType": "remote",
+    "jobUrl": "https://gaugecarreiras.gupy.io/job/eyJqb2JJZCI6MTI0NzE2ODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:19:30.260Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 18:19"
+  },
+  {
+    "id": "12410294",
+    "name": "Cloud Engineer Sênior | IaC",
+    "workplaceType": "remote",
+    "jobUrl": "https://neogridcarreiras.gupy.io/job/eyJqb2JJZCI6MTI0MTAyOTQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:08:12.021Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 18:08"
+  },
+  {
+    "id": "12460108",
+    "name": "Analista de Marketing e Comunicação Sênior | Exclusiva para Mulheres",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivo.gupy.io/job/eyJqb2JJZCI6MTI0NjAxMDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:07:54.209Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:07"
+  },
+  {
+    "id": "12471433",
+    "name": "Aprendiz Administrativo - São Paulo/SP",
+    "workplaceType": "on-site",
+    "jobUrl": "https://grupohennings.gupy.io/job/eyJqb2JJZCI6MTI0NzE0MzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:07:05.092Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:07"
+  },
+  {
+    "id": "12408503",
+    "name": "Cloud Engineer Sênior",
+    "workplaceType": "remote",
+    "jobUrl": "https://neogridcarreiras.gupy.io/job/eyJqb2JJZCI6MTI0MDg1MDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:06:28.768Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 18:06"
+  },
+  {
+    "id": "12469129",
+    "name": "Estágio Comercial com possibilidade de Home Office",
+    "workplaceType": "on-site",
+    "jobUrl": "https://fuper.gupy.io/job/eyJqb2JJZCI6MTI0NjkxMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:02:29.265Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:02"
+  },
+  {
+    "id": "12305912",
+    "name": "Especialista em Seguros - Seguros Corporativos ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://alpercarreiras.gupy.io/job/eyJqb2JJZCI6MTIzMDU5MTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T21:01:58.679Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 18:01"
+  },
+  {
+    "id": "12471278",
+    "name": "Almoxarife Técnico | Logística - Vaga afirmativa para pessoas com deficiência 🦾",
+    "workplaceType": "on-site",
+    "jobUrl": "https://globo.gupy.io/job/eyJqb2JJZCI6MTI0NzEyNzgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:56:17.061Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:56"
+  },
+  {
+    "id": "12448524",
+    "name": "FARM | Vendedor | VILLA LOBOS",
+    "workplaceType": "on-site",
+    "jobUrl": "https://farm.gupy.io/job/eyJqb2JJZCI6MTI0NDg1MjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:56:07.939Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:56"
+  },
+  {
+    "id": "12471359",
+    "name": "Business Analyst      ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://gradus.gupy.io/job/eyJqb2JJZCI6MTI0NzEzNTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:55:50.910Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:55"
+  },
+  {
+    "id": "12471173",
+    "name": "Martech Engineer",
+    "workplaceType": "remote",
+    "jobUrl": "https://softdesign.gupy.io/job/eyJqb2JJZCI6MTI0NzExNzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:53:54.433Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 17:53"
+  },
+  {
+    "id": "12471303",
+    "name": "GERENTE LOJA - BRAND HOUSE",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vulcabras.gupy.io/job/eyJqb2JJZCI6MTI0NzEzMDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:53:27.590Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:53"
+  },
+  {
+    "id": "12419757",
+    "name": "Azzas F&L | Desenvolvedor(a) .NET Core III | Reserva",
+    "workplaceType": "remote",
+    "jobUrl": "https://azzasfashion.gupy.io/job/eyJqb2JJZCI6MTI0MTk3NTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:53:13.113Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 17:53"
+  },
+  {
+    "id": "12448224",
+    "name": "FARM | Vendedor | VILLA LOBOS",
+    "workplaceType": "on-site",
+    "jobUrl": "https://farm.gupy.io/job/eyJqb2JJZCI6MTI0NDgyMjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:52:15.092Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:52"
+  },
+  {
+    "id": "12471309",
+    "name": "Ajudante de Sushi | com ou sem experiência - Rebouças",
+    "workplaceType": "on-site",
+    "jobUrl": "https://stmarche.gupy.io/job/eyJqb2JJZCI6MTI0NzEzMDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:52:13.385Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:52"
+  },
+  {
+    "id": "12471319",
+    "name": "Analista de Dados    ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://gradus.gupy.io/job/eyJqb2JJZCI6MTI0NzEzMTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:51:09.969Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:51"
+  },
+  {
+    "id": "12471320",
+    "name": "Atendente de Loja - Swift | Angélica (Loja Educadora) ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://swift.gupy.io/job/eyJqb2JJZCI6MTI0NzEzMjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:50:25.357Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:50"
+  },
+  {
+    "id": "12471280",
+    "name": "PESSOA ASSISTENTE ADMINISTRATIVA - NUCLEO DO PACIENTE CIRURGICO",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vagasadministrativashaoc.gupy.io/job/eyJqb2JJZCI6MTI0NzEyODAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:49:42.244Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:49"
+  },
+  {
+    "id": "12471230",
+    "name": "Analista de e-commerce II",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://renner.gupy.io/job/eyJqb2JJZCI6MTI0NzEyMzAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:47:48.378Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:47"
+  },
+  {
+    "id": "12470808",
+    "name": "Ajudante Geral Limpeza (Vaga Exclusiva PCD)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://italac.gupy.io/job/eyJqb2JJZCI6MTI0NzA4MDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:47:41.672Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:47"
+  },
+  {
+    "id": "12471104",
+    "name": "Assistente de RH (HR Assistant)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://fiberhome.gupy.io/job/eyJqb2JJZCI6MTI0NzExMDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:45:51.285Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:45"
+  },
+  {
+    "id": "12471300",
+    "name": "ATENDENTE DE RESTAURANTE ( ITABERABA - SAO PAULO/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEzMDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:45:44.452Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:45"
+  },
+  {
+    "id": "12471299",
+    "name": "ATENDENTE DE RESTAURANTE ( ITABERABA - SAO PAULO/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEyOTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:45:39.611Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:45"
+  },
+  {
+    "id": "12471297",
+    "name": "ATENDENTE DE RESTAURANTE ( ITABERABA - SAO PAULO/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEyOTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:45:34.302Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:45"
+  },
+  {
+    "id": "12471296",
+    "name": "ATENDENTE DE RESTAURANTE ( MANDAQUI - SAO PAULO/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEyOTYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:45:28.563Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:45"
+  },
+  {
+    "id": "12471207",
+    "name": "PESSOA ANALISTA FACILITIES  SENIOR | PREFERENCIAL PARA MULHERES",
+    "workplaceType": "on-site",
+    "jobUrl": "https://ecorodovias.gupy.io/job/eyJqb2JJZCI6MTI0NzEyMDcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:44:55.966Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:44"
+  },
+  {
+    "id": "12470364",
+    "name": "Gerente de Vendas Nacional",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vagasconfidenciaislc.gupy.io/job/eyJqb2JJZCI6MTI0NzAzNjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:40:37.377Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:40"
+  },
+  {
+    "id": "12471159",
+    "name": "MÉDICO PSIQUIATRA - CAPS IJ - REGIÃO BUTANTÃ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://rastsbutanta.gupy.io/job/eyJqb2JJZCI6MTI0NzExNTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:38:25.309Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:38"
+  },
+  {
+    "id": "12384564",
+    "name": "FARM | Caixa | SÃO BERNARDO",
+    "workplaceType": "on-site",
+    "jobUrl": "https://farm.gupy.io/job/eyJqb2JJZCI6MTIzODQ1NjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:36:38.834Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:36"
+  },
+  {
+    "id": "12471193",
+    "name": "Auxiliar de Vendas - PARK SHOPPING SÃO CAETANO",
+    "workplaceType": "on-site",
+    "jobUrl": "https://livrariadavila.gupy.io/job/eyJqb2JJZCI6MTI0NzExOTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:35:22.021Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:35"
+  },
+  {
+    "id": "12470669",
+    "name": "Coordenador Financeiro",
+    "workplaceType": "on-site",
+    "jobUrl": "https://galapagoscapital.gupy.io/job/eyJqb2JJZCI6MTI0NzA2NjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:34:41.272Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:34"
+  },
+  {
+    "id": "12455915",
+    "name": "FARM | Vendedor |  PLAZA SUL",
+    "workplaceType": "on-site",
+    "jobUrl": "https://farm.gupy.io/job/eyJqb2JJZCI6MTI0NTU5MTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:34:06.868Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:34"
+  },
+  {
+    "id": "12471095",
+    "name": "Assistente de Atendimento",
+    "workplaceType": "on-site",
+    "jobUrl": "https://escolamais.gupy.io/job/eyJqb2JJZCI6MTI0NzEwOTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:33:02.838Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:33"
+  },
+  {
+    "id": "12467972",
+    "name": "Operador(a) de Caixa Cafeteria e Padaria",
+    "workplaceType": "on-site",
+    "jobUrl": "https://assai.gupy.io/job/eyJqb2JJZCI6MTI0Njc5NzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:32:26.510Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:32"
+  },
+  {
+    "id": "12470854",
+    "name": "Coordenador de Eficiência e Soluções ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://motz.gupy.io/job/eyJqb2JJZCI6MTI0NzA4NTQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:30:13.840Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:30"
+  },
+  {
+    "id": "12216107",
+    "name": "Tech Manager I - Produtos Digitais Financeiros",
+    "workplaceType": "remote",
+    "jobUrl": "https://grupoboticario.gupy.io/job/eyJqb2JJZCI6MTIyMTYxMDcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:29:41.708Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 17:29"
+  },
+  {
+    "id": "12448222",
+    "name": "Coordenação de planejamento e análise financeira",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0NDgyMjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:29:07.733Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:29"
+  },
+  {
+    "id": "12471069",
+    "name": "Assistente Financeiro - Securicenter ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://positivotecnologia.gupy.io/job/eyJqb2JJZCI6MTI0NzEwNjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:27:33.206Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:27"
+  },
+  {
+    "id": "12471129",
+    "name": "Executivo (a) de Contas Pleno (Hunter) | Projetos e Obras",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://construmarket.gupy.io/job/eyJqb2JJZCI6MTI0NzExMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:27:04.484Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:27"
+  },
+  {
+    "id": "12470490",
+    "name": "Especialista I Contábil (SAP FI - KeyUser) ",
+    "workplaceType": "remote",
+    "jobUrl": "https://grupoboticario.gupy.io/job/eyJqb2JJZCI6MTI0NzA0OTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:26:10.153Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 17:26"
+  },
+  {
+    "id": "12449704",
+    "name": "Vendedor - Shopping Itaquera",
+    "workplaceType": "on-site",
+    "jobUrl": "https://centaurotalentos.gupy.io/job/eyJqb2JJZCI6MTI0NDk3MDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:24:19.714Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:24"
+  },
+  {
+    "id": "12416362",
+    "name": "Analista de Compliance Sênior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://machadomeyer.gupy.io/job/eyJqb2JJZCI6MTI0MTYzNjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:23:37.606Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:23"
+  },
+  {
+    "id": "12463641",
+    "name": "Auxiliar de Atividade - Colégio Notre Dame Rainha (Seleção Interna e Externa)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://redenotredameeducacao.gupy.io/job/eyJqb2JJZCI6MTI0NjM2NDEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:23:30.890Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:23"
+  },
+  {
+    "id": "12421112",
+    "name": "Analista de Arquitetura de Dados Sênior",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0MjExMTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:22:43.723Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:22"
+  },
+  {
+    "id": "12470672",
+    "name": "Tech Lead de Dados",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://gifinternational.gupy.io/job/eyJqb2JJZCI6MTI0NzA2NzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:20:54.193Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:20"
+  },
+  {
+    "id": "12471085",
+    "name": "ATENDENTE RESTAURANTE 12X36 ( OSVALDO CRUZ - SAO CAETANO DO SUL/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEwODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:20:38.791Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:20"
+  },
+  {
+    "id": "12471084",
+    "name": "ATENDENTE RESTAURANTE 12X36 ( OSVALDO CRUZ - SAO CAETANO DO SUL/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEwODQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:20:33.024Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:20"
+  },
+  {
+    "id": "12471082",
+    "name": "ATENDENTE DE RESTAURANTE ( OSVALDO CRUZ - SAO CAETANO DO SUL/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEwODIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:20:27.879Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:20"
+  },
+  {
+    "id": "12471081",
+    "name": "ATENDENTE DE RESTAURANTE ( OSVALDO CRUZ - SAO CAETANO DO SUL/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzEwODEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:20:22.794Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:20"
+  },
+  {
+    "id": "12427086",
+    "name": "Cia Hering | Designer de Estamparia III (São Paulo/SP)",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://ciahering.gupy.io/job/eyJqb2JJZCI6MTI0MjcwODYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:19:31.093Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:19"
+  },
+  {
+    "id": "12471060",
+    "name": "Ajudante de Pizzaiolo | Com ou sem experiência - Voluntários da Pátria",
+    "workplaceType": "on-site",
+    "jobUrl": "https://stmarche.gupy.io/job/eyJqb2JJZCI6MTI0NzEwNjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:18:55.929Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:18"
+  },
+  {
+    "id": "12470521",
+    "name": " Vessel Operator",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://ipiranga.gupy.io/job/eyJqb2JJZCI6MTI0NzA1MjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:17:54.953Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:17"
+  },
+  {
+    "id": "12471033",
+    "name": "Ajudante de Pizzaiolo | Com ou sem experiência - Tatuapé",
+    "workplaceType": "on-site",
+    "jobUrl": "https://stmarche.gupy.io/job/eyJqb2JJZCI6MTI0NzEwMzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:16:45.160Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:16"
+  },
+  {
+    "id": "12470660",
+    "name": "Auxiliar de Vendas - Shopping JK Iguatemi - SP ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://livrariadavila.gupy.io/job/eyJqb2JJZCI6MTI0NzA2NjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:15:56.209Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:15"
+  },
+  {
+    "id": "12470821",
+    "name": "AUXILIAR DE NUTRIÇÃO (COPEIRA)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://hmvjs.gupy.io/job/eyJqb2JJZCI6MTI0NzA4MjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:15:39.461Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:15"
+  },
+  {
+    "id": "12470889",
+    "name": "Ajudante de Pizzaiolo | Com ou sem experiência - Rebouças",
+    "workplaceType": "on-site",
+    "jobUrl": "https://stmarche.gupy.io/job/eyJqb2JJZCI6MTI0NzA4ODksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:14:14.207Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:14"
+  },
+  {
+    "id": "12452469",
+    "name": "Controlador de Acesso - Região Central | Liberdade 12x36 das 09:00 às 21:00",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vemsergr.gupy.io/job/eyJqb2JJZCI6MTI0NTI0NjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:11:31.371Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:11"
+  },
+  {
+    "id": "12427135",
+    "name": "ESPECIALISTA DE DESENVOLVIMENTO ",
+    "workplaceType": "remote",
+    "jobUrl": "https://qualitydigital.gupy.io/job/eyJqb2JJZCI6MTI0MjcxMzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:10:54.561Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 17:10"
+  },
+  {
+    "id": "12469084",
+    "name": "Assistente Técnico",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vivo.gupy.io/job/eyJqb2JJZCI6MTI0NjkwODQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:10:31.681Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:10"
+  },
+  {
+    "id": "12470775",
+    "name": "ATENDENTE DE RESTAURANTE ( VILA ALPINA - SANTO ANDRE/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzA3NzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:10:27.285Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:10"
+  },
+  {
+    "id": "12469221",
+    "name": "Operador de Estacionamento - Zona Oeste / Jardins/ São Paulo",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NjkyMjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:07:00.616Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:07"
+  },
+  {
+    "id": "12469219",
+    "name": "Operador de Estacionamento - Zona Oeste / Avenida Paulista/São Paulo ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NjkyMTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:06:10.900Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:06"
+  },
+  {
+    "id": "12464456",
+    "name": "Camareira(o) | HOTEL TRANSAMERICA EXECUTIVE NOVA PAULISTA",
+    "workplaceType": "on-site",
+    "jobUrl": "https://vagasahi.gupy.io/job/eyJqb2JJZCI6MTI0NjQ0NTYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:06:01.780Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:06"
+  },
+  {
+    "id": "12422835",
+    "name": "Supervisor Vendas - Curitiba e Região",
+    "workplaceType": "on-site",
+    "jobUrl": "https://quata.gupy.io/job/eyJqb2JJZCI6MTI0MjI4MzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:04:42.623Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:04"
+  },
+  {
+    "id": "12470477",
+    "name": "AUXILIAR DE VENDAS  - SÃO PAULO - SP ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://livrariadavila.gupy.io/job/eyJqb2JJZCI6MTI0NzA0NzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:04:12.736Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:04"
+  },
+  {
+    "id": "12451093",
+    "name": "CONSULTOR TECNICO - OFICINA DE MOTOS - DAFRA LAPA - SP CAPITAL",
+    "workplaceType": "on-site",
+    "jobUrl": "https://grupoitavema.gupy.io/job/eyJqb2JJZCI6MTI0NTEwOTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:03:53.821Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:03"
+  },
+  {
+    "id": "12438393",
+    "name": "Analista de Operações de Vendas Pleno",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://dedalus.gupy.io/job/eyJqb2JJZCI6MTI0MzgzOTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:03:16.287Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:03"
+  },
+  {
+    "id": "12469213",
+    "name": "Operador de Estacionamento - Vila Olimpia/Zona sul ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NjkyMTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:01:25.932Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:01"
+  },
+  {
+    "id": "12469209",
+    "name": "Operador de Estacionamento - Pinheiros/ Zona Oeste / São Paulo ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NjkyMDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:00:52.799Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:00"
+  },
+  {
+    "id": "12341914",
+    "name": "ESPECIALISTA DE DESENVOLVIMENTO",
+    "workplaceType": "remote",
+    "jobUrl": "https://qualitydigital.gupy.io/job/eyJqb2JJZCI6MTIzNDE5MTQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:00:37.499Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 17:00"
+  },
+  {
+    "id": "12460785",
+    "name": "Vendedor(a) de Loja - Paulista",
+    "workplaceType": "on-site",
+    "jobUrl": "https://carreirasdecathlon.gupy.io/job/eyJqb2JJZCI6MTI0NjA3ODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T20:00:09.852Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 17:00"
+  },
+  {
+    "id": "12470046",
+    "name": "Operador de Estacionamento - Zona Oeste/Pinheiros / São Paulo",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NzAwNDYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:50.526Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12449764",
+    "name": "Coordenador Tributário I - Mogi das Cruzes - SP ",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://sejaelgin.gupy.io/job/eyJqb2JJZCI6MTI0NDk3NjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:31.204Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12470060",
+    "name": "Operador de Estacionamento - Zona Sul/ Vila Mariana / São Paulo ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NzAwNjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:15.356Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12461378",
+    "name": "Vendedor(a) de Loja - Lar Center",
+    "workplaceType": "on-site",
+    "jobUrl": "https://carreirasdecathlon.gupy.io/job/eyJqb2JJZCI6MTI0NjEzNzgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:11.171Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12216103",
+    "name": "Pessoa Desenvolvedora Fullstack Kotlin/React - Especialista I (Produtos Digitais Financeiros)",
+    "workplaceType": "remote",
+    "jobUrl": "https://grupoboticario.gupy.io/job/eyJqb2JJZCI6MTIyMTYxMDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:10.225Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12447777",
+    "name": "Coordenador de Obras de Infraestrutura",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://vemproitau.gupy.io/job/eyJqb2JJZCI6MTI0NDc3NzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:10.004Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12467051",
+    "name": "Recepcionista I | HOTEL LOCALIZADO EM SÃO PAULO",
+    "workplaceType": "on-site",
+    "jobUrl": "https://c0nf.gupy.io/job/eyJqb2JJZCI6MTI0NjcwNTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:59:00.252Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:59"
+  },
+  {
+    "id": "12470078",
+    "name": "Operador de Estacionamento - Zona Sul/Brooklin",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NzAwNzgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:58:31.485Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:58"
+  },
+  {
+    "id": "12447615",
+    "name": "Funileiro",
+    "workplaceType": "on-site",
+    "jobUrl": "https://grupovigorito.gupy.io/job/eyJqb2JJZCI6MTI0NDc2MTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:57:56.656Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:57"
+  },
+  {
+    "id": "12470084",
+    "name": "Operador de Estacionamento - Zona Sul/Paraiso/ São Paulo ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NzAwODQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:57:50.891Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:57"
+  },
+  {
+    "id": "12437262",
+    "name": "Supervisor Vendas - Bauru e Região ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://quata.gupy.io/job/eyJqb2JJZCI6MTI0MzcyNjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:57:17.641Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:57"
+  },
+  {
+    "id": "12470058",
+    "name": "Operador de Estacionamento - Zona norte/ Santana/São Paulo",
+    "workplaceType": "on-site",
+    "jobUrl": "https://garageinn.gupy.io/job/eyJqb2JJZCI6MTI0NzAwNTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:57:01.028Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:57"
+  },
+  {
+    "id": "12470350",
+    "name": "Analista de Seguros e Financeiro Pleno ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://concrejato.gupy.io/job/eyJqb2JJZCI6MTI0NzAzNTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:56:55.064Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:56"
+  },
+  {
+    "id": "12470091",
+    "name": "Group Product Manager (GPM)",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://semparar.gupy.io/job/eyJqb2JJZCI6MTI0NzAwOTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:54:27.510Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:54"
+  },
+  {
+    "id": "12470086",
+    "name": "Supervisor de Enfermagem - Afirmativa para pessoas com deficiência",
+    "workplaceType": "on-site",
+    "jobUrl": "https://seconci-sp.gupy.io/job/eyJqb2JJZCI6MTI0NzAwODYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:52:35.976Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:52"
+  },
+  {
+    "id": "12456011",
+    "name": "Auxiliar de Limpeza - Limpeza-Ibirapuera",
+    "workplaceType": "on-site",
+    "jobUrl": "https://aacd.gupy.io/job/eyJqb2JJZCI6MTI0NTYwMTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:51:40.348Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:51"
+  },
+  {
+    "id": "12447686",
+    "name": "Auxiliar de Limpeza - Limpeza-Ibirapuera",
+    "workplaceType": "on-site",
+    "jobUrl": "https://aacd.gupy.io/job/eyJqb2JJZCI6MTI0NDc2ODYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:50:36.812Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "11/09/2026 às 16:50"
+  },
+  {
+    "id": "12470153",
+    "name": "Pessoa Estagiária - Financeiro (Home Office)",
+    "workplaceType": "remote",
+    "jobUrl": "https://bhs.gupy.io/job/eyJqb2JJZCI6MTI0NzAxNTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:50:05.169Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 16:50"
+  },
+  {
+    "id": "12465493",
+    "name": "Product Manager",
+    "workplaceType": "remote",
+    "jobUrl": "https://mercos.gupy.io/job/eyJqb2JJZCI6MTI0NjU0OTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-11T19:45:48.670Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "11/09/2026 às 16:45"
+  },
+  {
     "id": "12470238",
     "name": "Jovem Aprendiz Administrativo | Contas a Pagar ",
     "workplaceType": "hybrid",
