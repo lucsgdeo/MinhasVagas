@@ -362,7 +362,8 @@ function createCard(vaga) {
     const topic = vaga.topic || 'Geral';
     const dataPub = formatDateTime(vaga.publishedDate);
     const link = vaga.jobUrl || '#';
-    const company = vaga.companyName ? `<span class="vacancy-company">${escapeHtml(vaga.companyName)}</span>` : '';
+    const companyName = vaga.companyName || vaga.careerPageName || '';
+    const company = companyName ? `<span class="vacancy-company">${escapeHtml(companyName)}</span>` : '';
 
     return `
         <article class="vacancy-card${isApplied ? ' applied' : ''}" data-vaga-id="${escapeHtml(vagaId)}">
