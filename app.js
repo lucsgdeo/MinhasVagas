@@ -288,22 +288,20 @@ function filterVagas() {
             );
         }
 
-        if (state.currentTechFilter !== 'todas') {
-            filtered = filtered.filter(v => {
-                const topic = (v.topic || '').toLowerCase();
-                switch (state.currentTechFilter) {
-                    case 'suporte': return topic.includes('suporte');
-                    case 'ti': return topic.includes('ti');
-                    case 'infraestrutura':
-                    case 'infra': return topic.includes('infra');
-                    case 'service-desk': return topic.includes('service desk');
-                    case 'junior': return topic.includes('júnior') || topic.includes('junior');
-                    case 'help-desk': return topic.includes('help desk');
-                    case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
-                    default: return true;
-                }
-            });
-        }
+        filtered = filtered.filter(v => {
+            const topic = (v.topic || '').toLowerCase();
+            switch (state.currentTechFilter) {
+                case 'suporte': return topic.includes('suporte');
+                case 'ti': return topic.includes('ti');
+                case 'infraestrutura':
+                case 'infra': return topic.includes('infra');
+                case 'service-desk': return topic.includes('service desk');
+                case 'junior': return topic.includes('júnior') || topic.includes('junior');
+                case 'help-desk': return topic.includes('help desk');
+                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
+                default: return true;
+            }
+        });
         return filtered;
     }
 
@@ -329,10 +327,6 @@ function filterVagas() {
                 const r = filtered.filter(v => (v.topic || '').toLowerCase().includes('auxiliar'));
                 return r.sort((a, b) => (b.publishedDate || '') > (a.publishedDate || '') ? 1 : -1);
             }
-            case 'gremoto':
-                return filtered.filter(v => (v.topic || '').toLowerCase().includes('geral remoto'));
-            case 'gpresencial':
-                return filtered.filter(v => (v.topic || '').toLowerCase().includes('geral presencial'));
             default:
                 return filtered;
         }
@@ -356,40 +350,7 @@ function renderVagas() {
     hideEmpty();
     showStats(filtered);
 
-    if (state.currentTab === 'geral' && state.currentGeralFilter === 'todas') {
-        const presencialVagas = filtered.filter(v => !isVagaRemota(v));
-        const remotoVagas = filtered.filter(v => isVagaRemota(v));
-
-        let html = '';
-
-        if (presencialVagas.length > 0) {
-            html += `
-                <div class="vagas-section">
-                    <div class="vagas-section-header">
-                        <h2 class="vagas-section-title">🏢 Vagas Presenciais</h2>
-                        <span class="vagas-section-count">${presencialVagas.length} vaga${presencialVagas.length !== 1 ? 's' : ''}</span>
-                    </div>
-                </div>
-                ${presencialVagas.map(vaga => createCard(vaga)).join('')}
-            `;
-        }
-
-        if (remotoVagas.length > 0) {
-            html += `
-                <div class="vagas-section">
-                    <div class="vagas-section-header">
-                        <h2 class="vagas-section-title">🌐 Vagas Remotas</h2>
-                        <span class="vagas-section-count">${remotoVagas.length} vaga${remotoVagas.length !== 1 ? 's' : ''}</span>
-                    </div>
-                </div>
-                ${remotoVagas.map(vaga => createCard(vaga)).join('')}
-            `;
-        }
-
-        els.vacanciesGrid.innerHTML = html;
-    } else {
-        els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
-    }
+    els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
 }
 
 function createCard(vaga) {
@@ -513,13 +474,7 @@ function renderSchedule() {
 
 function showStats(vagas) {
     const total = vagas.length;
-    if (state.currentTab === 'geral' && state.currentGeralFilter === 'todas') {
-        const presencialCount = vagas.filter(v => !isVagaRemota(v)).length;
-        const remotoCount = vagas.filter(v => isVagaRemota(v)).length;
-        els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''} (${presencialCount} presencial, ${remotoCount} remota${remotoCount !== 1 ? 's' : ''})`;
-    } else {
-        els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
-    }
+    els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
     els.stats.classList.remove('hidden');
 }
 
