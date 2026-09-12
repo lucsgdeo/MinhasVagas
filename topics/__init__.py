@@ -1,4 +1,10 @@
 from . import (
+    assistente_presencial,
+    assistente_remoto,
+    auxiliar_presencial,
+    auxiliar_remoto,
+    geral_presencial,
+    geral_remoto,
     suporte,
     suporte_remoto,
     ti,
@@ -17,6 +23,12 @@ from . import (
 )
 
 TODOS_TOPICOS = [
+    assistente_presencial,
+    assistente_remoto,
+    auxiliar_presencial,
+    auxiliar_remoto,
+    geral_presencial,
+    geral_remoto,
     suporte,
     suporte_remoto,
     ti,
@@ -35,6 +47,12 @@ TODOS_TOPICOS = [
 ]
 
 __all__ = [
+    "assistente_presencial",
+    "assistente_remoto",
+    "auxiliar_presencial",
+    "auxiliar_remoto",
+    "geral_presencial",
+    "geral_remoto",
     "suporte",
     "suporte_remoto",
     "ti",

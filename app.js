@@ -8,6 +8,9 @@ const state = {
     currentTechFilter: 'todas',
     currentGeralFilter: 'todas',
     currentScheduleFilter: 'todas',
+    currentTechFilter: 'suporte',
+    currentGeralFilter: 'assistente',
+    currentScheduleFilter: 'suporte',
     searchTerm: '',
     appliedIds: new Set(),
     currentTheme: 'red'
@@ -303,6 +306,19 @@ function filterVagas() {
                 }
             });
         }
+        filtered = filtered.filter(v => {
+            const topic = (v.topic || '').toLowerCase();
+            switch (state.currentTechFilter) {
+                case 'suporte': return topic.includes('suporte');
+                case 'ti': return topic.includes('ti');
+                case 'infra': return topic.includes('infra');
+                case 'service-desk': return topic.includes('service desk');
+                case 'junior': return topic.includes('júnior') || topic.includes('junior');
+                case 'help-desk': return topic.includes('help desk');
+                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
+                default: return true;
+            }
+        });
         return filtered;
     }
 
@@ -319,6 +335,21 @@ function filterVagas() {
             filtered = filtered.filter(v => !isVagaRemota(v));
         } else if (state.currentGeralFilter === 'remoto') {
             filtered = filtered.filter(v => isVagaRemota(v));
+        switch (state.currentGeralFilter) {
+            case 'assistente': {
+                const r = filtered.filter(v => (v.topic || '').toLowerCase().includes('assistente'));
+                return r.sort((a, b) => (b.publishedDate || '') > (a.publishedDate || '') ? 1 : -1);
+            }
+            case 'auxiliar': {
+                const r = filtered.filter(v => (v.topic || '').toLowerCase().includes('auxiliar'));
+                return r.sort((a, b) => (b.publishedDate || '') > (a.publishedDate || '') ? 1 : -1);
+            }
+            case 'gremoto':
+                return filtered.filter(v => (v.topic || '').toLowerCase().includes('geral remoto'));
+            case 'gpresencial':
+                return filtered.filter(v => (v.topic || '').toLowerCase().includes('geral presencial'));
+            default:
+                return filtered;
         }
 
         return filtered;
@@ -376,6 +407,7 @@ function renderVagas() {
     } else {
         els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
     }
+    els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
 }
 
 function createCard(vaga) {
@@ -386,7 +418,9 @@ function createCard(vaga) {
     const badgeText = isRemote ? 'Remoto' : 'Presencial';
     const topic = vaga.topic || 'Geral';
     const dataPub = formatDateShort(vaga.publishedDate);
+    const dataPub = formatDateTime(vaga.publishedDate);
     const link = vaga.jobUrl || '#';
+    const company = vaga.companyName ? `<span class="vacancy-company">${escapeHtml(vaga.companyName)}</span>` : '';
 
     return `
         <article class="vacancy-card${isApplied ? ' applied' : ''}" data-vaga-id="${escapeHtml(vagaId)}">
@@ -396,6 +430,7 @@ function createCard(vaga) {
                     <span class="vacancy-badge ${badgeClass}">${badgeText}</span>
                 </div>
                 <span class="vacancy-topic">${escapeHtml(topic)}</span>
+                <span class="vacancy-topic">${escapeHtml(topic)}</span>${company}
                 <div class="vacancy-footer">
                     <span class="vacancy-date">${escapeHtml(dataPub)}</span>
                     <div class="vacancy-actions">
@@ -422,6 +457,7 @@ function renderSchedule() {
                 case 'suporte': return topic.includes('suporte');
                 case 'ti': return topic.includes('ti');
                 case 'infraestrutura': return topic.includes('infra');
+                case 'infra': return topic.includes('infra');
                 case 'service-desk': return topic.includes('service desk');
                 case 'junior': return topic.includes('júnior') || topic.includes('junior');
                 case 'help-desk': return topic.includes('help desk');
@@ -503,6 +539,7 @@ function showStats(vagas) {
     } else {
         els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
     }
+    els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
     els.stats.classList.remove('hidden');
 }
 
@@ -511,12 +548,17 @@ function hideStats() {
 }
 
 function formatDateShort(dateStr) {
+function formatDateTime(dateStr) {
     if (!dateStr) return 'N/I';
     try {
         const date = new Date(dateStr.replace('Z', '+00:00'));
         return date.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit' });
+        const d = date.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit' });
+        const t = date.toLocaleString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+        return `${d} · ${t}`;
     } catch {
         return 'Data inválida';
+        return 'N/I';
     }
 }
 

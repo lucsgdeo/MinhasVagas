@@ -15,3 +15,9 @@ JR REMOTO:              https://portal.gupy.io/api/job-search/jobs?jobName=jr&li
 
 GERAL PRESENCIAL:       https://portal.gupy.io/api/job-search/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&limit=100&offset=0&state=S%C3%A3o%20Paulo
 GERAL REMOTO:           https://portal.gupy.io/api/job-search/jobs?limit=100&offset=0&workplaceType=remote
+
+ASSISTENTE PRESENCIAL:  https://portal.gupy.io/api/job-search/jobs?jobName=assistente&city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&limit=100&offset=0&state=S%C3%A3o%20Paulo
+ASSISTENTE REMOTO:      https://portal.gupy.io/api/job-search/jobs?jobName=assistente&limit=100&offset=0&workplaceType=remote
+
+AUXILIAR PRESENCIAL:  https://portal.gupy.io/api/job-search/jobs?jobName=AUXILIAR&city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&limit=100&offset=0&state=S%C3%A3o%20Paulo
+AUXILIAR REMOTO:      https://portal.gupy.io/api/job-search/jobs?jobName=AUXILIAR&limit=100&offset=0&workplaceType=remote

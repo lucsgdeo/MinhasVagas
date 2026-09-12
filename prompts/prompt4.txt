@@ -1,0 +1,17 @@
+Preciso fazer novas adições ao projeto. 
+
+Dentro de @links.txt eu adicionei mais links, são eles Assistente presencial, remoto e auxiliar presencial e remoto. Preciso que você os adicione no projeto.
+
+1. Eles devem estar dentro da aba de vagas gerais
+2. A busca deve ser feita na seguinte ordem: assistente, auxiliar, gerais sem repetição das vagas entre elas
+3. Dentro da área de vagas gerais, quero alguns botões de pilula, são eles assistente, auxiliar, GRemoto (para gerais remotas) e GPresencial (para gerais presenciais) - A pesquisa das vagas deve ser na ordem dos botões
+4. Preciso que em assistente e auxilixar, estejam unidas as vagas remotas e presenciais, mas organizadas pela data/horário de postagem.
+5. Quero remover o botão de todas as vagas
+6. Em todo o projeto, quero adicionar a hora da publicação, de forma simples e descreta e sem ocupar muito espaçco. Apenas o padrão HH:MM
+7. Quero remover o botão todas as vagas das vagas tech
+8. A ordem dos botões das vagas de tech deve ser Suporte, Ti, Infra, Help Desk, Service Desk, Júnior e JR - Preciso que a pesquisa das vagas seja feita nesta ordem também
+9. Quero que você comece adicionar o nome das empresas nas vagas. Preciso que seja pequeno e bem discreto
+
+Faca tudo isto utilizando o mínimo de tokens possível, caso tenha alguma dúvida, me pergunte
+
+não faca commit nem push até eu aprovar

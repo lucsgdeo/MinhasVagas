@@ -196,7 +196,8 @@ def salvar_vagas_recentes(novas_vagas: list, topic_name: str, vagas_recentes_fil
                 "jobUrl": vaga.get("jobUrl", ""),
                 "publishedDate": vaga.get("publishedDate", ""),
                 "topic": topic_name,
-                "data_formatada_br": vaga.get("data_formatada_br", "")
+                "data_formatada_br": vaga.get("data_formatada_br", ""),
+                "companyName": vaga.get("companyName", "")
             }
             vagas_existentes.append(vaga_completa)
             ids_existentes.add(vaga_id)
