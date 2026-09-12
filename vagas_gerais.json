@@ -1,5 +1,95 @@
 [
   {
+    "id": "12474129",
+    "name": "Analista de Negócios e Projetos Pleno | Business Analyst",
+    "workplaceType": "hybrid",
+    "jobUrl": "https://smarthis.gupy.io/job/eyJqb2JJZCI6MTI0NzQxMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T21:19:16.434Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 18:19",
+    "companyName": ""
+  },
+  {
+    "id": "12474106",
+    "name": "APRENDIZ DE ATENDENTE DE RESTAURANTE ( CENTRO - SAO PAULO/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzQxMDYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T20:35:06.290Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 17:35",
+    "companyName": ""
+  },
+  {
+    "id": "12474099",
+    "name": "ATENDENTE RESTAURANTE 12X36 ( CENTRO - SAO PAULO/SP)",
+    "workplaceType": "on-site",
+    "jobUrl": "https://restaurantemc.gupy.io/job/eyJqb2JJZCI6MTI0NzQwOTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T20:25:06.491Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 17:25",
+    "companyName": ""
+  },
+  {
+    "id": "12474087",
+    "name": "CONSULTOR QUALIDADE UNIDAS(VISTORIADOR VEÍCULAR) | VILA GUILHERME/SP ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://unidas.gupy.io/job/eyJqb2JJZCI6MTI0NzQwODcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T20:15:49.344Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 17:15",
+    "companyName": ""
+  },
+  {
+    "id": "12474065",
+    "name": "Analista de Prevenção a Fraude Pleno",
+    "workplaceType": "remote",
+    "jobUrl": "https://mentore.gupy.io/job/eyJqb2JJZCI6MTI0NzQwNjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T20:07:12.795Z",
+    "topic": "Geral Remoto",
+    "data_formatada_br": "12/09/2026 às 17:07",
+    "companyName": ""
+  },
+  {
+    "id": "12474032",
+    "name": "Analista de Prevenção a Fraude Júnior",
+    "workplaceType": "on-site",
+    "jobUrl": "https://mentore.gupy.io/job/eyJqb2JJZCI6MTI0NzQwMzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T19:47:42.038Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 16:47",
+    "companyName": ""
+  },
+  {
+    "id": "11828858",
+    "name": "Jovem Aprendiz de Logística DDF",
+    "workplaceType": "on-site",
+    "jobUrl": "https://flora.gupy.io/job/eyJqb2JJZCI6MTE4Mjg4NTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T19:30:45.066Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 16:30",
+    "companyName": ""
+  },
+  {
+    "id": "12473980",
+    "name": "Assistente de Loja CSC - Zona Sul ",
+    "workplaceType": "on-site",
+    "jobUrl": "https://renner.gupy.io/job/eyJqb2JJZCI6MTI0NzM5ODAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T19:25:22.630Z",
+    "topic": "Assistente Presencial",
+    "data_formatada_br": "12/09/2026 às 16:25",
+    "companyName": ""
+  },
+  {
+    "id": "12474010",
+    "name": "Analista de Compliance Pleno",
+    "workplaceType": "on-site",
+    "jobUrl": "https://mentore.gupy.io/job/eyJqb2JJZCI6MTI0NzQwMTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
+    "publishedDate": "2026-09-12T19:22:07.668Z",
+    "topic": "Geral Presencial",
+    "data_formatada_br": "12/09/2026 às 16:22",
+    "companyName": ""
+  },
+  {
     "id": "12473947",
     "name": "ESPECIALISTA EM PLANEJAMENTO COMERCIAL",
     "workplaceType": "on-site",
