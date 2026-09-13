@@ -18,8 +18,6 @@ from . import (
     help_desk_remoto,
     jr,
     jr_remoto,
-    geral_presencial,
-    geral_remoto,
 )
 
 TODOS_TOPICOS = [
@@ -42,8 +40,6 @@ TODOS_TOPICOS = [
     help_desk_remoto,
     jr,
     jr_remoto,
-    geral_presencial,
-    geral_remoto,
 ]
 
 __all__ = [
@@ -66,7 +62,5 @@ __all__ = [
     "help_desk_remoto",
     "jr",
     "jr_remoto",
-    "geral_presencial",
-    "geral_remoto",
     "TODOS_TOPICOS",
 ]

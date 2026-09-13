@@ -197,7 +197,13 @@ def salvar_vagas_recentes(novas_vagas: list, topic_name: str, vagas_recentes_fil
                 "publishedDate": vaga.get("publishedDate", ""),
                 "topic": topic_name,
                 "data_formatada_br": vaga.get("data_formatada_br", ""),
-                "companyName": vaga.get("companyName", "")
+                "careerPageName": vaga.get("careerPageName", ""),
+                "careerPageUrl": vaga.get("careerPageUrl", ""),
+                "careerPageLogo": vaga.get("careerPageLogo", ""),
+                "isRemoteWork": vaga.get("isRemoteWork", False),
+                "city": vaga.get("city", ""),
+                "state": vaga.get("state", ""),
+                "country": vaga.get("country", "")
             }
             vagas_existentes.append(vaga_completa)
             ids_existentes.add(vaga_id)
