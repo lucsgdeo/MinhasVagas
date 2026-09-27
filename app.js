@@ -3,7 +3,7 @@ const THEME_STORAGE_KEY = 'minhasvagas_theme';
 
 // Aba "Últimos 2 dias": vagas publicadas hoje ou ontem (dias do calendário,
 // no fuso horário local do navegador) e sem candidatura registrada.
-const ROTULO_JANELA_RECENTES = 'hoje e ontem';
+const ROTULO_JANELA_RECENTE = 'hoje e ontem';
 
 const state = {
     techVagas: [],
@@ -351,6 +351,12 @@ function isVagaRecenteSemCandidatura(vaga) {
     const janela = state.janelaRecente || calcularJanelaRecente(Date.now());
     if (ts < janela.inicio || ts >= janela.fim) return false;
 
+    return isVagaNaoCandidata(vaga);
+}
+
+// Aba "Não candidatadas": mesmo conjunto da aba "Todas", sem as candidaturas
+// registradas no carregamento da página (snapshot em `state.appliedAtLoad`).
+function isVagaNaoCandidata(vaga) {
     return !state.appliedAtLoad.has(String(vaga.id || ''));
 }
 
@@ -363,8 +369,15 @@ function ordenarPorDataDecrescente(vagas) {
 }
 
 function aplicarFiltroSubTab(vagas) {
-    if (state.currentSubTab !== 'recentes') return vagas;
-    return ordenarPorDataDecrescente(vagas.filter(isVagaRecenteSemCandidatura));
+    if (state.currentSubTab === 'recentes') {
+        return ordenarPorDataDecrescente(vagas.filter(isVagaRecenteSemCandidatura));
+    }
+
+    if (state.currentSubTab === 'nao-candidatas') {
+        return vagas.filter(isVagaNaoCandidata);
+    }
+
+    return vagas;
 }
 
 function filterVagas() {
@@ -567,11 +580,18 @@ function renderSchedule() {
     `;
 }
 
+// Complemento do contador exibido na sub-aba ativa (vazio em "Todas").
+function rotuloSubTab() {
+    if (state.currentSubTab === 'recentes') return ROTULO_JANELA_RECENTE;
+    if (state.currentSubTab === 'nao-candidatas') return 'ainda não candidatadas';
+    return '';
+}
+
 function showStats(vagas) {
     const total = vagas.length;
     const base = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
-    els.statTotal.textContent = state.currentSubTab === 'recentes'
-        ? `${base} · ${ROTULO_JANELA_RECENTES}`
+    els.statTotal.textContent = rotuloSubTab()
+        ? `${base} · ${rotuloSubTab()}`
         : base;
     els.stats.classList.remove('hidden');
 }
@@ -617,16 +637,20 @@ function hideError() {
 }
 
 function showEmpty() {
-    if (els.emptyTitle) {
-        els.emptyTitle.textContent = state.currentSubTab === 'recentes'
-            ? 'Nenhuma vaga nova'
-            : 'Nenhuma vaga encontrada';
+    let titulo = 'Nenhuma vaga encontrada';
+    let texto = 'Tente ajustar os filtros ou a busca';
+
+    if (state.currentSubTab === 'recentes') {
+        titulo = 'Nenhuma vaga nova';
+        texto = `Nada publicado ${ROTULO_JANELA_RECENTE} sem candidatura`;
+    } else if (state.currentSubTab === 'nao-candidatas') {
+        titulo = 'Tudo já candidatado';
+        texto = 'Você já se candidatou a todas as vagas com os filtros atuais';
     }
-    if (els.emptyText) {
-        els.emptyText.textContent = state.currentSubTab === 'recentes'
-            ? `Nada publicado ${ROTULO_JANELA_RECENTES} sem candidatura`
-            : 'Tente ajustar os filtros ou a busca';
-    }
+
+    if (els.emptyTitle) els.emptyTitle.textContent = titulo;
+    if (els.emptyText) els.emptyText.textContent = texto;
+
     els.emptyState.classList.remove('hidden');
     els.vacanciesGrid.classList.add('hidden');
 }
