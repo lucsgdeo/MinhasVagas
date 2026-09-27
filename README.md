@@ -1,6 +1,6 @@
 # 🤖 MinhasVagas - Dashboard e Monitoramento de Vagas Gupy
 
-Sistema automatizado em Python para monitoramento periódico de vagas na plataforma **Gupy**, com deduplicação global, envio de alertas no **Telegram** e **Dashboard Web interativo** hospedado no GitHub Pages.
+Sistema automatizado em Python para monitoramento periódico de vagas na plataforma **Gupy**, com deduplicação global e **Dashboard Web interativo** hospedado no GitHub Pages.
 
 ---
 
@@ -17,14 +17,13 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
   - **Personalização de Temas**: 8 opções de cores de tema persistidas no navegador (Vermelho, Azul, Verde, Roxo, Laranja, Teal, Índigo, Rosa).
   - **Marcação de Candidaturas**: Controle local com checkbox "Candidatei-me" salvo no `localStorage`.
     - As listas de "Últimos 2 dias" e "Não candidatadas" são **instantâneos do carregamento da página**: marcar/desmarcar "Candidatei-me" (ou clicar em "Candidatar-se") mantém o card visível na tela e apenas o destaca, sem removê-lo da lista. A vaga só desaparece dessas abas no **próximo carregamento da página** (F5), momento em que o snapshot `state.appliedAtLoad` é refeito a partir do `localStorage`. Na aba **Todas** a vaga permanece visível sempre.
-- **Monitoramento Multitópico**: Realiza buscas segmentadas por áreas especializadas de TI e buscas amplas gerais.
+- **Buscas Configuráveis**: Todos os termos monitorados ficam centralizados em uma única lista (`BUSCAS` em `consultas.py`). Cada termo gera uma consulta presencial e uma remota a partir de duas URLs padrão.
 - **Isolamento de Dados**: Separação física entre o histórico de tech (`vagas_recentes.json`) e vagas gerais (`vagas_gerais.json`).
-- **Ordem de Execução Prioritária**: Módulos de tech rodam primeiro, garantindo prioridade no registro do cache (`vagas_vistas.json`) e evitando que vagas técnicas sejam duplicadas na listagem geral.
-- **Deduplicação Global**: Armazena o ID original de cada vaga no arquivo de histórico (`vagas_vistas.json`). Se uma vaga contiver múltiplos termos (ex: *"Suporte Júnior"*), ela é notificada no primeiro tópico correspondente e não gera alertas duplicados nos demais.
-- **Filtro de Recorrência**: Notifica apenas vagas publicadas nos últimos 4 dias e limpa automaticamente registros do cache com mais de 7 dias.
-- **Resiliência e Retentativas**: Sistema de retentativas automáticas (`retry`) com tolerância a falhas na API da Gupy e na API do Telegram.
-- **Divisão de Mensagens**: Agrupa as vagas em blocos compatíveis com o limite de 4.096 caracteres do Telegram.
-- **Execução Modular**: Cada tópico pode ser executado individualmente ou de forma unificada através do orquestrador principal `main.py`.
+- **Ordem de Execução**: Os termos de tech rodam primeiro, garantindo prioridade no registro do cache (`vagas_vistas.json`) e evitando que vagas técnicas sejam duplicadas na listagem geral.
+- **Deduplicação Global**: Armazena o ID original de cada vaga no arquivo de histórico (`vagas_vistas.json`). Se a mesma vaga for encontrada por termos diferentes, ela só é registrada na primeira consulta que a encontrar.
+- **Filtro de Recorrência**: Considera apenas vagas publicadas nos últimos 4 dias e limpa automaticamente registros do cache com mais de 7 dias.
+- **Resiliência e Retentativas**: Sistema de retentativas automáticas (`retry`) com tolerância a falhas na API da Gupy.
+- **Zero configuração por termo**: Adicionar ou remover uma busca é uma linha na lista, sem criar arquivos.
 - **Zero Dependências Externas**: Utiliza estritamente a biblioteca padrão do Python (`urllib`, `json`, `datetime`, `zoneinfo`) e Vanilla JS/CSS no frontend.
 - **CI/CD com GitHub Actions**: Roda na nuvem e comita os históricos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`) de volta no repositório.
 
@@ -37,140 +36,113 @@ MinhasVagas/
 ├── .github/
 │   └── workflows/
 │       └── main.yml               # Pipeline de monitoramento e commit (GitHub Actions)
-├── topics/                        # Módulos individuais de cada tópico
-│   ├── __init__.py                # Exporta TODOS_TOPICOS para o orquestrador
-│   ├── suporte.py                 # Suporte (Presencial SP/ABC)
-│   ├── suporte_remoto.py          # Suporte (Remoto)
-│   ├── ti.py                      # TI (Presencial SP/ABC)
-│   ├── ti_remoto.py               # TI (Remoto)
-│   ├── infra.py                   # Infraestrutura (Presencial SP/ABC)
-│   ├── service_desk.py            # Service Desk (Presencial SP/ABC)
-│   ├── service_desk_remoto.py     # Service Desk (Remoto)
-│   ├── junior.py                  # Júnior (Presencial SP/ABC)
-│   ├── junior_remoto.py           # Júnior (Remoto)
-│   ├── help_desk.py               # Help Desk (Presencial SP/ABC)
-│   ├── help_desk_remoto.py        # Help Desk (Remoto)
-│   ├── jr.py                      # JR (Presencial SP/ABC)
-│   ├── jr_remoto.py               # JR (Remoto)
-│   ├── geral_presencial.py        # Geral Presencial (Grande SP)
-│   └── geral_remoto.py            # Geral Remoto
-├── common.py                      # Funções centrais (API Gupy, Telegram, Cache, .env)
-├── main.py                        # Orquestrador principal que executa todos os tópicos
+├── consultas.py                   # LISTA DE BUSCAS (jobName, destino, rótulo) + URLs padrão
+├── common.py                      # API Gupy, cache, histórico e limpeza
+├── main.py                        # Orquestrador: itera as consultas e imprime o resumo
 ├── index.html                     # Interface do Dashboard (GitHub Pages)
 ├── styles.css                     # Estilos visuais e temas
 ├── app.js                         # Lógica do Dashboard, filtros, temas e gráficos
-├── links.txt                      # Referência de URLs e filtros da Gupy
 ├── vagas_vistas.json              # Cache de controle de IDs já processados
 ├── vagas_recentes.json            # Histórico dos últimos 7 dias (Vagas Tech)
 ├── vagas_gerais.json              # Histórico dos últimos 7 dias (Vagas Gerais)
-├── .env                           # Credenciais locais (ignorado no Git)
+├── .env                           # Configurações locais (ignorado no Git)
 ├── .gitignore                     # Configuração de arquivos ignorados pelo Git
 └── README.md                      # Documentação do projeto
 ```
 
 ---
 
-## 🧭 Tópicos e IDs Configurados
+## 🧭 Buscas Configuradas
 
-| Módulo | Arquivo | Termo / Filtro Gupy | Modalidade / Região | ID Telegram |
-|---|---|---|---|---|
-| **Suporte** | `topics/suporte.py` | `Suporte` | Presencial (SP / ABC) | `7` |
-| **Suporte Remoto** | `topics/suporte_remoto.py` | `Suporte` | Remoto | `17` |
-| **TI** | `topics/ti.py` | `ti` | Presencial (SP / ABC) | `18` |
-| **TI Remoto** | `topics/ti_remoto.py` | `ti` | Remoto | `19` |
-| **Infraestrutura** | `topics/infra.py` | `infra` | Presencial (SP / ABC) | `20` |
-| **Service Desk** | `topics/service_desk.py` | `Service Desk` | Presencial (SP / ABC) | `21` |
-| **Service Desk Remoto** | `topics/service_desk_remoto.py` | `Service Desk` | Remoto | `22` |
-| **Júnior** | `topics/junior.py` | `Júnior` | Presencial (SP / ABC) | `23` |
-| **Júnior Remoto** | `topics/junior_remoto.py` | `Júnior` | Remoto | `24` |
-| **Help Desk** | `topics/help_desk.py` | `HELP DESK` | Presencial (SP / ABC) | `25` |
-| **Help Desk Remoto** | `topics/help_desk_remoto.py` | `help desk` | Remoto | `26` |
-| **JR** | `topics/jr.py` | `jr` | Presencial (SP / ABC) | `131` |
-| **JR Remoto** | `topics/jr_remoto.py` | `jr` | Remoto | `132` |
-| **Geral Presencial** | `topics/geral_presencial.py` | Todas as vagas | Presencial (SP / ABC) | *(Pendente // TODO)* |
-| **Geral Remoto** | `topics/geral_remoto.py` | Todas as vagas | Remoto | *(Pendente // TODO)* |
+Todas as buscas vivem na lista `BUSCAS` de `consultas.py`. Cada linha gera **duas** consultas: uma presencial (Grande SP) e uma remota.
+
+| Termo (`jobName`) | Destino | Arquivo gerado | Rótulo no card |
+|---|---|---|---|
+| `Suporte` | `tech` | `vagas_recentes.json` | `Suporte` / `Suporte Remoto` |
+| `TI` | `tech` | `vagas_recentes.json` | `TI` / `TI Remoto` |
+| `infra` | `tech` | `vagas_recentes.json` | `Infraestrutura` / `Infraestrutura Remoto` |
+| `Service Desk` | `tech` | `vagas_recentes.json` | `Service Desk` / `Service Desk Remoto` |
+| `Júnior` | `tech` | `vagas_recentes.json` | `Júnior` / `Júnior Remoto` |
+| `Help Desk` | `tech` | `vagas_recentes.json` | `Help Desk` / `Help Desk Remoto` |
+| `jr` | `tech` | `vagas_recentes.json` | `JR` / `JR Remoto` |
+| `assistente` | `geral` | `vagas_gerais.json` | `Assistente Presencial` / `Assistente Remoto` |
+| `auxiliar` | `geral` | `vagas_gerais.json` | `Auxiliar Presencial` / `Auxiliar Remoto` |
+| *(vazio)* | `geral` | `vagas_gerais.json` | `Geral Presencial` / `Geral Remoto` |
+
+> O termo vazio (`None`) não usa `jobName` na URL: é a busca ampla, que captura qualquer vaga publicada nas cidades monitoradas, inclusive as que nenhum outro termo encontra.
+
+### As duas URLs padrão
+
+```text
+Presencial: https://portal.gupy.io/api/job-search/jobs?limit=100&offset=0&city=<CIDADES>&state=São Paulo
+Remoto:     https://portal.gupy.io/api/job-search/jobs?limit=100&offset=0&workplaceType=remote
+```
+
+O `jobName` é acrescentado a uma delas conforme o termo. O `limit=100` é o teto aceito pela API (acima disso retorna HTTP 400) e, como os resultados vêm ordenados por data de publicação, `offset=0` já traz as vagas mais recentes.
 
 ---
 
 ## ⚙️ Configuração do Ambiente
 
-### 1. Configuração Local (`.env`)
+O projeto **não depende de nenhuma credencial externa**. A API da Gupy é consultada sem autenticação e os resultados são gravados em arquivos JSON versionados no repositório.
 
-Crie ou edite o arquivo `.env` na raiz do projeto com as credenciais do bot do Telegram:
-
-```env
-TELEGRAM_BOT_TOKEN="SEU_TOKEN_AQUI"
-TELEGRAM_CHAT_ID="ID_DO_SEU_CHAT_OU_GRUPO"
-```
-
-> **Nota**: Os IDs dos tópicos estão definidos diretamente em cada módulo dentro de `topics/`, não sendo necessário criar variáveis de ambiente adicionais para eles.
-
-### 2. Configuração no GitHub Actions (Secrets)
-
-No seu repositório do GitHub, acesse **Settings > Secrets and variables > Actions** e adicione os seguintes segredos:
-
-* `TELEGRAM_BOT_TOKEN`: Token gerado pelo @BotFather.
-* `TELEGRAM_CHAT_ID`: ID do chat/supergrupo onde as notificações serão publicadas.
+A única configuração opcional é o `.env` na raiz, carregado por `carregar_env()` em `common.py`. Como não há mais integração com o Telegram, ele pode ser removido com segurança, assim como o bloco `env:` correspondente em `.github/workflows/main.yml`.
 
 ---
 
 ## 🚀 Como Executar
 
-### Executar Todos os Tópicos (Recomendado)
-
-Roda o orquestrador que consulta todos os tópicos em sequência e exibe um resumo da execução:
-
 ```bash
 python main.py
 ```
 
-### Executar um Tópico Específico
+O orquestrador percorre todas as consultas (cada termo × presencial e remoto), com 1 segundo de intervalo entre elas, e exibe um resumo ao final. Rodar duas vezes seguidas não duplica nada: o cache `vagas_vistas.json` filtra os IDs já processados.
 
-Você pode rodar qualquer módulo da pasta `topics/` de forma independente:
+Para inspecionar as URLs que serão consultadas, sem chamar a API:
 
-```bash
-# Executa apenas vagas de Suporte Presencial
-python topics/suporte.py
-
-# Executa apenas vagas de TI Remoto
-python topics/ti_remoto.py
+```python
+from consultas import gerar_consultas
+for c in gerar_consultas():
+    print(c.rotulo, "->", c.url)
 ```
 
 ---
 
 ## 🔄 Automação Contínua (CI/CD)
 
-O workflow configurado em `.github/workflows/main.yml` executa a cada 1 hora via cron do GitHub Actions:
+O workflow configurado em `.github/workflows/main.yml` pode ser disparado manualmente pela aba **Actions** do GitHub:
 
 1. Faz checkout do código.
 2. Configura o ambiente Python 3.11.
-3. Executa `python main.py` utilizando os secrets configurados.
+3. Executa `python main.py`.
 4. Salva e comita automaticamente os históricos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`) no repositório.
 
 ---
 
-## 🛠️ Como Adicionar um Novo Tópico
+## 🛠️ Como Adicionar ou Remover uma Busca
 
-1. Crie um novo arquivo dentro de `topics/` (ex: `topics/qa.py`):
-   ```python
-   import os
-   import sys
+Basta editar a lista `BUSCAS` em `consultas.py`. **Nenhum arquivo novo é preciso.**
 
-   sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-   from common import executar_monitoramento
+```python
+BUSCAS = [
+    ("Suporte",      "tech",  "Suporte"),
+    ("TI",           "tech",  "TI"),
+    ("infra",        "tech",  "Infraestrutura"),
+    ("Service Desk", "tech",  "Service Desk"),
+    ("Júnior",       "tech",  "Júnior"),
+    ("Help Desk",    "tech",  "Help Desk"),
+    ("jr",           "tech",  "JR"),
+    ("assistente",   "geral", "Assistente Presencial"),
+    ("auxiliar",     "geral", "Auxiliar Presencial"),
+    (None,           "geral", "Geral Presencial"),
+    ("seguranca",    "geral", "Segurança"),   # <- nova busca
+]
+```
 
-   TOPIC_NAME = "QA / Qualidade de Software"
-   LIMIT = 50
-   TELEGRAM_TOPIC_ID = 27  # ID do tópico no Telegram
-   API_URL = "https://employability-portal.gupy.io/api/v1/jobs?jobName=QA&limit=50&offset=0&workplaceType=remote"
+Cada linha é `(jobName, destino, rótulo presencial)`:
 
-   def processar_vagas():
-       return executar_monitoramento(
-           topic_name=TOPIC_NAME,
-           api_url=API_URL,
-           topic_id=TELEGRAM_TOPIC_ID
-       )
+* **`jobName`** — termo enviado como `?jobName=`. Use `None` para a busca ampla, sem filtro de nome.
+* **`destino`** — `"tech"` grava em `vagas_recentes.json` (aba **Vagas Tech**); `"geral"` grava em `vagas_gerais.json` (aba **Vagas Gerais**).
+* **`rótulo`** — texto exibido no card e usado pelos filtros do dashboard. A variante remota é derivada automaticamente: `"Suporte"` → `"Suporte Remoto"`, `"Assistente Presencial"` → `"Assistente Remoto"`.
 
-   if __name__ == "__main__":
-       processar_vagas()
-   ```
+> **Importante:** o dashboard filtra as vagas pelo campo `topic`, que recebe esse rótulo. Ao criar um termo novo, escolha um rótulo que não colida com os filtros de cargo já existentes (`suporte`, `ti`, `infra`, `service desk`, `júnior`, `help desk`, `jr`, `assistente`, `auxiliar`) — o filtro de "Vagas Tech" faz busca por substring e poderia capturar o termo novo por acidente.
