@@ -1,15 +1,25 @@
 const STORAGE_KEY = 'minhasvagas_applied';
 const THEME_STORAGE_KEY = 'minhasvagas_theme';
 
+// Aba "Últimos 2 dias": vagas publicadas hoje ou ontem (dias do calendário,
+// no fuso horário local do navegador) e sem candidatura registrada.
+const ROTULO_JANELA_RECENTES = 'hoje e ontem';
+
 const state = {
     techVagas: [],
     geralVagas: [],
     currentTab: 'tech',
+    currentSubTab: 'todas',
     currentTechFilter: 'suporte',
     currentGeralFilter: 'assistente',
     currentScheduleFilter: 'suporte',
     searchTerm: '',
     appliedIds: new Set(),
+    // Instantâneos fixados no carregamento da página.
+    // A aba "Últimos 2 dias" filtra por estes valores para que a lista só
+    // mude ao recarregar a página (nunca durante a sessão).
+    appliedAtLoad: new Set(),
+    janelaRecente: null,
     currentTheme: 'red'
 };
 
@@ -20,6 +30,8 @@ function init() {
         tabTech: document.getElementById('tab-tech'),
         tabGeral: document.getElementById('tab-geral'),
         tabSchedule: document.getElementById('tab-schedule'),
+        subTabs: document.getElementById('subtabs'),
+        subTabBtns: document.querySelectorAll('.subtab-btn'),
         searchInput: document.getElementById('search-input'),
         techFilterPillsContainer: document.getElementById('tech-filter-pills'),
         geralFilterPillsContainer: document.getElementById('geral-filter-pills'),
@@ -33,6 +45,8 @@ function init() {
         filtersContainer: document.getElementById('filters-container'),
         scheduleFiltersContainer: document.getElementById('schedule-filters-container'),
         emptyState: document.getElementById('empty-state'),
+        emptyTitle: document.querySelector('#empty-state .empty-title'),
+        emptyText: document.querySelector('#empty-state .empty-text'),
         loading: document.getElementById('loading'),
         errorState: document.getElementById('error-state'),
         errorMessage: document.getElementById('error-message'),
@@ -52,6 +66,10 @@ function setupEventListeners() {
     if (els.tabTech) els.tabTech.addEventListener('click', () => switchTab('tech'));
     if (els.tabGeral) els.tabGeral.addEventListener('click', () => switchTab('geral'));
     if (els.tabSchedule) els.tabSchedule.addEventListener('click', () => switchTab('schedule'));
+
+    els.subTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchSubTab(btn.dataset.subtab));
+    });
 
     if (els.searchInput) {
         els.searchInput.addEventListener('input', (e) => {
@@ -124,11 +142,18 @@ function loadAppliedFromStorage() {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
             const ids = JSON.parse(stored);
-            state.appliedIds = new Set(ids);
+            // Normaliza para string: os ids podem vir como número do JSON
+            state.appliedIds = new Set(Array.isArray(ids) ? ids.map(String) : []);
         }
     } catch (e) {
         console.warn('Erro ao ler localStorage:', e);
     }
+
+    // Congela o estado das candidaturas e a janela "hoje + ontem" neste momento:
+    // marcar "Candidatei-me" durante a sessão não deve remover a vaga da aba
+    // "Últimos 2 dias". O filtro só é recalculado no próximo carregamento.
+    state.appliedAtLoad = new Set(state.appliedIds);
+    state.janelaRecente = calcularJanelaRecente(Date.now());
 }
 
 function loadThemeFromStorage() {
@@ -196,6 +221,18 @@ function updateCardAppliedState(vagaId, applied) {
     }
 }
 
+function switchSubTab(subTab) {
+    state.currentSubTab = subTab;
+
+    els.subTabBtns.forEach(btn => {
+        const isActive = btn.dataset.subtab === subTab;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    renderVagas();
+}
+
 function switchTab(tab) {
     state.currentTab = tab;
 
@@ -222,6 +259,7 @@ function switchTab(tab) {
     els.scheduleFiltersContainer.classList.toggle('hidden', !isSchedule);
     els.stats.classList.toggle('hidden', isSchedule);
     els.emptyState.classList.add('hidden');
+    if (els.subTabs) els.subTabs.classList.toggle('hidden', isSchedule);
 
     if (els.techFilterPillsContainer) els.techFilterPillsContainer.classList.toggle('hidden', !isTech);
     if (els.geralFilterPillsContainer) els.geralFilterPillsContainer.classList.toggle('hidden', !isGeral);
@@ -278,6 +316,57 @@ function isVagaRemota(vaga) {
     return modalidade === 'remote' || modalidade === 'remoto' || topic.includes('remoto');
 }
 
+function getPublishedTimestamp(vaga) {
+    const raw = vaga && vaga.publishedDate;
+    if (!raw) return null;
+    const ts = Date.parse(String(raw));
+    return Number.isNaN(ts) ? null : ts;
+}
+
+function inicioDoDiaLocal(ts) {
+    const d = new Date(ts);
+    d.setHours(0, 0, 0, 0);
+    return d;
+}
+
+// Janela "hoje + ontem": do início de ontem até o início de amanhã.
+// Usa dias do calendário no fuso local do navegador (mesma referência das datas
+// exibidas no card) e setDate() para não quebrar em horário de verão.
+function calcularJanelaRecente(refTs) {
+    const inicioOntem = inicioDoDiaLocal(refTs);
+    inicioOntem.setDate(inicioOntem.getDate() - 1);
+
+    const inicioAmanha = inicioDoDiaLocal(refTs);
+    inicioAmanha.setDate(inicioAmanha.getDate() + 1);
+
+    return { inicio: inicioOntem.getTime(), fim: inicioAmanha.getTime() };
+}
+
+// Aba "Últimos 2 dias": publicada hoje ou ontem e sem candidatura registrada
+// no carregamento da página (snapshot em `state.appliedAtLoad`).
+function isVagaRecenteSemCandidatura(vaga) {
+    const ts = getPublishedTimestamp(vaga);
+    if (ts === null) return false;
+
+    const janela = state.janelaRecente || calcularJanelaRecente(Date.now());
+    if (ts < janela.inicio || ts >= janela.fim) return false;
+
+    return !state.appliedAtLoad.has(String(vaga.id || ''));
+}
+
+function ordenarPorDataDecrescente(vagas) {
+    return [...vagas].sort((a, b) => {
+        const tsA = getPublishedTimestamp(a) || 0;
+        const tsB = getPublishedTimestamp(b) || 0;
+        return tsB - tsA;
+    });
+}
+
+function aplicarFiltroSubTab(vagas) {
+    if (state.currentSubTab !== 'recentes') return vagas;
+    return ordenarPorDataDecrescente(vagas.filter(isVagaRecenteSemCandidatura));
+}
+
 function filterVagas() {
     if (state.currentTab === 'tech') {
         let filtered = state.techVagas;
@@ -302,7 +391,8 @@ function filterVagas() {
                 default: return true;
             }
         });
-        return filtered;
+
+        return aplicarFiltroSubTab(filtered);
     }
 
     if (state.currentTab === 'geral') {
@@ -316,20 +406,24 @@ function filterVagas() {
 
         switch (state.currentGeralFilter) {
             case 'presencial':
-                return filtered.filter(v => !isVagaRemota(v));
+                filtered = filtered.filter(v => !isVagaRemota(v));
+                break;
             case 'remoto':
-                return filtered.filter(v => isVagaRemota(v));
-            case 'assistente': {
-                const r = filtered.filter(v => (v.topic || '').toLowerCase().includes('assistente'));
-                return r.sort((a, b) => (b.publishedDate || '') > (a.publishedDate || '') ? 1 : -1);
-            }
-            case 'auxiliar': {
-                const r = filtered.filter(v => (v.topic || '').toLowerCase().includes('auxiliar'));
-                return r.sort((a, b) => (b.publishedDate || '') > (a.publishedDate || '') ? 1 : -1);
-            }
+                filtered = filtered.filter(v => isVagaRemota(v));
+                break;
+            case 'assistente':
+                filtered = filtered.filter(v => (v.topic || '').toLowerCase().includes('assistente'));
+                filtered = ordenarPorDataDecrescente(filtered);
+                break;
+            case 'auxiliar':
+                filtered = filtered.filter(v => (v.topic || '').toLowerCase().includes('auxiliar'));
+                filtered = ordenarPorDataDecrescente(filtered);
+                break;
             default:
-                return filtered;
+                break;
         }
+
+        return aplicarFiltroSubTab(filtered);
     }
 
     return [];
@@ -354,7 +448,7 @@ function renderVagas() {
 }
 
 function createCard(vaga) {
-    const vagaId = vaga.id || '';
+    const vagaId = String(vaga.id || '');
     const isApplied = state.appliedIds.has(vagaId);
     const isRemote = isVagaRemota(vaga);
     const badgeClass = isRemote ? 'remote' : 'onsite';
@@ -475,7 +569,10 @@ function renderSchedule() {
 
 function showStats(vagas) {
     const total = vagas.length;
-    els.statTotal.textContent = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
+    const base = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
+    els.statTotal.textContent = state.currentSubTab === 'recentes'
+        ? `${base} · ${ROTULO_JANELA_RECENTES}`
+        : base;
     els.stats.classList.remove('hidden');
 }
 
@@ -520,6 +617,16 @@ function hideError() {
 }
 
 function showEmpty() {
+    if (els.emptyTitle) {
+        els.emptyTitle.textContent = state.currentSubTab === 'recentes'
+            ? 'Nenhuma vaga nova'
+            : 'Nenhuma vaga encontrada';
+    }
+    if (els.emptyText) {
+        els.emptyText.textContent = state.currentSubTab === 'recentes'
+            ? `Nada publicado ${ROTULO_JANELA_RECENTES} sem candidatura`
+            : 'Tente ajustar os filtros ou a busca';
+    }
     els.emptyState.classList.remove('hidden');
     els.vacanciesGrid.classList.add('hidden');
 }

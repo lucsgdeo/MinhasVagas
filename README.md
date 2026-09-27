@@ -9,9 +9,11 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
 - **Dashboard Web Moderno**:
   - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia (Suporte, TI, Infra, Service Desk, Júnior, Help Desk, JR) com filtros rápidos por cargo e busca textual em tempo real.
   - **Aba "Vagas Gerais"**: Exibe vagas gerais da Grande SP e Remotas em arquivo dedicado (`vagas_gerais.json`), com separação clara entre vagas **Presenciais** e **Remotas** e visualização agrupada em seções.
+  - **Sub-abas "Todas" / "Últimos 2 dias"**: Disponíveis dentro de "Vagas Tech" e "Vagas Gerais". A sub-aba **"Últimos 2 dias"** combina os filtros de cargo com a janela de **hoje + ontem** (dias do calendário, calculada em `calcularJanelaRecente()` no `app.js` com o fuso horário local do navegador — do início de ontem até o início de amanhã), mostrando apenas vagas publicadas nesse período e para as quais você ainda **não** se candidatou, ordenadas da mais recente para a mais antiga.
   - **Aba "Horários de Postagem"**: Gráfico analítico de distribuição de publicações por hora, pico e períodos do dia, calculado estritamente com base nas **vagas de tecnologia**.
   - **Personalização de Temas**: 8 opções de cores de tema persistidas no navegador (Vermelho, Azul, Verde, Roxo, Laranja, Teal, Índigo, Rosa).
   - **Marcação de Candidaturas**: Controle local com checkbox "Candidatei-me" salvo no `localStorage`.
+    - A lista da sub-aba "Últimos 2 dias" é um **instantâneo do carregamento da página**: marcar/desmarcar "Candidatei-me" (ou clicar em "Candidatar-se") mantém o card visível na tela e apenas o destaca, sem removê-lo da lista. A vaga só desaparece da sub-aba no **próximo carregamento da página** (F5), momento em que o snapshot `state.appliedAtLoad` é refeito a partir do `localStorage`.
 - **Monitoramento Multitópico**: Realiza buscas segmentadas por áreas especializadas de TI e buscas amplas gerais.
 - **Isolamento de Dados**: Separação física entre o histórico de tech (`vagas_recentes.json`) e vagas gerais (`vagas_gerais.json`).
 - **Ordem de Execução Prioritária**: Módulos de tech rodam primeiro, garantindo prioridade no registro do cache (`vagas_vistas.json`) e evitando que vagas técnicas sejam duplicadas na listagem geral.

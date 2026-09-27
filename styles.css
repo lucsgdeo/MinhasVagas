@@ -292,6 +292,48 @@ body {
     }
 }
 
+/* Sub-tabs (período / candidaturas) */
+.subtabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.subtab-btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.subtab-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.subtab-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+@media (min-width: 640px) {
+    .subtabs {
+        margin-bottom: 1.5rem;
+    }
+
+    .subtab-btn {
+        padding: 0.5rem 1.125rem;
+        font-size: 0.8125rem;
+    }
+}
+
 /* Filters */
 .filters {
     display: flex;
