@@ -9,7 +9,7 @@ const state = {
     techVagas: [],
     geralVagas: [],
     currentTab: 'tech',
-    currentSubTab: 'todas',
+    currentSubTab: 'recentes', // padrão: abre em "Últimos 2 dias" (hoje + ontem, sem candidatura)
     currentTechFilter: 'suporte',
     currentGeralFilter: 'assistente',
     currentScheduleFilter: 'suporte',
