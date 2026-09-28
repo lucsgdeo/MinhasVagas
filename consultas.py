@@ -93,6 +93,18 @@ class Consulta:
         return f"{self.rotulo_base.removesuffix(' Presencial')} Remoto"
 
     @property
+    def rotulo_exibicao(self) -> str:
+        """Como a consulta aparece no terminal: o termo buscado e o rótulo gravado.
+
+        Sem isso o log repete "Desenvolvimento" cinco vezes — uma por busca
+        (desenvolvedor, desenvolvimento, dev, software, devops) — e não dá para
+        saber qual delas trouxe a vaga. Só afeta a exibição: o `topic` do JSON
+        continua sendo `rotulo`.
+        """
+        busca = f'"{self.job_name}"' if self.job_name else "(busca ampla)"
+        return f"{busca} → {self.rotulo}"
+
+    @property
     def url(self) -> str:
         params = {"limit": LIMIT, "offset": 0, **MODALIDADES[self.modalidade]}
         if self.job_name:

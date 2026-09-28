@@ -5,6 +5,8 @@ import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+from descricoes import cargo_para_descartar, descrever_vagas, sincronizar_descricoes
+
 # Diretório raiz do projeto
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -92,7 +94,11 @@ def salvar_cache(cache_dados: dict, cache_file: str = CACHE_FILE_DEFAULT):
 
 
 def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT, dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT) -> list:
-    """Carrega e limpa vagas antigas (> dias_retencao) do arquivo de vagas recentes."""
+    """Carrega e limpa vagas do arquivo: antigas (> dias_retencao) e de cargo avançado.
+
+    O corte por cargo é repetido aqui, e não só na captura, para que as vagas de
+    cargo avançado que entraram antes do filtro saiam na próxima execução.
+    """
     agora_br = datetime.now(FUSO_SP)
     data_limite = agora_br - timedelta(days=dias_retencao)
 
@@ -111,6 +117,8 @@ def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_F
 
         vagas_validas = []
         for vaga in vagas:
+            if cargo_para_descartar(vaga.get("name", "")):
+                continue
             raw_date = vaga.get("publishedDate")
             if raw_date:
                 try:
@@ -129,11 +137,34 @@ def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_F
         return []
 
 
+def ids_no_historico(vagas_recentes_file: str) -> set:
+    """IDs de vagas presentes nos DOIS históricos (tech + gerais).
+
+    `descricoes.json` é um arquivo só, então a poda tem de considerar a união:
+    considerar só o arquivo que está sendo escrito apagaria as descrições do
+    outro destino a cada rodada.
+    """
+    ids = set()
+    for arquivo in (VAGAS_RECENTES_FILE_DEFAULT, VAGAS_GERAIS_FILE_DEFAULT):
+        try:
+            with open(arquivo, "r", encoding="utf-8") as f:
+                ids.update(str(vaga.get("id")) for vaga in json.load(f))
+        except Exception:
+            continue
+    return ids
+
+
 def salvar_vagas_recentes(novas_vagas: list, rotulo: str, vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT):
-    """Adiciona novas vagas ao histórico e salva (mantém apenas últimas 7 dias)."""
+    """Adiciona novas vagas ao histórico e salva (mantém apenas últimas 7 dias).
+
+    As seções de "Responsabilidades e Atribuições" em diante vão para
+    `descricoes.json`, que é reescrito a partir dos IDs que continuam nos dois
+    históricos — assim os arquivos envelhecem juntos.
+    """
     vagas_existentes = carregar_e_limpar_vagas_recentes(vagas_recentes_file)
 
     ids_existentes = {v.get("id") for v in vagas_existentes}
+    novas_para_descrever = []
 
     for vaga in novas_vagas:
         vaga_id = str(vaga.get("id"))
@@ -156,6 +187,11 @@ def salvar_vagas_recentes(novas_vagas: list, rotulo: str, vagas_recentes_file: s
             }
             vagas_existentes.append(vaga_completa)
             ids_existentes.add(vaga_id)
+            # O `description` não vai para o histórico: fica só em
+            # `descricoes.json`, já organizado em seções. A página da vaga é
+            # preferida porque traz o HTML original (títulos, bullets e
+            # subtítulos); o texto da API entra só de reserva.
+            novas_para_descrever.append(vaga)
 
     vagas_existentes.sort(key=lambda v: v.get("publishedDate", ""), reverse=True)
 
@@ -164,6 +200,13 @@ def salvar_vagas_recentes(novas_vagas: list, rotulo: str, vagas_recentes_file: s
             json.dump(vagas_existentes, f, indent=2, ensure_ascii=False)
     except Exception as err:
         print(f"❌ Erro ao salvar vagas_recentes.json: {err}")
+
+    # Descrição em lote: as páginas são requisições independentes, então vão em
+    # paralelo em vez de pagar a latência uma por vez (ver `descrever_vagas`).
+    descricoes_novas = descrever_vagas(novas_para_descrever)
+    # O arquivo de descrições é único, então a poda considera os dois históricos.
+    ids_para_manter = ids_no_historico(vagas_recentes_file) | {str(v.get("id")) for v in vagas_existentes}
+    sincronizar_descricoes(ids_para_manter, descricoes_novas)
 
 
 def consultar_api_gupy(api_url: str, max_tentativas: int = 3) -> list:
@@ -191,11 +234,17 @@ def executar_monitoramento(
     dias_retencao_cache: int = DIAS_RETENCAO_CACHE_DEFAULT,
     cache_file: str = CACHE_FILE_DEFAULT,
     vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
+    rotulo_exibicao: str = "",
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
     e atualização do cache e histórico em disco.
+
+    `rotulo` é o campo `topic` que vai para o JSON; `rotulo_exibicao` é como a
+    consulta aparece no terminal (termo buscado + rótulo). Vários termos
+    compartilham o mesmo `rotulo`, então são eles que se repetem no log.
     """
+    exibicao = rotulo_exibicao or rotulo
     carregar_env()
     agora_br = datetime.now(FUSO_SP)
 
@@ -207,6 +256,7 @@ def executar_monitoramento(
         vagas = consultar_api_gupy(api_url)
 
         novas_vagas = []
+        descartadas_cargo = 0
 
         for vaga in vagas:
             vaga_id = str(vaga.get("id"))
@@ -222,14 +272,26 @@ def executar_monitoramento(
 
                 vaga["data_formatada_br"] = data_br.strftime("%d/%m/%Y às %H:%M")
 
+            # Filtro: descarta cargo avançado (sênior, pleno, especialista,
+            # gerente...). Entram no cache para não ser re-avaliados a cada
+            # rodada, mas não vão para o histórico nem para o dashboard.
+            if cargo_para_descartar(vaga.get("name", "")):
+                if vaga_id not in cache_vagas:
+                    cache_vagas[vaga_id] = agora_br.isoformat()
+                descartadas_cargo += 1
+                continue
+
             # Checa se o ID original da vaga já foi notificado anteriormente
             if vaga_id not in cache_vagas:
                 novas_vagas.append(vaga)
                 cache_vagas[vaga_id] = agora_br.isoformat()
 
+        if descartadas_cargo:
+            print(f"Descartadas {descartadas_cargo} vaga(s) de cargo avançado para [{exibicao}].")
+
         # 3. Salva no histórico e no cache
         if novas_vagas:
-            print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{rotulo}]!")
+            print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{exibicao}]!")
 
             # Salva no histórico de vagas recentes (para dashboard)
             salvar_vagas_recentes(novas_vagas, rotulo, vagas_recentes_file)
@@ -240,9 +302,9 @@ def executar_monitoramento(
             salvar_cache(cache_vagas, cache_file)
             # Também limpa vagas antigas do histórico mesmo sem vagas novas
             carregar_e_limpar_vagas_recentes(vagas_recentes_file)
-            print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{rotulo}].")
+            print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{exibicao}].")
             return 0
 
     except Exception as e:
-        print(f"❌ Erro ao consultar/processar vagas para [{rotulo}]: {e}")
+        print(f"❌ Erro ao consultar/processar vagas para [{exibicao}]: {e}")
         return 0
