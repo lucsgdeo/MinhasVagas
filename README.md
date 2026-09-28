@@ -245,12 +245,18 @@ O script refaz as mesmas buscas de `monitor/consultas.py`, casa o resultado por 
 
 ## 🔄 Automação Contínua (CI/CD)
 
-O workflow configurado em `.github/workflows/main.yml` pode ser disparado manualmente pela aba **Actions** do GitHub:
+O workflow em `.github/workflows/main.yml` roda **todo dia às 18h30** (horário de Brasília) e também pode ser disparado manualmente pela aba **Actions**:
 
 1. Faz checkout do código.
 2. Configura o ambiente Python 3.11.
 3. Executa `python monitor/main.py`.
 4. Salva e comita automaticamente os arquivos atualizados de `data/` (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`, `descricoes.json`) no repositório.
+
+Três detalhes do agendamento:
+
+- **O cron é em UTC.** No arquivo está `30 21 * * *`, porque o Brasil é UTC−3. O Brasil não tem horário de verão desde 2019, então o deslocamento é fixo o ano todo.
+- **Só roda a partir do branch padrão.** O GitHub lê o agendamento do workflow no `master`, então a mudança só entra em vigor depois do merge para lá.
+- **18h30 é mais ou menos.** O GitHub agenda jobs com uma pequena fila; em horário de pico o início pode atrasar alguns minutos.
 
 ---
 
