@@ -27,18 +27,36 @@ MODALIDADES = {
 #     jobName : termo buscado. None = todas as vagas, sem filtro de nome.
 #     destino : "tech"  -> vagas_recentes.json (aba "Vagas Tech")
 #               "geral" -> vagas_gerais.json  (aba "Vagas Gerais")
-#     rótulo  : texto exibido no card. A variante remota deriva dele
-#               trocando o sufixo: "Suporte" -> "Suporte Remoto".
+#     rótulo  : texto exibido no card e usado pelos filtros do dashboard.
+#               A variante remota deriva dele trocando o sufixo:
+#               "Suporte" -> "Suporte Remoto".
+#
+# A ORDEM É IMPORTANTE. A primeira busca que encontra uma vaga define o rótulo
+# dela (as demais são ignoradas por deduplicação de ID), então a lista segue a
+# ordem dos botões do dashboard: tech primeiro, gerais depois. A busca ampla
+# (jobName None) vem por último de propósito — ela é a rede de segurança que
+# rotula as vagas que nenhum termo específico capturou.
+#
+# Termos que a API já resolve sozinha, por equivalência sem acento ou por
+# radical: "estagio" cobre estagiario/estágio/estagiária; "desenvolvedor"
+# cobre desenvolvedora; "sistemas" cobre sistema.
 # ---------------------------------------------------------------------------
 BUSCAS = [
+    # ---- Vagas Tech: ordem dos botões Suporte > Estágio > Dev > TI > Outras ----
     ("Suporte", "tech", "Suporte"),
+    ("estagio", "tech", "Estágio"),
+    ("desenvolvedor", "tech", "Desenvolvimento"),
+    ("desenvolvimento", "tech", "Desenvolvimento"),
+    ("dev", "tech", "Desenvolvimento"),
+    ("sistemas", "tech", "Sistemas"),
     ("TI", "tech", "TI"),
-    ("infra", "tech", "Infraestrutura"),
-    ("Service Desk", "tech", "Service Desk"),
-    ("Júnior", "tech", "Júnior"),
-    ("Help Desk", "tech", "Help Desk"),
-    ("jr", "tech", "JR"),
+    ("infra", "tech", "Outras"),
+    ("help desk", "tech", "Outras"),
+    ("service desk", "tech", "Outras"),
+    # ---- Vagas Gerais: Assistente > Júnior > Auxiliar > Remoto > Presencial ----
     ("assistente", "geral", "Assistente Presencial"),
+    ("jr", "geral", "Júnior"),
+    ("Júnior", "geral", "Júnior"),
     ("auxiliar", "geral", "Auxiliar Presencial"),
     (None, "geral", "Geral Presencial"),
 ]

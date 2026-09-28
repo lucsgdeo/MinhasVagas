@@ -7,7 +7,7 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
 ## 📌 Funcionalidades
 
 - **Dashboard Web Moderno**:
-  - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia (Suporte, TI, Infra, Service Desk, Júnior, Help Desk, JR) com filtros rápidos por cargo e busca textual em tempo real.
+  - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia com filtros rápidos por área (**Suporte**, **Estágio**, **Dev**, **TI**, **Outras**) e busca textual em tempo real. O botão **Dev** engloba também as vagas de sistemas; o botão **Outras** agrupa Infraestrutura, Help Desk e Service Desk.
   - **Aba "Vagas Gerais"**: Exibe vagas gerais da Grande SP e Remotas em arquivo dedicado (`vagas_gerais.json`), com separação clara entre vagas **Presenciais** e **Remotas** e visualização agrupada em seções.
   - **Sub-abas "Últimos 2 dias" / "Não candidatadas" / "Todas"**: Disponíveis dentro de "Vagas Tech" e "Vagas Gerais", nessa ordem, com **"Últimos 2 dias"** como padrão ao abrir a página.
     - **Últimos 2 dias**: combina os filtros de cargo com a janela de **hoje + ontem** (dias do calendário, calculada em `calcularJanelaRecente()` no `app.js` com o fuso horário local do navegador — do início de ontem até o início de amanhã), mostrando apenas vagas publicadas nesse período e para as quais você ainda **não** se candidatou, ordenadas da mais recente para a mais antiga.
@@ -56,20 +56,45 @@ MinhasVagas/
 
 Todas as buscas vivem na lista `BUSCAS` de `consultas.py`. Cada linha gera **duas** consultas: uma presencial (Grande SP) e uma remota.
 
-| Termo (`jobName`) | Destino | Arquivo gerado | Rótulo no card |
-|---|---|---|---|
-| `Suporte` | `tech` | `vagas_recentes.json` | `Suporte` / `Suporte Remoto` |
-| `TI` | `tech` | `vagas_recentes.json` | `TI` / `TI Remoto` |
-| `infra` | `tech` | `vagas_recentes.json` | `Infraestrutura` / `Infraestrutura Remoto` |
-| `Service Desk` | `tech` | `vagas_recentes.json` | `Service Desk` / `Service Desk Remoto` |
-| `Júnior` | `tech` | `vagas_recentes.json` | `Júnior` / `Júnior Remoto` |
-| `Help Desk` | `tech` | `vagas_recentes.json` | `Help Desk` / `Help Desk Remoto` |
-| `jr` | `tech` | `vagas_recentes.json` | `JR` / `JR Remoto` |
-| `assistente` | `geral` | `vagas_gerais.json` | `Assistente Presencial` / `Assistente Remoto` |
-| `auxiliar` | `geral` | `vagas_gerais.json` | `Auxiliar Presencial` / `Auxiliar Remoto` |
-| *(vazio)* | `geral` | `vagas_gerais.json` | `Geral Presencial` / `Geral Remoto` |
+**A ordem da lista importa.** A primeira busca que encontra uma vaga define o rótulo dela — as demais são ignoradas pela deduplicação de ID. Por isso a lista segue a ordem dos botões do dashboard: tech primeiro, gerais depois, e a busca ampla por último.
 
-> O termo vazio (`None`) não usa `jobName` na URL: é a busca ampla, que captura qualquer vaga publicada nas cidades monitoradas, inclusive as que nenhum outro termo encontra.
+#### Botões da aba "Vagas Tech" — `Suporte · Estágio · Dev · TI · Outras`
+
+| Termo (`jobName`) | Destino | Rótulo no card | Botão |
+|---|---|---|---|
+| `Suporte` | `tech` | `Suporte` / `Suporte Remoto` | Suporte |
+| `estagio` | `tech` | `Estágio` / `Estágio Remoto` | Estágio |
+| `desenvolvedor` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
+| `desenvolvimento` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
+| `dev` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
+| `sistemas` | `tech` | `Sistemas` / `Sistemas Remoto` | Dev |
+| `TI` | `tech` | `TI` / `TI Remoto` | TI |
+| `infra` | `tech` | `Outras` / `Outras Remoto` | Outras |
+| `help desk` | `tech` | `Outras` / `Outras Remoto` | Outras |
+| `service desk` | `tech` | `Outras` / `Outras Remoto` | Outras |
+
+#### Botões da aba "Vagas Gerais" — `Assistente · Júnior · Auxiliar · Remoto · Presencial`
+
+| Termo (`jobName`) | Destino | Rótulo no card | Botão |
+|---|---|---|---|
+| `assistente` | `geral` | `Assistente Presencial` / `Assistente Remoto` | Assistente |
+| `jr` | `geral` | `Júnior` / `Júnior Remoto` | Júnior |
+| `Júnior` | `geral` | `Júnior` / `Júnior Remoto` | Júnior |
+| `auxiliar` | `geral` | `Auxiliar Presencial` / `Auxiliar Remoto` | Auxiliar |
+| *(vazio)* | `geral` | `Geral Presencial` / `Geral Remoto` | Remoto / Presencial |
+
+> O termo vazio (`None`) não usa `jobName` na URL: é a busca ampla, que captura qualquer vaga publicada nas cidades monitoradas, inclusive as que nenhum outro termo encontra. Por vir por último, ela só rotula as vagas que sobraram — as vagas de um cargo específico já foram rotuladas antes e não caem aqui.
+
+### Termos que a API resolve sozinha
+
+A busca da Gupy é por radical e ignora acentos, o que evita variantes duplicadas:
+
+| Termo usado | Cobre automaticamente | Como foi verificado |
+|---|---|---|
+| `desenvolvedor` | `desenvolvedora` | conjuntos de IDs idênticos |
+| `sistemas` | `sistema` | conjuntos de IDs idênticos |
+
+Já `desenvolvimento` e `dev` **não** são cobertos por `desenvolvedor` — os três têm conjuntos de IDs totalmente disjuntos, então precisam de buscas separadas.
 
 ### As duas URLs padrão
 
@@ -125,17 +150,23 @@ Basta editar a lista `BUSCAS` em `consultas.py`. **Nenhum arquivo novo é precis
 
 ```python
 BUSCAS = [
-    ("Suporte",      "tech",  "Suporte"),
-    ("TI",           "tech",  "TI"),
-    ("infra",        "tech",  "Infraestrutura"),
-    ("Service Desk", "tech",  "Service Desk"),
-    ("Júnior",       "tech",  "Júnior"),
-    ("Help Desk",    "tech",  "Help Desk"),
-    ("jr",           "tech",  "JR"),
-    ("assistente",   "geral", "Assistente Presencial"),
-    ("auxiliar",     "geral", "Auxiliar Presencial"),
-    (None,           "geral", "Geral Presencial"),
-    ("seguranca",    "geral", "Segurança"),   # <- nova busca
+    # tech, na ordem dos botões: Suporte > Estágio > Dev > TI > Outras
+    ("Suporte",         "tech",  "Suporte"),
+    ("estagio",         "tech",  "Estágio"),
+    ("desenvolvedor",   "tech",  "Desenvolvimento"),
+    ("desenvolvimento", "tech",  "Desenvolvimento"),
+    ("dev",             "tech",  "Desenvolvimento"),
+    ("sistemas",        "tech",  "Sistemas"),
+    ("TI",              "tech",  "TI"),
+    ("infra",           "tech",  "Outras"),
+    ("help desk",       "tech",  "Outras"),
+    ("service desk",    "tech",  "Outras"),
+    # gerais, na ordem dos botões: Assistente > Júnior > Auxiliar > Remoto > Presencial
+    ("assistente",      "geral", "Assistente Presencial"),
+    ("jr",              "geral", "Júnior"),
+    ("Júnior",          "geral", "Júnior"),
+    ("auxiliar",        "geral", "Auxiliar Presencial"),
+    (None,              "geral", "Geral Presencial"),
 ]
 ```
 
@@ -144,5 +175,7 @@ Cada linha é `(jobName, destino, rótulo presencial)`:
 * **`jobName`** — termo enviado como `?jobName=`. Use `None` para a busca ampla, sem filtro de nome.
 * **`destino`** — `"tech"` grava em `vagas_recentes.json` (aba **Vagas Tech**); `"geral"` grava em `vagas_gerais.json` (aba **Vagas Gerais**).
 * **`rótulo`** — texto exibido no card e usado pelos filtros do dashboard. A variante remota é derivada automaticamente: `"Suporte"` → `"Suporte Remoto"`, `"Assistente Presencial"` → `"Assistente Remoto"`.
+
+Vários termos podem compartilhar o mesmo rótulo: é assim que `infra`, `help desk` e `service desk` aparecem juntos no botão **Outras**, e como `jr` e `Júnior` se fundem no botão **Júnior**. Para criar um botão novo no dashboard, além da linha em `BUSCAS` é preciso adicionar o `<button>` em `index.html` e o `case` correspondente no `switch` de `app.js`.
 
 > **Importante:** o dashboard filtra as vagas pelo campo `topic`, que recebe esse rótulo. Ao criar um termo novo, escolha um rótulo que não colida com os filtros de cargo já existentes (`suporte`, `ti`, `infra`, `service desk`, `júnior`, `help desk`, `jr`, `assistente`, `auxiliar`) — o filtro de "Vagas Tech" faz busca por substring e poderia capturar o termo novo por acidente.

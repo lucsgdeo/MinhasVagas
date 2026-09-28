@@ -394,13 +394,11 @@ function filterVagas() {
             const topic = (v.topic || '').toLowerCase();
             switch (state.currentTechFilter) {
                 case 'suporte': return topic.includes('suporte');
+                case 'estagio': return topic.includes('estágio') || topic.includes('estagio');
+                // O botão "Dev" engloba também as vagas de sistemas.
+                case 'dev': return topic.includes('desenvolvimento') || topic.includes('sistemas');
                 case 'ti': return topic.includes('ti');
-                case 'infraestrutura':
-                case 'infra': return topic.includes('infra');
-                case 'service-desk': return topic.includes('service desk');
-                case 'junior': return topic.includes('júnior') || topic.includes('junior');
-                case 'help-desk': return topic.includes('help desk');
-                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
+                case 'outras': return topic.startsWith('outras');
                 default: return true;
             }
         });
@@ -426,6 +424,15 @@ function filterVagas() {
                 break;
             case 'assistente':
                 filtered = filtered.filter(v => (v.topic || '').toLowerCase().includes('assistente'));
+                filtered = ordenarPorDataDecrescente(filtered);
+                break;
+            // O botão "Júnior" unifica as vagas de "jr" e de "Júnior": as duas
+            // buscas gravam o mesmo rótulo, então um único teste cobre as duas.
+            case 'junior':
+                filtered = filtered.filter(v => {
+                    const topic = (v.topic || '').toLowerCase();
+                    return topic.includes('júnior') || topic.includes('junior');
+                });
                 filtered = ordenarPorDataDecrescente(filtered);
                 break;
             case 'auxiliar':
@@ -505,13 +512,10 @@ function renderSchedule() {
             const topic = (v.topic || '').toLowerCase();
             switch (state.currentScheduleFilter) {
                 case 'suporte': return topic.includes('suporte');
+                case 'estagio': return topic.includes('estágio') || topic.includes('estagio');
+                case 'dev': return topic.includes('desenvolvimento') || topic.includes('sistemas');
                 case 'ti': return topic.includes('ti');
-                case 'infraestrutura': return topic.includes('infra');
-                case 'infra': return topic.includes('infra');
-                case 'service-desk': return topic.includes('service desk');
-                case 'junior': return topic.includes('júnior') || topic.includes('junior');
-                case 'help-desk': return topic.includes('help desk');
-                case 'jr': return topic === 'jr' || topic === 'jr remoto' || topic.startsWith('jr');
+                case 'outras': return topic.startsWith('outras');
                 default: return true;
             }
         });
