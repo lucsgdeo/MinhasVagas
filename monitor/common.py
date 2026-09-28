@@ -7,14 +7,16 @@ from zoneinfo import ZoneInfo
 
 from descricoes import cargo_para_descartar, descrever_vagas, sincronizar_descricoes
 
-# Diretório raiz do projeto
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Diretório raiz do projeto. Os dados ficam na raiz porque é de lá que o
+# GitHub Pages serve o dashboard; este módulo mora em `monitor/`, então sobe um
+# nível. Os testes usam `monitor/` na mão.
+PASTA_PROJETO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Fuso Horário de Brasília
 FUSO_SP = ZoneInfo("America/Sao_Paulo")
-CACHE_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_vistas.json")
-VAGAS_RECENTES_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_recentes.json")
-VAGAS_GERAIS_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_gerais.json")
+CACHE_FILE_DEFAULT = os.path.join(PASTA_PROJETO, "vagas_vistas.json")
+VAGAS_RECENTES_FILE_DEFAULT = os.path.join(PASTA_PROJETO, "vagas_recentes.json")
+VAGAS_GERAIS_FILE_DEFAULT = os.path.join(PASTA_PROJETO, "vagas_gerais.json")
 MAX_DIAS_PUBLICACAO_DEFAULT = 4
 DIAS_RETENCAO_CACHE_DEFAULT = 7
 
@@ -22,7 +24,7 @@ DIAS_RETENCAO_CACHE_DEFAULT = 7
 def carregar_env(env_path: str = None):
     """Carrega variáveis do arquivo .env caso existam e não estejam no ambiente."""
     if env_path is None:
-        env_path = os.path.join(ROOT_DIR, ".env")
+        env_path = os.path.join(PASTA_PROJETO, ".env")
 
     if not os.path.exists(env_path):
         return

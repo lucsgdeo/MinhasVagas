@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Executar Script de Monitoramento
-        run: python main.py
+        run: python monitor/main.py
 
       - name: Salvar histórico de vagas vistas no repositório
         run: |

@@ -35,8 +35,10 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-DESCRICOES_FILE = os.path.join(ROOT_DIR, "descricoes.json")
+# Os dados ficam na raiz do repositório porque é de lá que o GitHub Pages
+# serve o dashboard; este módulo mora em `monitor/`, então sobe um nível.
+PASTA_PROJETO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DESCRICOES_FILE = os.path.join(PASTA_PROJETO, "descricoes.json")
 
 # --------------------------------------------------------------------------
 # Níveis de cargo descartados
