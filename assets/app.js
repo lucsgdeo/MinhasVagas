@@ -309,8 +309,8 @@ async function loadVagas() {
 
     try {
         const [resTech, resGeral] = await Promise.allSettled([
-            fetch('vagas_recentes.json'),
-            fetch('vagas_gerais.json')
+            fetch('data/vagas_recentes.json'),
+            fetch('data/vagas_gerais.json')
         ]);
 
         if (resTech.status === 'fulfilled' && resTech.value.ok) {
@@ -552,7 +552,7 @@ function createCard(vaga) {
 function garantirDescricoes() {
     if (state.descricoes) return Promise.resolve(state.descricoes);
     if (!state.descricoesPromise) {
-        state.descricoesPromise = fetch('descricoes.json')
+        state.descricoesPromise = fetch('data/descricoes.json')
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();

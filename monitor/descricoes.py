@@ -35,10 +35,10 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
 
-# Os dados ficam na raiz do repositório porque é de lá que o GitHub Pages
-# serve o dashboard; este módulo mora em `monitor/`, então sobe um nível.
+# As descrições ficam em `data/`, ao lado dos históricos, porque é de lá que o
+# `assets/app.js` as busca. Este módulo mora em `monitor/`, então sobe dois níveis.
 PASTA_PROJETO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DESCRICOES_FILE = os.path.join(PASTA_PROJETO, "descricoes.json")
+DESCRICOES_FILE = os.path.join(PASTA_PROJETO, "data", "descricoes.json")
 
 # --------------------------------------------------------------------------
 # Níveis de cargo descartados

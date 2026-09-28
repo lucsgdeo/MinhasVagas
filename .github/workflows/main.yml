@@ -26,6 +26,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add vagas_vistas.json vagas_recentes.json vagas_gerais.json descricoes.json
+          git add data/vagas_vistas.json data/vagas_recentes.json data/vagas_gerais.json data/descricoes.json
           git commit -m "chore: atualiza historico de vagas vistas [skip ci]" || exit 0
           git push

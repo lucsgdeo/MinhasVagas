@@ -7,16 +7,17 @@ from zoneinfo import ZoneInfo
 
 from descricoes import cargo_para_descartar, descrever_vagas, sincronizar_descricoes
 
-# Diretório raiz do projeto. Os dados ficam na raiz porque é de lá que o
-# GitHub Pages serve o dashboard; este módulo mora em `monitor/`, então sobe um
-# nível. Os testes usam `monitor/` na mão.
+# Os dados ficam em `data/` porque é de lá que o `assets/app.js` os busca; o
+# site (index.html) fica na raiz, que é o que o GitHub Pages serve. Este módulo
+# mora em `monitor/`, então sobe dois níveis.
 PASTA_PROJETO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PASTA_DADOS = os.path.join(PASTA_PROJETO, "data")
 
 # Fuso Horário de Brasília
 FUSO_SP = ZoneInfo("America/Sao_Paulo")
-CACHE_FILE_DEFAULT = os.path.join(PASTA_PROJETO, "vagas_vistas.json")
-VAGAS_RECENTES_FILE_DEFAULT = os.path.join(PASTA_PROJETO, "vagas_recentes.json")
-VAGAS_GERAIS_FILE_DEFAULT = os.path.join(PASTA_PROJETO, "vagas_gerais.json")
+CACHE_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_vistas.json")
+VAGAS_RECENTES_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_recentes.json")
+VAGAS_GERAIS_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_gerais.json")
 MAX_DIAS_PUBLICACAO_DEFAULT = 4
 DIAS_RETENCAO_CACHE_DEFAULT = 7
 
