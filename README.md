@@ -10,7 +10,7 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
   - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia com filtros rápidos por área (**Suporte**, **Estágio**, **Dev**, **TI**, **Outras**) e busca textual em tempo real. O botão **Dev** engloba também as vagas de sistemas; o botão **Outras** agrupa Infraestrutura, Help Desk e Service Desk.
   - **Aba "Vagas Gerais"**: Exibe vagas gerais da Grande SP e Remotas em arquivo dedicado (`vagas_gerais.json`), com separação clara entre vagas **Presenciais** e **Remotas** e visualização agrupada em seções.
   - **Sub-abas "Últimos 2 dias" / "Não candidatadas" / "Todas"**: Disponíveis dentro de "Vagas Tech" e "Vagas Gerais", nessa ordem, com **"Últimos 2 dias"** como padrão ao abrir a página.
-    - **Últimos 2 dias**: combina os filtros de cargo com a janela de **hoje + ontem** (dias do calendário, calculada em `calcularJanelaRecente()` no `app.js` com o fuso horário local do navegador — do início de ontem até o início de amanhã), mostrando apenas vagas publicadas nesse período e para as quais você ainda **não** se candidatou, ordenadas da mais recente para a mais antiga.
+    - **Últimos 2 dias**: combina os filtros de cargo com a janela de **hoje + ontem** (dias do calendário, calculada em `calcularJanelaRecente()` em `assets/app.js` com o fuso horário local do navegador — do início de ontem até o início de amanhã), mostrando apenas vagas publicadas nesse período e para as quais você ainda **não** se candidatou, ordenadas da mais recente para a mais antiga.
     - **Não candidatadas**: o mesmo conjunto da aba **Todas** (sem corte de data e sem reordenar), removendo apenas as vagas para as quais você já se candidatou.
     - **Todas**: histórico completo, sem nenhum filtro de data ou candidatura.
   - **Aba "Horários de Postagem"**: Gráfico analítico de distribuição de publicações por hora, pico e períodos do dia, calculado estritamente com base nas **vagas de tecnologia**.
@@ -18,7 +18,7 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
   - **Marcação de Candidaturas**: Controle local com checkbox "Candidatei-me" salvo no `localStorage`.
     - As listas de "Últimos 2 dias" e "Não candidatadas" são **instantâneos do carregamento da página**: marcar/desmarcar "Candidatei-me" (ou clicar em "Candidatar-se") mantém o card visível na tela e apenas o destaca, sem removê-lo da lista. A vaga só desaparece dessas abas no **próximo carregamento da página** (F5), momento em que o snapshot `state.appliedAtLoad` é refeito a partir do `localStorage`. Na aba **Todas** a vaga permanece visível sempre.
   - **Painel de Descrição da Vaga**: O botão **"Ver descrição"** no rodapé de cada card abre uma sobreposição pela direita com a vaga organizada em seções — **Responsabilidades**, **Requisitos**, **Informações adicionais**, **Benefícios**, **Salário**, **Jornada de trabalho** e **Local de trabalho** — em lista formatada. O texto vem do campo `description` da API, lido a partir de "Responsabilidades e Atribuições" até o fim da descrição.
-    - O arquivo `descricoes.json` é baixado **sob demanda**, só no primeiro clique: ele pesa ~380 KB (gzip) e não é necessário para listar as vagas, então o carregamento da página continua igual.
+    - O arquivo `data/descricoes.json` é baixado **sob demanda**, só no primeiro clique: ele pesa ~380 KB (gzip) e não é necessário para listar as vagas, então o carregamento da página continua igual.
     - Fecha pelo botão **✕**, pelo clique fora do painel ou pela tecla **Esc**.
     - ~8% das vagas não trazem a seção "Responsabilidades" em texto (usam "Sobre a oportunidade", "O que buscamos?"…): nesses casos o painel avisa e mantém o botão **Candidatar-se →** para a vaga original.
 - **Buscas Configuráveis**: Todos os termos monitorados ficam centralizados em uma única lista (`BUSCAS` em `monitor/consultas.py`). Cada termo gera uma consulta presencial e uma remota a partir de duas URLs padrão.
@@ -40,7 +40,7 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
 
 ## 📁 Estrutura de Pastas
 
-A raiz do repositório é o que o **GitHub Pages serve**, então `index.html`, `styles.css`, `app.js` e os `.json` precisam ficar nela. O programa de monitoramento vive em `monitor/`.
+A raiz do repositório é o que o **GitHub Pages serve**, então o `index.html` precisa ficar nela. O resto é separado: o front em `assets/`, os dados em `data/` e o programa de monitoramento em `monitor/`.
 
 ```text
 MinhasVagas/
@@ -53,13 +53,15 @@ MinhasVagas/
 │   ├── descricoes.py              # Filtro de cargo + seções da descrição e o descricoes.json
 │   ├── backfill_descricoes.py     # Preenche o descricoes.json das vagas que já estão no histórico
 │   └── main.py                    # Orquestrador: itera as consultas e imprime o resumo
-├── index.html                     # Interface do Dashboard (GitHub Pages)
-├── styles.css                     # Estilos visuais e temas
-├── app.js                         # Lógica do Dashboard, filtros, temas, gráficos e painel de descrição
-├── vagas_vistas.json              # Cache de controle de IDs já processados
-├── vagas_recentes.json            # Histórico dos últimos 7 dias (Vagas Tech)
-├── vagas_gerais.json              # Histórico dos últimos 7 dias (Vagas Gerais)
-├── descricoes.json                # {id da vaga: [{titulo, itens}]} — a partir de "Responsabilidades"
+├── index.html                     # Interface do Dashboard (GitHub Pages) — precisa ficar na raiz
+├── assets/                        # O resto do front
+│   ├── styles.css                 # Estilos visuais e temas
+│   └── app.js                     # Lógica do Dashboard, filtros, temas, gráficos e painel de descrição
+├── data/                          # Os dados que o app.js busca
+│   ├── vagas_vistas.json          # Cache de controle de IDs já processados
+│   ├── vagas_recentes.json        # Histórico dos últimos 7 dias (Vagas Tech)
+│   ├── vagas_gerais.json          # Histórico dos últimos 7 dias (Vagas Gerais)
+│   └── descricoes.json            # {id: {fonte, secoes}} — a partir de "Responsabilidades"
 ├── .env                           # Configurações locais (ignorado no Git)
 ├── .gitignore                     # Configuração de arquivos ignorados pelo Git
 └── README.md                      # Documentação do projeto
@@ -147,7 +149,7 @@ O orquestrador percorre todas as consultas (cada termo × presencial e remoto), 
 No log, cada consulta aparece com o **termo pesquisado** e o rótulo que ela grava (`"devops" → Desenvolvimento`), porque várias buscas compartilham o mesmo rótulo. O **resumo final** é separado por destino e agrupado por área:
 
 ```text
-📊 VAGAS TECH — novas por área (vagas_recentes.json)
+📊 VAGAS TECH — novas por área (data/vagas_recentes.json)
 ============================================================
   • Desenvolvimento         72      <- dev + software + devops + sistemas
   • Estágio                 66      <- estagio + estagiario
@@ -243,12 +245,18 @@ O script refaz as mesmas buscas de `monitor/consultas.py`, casa o resultado por 
 
 ## 🔄 Automação Contínua (CI/CD)
 
-O workflow configurado em `.github/workflows/main.yml` pode ser disparado manualmente pela aba **Actions** do GitHub:
+O workflow em `.github/workflows/main.yml` roda **todo dia às 18h30** (horário de Brasília) e também pode ser disparado manualmente pela aba **Actions**:
 
 1. Faz checkout do código.
 2. Configura o ambiente Python 3.11.
 3. Executa `python monitor/main.py`.
-4. Salva e comita automaticamente os arquivos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`, `descricoes.json`) no repositório.
+4. Salva e comita automaticamente os arquivos atualizados de `data/` (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`, `descricoes.json`) no repositório.
+
+Três detalhes do agendamento:
+
+- **O cron é em UTC.** No arquivo está `30 21 * * *`, porque o Brasil é UTC−3. O Brasil não tem horário de verão desde 2019, então o deslocamento é fixo o ano todo.
+- **Só roda a partir do branch padrão.** O GitHub lê o agendamento do workflow no `master`, então a mudança só entra em vigor depois do merge para lá.
+- **18h30 é mais ou menos.** O GitHub agenda jobs com uma pequena fila; em horário de pico o início pode atrasar alguns minutos.
 
 ---
 
@@ -285,9 +293,9 @@ BUSCAS = [
 Cada linha é `(jobName, destino, rótulo presencial)`:
 
 * **`jobName`** — termo enviado como `?jobName=`. Use `None` para a busca ampla, sem filtro de nome.
-* **`destino`** — `"tech"` grava em `vagas_recentes.json` (aba **Vagas Tech**); `"geral"` grava em `vagas_gerais.json` (aba **Vagas Gerais**).
+* **`destino`** — `"tech"` grava em `data/vagas_recentes.json` (aba **Vagas Tech**); `"geral"` grava em `data/vagas_gerais.json` (aba **Vagas Gerais**).
 * **`rótulo`** — texto exibido no card e usado pelos filtros do dashboard. A variante remota é derivada automaticamente: `"Suporte"` → `"Suporte Remoto"`, `"Assistente Presencial"` → `"Assistente Remoto"`.
 
-Vários termos podem compartilhar o mesmo rótulo: é assim que `infra`, `help desk` e `service desk` aparecem juntos no botão **Outras**, e como `jr` e `Júnior` se fundem no botão **Júnior**. Para criar um botão novo no dashboard, além da linha em `BUSCAS` é preciso adicionar o `<button>` em `index.html` e o `case` correspondente no `switch` de `app.js`.
+Vários termos podem compartilhar o mesmo rótulo: é assim que `infra`, `help desk` e `service desk` aparecem juntos no botão **Outras**, e como `jr` e `Júnior` se fundem no botão **Júnior**. Para criar um botão novo no dashboard, além da linha em `BUSCAS` é preciso adicionar o `<button>` em `index.html` e o `case` correspondente no `switch` de `assets/app.js`.
 
 > **Importante:** o dashboard filtra as vagas pelo campo `topic`, que recebe esse rótulo. Ao criar um termo novo, escolha um rótulo que não colida com os filtros de cargo já existentes (`suporte`, `ti`, `infra`, `service desk`, `júnior`, `help desk`, `jr`, `assistente`, `auxiliar`) — o filtro de "Vagas Tech" faz busca por substring e poderia capturar o termo novo por acidente.
