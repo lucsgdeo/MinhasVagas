@@ -1,6 +1,19 @@
 import time
-from common import carregar_env
-from topics import TODOS_TOPICOS
+
+from common import (
+    VAGAS_GERAIS_FILE_DEFAULT,
+    VAGAS_RECENTES_FILE_DEFAULT,
+    carregar_env,
+    executar_monitoramento,
+)
+from consultas import DESTINOS, gerar_consultas
+
+ARQUIVOS = {
+    "tech": VAGAS_RECENTES_FILE_DEFAULT,
+    "geral": VAGAS_GERAIS_FILE_DEFAULT,
+}
+
+INTERVALO_ENTRE_CONSULTAS = 1  # evita rate limit da API
 
 
 def main():
@@ -9,33 +22,32 @@ def main():
     print("🚀 INICIANDO MONITORAMENTO DE VAGAS GUPY")
     print("=" * 60)
 
-    total_novas_geral = 0
-    resultados = []
+    total_novas = 0
+    resumo = []
 
-    for mod in TODOS_TOPICOS:
-        nome = getattr(mod, "TOPIC_NAME", mod.__name__)
-        print(f"\n--- Processando: {nome} ---")
+    for consulta in gerar_consultas():
+        print(f"\n--- {consulta.rotulo} ({DESTINOS[consulta.destino]}) ---")
         try:
-            novas = mod.processar_vagas()
-            total_novas_geral += novas
-            resultados.append((nome, "Sucesso", novas))
+            novas = executar_monitoramento(
+                rotulo=consulta.rotulo,
+                api_url=consulta.url,
+                vagas_recentes_file=ARQUIVOS[consulta.destino],
+            )
+            total_novas += novas
+            resumo.append((consulta.rotulo, novas))
         except Exception as e:
-            print(f"❌ Erro ao processar módulo {nome}: {e}")
-            resultados.append((nome, f"Erro: {e}", 0))
+            print(f"❌ Erro ao processar {consulta.rotulo}: {e}")
+            resumo.append((consulta.rotulo, f"Erro: {e}"))
 
-        # Intervalo entre tópicos para evitar rate limits da API e do Telegram
-        time.sleep(1)
+        time.sleep(INTERVALO_ENTRE_CONSULTAS)
 
     print("\n" + "=" * 60)
     print("📊 RESUMO DA EXECUÇÃO")
     print("=" * 60)
-    for nome, status, qtd in resultados:
-        if status == "Sucesso":
-            print(f"  • {nome:<22}: {qtd} vaga(s) nova(s)")
-        else:
-            print(f"  • {nome:<22}: {status}")
+    for rotulo, qtd in resumo:
+        print(f"  • {rotulo:<26}: {qtd}")
     print("-" * 60)
-    print(f"Total de novas vagas notificadas: {total_novas_geral}")
+    print(f"Total de novas vagas notificadas: {total_novas}")
     print("=" * 60)
 
 

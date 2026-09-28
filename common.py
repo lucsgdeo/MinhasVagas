@@ -1,7 +1,6 @@
 import json
 import os
 import time
-import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -12,6 +11,8 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Fuso Horário de Brasília
 FUSO_SP = ZoneInfo("America/Sao_Paulo")
 CACHE_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_vistas.json")
+VAGAS_RECENTES_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_recentes.json")
+VAGAS_GERAIS_FILE_DEFAULT = os.path.join(ROOT_DIR, "vagas_gerais.json")
 MAX_DIAS_PUBLICACAO_DEFAULT = 4
 DIAS_RETENCAO_CACHE_DEFAULT = 7
 
@@ -89,52 +90,80 @@ def salvar_cache(cache_dados: dict, cache_file: str = CACHE_FILE_DEFAULT):
         print(f"❌ Erro ao salvar o cache em {cache_file}: {err}")
 
 
-def enviar_telegram(mensagem: str, topic_id: str | int | None = None, max_tentativas: int = 3) -> bool:
-    """Envia uma mensagem formatada em HTML para o Telegram com retentativas automáticas."""
-    carregar_env()
-    bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
 
-    if not bot_token or not chat_id:
-        print("⚠️ AVISO: TELEGRAM_BOT_TOKEN ou TELEGRAM_CHAT_ID não configurados. Pulando envio.")
-        return False
+def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT, dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT) -> list:
+    """Carrega e limpa vagas antigas (> dias_retencao) do arquivo de vagas recentes."""
+    agora_br = datetime.now(FUSO_SP)
+    data_limite = agora_br - timedelta(days=dias_retencao)
 
-    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-    payload = {
-        "chat_id": chat_id,
-        "text": mensagem,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True
-    }
+    if not os.path.exists(vagas_recentes_file):
+        return []
 
-    if topic_id is not None and str(topic_id).strip():
-        try:
-            payload["message_thread_id"] = int(topic_id)
-        except ValueError:
-            print(f"⚠️ AVISO: topic_id '{topic_id}' inválido. Enviando para o canal principal.")
+    try:
+        with open(vagas_recentes_file, "r", encoding="utf-8") as f:
+            conteudo = f.read().strip()
+            if not conteudo:
+                return []
+            vagas = json.loads(conteudo)
 
-    data = json.dumps(payload).encode("utf-8")
+        if not isinstance(vagas, list):
+            return []
 
-    for tentativa in range(1, max_tentativas + 1):
-        try:
-            req = urllib.request.Request(
-                url,
-                data=data,
-                headers={"Content-Type": "application/json"}
-            )
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                if resp.status == 200:
-                    print("✅ Notificação enviada para o Telegram com sucesso!")
-                    return True
-                else:
-                    print(f"❌ Erro ao enviar para o Telegram (tentativa {tentativa}/{max_tentativas}): Status HTTP {resp.status}")
-        except Exception as err:
-            print(f"⚠️ Tentativa {tentativa}/{max_tentativas} falhou ao notificar Telegram: {err}")
-            if tentativa < max_tentativas:
-                time.sleep(2)
+        vagas_validas = []
+        for vaga in vagas:
+            raw_date = vaga.get("publishedDate")
+            if raw_date:
+                try:
+                    data_utc = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+                    data_br = data_utc.astimezone(FUSO_SP)
+                    if data_br > data_limite:
+                        vagas_validas.append(vaga)
+                except (ValueError, TypeError):
+                    continue
+            else:
+                continue
 
-    print("❌ Todas as tentativas de envio ao Telegram falharam.")
-    return False
+        return vagas_validas
+    except Exception as err:
+        print(f"⚠️ Erro ao ler/limpar vagas recentes: {err}. Reiniciando.")
+        return []
+
+
+def salvar_vagas_recentes(novas_vagas: list, rotulo: str, vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT):
+    """Adiciona novas vagas ao histórico e salva (mantém apenas últimas 7 dias)."""
+    vagas_existentes = carregar_e_limpar_vagas_recentes(vagas_recentes_file)
+
+    ids_existentes = {v.get("id") for v in vagas_existentes}
+
+    for vaga in novas_vagas:
+        vaga_id = str(vaga.get("id"))
+        if vaga_id not in ids_existentes:
+            vaga_completa = {
+                "id": vaga_id,
+                "name": vaga.get("name", ""),
+                "workplaceType": vaga.get("workplaceType", ""),
+                "jobUrl": vaga.get("jobUrl", ""),
+                "publishedDate": vaga.get("publishedDate", ""),
+                "topic": rotulo,
+                "data_formatada_br": vaga.get("data_formatada_br", ""),
+                "careerPageName": vaga.get("careerPageName", ""),
+                "careerPageUrl": vaga.get("careerPageUrl", ""),
+                "careerPageLogo": vaga.get("careerPageLogo", ""),
+                "isRemoteWork": vaga.get("isRemoteWork", False),
+                "city": vaga.get("city", ""),
+                "state": vaga.get("state", ""),
+                "country": vaga.get("country", "")
+            }
+            vagas_existentes.append(vaga_completa)
+            ids_existentes.add(vaga_id)
+
+    vagas_existentes.sort(key=lambda v: v.get("publishedDate", ""), reverse=True)
+
+    try:
+        with open(vagas_recentes_file, "w", encoding="utf-8") as f:
+            json.dump(vagas_existentes, f, indent=2, ensure_ascii=False)
+    except Exception as err:
+        print(f"❌ Erro ao salvar vagas_recentes.json: {err}")
 
 
 def consultar_api_gupy(api_url: str, max_tentativas: int = 3) -> list:
@@ -156,16 +185,16 @@ def consultar_api_gupy(api_url: str, max_tentativas: int = 3) -> list:
 
 
 def executar_monitoramento(
-    topic_name: str,
+    rotulo: str,
     api_url: str,
-    topic_id: str | int | None = None,
     max_dias_pub: int = MAX_DIAS_PUBLICACAO_DEFAULT,
     dias_retencao_cache: int = DIAS_RETENCAO_CACHE_DEFAULT,
-    cache_file: str = CACHE_FILE_DEFAULT
+    cache_file: str = CACHE_FILE_DEFAULT,
+    vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
-    notificação no Telegram e atualização do cache em disco.
+    e atualização do cache e histórico em disco.
     """
     carregar_env()
     agora_br = datetime.now(FUSO_SP)
@@ -198,43 +227,22 @@ def executar_monitoramento(
                 novas_vagas.append(vaga)
                 cache_vagas[vaga_id] = agora_br.isoformat()
 
-        # 3. Processa alertas e salva cache
+        # 3. Salva no histórico e no cache
         if novas_vagas:
-            print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{topic_name}]!")
+            print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{rotulo}]!")
 
-            # Agrupa vagas em mensagens respeitando o limite do Telegram (~4000 caracteres)
-            msg_header = f"🚀 <b>{len(novas_vagas)} Nova(s) Vaga(s) Encontrada(s)!</b>\n\n"
-            msg_atual = msg_header
-
-            for v in novas_vagas:
-                nome = v.get("name", "Não informado")
-                modalidade = v.get("workplaceType", "N/I")
-                link = v.get("jobUrl", "")
-                data_pub = v.get("data_formatada_br", "N/I")
-
-                bloco_vaga = (
-                    f"📌 <b>{nome}</b>\n"
-                    f"🏢 Modalidade: <i>{modalidade}</i>\n"
-                    f"📅 Publicada em: {data_pub}\n"
-                    f"🔗 <a href='{link}'>Candidatar-se na vaga</a>\n\n"
-                )
-
-                if len(msg_atual) + len(bloco_vaga) > 4000:
-                    enviar_telegram(msg_atual, topic_id=topic_id)
-                    msg_atual = bloco_vaga
-                else:
-                    msg_atual += bloco_vaga
-
-            if msg_atual.strip():
-                enviar_telegram(msg_atual, topic_id=topic_id)
+            # Salva no histórico de vagas recentes (para dashboard)
+            salvar_vagas_recentes(novas_vagas, rotulo, vagas_recentes_file)
 
             salvar_cache(cache_vagas, cache_file)
             return len(novas_vagas)
         else:
             salvar_cache(cache_vagas, cache_file)
-            print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{topic_name}].")
+            # Também limpa vagas antigas do histórico mesmo sem vagas novas
+            carregar_e_limpar_vagas_recentes(vagas_recentes_file)
+            print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{rotulo}].")
             return 0
 
     except Exception as e:
-        print(f"❌ Erro ao consultar/processar vagas para [{topic_name}]: {e}")
+        print(f"❌ Erro ao consultar/processar vagas para [{rotulo}]: {e}")
         return 0

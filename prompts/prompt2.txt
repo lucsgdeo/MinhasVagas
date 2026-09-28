@@ -1,0 +1,8 @@
+Gostaria de fazer algumas mudanças no projeto:
+
+1. Quero retirar a aba de "Últimas 24 horas". Percebi que ela é inúitil.
+2. Quero adicionar dois novos links, mas para eles, quero que você adicione uma aba nova semelhante a que foi removida (Ultimas 24 horas). Para esta vaga, você vai adicionar estes links:
+- https://portal.gupy.io/api/job-search/jobs?city=S%C3%A3o%20Bernardo%20do%20Campo,Diadema,Santo%20Andr%C3%A9,S%C3%A3o%20Caetano%20do%20Sul,S%C3%A3o%20Paulo&limit=100&offset=0&state=S%C3%A3o%20Paulo -> Presencial
+- https://portal.gupy.io/api/job-search/jobs?limit=100&offset=0&workplaceType=remote -> Remoto
+
+Sobre esta nova aba, ela se chamará "vagas gerais", ela deve ter uma separação entre presenciais e remotas. Preciso que as vagas desta aba não apareça na outra e vice versa. Com isto, também preciso que você renomeie a outra aba para "vagas tech". O gráfico deve conter apenas os dados das vagas de tech
