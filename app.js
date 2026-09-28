@@ -20,7 +20,15 @@ const state = {
     // mude ao recarregar a página (nunca durante a sessão).
     appliedAtLoad: new Set(),
     janelaRecente: null,
-    currentTheme: 'red'
+    currentTheme: 'red',
+    // Índice id -> vaga das duas listas, para o painel de descrição não
+    // depender do card (que é recriado a cada filtro).
+    vagasPorId: new Map(),
+    // Mapa id -> seções, baixado de `descricoes.json` só no primeiro clique
+    // em "Ver descrição" (o arquivo pesa ~380 KB e não é necessário para listar).
+    descricoes: null,
+    descricoesPromise: null,
+    descricaoAbertaId: null
 };
 
 let els = {};
@@ -53,7 +61,15 @@ function init() {
         retryBtn: document.getElementById('retry-btn'),
         stats: document.getElementById('stats'),
         statTotal: document.getElementById('stat-total'),
-        themeOptions: document.querySelectorAll('.theme-option')
+        themeOptions: document.querySelectorAll('.theme-option'),
+        descBackdrop: document.getElementById('desc-backdrop'),
+        descDrawer: document.getElementById('desc-drawer'),
+        descDrawerTitle: document.getElementById('desc-drawer-title'),
+        descDrawerSubtitle: document.getElementById('desc-drawer-subtitle'),
+        descDrawerBody: document.getElementById('desc-drawer-body'),
+        descDrawerApply: document.getElementById('desc-drawer-apply'),
+        descDrawerClose: document.getElementById('desc-drawer-close'),
+        descricaoAbertaBotao: null
     };
 
     loadThemeFromStorage();
@@ -116,6 +132,11 @@ function setupEventListeners() {
         });
 
         els.vacanciesGrid.addEventListener('click', (e) => {
+            if (e.target.closest('.desc-btn')) {
+                abrirDescricao(e.target.closest('.desc-btn').dataset.vagaId, e.target.closest('.desc-btn'));
+                return;
+            }
+
             if (e.target.closest('.apply-btn')) {
                 const link = e.target.closest('.apply-btn');
                 const vagaId = link.dataset.vagaId;
@@ -127,6 +148,13 @@ function setupEventListeners() {
             }
         });
     }
+
+    // Painel de descrição: fecha no botão, no clique fora e no Esc.
+    if (els.descDrawerClose) els.descDrawerClose.addEventListener('click', fecharDescricao);
+    if (els.descBackdrop) els.descBackdrop.addEventListener('click', fecharDescricao);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && state.descricaoAbertaId) fecharDescricao();
+    });
 
     // Theme selector
     els.themeOptions.forEach(option => {
@@ -150,7 +178,7 @@ function loadAppliedFromStorage() {
     }
 
     // Congela o estado das candidaturas e a janela "hoje + ontem" neste momento:
-    // marcar "Candidatei-me" durante a sessão não deve remover a vaga da aba
+    // marcar "Vista" durante a sessão não deve remover a vaga da aba
     // "Últimos 2 dias". O filtro só é recalculado no próximo carregamento.
     state.appliedAtLoad = new Set(state.appliedIds);
     state.janelaRecente = calcularJanelaRecente(Date.now());
@@ -302,12 +330,22 @@ async function loadVagas() {
         } else {
             renderVagas();
         }
+
+        indexarVagas();
     } catch (err) {
         console.error('Erro ao carregar vagas:', err);
         showError(`Não foi possível carregar as vagas: ${err.message}`);
     } finally {
         showLoading(false);
     }
+}
+
+// Índice id -> vaga, usado pelo painel de descrição para não depender do card.
+function indexarVagas() {
+    state.vagasPorId = new Map();
+    [...state.techVagas, ...state.geralVagas].forEach(vaga => {
+        state.vagasPorId.set(String(vaga.id || ''), vaga);
+    });
 }
 
 function isVagaRemota(vaga) {
@@ -491,10 +529,11 @@ function createCard(vaga) {
                 <div class="vacancy-footer">
                     <span class="vacancy-date">${escapeHtml(dataPub)}</span>
                     <div class="vacancy-actions">
+                        <button type="button" class="desc-btn" data-vaga-id="${escapeHtml(vagaId)}" aria-haspopup="dialog">Ver descrição</button>
                         <label class="apply-toggle">
                             <input type="checkbox" data-vaga-id="${escapeHtml(vagaId)}" ${isApplied ? 'checked' : ''}>
                             <span class="apply-toggle-slider"></span>
-                            <span class="apply-toggle-label">Candidatei-me</span>
+                            <span class="apply-toggle-label">Vista</span>
                         </label>
                         <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="apply-btn" data-vaga-id="${escapeHtml(vagaId)}">Candidatar-se →</a>
                     </div>
@@ -502,6 +541,138 @@ function createCard(vaga) {
             </div>
         </article>
     `;
+}
+
+// ---------------------------------------------------------------------------
+// Painel de descrição (sobreposição à direita)
+// ---------------------------------------------------------------------------
+
+// `descricoes.json` é baixado uma vez, no primeiro clique. Se a busca falhar,
+// a promessa é descartada para que o próximo clique tente de novo.
+function garantirDescricoes() {
+    if (state.descricoes) return Promise.resolve(state.descricoes);
+    if (!state.descricoesPromise) {
+        state.descricoesPromise = fetch('descricoes.json')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(dados => {
+                state.descricoes = dados && typeof dados === 'object' ? dados : {};
+                state.descricoesPromise = null;
+                return state.descricoes;
+            })
+            .catch(err => {
+                state.descricoesPromise = null;
+                throw err;
+            });
+    }
+    return state.descricoesPromise;
+}
+
+function abrirDescricao(vagaId, botao) {
+    const vaga = state.vagasPorId.get(String(vagaId || ''));
+    if (!vaga || !els.descDrawer) return;
+
+    state.descricaoAbertaId = String(vagaId);
+    els.descricaoAbertaBotao = botao || null;
+
+    const empresa = vaga.companyName || vaga.careerPageName || '';
+    const modalidade = isVagaRemota(vaga) ? 'Remoto' : 'Presencial';
+    els.descDrawerTitle.textContent = vaga.name || 'Sem título';
+    els.descDrawerSubtitle.textContent = [empresa, modalidade, formatDateTime(vaga.publishedDate)]
+        .filter(Boolean)
+        .join(' · ');
+    els.descDrawerApply.href = vaga.jobUrl || '#';
+    els.descDrawerBody.innerHTML = '<p class="desc-status">Carregando descrição…</p>';
+
+    els.descDrawer.classList.add('open');
+    els.descDrawer.setAttribute('aria-hidden', 'false');
+    els.descBackdrop.classList.add('open');
+    document.body.classList.add('drawer-open');
+    els.descDrawerClose.focus();
+
+    garantirDescricoes()
+        .then(descricoes => {
+            // O usuário pode ter fechado ou trocado de vaga enquanto baixava.
+            if (state.descricaoAbertaId !== String(vagaId)) return;
+            const entrada = descricoes[String(vagaId)];
+            renderSecoes(entrada && entrada.secoes);
+        })
+        .catch(err => {
+            console.error('Erro ao carregar descricoes.json:', err);
+            if (state.descricaoAbertaId !== String(vagaId)) return;
+            els.descDrawerBody.innerHTML = `
+                <p class="desc-status">Não foi possível carregar a descrição agora. Tente novamente em alguns instantes.</p>
+            `;
+        });
+}
+
+function fecharDescricao() {
+    if (!els.descDrawer) return;
+    els.descDrawer.classList.remove('open');
+    els.descDrawer.setAttribute('aria-hidden', 'true');
+    els.descBackdrop.classList.remove('open');
+    document.body.classList.remove('drawer-open');
+    state.descricaoAbertaId = null;
+    if (els.descricaoAbertaBotao) {
+        els.descricaoAbertaBotao.focus();
+        els.descricaoAbertaBotao = null;
+    }
+}
+
+// Cada seção tem um título ("Responsabilidades", "Requisitos",
+// "Informações adicionais"…) e uma lista de blocos. O tipo do bloco reproduz o
+// que a empresa escreveu na vaga: "item" vira bullet, "subtitulo" vira um
+// rótulo em negrito e "texto" vira parágrafo — é o que a Gupy mostra.
+function renderSecoes(secoes) {
+    if (!secoes || !secoes.length) {
+        els.descDrawerBody.innerHTML = `
+            <p class="desc-status">
+                Esta vaga não detalha as atribuições em texto. A descrição completa
+                está na vaga original — use o botão abaixo.
+            </p>
+        `;
+        return;
+    }
+
+    els.descDrawerBody.innerHTML = secoes.map(secao => `
+        <section class="desc-section">
+            <h3 class="desc-section-title">${escapeHtml(secao.titulo || 'Descrição')}</h3>
+            ${renderBlocos(secao.blocos || [])}
+        </section>
+    `).join('');
+
+    els.descDrawerBody.scrollTop = 0;
+}
+
+// Itens vizinhos viram uma <ul>; subtítulos e parágrafos ficam soltos, na
+// ordem em que a vaga escreveu.
+function renderBlocos(blocos) {
+    let html = '';
+    let itens = '';
+
+    const fechaLista = () => {
+        if (itens) {
+            html += `<ul class="desc-list">${itens}</ul>`;
+            itens = '';
+        }
+    };
+
+    for (const bloco of blocos) {
+        const texto = escapeHtml(bloco.texto || '');
+        if (bloco.tipo === 'item') {
+            itens += `<li>${texto}</li>`;
+        } else {
+            fechaLista();
+            html += bloco.tipo === 'subtitulo'
+                ? `<h4 class="desc-subtitle">${texto}</h4>`
+                : `<p class="desc-text">${texto}</p>`;
+        }
+    }
+    fechaLista();
+
+    return html;
 }
 
 function renderSchedule() {
@@ -587,7 +758,7 @@ function renderSchedule() {
 // Complemento do contador exibido na sub-aba ativa (vazio em "Todas").
 function rotuloSubTab() {
     if (state.currentSubTab === 'recentes') return ROTULO_JANELA_RECENTE;
-    if (state.currentSubTab === 'nao-candidatas') return 'ainda não candidatadas';
+    if (state.currentSubTab === 'nao-candidatas') return 'ainda não vistas';
     return '';
 }
 
@@ -646,10 +817,10 @@ function showEmpty() {
 
     if (state.currentSubTab === 'recentes') {
         titulo = 'Nenhuma vaga nova';
-        texto = `Nada publicado ${ROTULO_JANELA_RECENTE} sem candidatura`;
+        texto = `Nada publicado ${ROTULO_JANELA_RECENTE} ainda não visto`;
     } else if (state.currentSubTab === 'nao-candidatas') {
-        titulo = 'Tudo já candidatado';
-        texto = 'Você já se candidatou a todas as vagas com os filtros atuais';
+        titulo = 'Tudo já visto';
+        texto = 'Você já marcou como vistas todas as vagas com os filtros atuais';
     }
 
     if (els.emptyTitle) els.emptyTitle.textContent = titulo;

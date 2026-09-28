@@ -40,7 +40,7 @@
         <!-- Sub-tabs (only for Vagas Tech / Vagas Gerais) -->
         <div id="subtabs" class="subtabs" role="tablist" aria-label="Filtro de período e candidaturas">
             <button class="subtab-btn active" data-subtab="recentes" role="tab" aria-selected="true" title="Vagas publicadas hoje ou ontem em que você ainda não se candidatou">Últimos 2 dias</button>
-            <button class="subtab-btn" data-subtab="nao-candidatas" role="tab" aria-selected="false" title="Todas as vagas em que você ainda não se candidatou, sem limite de data">Não candidatadas</button>
+            <button class="subtab-btn" data-subtab="nao-candidatas" role="tab" aria-selected="false" title="Todas as vagas que você ainda não marcou como vistas, sem limite de data">Não Vistas</button>
             <button class="subtab-btn" data-subtab="todas" role="tab" aria-selected="false">Todas</button>
         </div>
 
@@ -120,6 +120,24 @@
             <button id="retry-btn" class="btn btn-primary">Tentar novamente</button>
         </div>
     </div>
+
+    <!-- Descrição da vaga: sobreposição que entra pela direita -->
+    <div id="desc-backdrop" class="desc-backdrop" aria-hidden="true"></div>
+    <aside id="desc-drawer" class="desc-drawer" role="dialog" aria-modal="true" aria-labelledby="desc-drawer-title" aria-hidden="true">
+        <header class="desc-drawer-header">
+            <div class="desc-drawer-headings">
+                <h2 id="desc-drawer-title" class="desc-drawer-title">Vaga</h2>
+                <p id="desc-drawer-subtitle" class="desc-drawer-subtitle"></p>
+            </div>
+            <button type="button" id="desc-drawer-close" class="desc-drawer-close" aria-label="Fechar descrição">✕</button>
+        </header>
+        <div id="desc-drawer-body" class="desc-drawer-body">
+            <p class="desc-status">Carregando descrição…</p>
+        </div>
+        <footer class="desc-drawer-footer">
+            <a id="desc-drawer-apply" class="apply-btn" href="#" target="_blank" rel="noopener noreferrer">Candidatar-se →</a>
+        </footer>
+    </aside>
 
     <script src="app.js"></script>
 </body>
