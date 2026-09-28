@@ -64,11 +64,15 @@ Todas as buscas vivem na lista `BUSCAS` de `consultas.py`. Cada linha gera **dua
 |---|---|---|---|
 | `Suporte` | `tech` | `Suporte` / `Suporte Remoto` | Suporte |
 | `estagio` | `tech` | `Estágio` / `Estágio Remoto` | Estágio |
+| `estagiario` | `tech` | `Estágio` / `Estágio Remoto` | Estágio |
 | `desenvolvedor` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
 | `desenvolvimento` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
 | `dev` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
+| `software` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
+| `devops` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
 | `sistemas` | `tech` | `Sistemas` / `Sistemas Remoto` | Dev |
 | `TI` | `tech` | `TI` / `TI Remoto` | TI |
+| `tecnologia` | `tech` | `TI` / `TI Remoto` | TI |
 | `infra` | `tech` | `Outras` / `Outras Remoto` | Outras |
 | `help desk` | `tech` | `Outras` / `Outras Remoto` | Outras |
 | `service desk` | `tech` | `Outras` / `Outras Remoto` | Outras |
@@ -94,7 +98,7 @@ A busca da Gupy é por radical e ignora acentos, o que evita variantes duplicada
 | `desenvolvedor` | `desenvolvedora` | conjuntos de IDs idênticos |
 | `sistemas` | `sistema` | conjuntos de IDs idênticos |
 
-Já `desenvolvimento` e `dev` **não** são cobertos por `desenvolvedor` — os três têm conjuntos de IDs totalmente disjuntos, então precisam de buscas separadas.
+Já `estagiario`, `desenvolvimento` e `dev` **não** são cobertos por `estagio` e `desenvolvedor` — os conjuntos de IDs são totalmente disjuntos, então cada um precisa de busca própria. É por isso que o botão **Estágio** usa `estagio` + `estagiario`, e o botão **Dev** usa `desenvolvedor` + `desenvolvimento` + `dev` + `software` + `devops`.
 
 ### As duas URLs padrão
 
@@ -153,11 +157,15 @@ BUSCAS = [
     # tech, na ordem dos botões: Suporte > Estágio > Dev > TI > Outras
     ("Suporte",         "tech",  "Suporte"),
     ("estagio",         "tech",  "Estágio"),
+    ("estagiario",      "tech",  "Estágio"),
     ("desenvolvedor",   "tech",  "Desenvolvimento"),
     ("desenvolvimento", "tech",  "Desenvolvimento"),
     ("dev",             "tech",  "Desenvolvimento"),
+    ("software",        "tech",  "Desenvolvimento"),
+    ("devops",          "tech",  "Desenvolvimento"),
     ("sistemas",        "tech",  "Sistemas"),
     ("TI",              "tech",  "TI"),
+    ("tecnologia",      "tech",  "TI"),
     ("infra",           "tech",  "Outras"),
     ("help desk",       "tech",  "Outras"),
     ("service desk",    "tech",  "Outras"),

@@ -39,17 +39,27 @@ MODALIDADES = {
 #
 # Termos que a API já resolve sozinha, por equivalência sem acento ou por
 # radical: "estagio" cobre estagiario/estágio/estagiária; "desenvolvedor"
-# cobre desenvolvedora; "sistemas" cobre sistema.
+# cobre desenvolvedora; "sistemas" cobre sistema. Os demais são buscas à parte
+# porque a API não os cobre: "estagiario" e "estagio", por exemplo, devolvem
+# conjuntos de IDs totalmente disjuntos.
 # ---------------------------------------------------------------------------
 BUSCAS = [
     # ---- Vagas Tech: ordem dos botões Suporte > Estágio > Dev > TI > Outras ----
     ("Suporte", "tech", "Suporte"),
+    # Estágio
     ("estagio", "tech", "Estágio"),
+    ("estagiario", "tech", "Estágio"),
+    # Dev
     ("desenvolvedor", "tech", "Desenvolvimento"),
     ("desenvolvimento", "tech", "Desenvolvimento"),
     ("dev", "tech", "Desenvolvimento"),
+    ("software", "tech", "Desenvolvimento"),
+    ("devops", "tech", "Desenvolvimento"),
     ("sistemas", "tech", "Sistemas"),
+    # TI
     ("TI", "tech", "TI"),
+    ("tecnologia", "tech", "TI"),
+    # Outras
     ("infra", "tech", "Outras"),
     ("help desk", "tech", "Outras"),
     ("service desk", "tech", "Outras"),
