@@ -96693,5 +96693,889 @@
         ]
       }
     ]
+  },
+  "12564582": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Realizar atendimento N1 aos usuários do Ecomex, analisando incidentes, requisições e dúvidas operacionais."
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar e tratar chamados junto ao fornecedor NSI/Ecomex."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar análise funcional inicial de erros e identificar necessidade de escalonamento."
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar homologações de correções, melhorias e patches do Ecomex."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar a análise e monitoração das integrações Ecomex x SAP, identificando falhas, coletando evidências e realizando o direcionamento para os times responsáveis quando necessário."
+          },
+          {
+            "tipo": "item",
+            "texto": "Criar cenários de teste e acompanhar validações com usuários e áreas de negócio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar chamados até sua resolução e validação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar os processos de Importação e Exportação relacionados ao sistema Ecomex"
+          },
+          {
+            "tipo": "item",
+            "texto": "Produzir documentações, procedimentos e orientação aos usuários"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "Ensino Superior cursando ou completo em Sistemas de Informação, Análise e Desenvolvimento de Sistemas, Ciência da Computação, Engenharia da Computação ou áreas correlatas"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimentos ou cursos relacionados a Comércio Exterior, Importação e Exportação"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimentos de SAP, especialmente processos integrados com sistemas de comércio exterior"
+          },
+          {
+            "tipo": "item",
+            "texto": "ITIL ou fundamentos de gestão de incidentes e serviços de TI"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desejável conhecimento do Ecomex/NSI"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimentos básicos sobre integrações entre sistemas (IDoc, RFC, APIs/Webservices) serão considerados diferencial."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Capacidade de análise e troubleshooting de incidentes"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento de processos de suporte N1 e gestão de chamados"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento básico de processos de Importação e Exportação"
+          },
+          {
+            "tipo": "item",
+            "texto": "Capacidade de conduzir homologações e produzir documentações"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento de integrações entre sistemas, especialmente Ecomex x SAP"
+          },
+          {
+            "tipo": "item",
+            "texto": "Organização e acompanhamento de pendências até a resolução"
+          },
+          {
+            "tipo": "item",
+            "texto": "Boa comunicação com usuários, áreas de negócio e fornecedores"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Ecomex / NSI desejável conhecimento básico ou experiência de utilização"
+          },
+          {
+            "tipo": "item",
+            "texto": "Microsoft Excel nível intermediário"
+          },
+          {
+            "tipo": "item",
+            "texto": "Microsoft 365 (Outlook, Teams, Word e PowerPoint)"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ferramentas de gestão de chamados / Service Desk"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimentos básicos em ferramentas e tecnologias de integração (IDoc, RFC, APIs/Webservices) desejável"
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "💙 Por que trabalhar na Elgin?"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Aqui, cuidamos de você em todas as etapas da sua jornada — dentro e fora do trabalho:"
+          },
+          {
+            "tipo": "item",
+            "texto": "🏥"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Assistência médica completa"
+          },
+          {
+            "tipo": "texto",
+            "texto": "para você e seus dependentes"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Mais tranquilidade para focar no que realmente importa: sua saúde e da sua família."
+          },
+          {
+            "tipo": "item",
+            "texto": "😁"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Assistência odontológica (opcional)"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Cuidar do seu sorriso também faz parte do nosso compromisso com o seu bem-estar."
+          },
+          {
+            "tipo": "item",
+            "texto": "🍽️"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Vale refeição"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Flexibilidade para suas refeições do dia a dia, com mais praticidade e qualidade."
+          },
+          {
+            "tipo": "item",
+            "texto": "🏋️‍♀️"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "TotalPass"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Incentivo à qualidade de vida com acesso a academias e diversas atividades físicas."
+          },
+          {
+            "tipo": "item",
+            "texto": "🛍️"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Descontos exclusivos em produtos Elgin"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Tecnologia, inovação e conforto com condições especiais para você."
+          },
+          {
+            "tipo": "item",
+            "texto": "🛡️"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Seguro de vida"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Proteção e segurança para você e quem você ama."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Modelo de trabalho hibrido com presencial 1x na Vila Olimpia - SP"
+          }
+        ]
+      }
+    ]
+  },
+  "12624170": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12624169": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12624137": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12624132": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Quais serão suas responsabilidades? 🎯 # Executar o atendimento do cliente no caixa, garantindo qualidade no cadastramento e auxiliando na finalização da compra complementando-a com outros produtos"
+          },
+          {
+            "tipo": "item",
+            "texto": "# Atuar na conferência do caixa, operando o sistema para realização de transações de vendas e pagamentos"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Perfil que buscamos 🔎Buscamos uma pessoa organizada e responsável com o cumprimento de prazos e rotinas administrativas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Entusiasmo para lidar com os clientes e equipe."
+          },
+          {
+            "tipo": "item",
+            "texto": "Atitude para propor soluções aos desafios."
+          },
+          {
+            "tipo": "item",
+            "texto": "O que você precisa ter:Ensino Médio CompletoDisponibilidade de horário e para atuar de forma temporária"
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Local 🏢SHOPPING PATÍO HIGIENÓPOLIS #PapoReto 👁️ Nossa seleção já está rolando!"
+          },
+          {
+            "tipo": "item",
+            "texto": "E aí, vem com a gente?"
+          },
+          {
+            "tipo": "item",
+            "texto": "Inscrição e análise de currículosEntrevistasFeedbacks e/ou proposta, retorno sobre o processo."
+          },
+          {
+            "tipo": "item",
+            "texto": "#Conheça mais de nossos processos seletivos acompanhando nossa pagina de carreira: https://tfcarreira.gupy.io/"
+          }
+        ]
+      }
+    ]
+  },
+  "12621058": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "1. Atendimento e Assistência de Enfermagem"
+          },
+          {
+            "tipo": "item",
+            "texto": "Prestar assistência de enfermagem aos alunos, colaboradores e demais membros da comunidade escolar, conforme suas atribuições profissionais."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar avaliação inicial e prestar os primeiros cuidados em casos de mal-estar, acidentes, lesões e outras intercorrências."
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar alunos que necessitem de cuidados de saúde durante sua permanência na escola."
+          },
+          {
+            "tipo": "item",
+            "texto": "Administrar medicamentos e realizar tratamentos somente mediante prescrição, autorização e de acordo com os protocolos institucionais e a legislação vigente."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar o encaminhamento para atendimento médico ou serviço de emergência sempre que necessário, conforme os protocolos da escola."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "2. Registros e Comunicação"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar registros de enfermagem de forma clara, precisa, completa e confidencial."
+          },
+          {
+            "tipo": "item",
+            "texto": "Registrar atendimentos, intercorrências, procedimentos realizados e demais informações pertinentes."
+          },
+          {
+            "tipo": "item",
+            "texto": "Comunicar à liderança responsável situações que demandem acompanhamento ou providências específicas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Manter comunicação adequada com famílias e responsáveis, conforme os fluxos e protocolos institucionais."
+          },
+          {
+            "tipo": "item",
+            "texto": "Garantir a transmissão efetiva de informações relevantes entre os profissionais responsáveis pelo atendimento e acompanhamento dos alunos."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "3. Prevenção e Promoção da Saúde"
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar ações de prevenção de acidentes, doenças e outros riscos à saúde no ambiente escolar."
+          },
+          {
+            "tipo": "item",
+            "texto": "Orientar alunos e colaboradores sobre cuidados básicos de saúde e prevenção, quando pertinente."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de campanhas e ações de promoção da saúde instituídas pela escola."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar a identificação de condições que possam representar risco à saúde ou ao bem-estar dos alunos."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "4. Organização, Materiais e Biossegurança"
+          },
+          {
+            "tipo": "item",
+            "texto": "Organizar e manter adequadamente o espaço destinado ao atendimento de saúde."
+          },
+          {
+            "tipo": "item",
+            "texto": "Controlar e repor materiais, medicamentos e insumos de enfermagem, observando prazos de validade e condições adequadas de armazenamento."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar o controle de temperatura de equipamentos e locais destinados ao armazenamento de medicamentos e insumos, conforme protocolos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar a higienização e organização de materiais e equipamentos utilizados nos atendimentos, seguindo as orientações técnicas e de biossegurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Descartar materiais utilizados de acordo com os protocolos de gerenciamento de resíduos e legislação vigente."
+          },
+          {
+            "tipo": "item",
+            "texto": "Zelar pelo uso adequado e pela conservação dos equipamentos disponíveis."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "5. Segurança e Gestão de Riscos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Identificar e comunicar situações que possam representar risco à saúde ou à segurança dos alunos e demais membros da comunidade escolar."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar ações de prevenção e resposta a acidentes e emergências."
+          },
+          {
+            "tipo": "item",
+            "texto": "Contribuir para a manutenção de protocolos relacionados a primeiros socorros e atendimento de emergências."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar a orientação de alunos quanto à prevenção de acidentes e outros riscos à saúde, quando aplicável."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Safeguarding (Proteção e Bem-Estar)"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar de acordo com as políticas e procedimentos de safeguarding da CIBS, reconhecendo que a proteção da criança e do adolescente é responsabilidade de todos os profissionais da escola."
+          },
+          {
+            "tipo": "item",
+            "texto": "Manter atenção a sinais de vulnerabilidade, negligência, abuso, violência ou outras situações que possam comprometer a segurança e o bem-estar dos alunos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Comunicar imediatamente qualquer preocupação ou suspeita de safeguarding aos profissionais designados, seguindo os canais e protocolos institucionais."
+          },
+          {
+            "tipo": "item",
+            "texto": "Manter sigilo e discrição no tratamento de informações relacionadas à saúde, proteção e bem-estar dos alunos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Respeitar a privacidade, a dignidade e os direitos das crianças e adolescentes em todas as situações de atendimento."
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar de maneira ética, cuidadosa e não discriminatória, contribuindo para um ambiente seguro, acolhedor e protetivo para todos."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Formação"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Curso Técnico em Enfermagem completo."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Registro ativo no COREN."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Desejável: formação ou capacitação em primeiros socorros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Conhecimentos Técnicos"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimento das normas técnicas e éticas da profissão."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimento de primeiros socorros e atendimento a intercorrências."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimento de procedimentos de biossegurança e controle de infecções."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimento sobre administração e armazenamento de medicamentos, conforme legislação e protocolos institucionais."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimento sobre registros e documentação de enfermagem."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Desejável: conhecimento sobre atendimento de crianças e adolescentes em ambiente escolar."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Competências Comportamentais"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Acolhimento e empatia no atendimento às crianças e famílias."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Calma e capacidade de atuação em situações de emergência."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Atenção e responsabilidade na execução de procedimentos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Boa comunicação e capacidade de trabalho em equipe."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Organização e atenção aos detalhes."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Discrição e ética profissional."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Proatividade e capacidade de prevenção de riscos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Postura acolhedora, respeitosa e não discriminatória."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Compromisso com a proteção e o bem-estar das crianças e adolescentes."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Diferenciais Desejáveis"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Experiência prévia em ambiente escolar."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Experiência com atendimento pediátrico."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Experiência com primeiros socorros e atendimento de emergências."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Formação complementar em saúde escolar, primeiros socorros ou áreas correlatas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimento de protocolos de safeguarding e proteção à criança e ao adolescente."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Assistência médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência odontológica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-transporte"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida"
+          },
+          {
+            "tipo": "item",
+            "texto": "TotalPass (programa de saúde e bem-estar)"
+          },
+          {
+            "tipo": "item",
+            "texto": "Convênio do SESC"
+          },
+          {
+            "tipo": "item",
+            "texto": "Folga no dia do aniversário"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-refeição ou vale-alimentação, de acordo com a política vigente da empresa"
+          },
+          {
+            "tipo": "item",
+            "texto": "Descontos na Faculdade Cultura Inglesa"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Se você tem a energia, a paixão e a dedicação que buscamos, adoraríamos conhecer você! Envie seu currículo e venha fazer parte da"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Cultura Inglesa Bilingual School"
+          },
+          {
+            "tipo": "texto",
+            "texto": "!"
+          }
+        ]
+      }
+    ]
   }
 }
