@@ -27,9 +27,15 @@ Sistema automatizado em Python para monitoramento periódico de vagas na platafo
 - **Deduplicação Global**: Armazena o ID original de cada vaga no arquivo de histórico (`vagas_vistas.json`). Se a mesma vaga for encontrada por termos diferentes, ela só é registrada na primeira consulta que a encontrar.
 - **Filtro de Cargo**: Vagas de nível avançado são descartadas antes de entrar no histórico: **sênior/sr**, **pleno/pl**, **especialista**, **gerente**, **diretor**, **coordenador**, **supervisor** e **líder**. O corte é pelo **título** da vaga, em `cargo_para_descartar()` (`monitor/descricoes.py`) — a API da Gupy não aceita exclusão (`excludeTerms` é ignorado, e `jobName=dev -senior` devolve outro conjunto).
   - O título da vaga mistura **cargo** e **área**, e errar para o lado de descartar apaga oportunidade sem a pessoa nunca ver. Por isso o filtro tem três partes: o **cargo** (`Coordenador de Compras`, `Supervisor`, incluindo feminino e plural), a **área** (`Coordenação`, `Supervisão`, `Gerência`) e o **PL** (que só conta quando não é `PL/SQL`, dialeto de banco). Tudo com acento ignorado e palavra inteira, senão "Sr" casaria dentro de outras palavras.
-  - Duas regras evitam falso positivo: quem aceita os dois níveis é mantido (`Fullstack AI Engineer - (JR/PL)`, `Advogado(a) Júnior/Pleno`), e **cargo de entrada no começo do título** também (`Assistente de Coordenação Pedagógica` é vaga de assistente, não de coordenador).
-  - A vaga descartada entra no `vagas_vistas.json` para não ser re-avaliada a cada rodada, mas não vai para o histórico nem para o dashboard. O terminal avisa: `Descartadas N vaga(s) de cargo avançado`.
+  - Duas regras evitam falso positivo: quem aceita os dois níveis é mantido (`Fullstack AI Engineer - (JR/PL)`, `Advogado(a) Júnior/Pleno`), e **cargo de entrada no começo do título** também (`Assistente de Coordenação Pedagógica` é vaga de assistente, não de coordenador). Esse cargo de entrada é reconhecido com ou sem o prefixo `Pessoa` que boa parte das vagas da Gupy usa (`Pessoa Assistente de Coordenação`), e o termo de estágio vale para os dois gêneros (`Estagiária` tanto quanto `Estagiário`).
+  - A vaga descartada entra no `vagas_vistas.json` para não ser re-avaliada a cada rodada, mas não vai para o histórico nem para o dashboard. O terminal avisa o motivo: `Descartadas N vaga(s) por cargo avançado`.
   - O corte também roda na limpeza do histórico, então as vagas de cargo avançado que já estavam gravadas saem na próxima execução.
+- **Filtro de Escopo de Área**: as buscas `estagio` e `estagiario` são por radical e não aceitam filtro de área, então elas traziam **todo** estágio publicado nas cidades monitoradas — RH, jurídico, marketing, pedagogia, engenharia civil, suprimentos — para a aba **Vagas Tech**. Das 62 vagas de estágio do histórico, só 11 eram de tecnologia. O corte é em `estagio_fora_do_escopo()` (`monitor/descricoes.py`), pelas mesmas três regras do filtro de cargo:
+  - **Só vaga de estágio entra na conta.** `Analista de Suporte` é suporte de verdade, e o rótulo já a coloca na aba certa.
+  - **Tecnologia no título vence sempre.** `Estágio em Suprimentos com SAP` é vaga de SAP, não de compras. É a válvula de escape, e é ela que segura o erro mais caro do filtro: apagar uma vaga de tecnologia.
+  - **O resto sai se citar uma área que não é de tecnologia.** A lista (`AREAS_FORA_DE_TECH`) é explícita em vez de "tudo que não for tech", por isso qualquer área que ninguém tenha catalogado passa e a vaga aparece. Títulos sem área (`Estagiário`, `Estágio Universitário`) também passam: o título não diz, e o filtro não adivinha. **Administrativo não está na lista** — vaga de administrativo é procurada.
+  - Vale **só na aba Vagas Tech**. Em **Vagas Gerais**, estágio de RH ou de compras é justamente o que a aba procura — o destino vem explícito do `main.py` até o filtro.
+  - A vaga descartada entra no cache e some do histórico, como no filtro de cargo. O terminal avisa: `Descartadas N vaga(s) por estágio fora da área de tech`.
 - **Filtro de Recorrência**: Considera apenas vagas publicadas nos últimos 4 dias e limpa automaticamente registros do cache com mais de 7 dias.
 - **Resiliência e Retentativas**: Sistema de retentativas automáticas (`retry`) com tolerância a falhas na API da Gupy.
 - **Zero configuração por termo**: Adicionar ou remover uma busca é uma linha na lista, sem criar arquivos.
@@ -49,8 +55,8 @@ MinhasVagas/
 │       └── main.yml               # Pipeline de monitoramento e commit (GitHub Actions)
 ├── monitor/                       # O programa (roda com `python monitor/main.py`)
 │   ├── consultas.py               # LISTA DE BUSCAS (jobName, destino, rótulo) + URLs padrão
-│   ├── common.py                  # API Gupy, cache, histórico, limpeza e filtro de cargo
-│   ├── descricoes.py              # Filtro de cargo + seções da descrição e o descricoes.json
+│   ├── common.py                  # API Gupy, cache, histórico, limpeza e os dois filtros
+│   ├── descricoes.py              # Filtros de cargo e de escopo + seções da descrição e o descricoes.json
 │   ├── backfill_descricoes.py     # Preenche o descricoes.json das vagas que já estão no histórico
 │   └── main.py                    # Orquestrador: itera as consultas e imprime o resumo
 ├── index.html                     # Interface do Dashboard (GitHub Pages) — precisa ficar na raiz
@@ -64,7 +70,15 @@ MinhasVagas/
 │   └── descricoes.json            # {id: {fonte, secoes}} — a partir de "Responsabilidades"
 ├── .env                           # Configurações locais (ignorado no Git)
 ├── .gitignore                     # Configuração de arquivos ignorados pelo Git
+├── test_filtros.py                # Testes dos filtros de cargo e de escopo
+├── test_guardiao.py               # Testes da conta de datas do guardião
 └── README.md                      # Documentação do projeto
+```
+
+Os testes rodam sem rede e sem tocar em `data/`:
+
+```bash
+python3 -m unittest discover -s . -p 'test_*.py'
 ```
 
 ---
@@ -149,6 +163,9 @@ O orquestrador percorre todas as consultas (cada termo × presencial e remoto), 
 No log, cada consulta aparece com o **termo pesquisado** e o rótulo que ela grava (`"devops" → Desenvolvimento`), porque várias buscas compartilham o mesmo rótulo. O **resumo final** é separado por destino e agrupado por área:
 
 ```text
+Descartadas 8 vaga(s) por estágio fora da área de tech para ["estagio" → Estágio].
+Descartadas 3 vaga(s) por cargo avançado para ["Suporte" → Suporte].
+
 📊 VAGAS TECH — novas por área (data/vagas_recentes.json)
 ============================================================
   • Desenvolvimento         72      <- dev + software + devops + sistemas
@@ -158,6 +175,8 @@ No log, cada consulta aparece com o **termo pesquisado** e o rótulo que ela gra
 ```
 
 "Sistemas" entra dentro de "Desenvolvimento" porque o botão **Dev** do dashboard já cobre os dois. Se uma busca falhar, a área aparece marcada como `(N busca(s) com erro)` e o detalhe continua na linha da consulta.
+
+As linhas de "Descartadas" dizem **o motivo** e não só o total, porque os dois filtros descartam por razões diferentes: é assim que se vê se o número grande vem do cargo avançado ou do estágio fora da área de tech.
 
 Para inspecionar as URLs que serão consultadas, sem chamar a API:
 
@@ -263,6 +282,56 @@ Três detalhes do agendamento:
 ## 🛠️ Como Adicionar ou Remover uma Busca
 
 Basta editar a lista `BUSCAS` em `monitor/consultas.py`. **Nenhum arquivo novo é preciso.**
+
+Uma ressalva sobre o termo `estagiario`: ele é o que mais traz vaga fora da aba, porque a busca é por radical e a API não filtra por área. É o `estagiario` que faz o dashboard receber estágio de RH e de jurídico, e é o filtro de escopo que corta.
+
+## 🧩 Como Adicionar ou Remover uma Área do Filtro
+
+Áreas não se ajustam na lista `BUSCAS` acima, e sim em `AREAS_FORA_DE_TECH`, no `monitor/descricoes.py`. É uma string multilinha, **uma linha por área**, com os termos que a nomeiam separados por `|`:
+
+```python
+AREAS_FORA_DE_TECH = r"""
+    recursos?\s+humanos?|gente\s+e\s+gestao|departamento\s+pessoal
+  | remuneracao|folha\s+de\s+pagamento|recrutament\w*|selecao
+  | juridic\w*|advogad\w*|contencioso|arbitragem|tributari\w*|regulatori\w*
+  | pedagog\w*|ensino\s+medio|ensino\s+fundamental|licenciatura|geografia
+  ...
+"""
+```
+
+Três coisas para saber antes de editar:
+
+**O texto vai sem acento.** A comparação passa por `_sem_acento()`, que normaliza para minúsculas e remove os acentos. Escreva `juridic\w*` e não `jurídic*`; um acento no meio faz a alternativa nunca casar e o termo fica morto na lista, sem erro nenhum.
+
+**A palavra `\w*` no fim é o que pega a variação.** `juridic\w*` cobre `jurídico`, `jurídica`, `jurídicos` e `jurídicas` de uma vez. Sem ele, teria de escrever cada gênero. Use `\s+` entre palavras de nomes compostos (`ensino\s+medio`) e `\b` só quando a palavra puder grudar na seguinte (`\bpcp\b`, `\bobras?\b`).
+
+**Para *remover* uma área, é só apagar a linha.** Não existe lista negativa. E é por isso que administrativo não aparece ali: vaga de administrativo é procurada, e basta tirá-lo da lista para ele voltar. Vale notar que a palavra "administração" continua aparecendo em vários títulos dentro de parênteses (`Estágio em SUPRIMENTOS (ADMINISTRAÇÃO, LOGÍSTICA)`) — essas seguem descartadas, mas pelo termo da área de verdade, que vem antes do parêntese.
+
+Depois de mexer, confira o efeito antes de deixar valer:
+
+```bash
+python3 -c "
+import sys; sys.path.insert(0, 'monitor')
+from descricoes import estagio_fora_do_escopo as f
+for t in ['Estágio em Jurídico', 'Estágio em TI', 'Estagiário']:
+    print(f(t), t)
+"
+python3 -m unittest discover -s . -p 'test_filtros.py'
+```
+
+Para ver o efeito em massa, o histórico atual é a melhor amostra — são as vagas reais que a aba vai mostrar:
+
+```bash
+python3 -c "
+import json, sys; sys.path.insert(0, 'monitor')
+from descricoes import estagio_fora_do_escopo as f
+v = [x for x in json.load(open('data/vagas_recentes.json')) if x['topic'].startswith('Estágio')]
+for x in sorted(v, key=lambda x: x['publishedDate'], reverse=True):
+    print(('  MANTE' if not f(x['name']) else '  some '), x['name'][:70])
+"
+```
+
+O filtro só age no que entra a partir da próxima execução do `main.py`; o histórico já gravado é limpo por ela (é o mesmo caminho que apaga cargo avançado).
 
 ```python
 BUSCAS = [

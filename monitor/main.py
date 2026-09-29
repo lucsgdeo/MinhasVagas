@@ -41,6 +41,7 @@ def main():
                 api_url=consulta.url,
                 vagas_recentes_file=ARQUIVOS[consulta.destino],
                 rotulo_exibicao=consulta.rotulo_exibicao,
+                destino=consulta.destino,
             )
             total_novas += novas
             resumo.append((consulta.destino, consulta.rotulo, novas))
