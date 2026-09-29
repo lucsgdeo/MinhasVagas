@@ -5,7 +5,12 @@ import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from descricoes import cargo_para_descartar, descrever_vagas, sincronizar_descricoes
+from descricoes import (
+    cargo_para_descartar,
+    descrever_vagas,
+    estagio_fora_do_escopo,
+    sincronizar_descricoes,
+)
 
 # Os dados ficam em `data/` porque é de lá que o `assets/app.js` os busca; o
 # site (index.html) fica na raiz, que é o que o GitHub Pages serve. Este módulo
@@ -43,6 +48,28 @@ def carregar_env(env_path: str = None):
                     os.environ[chave] = valor
     except Exception as err:
         print(f"⚠️ Erro ao ler arquivo .env: {err}")
+
+
+def vaga_para_descartar(vaga: dict, destino: str) -> str:
+    """Devolve o motivo do descarte da vaga, ou "" se ela deve ficar.
+
+    Os dois filtros se complementam e nenhum dos dois é opcional: o de cargo
+    tira sênior/pleno/especialista, o de escopo tira o estágio de RH que entrou
+    na busca por radical. Devolver o motivo (e não só um booleano) é o que
+    permite ao terminal dizer o que aconteceu em vez de somar tudo num número só.
+
+    O escopo só vale em "Vagas Tech": em "Vagas Gerais", estágio de RH ou de
+    compras é justamente o que a aba procura. O destino vem explícito do
+    orquestrador, e não é deduzido do caminho do arquivo — deduzir faria o
+    filtro de escopo desligar sozinho em qualquer cópia do histórico, que é
+    exatamente o que acontece nos testes.
+    """
+    nome = vaga.get("name", "")
+    if cargo_para_descartar(nome):
+        return "cargo avançado"
+    if destino == "tech" and estagio_fora_do_escopo(nome):
+        return "estágio fora da área de tech"
+    return ""
 
 
 def carregar_e_limpar_cache(cache_file: str = CACHE_FILE_DEFAULT, dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT) -> dict:
@@ -96,11 +123,16 @@ def salvar_cache(cache_dados: dict, cache_file: str = CACHE_FILE_DEFAULT):
 
 
 
-def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT, dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT) -> list:
-    """Carrega e limpa vagas do arquivo: antigas (> dias_retencao) e de cargo avançado.
+def carregar_e_limpar_vagas_recentes(
+    vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
+    dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT,
+    destino: str = "tech",
+) -> list:
+    """Carrega e limpa vagas do arquivo: antigas (> dias_retencao) e fora do escopo.
 
-    O corte por cargo é repetido aqui, e não só na captura, para que as vagas de
-    cargo avançado que entraram antes do filtro saiam na próxima execução.
+    O corte por cargo e o de escopo de área são repetidos aqui, e não só na
+    captura, para que as vagas que entraram antes dos filtros saiam na próxima
+    execução — é o que faz a limpeza surtir efeito no histórico já gravado.
     """
     agora_br = datetime.now(FUSO_SP)
     data_limite = agora_br - timedelta(days=dias_retencao)
@@ -120,7 +152,7 @@ def carregar_e_limpar_vagas_recentes(vagas_recentes_file: str = VAGAS_RECENTES_F
 
         vagas_validas = []
         for vaga in vagas:
-            if cargo_para_descartar(vaga.get("name", "")):
+            if vaga_para_descartar(vaga, destino):
                 continue
             raw_date = vaga.get("publishedDate")
             if raw_date:
@@ -157,14 +189,19 @@ def ids_no_historico(vagas_recentes_file: str) -> set:
     return ids
 
 
-def salvar_vagas_recentes(novas_vagas: list, rotulo: str, vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT):
+def salvar_vagas_recentes(
+    novas_vagas: list,
+    rotulo: str,
+    vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
+    destino: str = "tech",
+):
     """Adiciona novas vagas ao histórico e salva (mantém apenas últimas 7 dias).
 
     As seções de "Responsabilidades e Atribuições" em diante vão para
     `descricoes.json`, que é reescrito a partir dos IDs que continuam nos dois
     históricos — assim os arquivos envelhecem juntos.
     """
-    vagas_existentes = carregar_e_limpar_vagas_recentes(vagas_recentes_file)
+    vagas_existentes = carregar_e_limpar_vagas_recentes(vagas_recentes_file, destino=destino)
 
     ids_existentes = {v.get("id") for v in vagas_existentes}
     novas_para_descrever = []
@@ -238,6 +275,7 @@ def executar_monitoramento(
     cache_file: str = CACHE_FILE_DEFAULT,
     vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
     rotulo_exibicao: str = "",
+    destino: str = "tech",
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
@@ -246,6 +284,9 @@ def executar_monitoramento(
     `rotulo` é o campo `topic` que vai para o JSON; `rotulo_exibicao` é como a
     consulta aparece no terminal (termo buscado + rótulo). Vários termos
     compartilham o mesmo `rotulo`, então são eles que se repetem no log.
+
+    `destino` ("tech" ou "geral") decide se o filtro de escopo de área roda: em
+    "Vagas Tech" estágio de RH está fora, em "Vagas Gerais" é o que se procura.
     """
     exibicao = rotulo_exibicao or rotulo
     carregar_env()
@@ -259,7 +300,10 @@ def executar_monitoramento(
         vagas = consultar_api_gupy(api_url)
 
         novas_vagas = []
-        descartadas_cargo = 0
+        # Um contador por motivo: o terminal precisa dizer o que saiu, senão
+        # "51 descartadas" não deixa claro se o filtro de cargo ou o de área
+        # é que está pegando.
+        descartadas = {"cargo avançado": 0, "estágio fora da área de tech": 0}
 
         for vaga in vagas:
             vaga_id = str(vaga.get("id"))
@@ -275,13 +319,15 @@ def executar_monitoramento(
 
                 vaga["data_formatada_br"] = data_br.strftime("%d/%m/%Y às %H:%M")
 
-            # Filtro: descarta cargo avançado (sênior, pleno, especialista,
-            # gerente...). Entram no cache para não ser re-avaliados a cada
-            # rodada, mas não vão para o histórico nem para o dashboard.
-            if cargo_para_descartar(vaga.get("name", "")):
+            # Filtros: cargo avançado (sênior, pleno, especialista, gerente) e
+            # estágio de área que não é de tecnologia. As descartadas entram no
+            # cache para não ser re-avaliadas a cada rodada, mas não vão para o
+            # histórico nem para o dashboard.
+            motivo = vaga_para_descartar(vaga, destino)
+            if motivo:
                 if vaga_id not in cache_vagas:
                     cache_vagas[vaga_id] = agora_br.isoformat()
-                descartadas_cargo += 1
+                descartadas[motivo] += 1
                 continue
 
             # Checa se o ID original da vaga já foi notificado anteriormente
@@ -289,22 +335,26 @@ def executar_monitoramento(
                 novas_vagas.append(vaga)
                 cache_vagas[vaga_id] = agora_br.isoformat()
 
-        if descartadas_cargo:
-            print(f"Descartadas {descartadas_cargo} vaga(s) de cargo avançado para [{exibicao}].")
+        for motivo, total in descartadas.items():
+            if total:
+                print(f"Descartadas {total} vaga(s) por {motivo} para [{exibicao}].")
 
         # 3. Salva no histórico e no cache
         if novas_vagas:
             print(f"Encontradas {len(novas_vagas)} nova(s) vaga(s) para [{exibicao}]!")
 
             # Salva no histórico de vagas recentes (para dashboard)
-            salvar_vagas_recentes(novas_vagas, rotulo, vagas_recentes_file)
+            salvar_vagas_recentes(novas_vagas, rotulo, vagas_recentes_file, destino=destino)
 
             salvar_cache(cache_vagas, cache_file)
             return len(novas_vagas)
         else:
             salvar_cache(cache_vagas, cache_file)
-            # Também limpa vagas antigas do histórico mesmo sem vagas novas
-            carregar_e_limpar_vagas_recentes(vagas_recentes_file)
+            # Limpa o histórico mesmo sem vaga nova. Passar lista vazia reescreve
+            # o arquivo com o que sobrou depois dos filtros; chamar a limpeza
+            # só para ler devolveria a lista sem gravá-la, e as vagas fora do
+            # escopo ficariam no histórico para sempre.
+            salvar_vagas_recentes([], rotulo, vagas_recentes_file, destino=destino)
             print(f"Nenhuma vaga nova publicada nos últimos {max_dias_pub} dias para [{exibicao}].")
             return 0
 

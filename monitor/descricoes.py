@@ -70,11 +70,22 @@ RE_PL = re.compile(r"\bpl\b(?!\s*/\s*sql)", re.I)
 
 # Quem aceita os dois níveis ("Fullstack AI Engineer - (JR/PL)") é mantido,
 # porque a empresa admite entry level.
-RE_ENTRADA = re.compile(r"\b(?:jr|júnior|junior|trainee|estagiario|estagio|aprendiz)\w*", re.I)
+#
+# O termo de estágio é `estagi\w*` e não `estagiario|estagio`: as empresas
+# escrevem "Estagiária" na maioria das vezes, e listar só o masculino deixava o
+# feminino de fora do grupo de entrada — "Estagiária Sênior" era descartada como
+# se fosse nível avançado.
+RE_ENTRADA = re.compile(r"\b(?:jr|júnior|junior|trainee|estagi\w*|aprendiz)\w*", re.I)
 # Cargo de entrada no começo do título: a palavra de nível que vier depois é a
 # área, não o cargo.
+#
+# O prefixo opcional existe porque boa parte das vagas da Gupy começa com
+# "Pessoa" ("Pessoa Estagiária de Engenharia Civil", "Pessoa Assistente de
+# Suporte"): sem ele a âncora `^` não casava, e "Pessoa Assistente de
+# Coordenação" era descartado como se fosse vaga de coordenador.
 RE_CARGO_DE_ENTRADA = re.compile(
-    r"^(?:assistente|auxiliar|aprendiz|trainee|estagi\w*|operador|atendente|recepcionista|promotor)\b",
+    r"^(?:pessoa[s]?\s+)?"
+    r"(?:assistente|auxiliar|aprendiz|trainee|estagi\w*|operador|atendente|recepcionista|promotor)\b",
     re.I,
 )
 
@@ -96,6 +107,96 @@ def cargo_para_descartar(nome: str) -> bool:
     # Sem nível declarado, "Coordenação"/"Supervisão" pode ser só a área:
     # "Assistente de Coordenação Pedagógica" é vaga de assistente.
     return bool(RE_AREAS.search(titulo)) and not RE_CARGO_DE_ENTRADA.match(titulo.strip())
+
+
+# --------------------------------------------------------------------------
+# Escopo de área: estágios de tecnologia
+#
+# As buscas "estagio" e "estagiario" são por radical e não aceitam filtro de
+# área (`excludeTerms` é ignorado pela API), então elas trazem TODO estágio das
+# cidades monitoradas: RH, jurídico, marketing, pedagogia, engenharia civil,
+# suprimentos. Como o rótulo vai para a aba "Vagas Tech", essas vagas entravam no
+# dashboard como se fossem de tecnologia — das 62 vagas de estágio do histórico,
+# só 11 eram de tech.
+#
+# O corte é pelo título, com três regras na ordem:
+#
+#   1. só vaga de estágio entra na conta — "Analista de Suporte" é suporte de
+#      verdade e o rótulo já a coloca onde deve ficar;
+#   2. título que cita tecnologia vence sempre: "Estágio em Suprimentos com SAP"
+#      é vaga de SAP, não de compras;
+#   3. o resto sai se citar uma área que não é de tecnologia.
+#
+# A ordem importa: a regra 2 é uma válvula de escape, e é ela que segura o
+# erro mais caro deste filtro — apagar uma vaga de tecnologia. Por isso ela vem
+# antes da lista de áreas, e por isso a lista de áreas é explícita em vez de
+# "tudo que não for tech": qualquer área que ninguém tenha catalogado aqui
+# (uma nova, um termo incomum) passa, e a vaga aparece. Errar para o lado de
+# manter custa um card a mais; errar para o lado de descartar apaga a
+# oportunidade sem a pessoa nunca ver.
+#
+# Títulos sem área nenhuma ("Estagiário", "Estágio Universitário") também
+# passam, pelo mesmo motivo: o título não diz, e o filtro não adivinha.
+# --------------------------------------------------------------------------
+RE_ESTAGIO = re.compile(r"\b(?:estagi\w*|aprendiz)\w*", re.I)
+
+# Áreas que não são de tecnologia, catalogadas a partir do que apareceu no
+# histórico. Cada linha é uma área; dentro dela, os termos que a nomeiam.
+#
+# NÃO entra "administrativo" aqui: vaga de administrativo é procurada. Os
+# casos em que a palavra aparece só dentro do parêntese de cursos aceitos
+# continuam descartados pelo termo da área verdadeira — "Estágio em SUPRIMENTOS
+# (ADMINISTRAÇÃO, LOGÍSTICA...)" cai por "suprimentos". Tirar o termo não abriu
+# exceção nenhuma: a área da vaga segue sendo a que vem antes do parêntese.
+AREAS_FORA_DE_TECH = r"""
+    recursos?\s+humanos?|gente\s+e\s+gestao|departamento\s+pessoal
+  | remuneracao|folha\s+de\s+pagamento|recrutament\w*|selecao
+  | juridic\w*|advogad\w*|contencioso|arbitragem|tributari\w*|regulatori\w*
+  | pedagog\w*|ensino\s+medio|ensino\s+fundamental|licenciatura|geografia
+  | professor\w*|educacao\s+fisica
+  | engenharia\s+civil|\bobras?\b|construt\w*|arquitet\w*
+  | suprimentos?|compras?|logistic\w*|abastecimento|\bpcp\b
+  | engenharia\s+de\s+produc|processos?\s+industriais?|cadeia\s+de\s+suprimentos
+  | financ\w*|finops|controladoria|contab\w*|contador\w*|auditoria
+  | tesouraria|patrimonio|fiscal
+  | musculacao|alongament\w*|fitness|personal\s+trainer
+  | negoci\w*|incorporac\w*|comercial\b|vendas\b
+  | marketing|branding|midia|comunicac\w*|publicitari\w*|social\s+media
+  | inteligencia\s+de\s+mercado|pesquisa\s+de\s+mercado
+  | pricing|comercio\s+exterior
+"""
+RE_AREA_FORA_DE_TECH = re.compile(
+    r"\b(?:" + AREAS_FORA_DE_TECH + r")\b", re.I | re.X
+)
+
+# Termos que marcam tecnologia. Só entram depois de uma vaga de estágio, e
+# apenas para preservar: é a lista que impede o descarte errado.
+TERMOS_DE_TECH = r"""
+    \bti\b|tecnologia\s+da\s+informacao|informat\w*|computa\w*
+  | software|desenvolv\w*|\bsistemas?\b|\berp\b|\bsap\b
+  | dados?|data\s+science|business\s+intelligence|\bbi\b
+  | programa\w*|autom\w*|infraestrutura|seguranca\s+da\s+informa
+  | geoprocessamento|front\s*-?end|back\s*-?end|full\s*stack
+  | \bcloud\b|redes?\b|mobile\b|\bdev\b|\bqa\b|testes?\b
+"""
+RE_TECH = re.compile(r"\b(?:" + TERMOS_DE_TECH + r")\b", re.I | re.X)
+
+
+def estagio_fora_do_escopo(nome: str) -> bool:
+    """True quando a vaga é de estágio de uma área que não é de tecnologia.
+
+    Só se aplica a "Vagas Tech": em "Vagas Gerais" o estágio de RH ou de
+    compras é exatamente o que a aba procura.
+    """
+    titulo = _sem_acento(nome or "")
+    # Não é estágio: o rótulo já decide a área, não compete aqui.
+    if not RE_ESTAGIO.search(titulo):
+        return False
+    # Válvula de escape: tecnologia no título vence qualquer área.
+    if RE_TECH.search(titulo):
+        return False
+    return bool(RE_AREA_FORA_DE_TECH.search(titulo))
+
 
 # A página da vaga publica a descrição em HTML no JSON-LD (schema.org
 # JobPosting) — é o mesmo HTML que a Gupy renderiza, com <h2>, <li> e <strong>.
