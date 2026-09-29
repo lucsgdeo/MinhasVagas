@@ -4,6 +4,16 @@ on:
   # Todo dia às 18h30 no horário de Brasília. O cron do GitHub Actions é sempre
   # em UTC e o Brasil é UTC-3, então 18h30 aqui vira 21h30 UTC. O Brasil não tem
   # horário de verão desde 2019, então o deslocamento é fixo o ano todo.
+  #
+  # O minuto 30 é deliberado: medindo 175 execuções contra ~705 eventos
+  # agendados, o GitHub empurra para fora do topo da hora o que foi agendado
+  # nele. Não há horário comprovadamente melhor que outro (o p-valor saiu 0.87),
+  # mas sair do :00 é o único ajuste com alguma evidência a favor.
+  #
+  # Este workflow sozinho NÃO garante que o dia foi coberto: em 29 dias de cron
+  # horário, 75% dos eventos simplesmente desapareceram. Quem recupera o que
+  # falta é guardiao.yml; quem avisa que os dois caíram é o ping de heartbeat no
+  # fim deste arquivo.
   schedule:
     - cron: '30 21 * * *'
   workflow_dispatch: # Permite disparar manualmente na aba Actions do GitHub
@@ -14,6 +24,12 @@ jobs:
 
     permissions:
       contents: write # Garante permissão para comitar o histórico
+
+    # Mesmo grupo de guardiao.yml, de propósito: os dois ficam mutuamente
+    # excluídos e nunca disputam o push para a master.
+    concurrency:
+      group: monitoramento-gupy
+      cancel-in-progress: false
 
     steps:
       - name: Checkout do Repositório
@@ -26,6 +42,12 @@ jobs:
 
       - name: Executar Script de Monitoramento
         run: python monitor/main.py
+
+      - name: Registrar o disparo como coberto
+        # grace 0 porque aqui o disparo é o próprio cron das 21:30: ele sabe
+        # qual dia é, não precisa da margem de 45min que o guardião usa para não
+        # se atropelar. Escrito ANTES do commit para entrar no mesmo push.
+        run: python3 monitor/guardiao.py escrever --origem cron --grace 0
 
       - name: Salvar histórico no repositório
         run: |
@@ -41,3 +63,27 @@ jobs:
           # deixar o repositório em HEAD solto, que é o padrão em execução
           # agendada. Sem isso o push das 18h30 poderia falhar sozinho.
           git push origin HEAD:${{ github.ref_name }}
+
+      # A ÚNICA forma de o usuário descobrir que o cron não rodou. Tudo dentro
+      # do GitHub depende do mesmo agendador que falhou, então quem avisa precisa
+      # estar fora. A URL vive em secret, e não no arquivo, porque o repositório
+      # é público: com o UUID no main.yml qualquer pessoa poderia "pingar" para
+      # dentro e mascarar uma falha real.
+      #
+      # `continue-on-error` é deliberado. Os dados já estão commitados neste
+      # ponto; marcar a run como falha porque o observador estava fora do ar
+      # seria mentir sobre o estado do monitoramento. O aviso de que o ping
+      # falhou é o que interessa, e ele sai no log.
+      - name: Sinalizarvivência ao observador externo
+        if: success()
+        continue-on-error: true
+        run: |
+          if [ -z "${{ secrets.HC_PING_URL }}" ]; then
+            echo "::warning::HC_PING_URL não configurado; sem heartbeat externo."
+            exit 0
+          fi
+          if curl -fsS --max-time 10 "${{ secrets.HC_PING_URL }}" >/dev/null; then
+            echo "Heartbeat enviado."
+          else
+            echo "::warning::Heartbeat NÃO chegou ao observador externo."
+          fi
