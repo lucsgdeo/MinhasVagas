@@ -15306,82 +15306,6 @@
       }
     ]
   },
-  "12472102": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Acompanhar os faturamentos pendentes nas filas de faturamento e geração de SADT (faturas);"
-          },
-          {
-            "tipo": "item",
-            "texto": "Comparação do conteúdo da conta e conteúdo do sistema;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Confirmação de senha de autorização por telefone e outros meios eletrônicos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Organização de documentos para envio ao convênio;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Verificação em sistema de contas em faturamento;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Envio de XML."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino Médio Completo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Vivência com faturamento de serviços na área da saúde;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência com sistemas de Gestão Hospitalar e Pacote Office;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Disponibilidade para atuar na região da Av. Paulista."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "Local de Trabalho: Alameda Santos, SP"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Horário de Trabalho: Segunda a Quinta (8h às 18h), Sexta (8h às 17h)"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Modalidade Híbrida"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Benefícios: Vale Transporte, Vale Refeição e Alimentação, Plano de Saúde e Odontológico, Seguro de Vida e Wellhub."
-          }
-        ]
-      }
-    ]
-  },
   "12592445": {
     "fonte": "html",
     "secoes": [
@@ -37590,157 +37514,6 @@
           {
             "tipo": "texto",
             "texto": "• Crédito consignado com condições especiais"
-          }
-        ]
-      }
-    ]
-  },
-  "1000018322": {
-    "fonte": "texto",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Apoiar as rotinas de contas a pagar e contas a receber"
-          },
-          {
-            "tipo": "item",
-            "texto": "Organizar e acompanhar pagamentos, vencimentos e prazos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar lançamentos financeiros em sistemas e planilhas"
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar conciliações bancárias e conferência de movimentações"
-          },
-          {
-            "tipo": "item",
-            "texto": "Organizar notas fiscais, comprovantes e documentos financeiros"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atualizar controles internos, planilhas e sistemas"
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoiar o fechamento financeiro mensal"
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoiar a interface operacional com a contabilidade"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificar e sinalizar antecipadamente pendências ou divergências que possam impactar a operação financeira."
-          },
-          {
-            "tipo": "item",
-            "texto": "O que esperamos no dia a dia\\"
-          },
-          {
-            "tipo": "item",
-            "texto": "Buscamos alguém com experiência prática em rotinas financeiras ou administrativas, que tenha organização, cumpra prazos e consiga acompanhar suas atividades com responsabilidade e autonomia."
-          },
-          {
-            "tipo": "item",
-            "texto": "A posição tem foco operacional e de execução das rotinas financeiras."
-          },
-          {
-            "tipo": "item",
-            "texto": "Diferenciais valorizados\\"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ter familiaridade ou experiência com Omie, Asaas e/ou Pipefy será considerado um diferencial importante."
-          },
-          {
-            "tipo": "item",
-            "texto": "Também valorizamos conhecimento em Excel ou Google Planilhas para controles e acompanhamentos financeiros."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Requisitos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência prática anterior em rotinas financeiras"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vivência com contas a pagar e contas a receber"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência com lançamentos e controles financeiros"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento de conciliação bancária"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência com organização e conferência de notas fiscais, comprovantes e documentos financeiros"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento de Excel ou Google Planilhas"
-          },
-          {
-            "tipo": "item",
-            "texto": "Facilidade para trabalhar com sistemas e ferramentas digitais"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino superior cursando ou completo em Administração, Ciências Contábeis, Gestão Financeira ou áreas relacionadas"
-          },
-          {
-            "tipo": "item",
-            "texto": "Organização, atenção aos detalhes e compromisso com prazos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Proatividade para identificar e sinalizar pendências ou divergências"
-          },
-          {
-            "tipo": "item",
-            "texto": "Disciplina e autonomia para atuação 100% remota"
-          },
-          {
-            "tipo": "item",
-            "texto": "Responsabilidade e confidencialidade no tratamento de informações financeiras."
-          },
-          {
-            "tipo": "item",
-            "texto": "Diferenciais"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência ou conhecimento em Omie"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência ou conhecimento em Asaas"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência ou conhecimento em Pipefy"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vivência em empresas de tecnologia"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência anterior em operação 100% remota."
           }
         ]
       }
@@ -141670,6 +141443,702 @@
           {
             "tipo": "texto",
             "texto": "Git, Composer, Make (or simple scripts), PHPUnit (or at least PHP unit tests), Docker (optional for dev parity)"
+          }
+        ]
+      }
+    ]
+  },
+  "12434431": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "1. Atender e orientar através do canal de chamados Movidesk, na utilização dos softwares e hardware, aplicando as manutenções necessárias, assegurando condições de trabalho a todos os colaboradores;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "2. Configurar equipamentos de informática adequando-os aos programas e aplicativos necessários;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "3. Analisar diariamente se todos os recursos de tecnologia de informação estão em pleno funcionamento na Unidade;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "4. Oferecer suporte técnico, via conexão remota LogMeIn, a usuários;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "5. Acompanhar e solucionar problemas de software referente à instalação e correta utilização, realizando reparos quando necessário;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "6. Realizar, sempre que necessário, manutenção na estrutura da rede sem fios da Unidade fabril;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "7. Acompanhar diariamente a adequada utilização e funcionamento da rede de computadores Internet, antivírus e antispams;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "8. Realizar manutenção preventiva nos equipamentos na periodicidade definida pela área de T.I;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "9. Monitorar, configurar e dar suporte de Ativos de Redes;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "10. Acompanhar e instalar softwares de telefonia;"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Desejável: Escolaridade Superior Cursando em Análise de Sistemas, Ciência da Computação, Engenharia da Computação e Afins."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como aqui Gostamos de Pessoas, confira nossos benefícios ao fazer parte do time:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Por aqui, você utiliza o valor para alimentação da forma que achar melhor. Distribuir a verba entre Vale Alimentação e Vale Refeição ou escolher apenas um. Você decide!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Cuidamos da sua saúde! Temos Assistência médica e odontológica e o programa Viva+, com todo suporte necessário para o seu bem-estar; Telemedicina."
+          },
+          {
+            "tipo": "item",
+            "texto": "Falando em saúde, temos parceria com o Wellhub; Plataforma de apoio psicológico Wellz;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seu esforço é reconhecido! Temos o Programa de Participação de Resultados todos os anos;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale Transporte ou Estacionamento, de acordo com a sua rotina."
+          },
+          {
+            "tipo": "item",
+            "texto": "Day Off de aniversário, você merece um dia para celebrar com quem ama;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Celebração por Tempo de Casa, com homenagens e brindes;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Universidade Tirolez, nossa plataforma de educação corporativa que deixa você sempre atualizado por meio de cursos e treinamentos disponíveis para todo o time Tirolez;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ainda temos parcerias e convênios com instituições em todo o Brasil, para dar um up no seu desenvolvimento;"
+          }
+        ]
+      }
+    ]
+  },
+  "12653566": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Encantar os clientes no processo de vendas, atendendo e auxiliando sempre que necessário;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Exercer rotinas diárias de reposição e organização do setor;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Auxiliar na colocação de etiquetas de preços e códigos dos produtos no estoque;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender os clientes nos provadores;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Organizar a área de vendas e vitrines dentro dos padrões definidos pelo merchandising;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Estimular os clientes na saída da loja a deixarem sua opinião do atendimento no Encantômetro;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atendimento ao público em geral."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Ensino Médio completo;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gostar de atendimento ao público;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Identificação com moda;"
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Fique por dentro dos nossos benefícios!"
+          },
+          {
+            "tipo": "texto",
+            "texto": "*Consulte elegibilidade do seu cargo."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Para facilitar o seu dia a dia:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Transporte e/ou Fretado para vagas dos nossos CDs*;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Refeição/Alimentação;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Cesta de Natal;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Auxílio Home Office (para contratos de trabalho híbrido ou remoto)*;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Cartão de crédito multicompras;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desconto de Colaborador nas nossas lojas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Para sua saúde e bem-estar:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Dr. Be (telemedicina, telepsicologia, coaching nutricional e coaching esportivo)*;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Wellhub (Gympass);"
+          },
+          {
+            "tipo": "item",
+            "texto": "Programas e Campanhas desenvolvidos para promover o autocuidado da saúde e bem-estar dos nossos colaboradores e seus familiares."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Para sua flexibilidade e rotina:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Metodologia Balance aplicada junto a liderança e time fortalecendo a comunicação e reconhecimento, bem-estar e estilo de trabalho/ferramentas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conheça nossa SER (Associação dos Colaboradores Renner S.A.) que dá acesso à mais benefícios:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Plano odontológico;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Univers - desconto nas farmácias Raia e Drogasil;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Convênio de saúde para Pets;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assessoria de Corrida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desconto em universidades, escolas, cursos de idioma e profissionalizantes;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ingressos de cinemas, parques e muito mais."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Pessoas com deficiência são bem-vindas em todas as nossas oportunidades."
+          }
+        ]
+      }
+    ]
+  },
+  "12576158": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Descarregar os caminhões contendo produtos transferidos das fábricas e/ou empresas terceirizadas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Pesar e etiquetar produtos de terceiros que chegam no Centro de Distribuição."
+          },
+          {
+            "tipo": "item",
+            "texto": "Paletizar produtos, anexar etiquetas e encaminhar para setor de estocagem."
+          },
+          {
+            "tipo": "item",
+            "texto": "Separar produtos conforme pedidos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Colaborar na manutenção da limpeza e organização da área de trabalho."
+          },
+          {
+            "tipo": "item",
+            "texto": "Propor melhorias contínuas nos processos de sua área de atuação, bem como das demais áreas/empresa."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar atividades afins, conforme solicitação e orientação do superior imediato."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Conhecimentos:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Montagem de cargas; descarregamento de caminhões e paletização e separação de produtos."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Escolaridade:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Desejável Ensino Médio Completo"
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como aqui Gostamos de Pessoas, confira nossos benefícios ao fazer parte do time:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Por aqui, você utiliza o valor para alimentação da forma que achar melhor. Distribuir a verba entre Vale Alimentação e Vale Refeição ou escolher apenas um. Você decide!"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Cuidamos da sua saúde! Temos Assistência Odontológica e o programa Viva+, com todo suporte necessário para o seu bem-estar; Telemedicina."
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Falando em saúde, temos parceria com o"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Wellhub"
+          },
+          {
+            "tipo": "texto",
+            "texto": "; Plataforma de apoio psicológico"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Wellz"
+          },
+          {
+            "tipo": "texto",
+            "texto": ";"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Seu esforço é reconhecido! Temos o Programa de Participação de Resultados todos os anos;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Vale Transporte ou Estacionamento, de acordo com a sua rotina."
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Day Off de aniversário, você merece um dia para celebrar com quem ama;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "·"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Universidade Tirolez"
+          },
+          {
+            "tipo": "texto",
+            "texto": ", nossa plataforma de educação corporativa que deixa você sempre atualizado por meio de cursos e treinamentos disponíveis para todo o time Tirolez;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Ainda temos parcerias e convênios com instituições em todo o Brasil, para dar um up no seu desenvolvimento;"
+          }
+        ]
+      }
+    ]
+  },
+  "12589449": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Seus desafios serão:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar a paletização, abastecimento das linhas com embalagens e organização do setor;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Manter limpos e organizados utensílios, equipamentos e área de trabalho nas dependências industriais;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Registrar os monitoramentos de processo e as execuções dos procedimentos operacionais de em formulários adequados;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Cumprir os requisitos de sustentabilidade, gestão da qualidade, segurança de alimentos, meio ambiente e segurança e saúde ocupacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Ensino médio completo;"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Horário de trabalho:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "De segunda a sexta-feira: das 18h às 00h."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Finais de semana: escala intercalada, conforme descrito abaixo:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "1º final de semana: trabalho no sábado, das 18h às 6h, com folga no domingo."
+          },
+          {
+            "tipo": "texto",
+            "texto": "2º final de semana: folga no sábado e trabalho no domingo, das 18h às 6h."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Essa escala se repete de forma alternada."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Será um diferencial se:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Normas de segurança do trabalho, segurança de alimentos, POPs (procedimentos operacionais padronizados), Noções de Food Defense e Food Fraud."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "Junte-se a nós e aproveite benefícios incríveis!"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Saúde e Bem-Estar - Cuide de você e sua família com:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Plano de Saúde com possibilidade de incluir dependentes com condições diferenciadas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Plano Odontológico acessível e com possibilidade de incluir dependentes com condições diferenciadas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Wellhub (antigo Gympass) para acesso a academias, personal trainers e aplicativos de saúde."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Programa para suporte de doenças crônicas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Atendimento psicológico."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Flexibilidade - Adapte sua rotina com:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Folga de Aniversário: Celebre seu dia em grande estilo!"
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Trabalho Híbrido*: Home office até duas vezes por semana."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Horário Flexível*: Início da jornada entre 7h e 9h."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Família - Apoio para momentos importantes:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Licença Paternidade Estendida: 20 dias para apoiar na chegada do novo membro da família."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Modelo híbrido pós licença maternidade*: Iniciativa para facilitar a transição de volta ao trabalho para as colaboradoras que estão retornando da licença maternidade."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Programa de orientação para grávidas e para o primeiro ano de vida do bebê."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Seguro de Vida: Proteção para você e seus dependentes."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Educação - Invista no seu crescimento:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Universidade Corporativa com programas de capacitação contínua, alinhados aos melhores métodos de aprendizagem."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Licença não remunerada de até 12 meses uma pausa para você se dedicar ao aprendizado e desenvolvimento na sua área de atuação."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Financeiro - Benefícios que impulsionam seu bem-estar financeiro:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Participação nos Lucros e Resultados (PLR): Reconhecimento pelo alcance das metas estabelecidas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Previdência Privada: Possibilidade de reserva financeira com contrapartida da empresa, incentivos fiscais e opções de resgate ou renda futura."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Cesta Básica: Disponibilizada em cartão eletrônico."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Alimentação: Refeitório na empresa ou vale refeição (dependendo da unidade e área de atuação)."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Transporte: Vale transporte ou rota da empresa (dependendo da unidade e área de atuação)."
+          },
+          {
+            "tipo": "texto",
+            "texto": "• Descontos Exclusivos para você e sua família: Aproveite vantagens em produtos e serviços de empresas parceiras, incluindo faculdades, cursos de idiomas, lojas multimarcas, farmácias, planos para pets, óticas e muito mais!"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Venha sonhar, realizar e crescer com a gente!"
+          }
+        ]
+      }
+    ]
+  },
+  "12574047": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Descarregar os caminhões contendo produtos transferidos das fábricas e/ou empresas terceirizadas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Pesar e etiquetar produtos de terceiros que chegam no Centro de Distribuição."
+          },
+          {
+            "tipo": "item",
+            "texto": "Paletizar produtos, anexar etiquetas e encaminhar para setor de estocagem."
+          },
+          {
+            "tipo": "item",
+            "texto": "Separar produtos conforme pedidos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Colaborar na manutenção da limpeza e organização da área de trabalho."
+          },
+          {
+            "tipo": "item",
+            "texto": "Propor melhorias contínuas nos processos de sua área de atuação, bem como das demais áreas/empresa."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar atividades afins, conforme solicitação e orientação do superior imediato."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Conhecimentos:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Montagem de cargas; descarregamento de caminhões e paletização e separação de produtos."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Escolaridade:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Ensino Médio Completo"
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como aqui Gostamos de Pessoas, confira nossos benefícios ao fazer parte do time:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Por aqui, você utiliza o valor para alimentação da forma que achar melhor. Distribuir a verba entre Vale Alimentação e Vale Refeição ou escolher apenas um. Você decide!"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Cuidamos da sua saúde! Temos Assistência Odontológica e o programa Viva+, com todo suporte necessário para o seu bem-estar; Telemedicina."
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Falando em saúde, temos parceria com o"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Wellhub"
+          },
+          {
+            "tipo": "texto",
+            "texto": "; Plataforma de apoio psicológico"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Wellz"
+          },
+          {
+            "tipo": "texto",
+            "texto": ";"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Seu esforço é reconhecido! Temos o Programa de Participação de Resultados todos os anos;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Vale Transporte ou Estacionamento, de acordo com a sua rotina."
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Day Off de aniversário, você merece um dia para celebrar com quem ama;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "·"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Universidade Tirolez"
+          },
+          {
+            "tipo": "texto",
+            "texto": ", nossa plataforma de educação corporativa que deixa você sempre atualizado por meio de cursos e treinamentos disponíveis para todo o time Tirolez;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "· Ainda temos parcerias e convênios com instituições em todo o Brasil, para dar um up no seu desenvolvimento;"
           }
         ]
       }
