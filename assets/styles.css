@@ -1,13 +1,28 @@
-:root {
-    --color-primary: #dc2626;
-    --color-primary-hover: #b91c1c;
-    --color-primary-light: #fef2f2;
-    --color-primary-border: #fecaca;
+﻿:root {
+    /* `--tema-primary` e friends são as cores cruas escolhidas no dropdown (uma
+       das 22). Tudo que o CSS usa de fato passa por `--color-primary`, e é essa
+       ligação que deixa o modo escuro trocar a variante sem tocar nos 22 blocos
+       de tema: ele só aponta para `--tema-primary-escuro`.
+       O bloco `:root` abaixo do dropdown é o tema "red", espelhado aqui para que
+       a página não fique sem cor antes do JS rodar. */
+    --tema-primary: #dc0202;
+    --tema-primary-hover: #b90202;
+    --tema-primary-escuro: #fd4747;
+    --tema-primary-escuro-hover: #fe7070;
+    --tema-primary-preenchimento: #ed0202;
+    --color-primary: var(--tema-primary);
+    --color-primary-hover: var(--tema-primary-hover);
+    /* O preenchimento é o único valor que não muda entre os modos: ele existe
+       para pôr texto branco em cima, e a conta de contraste é com o branco, não
+       com o fundo. Por isso fica aqui em vez de no bloco escuro. */
+    --color-primary-preenchimento: var(--tema-primary-preenchimento);
+    --color-primary-light: #f7eded;
+    --color-primary-border: #e8c5c5;
     --color-secondary: #64748b;
     --color-secondary-hover: #475569;
-    --color-bg: #fef2f2;
+    --color-bg: var(--color-primary-light);
     --color-surface: #ffffff;
-    --color-border: #fecaca;
+    --color-border: var(--color-primary-border);
     --color-text: #1f2937;
     --color-text-secondary: #6b7280;
     --color-text-muted: #9ca3af;
@@ -24,79 +39,309 @@
     --card-padding: 1.25rem;
     --card-gap: 0.875rem;
     --container-padding: 1.25rem;
+
+    /* Cores de estado que ficavam fixas no CSS. Viram variável porque o modo
+       escuro precisa de inversas: o verde de "visto" sobre fundo escuro tem que
+       ser o tom claro, e o card marcado não pode ficar com fundo quase branco. */
+    --color-success-light: #f0fdf4;
+    --color-success-text: #166534;
+    --badge-onsite-bg: #dbeafe;
+    --badge-onsite-text: #1e40af;
+    --badge-remote-bg: #dcfce7;
+    --badge-remote-text: #166534;
+    --overlay: rgb(15 23 42 / 0.45);
 }
 
-/* Theme Presets */
+/* Modo escuro: as variáveis neutras ganham valor de fundo, e o acento troca de
+   variante. Os dois caminhos estão no mesmo lugar porque o acento tem que ser
+   lido DEPOIS do tema — e é o `:root` no seletor que garante isso: cada bloco
+   `[data-theme="..."]` tem especificidade (0,1,0) e o `:root[data-mode="dark"]`
+   tem (0,2,0), então a variante escura vence independente da ordem no arquivo.
+   Sem o `:root` os dois empatariam e o tom claro — que vem depois no arquivo —
+   venceria, virando um retângulo claro no meio da tela escura.
+
+   Por isso os blocos de tema não definem `--color-primary`, e sim
+   `--tema-primary-escuro`: aqui basta apontar para ele, sem repetir nenhum hex. */
+:root[data-mode="dark"] {
+    --color-bg: #121828;
+    --color-surface: #1b2334;
+    --color-border: #3a4763;
+    /* O tint e a borda deixam de ser versões claras da cor e viram um azul
+       neutro: eles sustentam o chip de vaga e o foco dos botões, e uma cor de
+       tema ali dentro competiria com o texto ao redor. */
+    --color-primary-light: #222b40;
+    --color-primary-border: #46567d;
+    --color-text: #e8edf7;
+    /* Acento: a variante escura da cor escolhida. */
+    --color-primary: var(--tema-primary-escuro);
+    --color-primary-hover: var(--tema-primary-escuro-hover);
+    --color-text-secondary: #a7b2c8;
+    --color-text-muted: #8593ad;
+    --color-secondary: #9aa6bd;
+    --color-secondary-hover: #c9d2e2;
+    /* Sombras leves. Sobre fundo escuro, sombra preta não dá profundidade: só
+       suja a borda do card. */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.18);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.24), 0 2px 4px -2px rgb(0 0 0 / 0.18);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.24);
+    /* Estado e badges: tons um passo abaixo da escala 400/300, que brilham
+       demais contra superfície escura. */
+    --color-success: #56c98a;
+    --color-error: #ef8a8a;
+    --color-success-light: #17301f;
+    --color-success-text: #8fd6ab;
+    --badge-onsite-bg: #1c2942;
+    --badge-onsite-text: #9dc1ef;
+    --badge-remote-bg: #17301f;
+    --badge-remote-text: #8fd6ab;
+    --overlay: rgb(8 12 24 / 0.55);
+}
+
+/* Theme Presets
+   Cada tema define a própria cor de destaque e mais três pares derivados dela: a
+   variante clara, a variante escura e o preenchimento para texto branco. O
+   fundo e a borda do documento saem do par claro, o que mantém `--color-bg` e
+   `--color-border` consistentes com a cor escolhida sem repetir quatro valores
+   por tema.
+
+   As cores foram calculadas em HSL a partir da matiz original, em vez de
+   misturadas com branco. Misturar clareia e dessatura ao mesmo tempo, e o
+   resultado era uma cor lavada; calcular mantém o croma alto e ajusta só a
+   luminosidade, que é o que o contraste exige em cada fundo.
+
+   Cada valor de texto tem 4.5:1 garantidos — contra o branco no
+   preenchimento, contra o próprio tint no claro e contra a superfície no
+   escuro. No claro a luminosidade desce até esse piso, e quando a paleta
+   antiga já ficava abaixo dele é por isso: subir mais apagaria a cor. */
 [data-theme="red"] {
-    --color-primary: #dc2626;
-    --color-primary-hover: #b91c1c;
-    --color-primary-light: #fef2f2;
-    --color-primary-border: #fecaca;
-    --color-bg: #fef2f2;
-    --color-border: #fecaca;
+    --tema-primary: #dc0202;
+    --tema-primary-hover: #b90202;
+    --tema-primary-escuro: #fd4747;
+    --tema-primary-escuro-hover: #fe7070;
+    --tema-primary-preenchimento: #ed0202;
+    --color-primary-light: #f7eded;
+    --color-primary-border: #e8c5c5;
 }
 
 [data-theme="blue"] {
-    --color-primary: #2563eb;
-    --color-primary-hover: #1d4ed8;
-    --color-primary-light: #eff6ff;
-    --color-primary-border: #bfdbfe;
-    --color-bg: #eff6ff;
-    --color-border: #bfdbfe;
+    --tema-primary: #0e59fd;
+    --tema-primary-hover: #0249e5;
+    --tema-primary-escuro: #5086fd;
+    --tema-primary-escuro-hover: #78a2fe;
+    --tema-primary-preenchimento: #0d58fd;
+    --color-primary-light: #ecf0f8;
+    --color-primary-border: #c2cfeb;
 }
 
 [data-theme="green"] {
-    --color-primary: #16a34a;
-    --color-primary-hover: #15803d;
-    --color-primary-light: #f0fdf4;
-    --color-primary-border: #bbf7d0;
-    --color-bg: #f0fdf4;
-    --color-border: #bbf7d0;
+    --tema-primary: #018030;
+    --tema-primary-hover: #015c23;
+    --tema-primary-escuro: #02a33d;
+    --tema-primary-escuro-hover: #02cb4c;
+    --tema-primary-preenchimento: #018833;
+    --color-primary-light: #edf8f1;
+    --color-primary-border: #c4e9d1;
 }
 
 [data-theme="purple"] {
-    --color-primary: #9333ea;
-    --color-primary-hover: #7e22ce;
-    --color-primary-light: #faf5ff;
-    --color-primary-border: #e9d5ff;
-    --color-bg: #faf5ff;
-    --color-border: #e9d5ff;
+    --tema-primary: #8d11fd;
+    --tema-primary-hover: #7b02e8;
+    --tema-primary-escuro: #b667fd;
+    --tema-primary-escuro-hover: #c98ffe;
+    --tema-primary-preenchimento: #8a0dfd;
+    --color-primary-light: #f3edf8;
+    --color-primary-border: #d7c2ea;
 }
 
 [data-theme="orange"] {
-    --color-primary: #ea580c;
-    --color-primary-hover: #c2410c;
-    --color-primary-light: #fff7ed;
-    --color-primary-border: #ffedd5;
-    --color-bg: #fff7ed;
-    --color-border: #ffedd5;
+    --tema-primary: #c14302;
+    --tema-primary-hover: #9e3702;
+    --tema-primary-escuro: #f45502;
+    --tema-primary-escuro-hover: #fd6d22;
+    --tema-primary-preenchimento: #cf4802;
+    --color-primary-light: #f9f0ec;
+    --color-primary-border: #eccfc0;
 }
 
 [data-theme="teal"] {
-    --color-primary: #0d9488;
-    --color-primary-hover: #0f766e;
-    --color-primary-light: #f0fdfa;
-    --color-primary-border: #99f6e4;
-    --color-bg: #f0fdfa;
-    --color-border: #99f6e4;
+    --tema-primary: #017c71;
+    --tema-primary-hover: #015951;
+    --tema-primary-escuro: #029f91;
+    --tema-primary-escuro-hover: #02c8b6;
+    --tema-primary-preenchimento: #018378;
+    --color-primary-light: #ecf8f7;
+    --color-primary-border: #c2ebe7;
 }
 
 [data-theme="indigo"] {
-    --color-primary: #4f46e5;
-    --color-primary-hover: #4338ca;
-    --color-primary-light: #eef2ff;
-    --color-primary-border: #c7d2fe;
-    --color-bg: #eef2ff;
-    --color-border: #c7d2fe;
+    --tema-primary: #3a2efd;
+    --tema-primary-hover: #180bfd;
+    --tema-primary-escuro: #817afe;
+    --tema-primary-escuro-hover: #a7a2fe;
+    --tema-primary-preenchimento: #1a0dfd;
+    --color-primary-light: #eeedf8;
+    --color-primary-border: #c6c4e9;
 }
 
 [data-theme="pink"] {
-    --color-primary: #db2777;
-    --color-primary-hover: #be185d;
-    --color-primary-light: #fdf2f8;
-    --color-primary-border: #fbcfe8;
-    --color-bg: #fdf2f8;
-    --color-border: #fbcfe8;
+    --tema-primary: #d70261;
+    --tema-primary-hover: #b30251;
+    --tema-primary-escuro: #fd3890;
+    --tema-primary-escuro-hover: #fd61a6;
+    --tema-primary-preenchimento: #e80269;
+    --color-primary-light: #f7edf2;
+    --color-primary-border: #e8c5d4;
+}
+
+[data-theme="crimson"] {
+    --tema-primary: #ba022f;
+    --tema-primary-hover: #960226;
+    --tema-primary-escuro: #fd4371;
+    --tema-primary-escuro-hover: #fe6b8f;
+    --tema-primary-preenchimento: #e8023a;
+    --color-primary-light: #f8ecef;
+    --color-primary-border: #eac2cc;
+}
+
+[data-theme="violet"] {
+    --tema-primary: #7525fd;
+    --tema-primary-hover: #5e03fc;
+    --tema-primary-escuro: #a571fe;
+    --tema-primary-escuro-hover: #be99fe;
+    --tema-primary-preenchimento: #650dfd;
+    --color-primary-light: #f1ecf8;
+    --color-primary-border: #d1c2eb;
+}
+
+[data-theme="cyan"] {
+    --tema-primary: #027895;
+    --tema-primary-hover: #015c71;
+    --tema-primary-escuro: #0299bd;
+    --tema-primary-escuro-hover: #02b9e6;
+    --tema-primary-preenchimento: #027e9d;
+    --color-primary-light: #ecf6f9;
+    --color-primary-border: #c0e4ed;
+}
+
+[data-theme="amber"] {
+    --tema-primary: #a55902;
+    --tema-primary-hover: #824601;
+    --tema-primary-escuro: #d37202;
+    --tema-primary-escuro-hover: #fb8803;
+    --tema-primary-preenchimento: #b15f02;
+    --color-primary-light: #f9f3ec;
+    --color-primary-border: #edd8bf;
+}
+
+[data-theme="lime"] {
+    --tema-primary: #437501;
+    --tema-primary-hover: #2f5201;
+    --tema-primary-escuro: #5a9e02;
+    --tema-primary-escuro-hover: #72c602;
+    --tema-primary-preenchimento: #4b8301;
+    --color-primary-light: #f3f8ed;
+    --color-primary-border: #d9e9c3;
+}
+
+[data-theme="slate"] {
+    --tema-primary: #484f58;
+    --tema-primary-hover: #383d45;
+    --tema-primary-escuro: #828c99;
+    --tema-primary-escuro-hover: #99a0ab;
+    --tema-primary-preenchimento: #69778c;
+    --color-primary-light: #f1f2f4;
+    --color-primary-border: #d1d5db;
+}
+
+[data-theme="fuchsia"] {
+    --tema-primary: #ba05d0;
+    --tema-primary-hover: #9b04ad;
+    --tema-primary-escuro: #e432fa;
+    --tema-primary-escuro-hover: #e95afb;
+    --tema-primary-preenchimento: #cb02e3;
+    --color-primary-light: #f6edf7;
+    --color-primary-border: #e3c5e7;
+}
+
+[data-theme="emerald"] {
+    --tema-primary: #018059;
+    --tema-primary-hover: #015d40;
+    --tema-primary-escuro: #029e6e;
+    --tema-primary-escuro-hover: #02c78a;
+    --tema-primary-preenchimento: #01835b;
+    --color-primary-light: #ecf9f5;
+    --color-primary-border: #bfeddf;
+}
+
+[data-theme="rose"] {
+    --tema-primary: #da0227;
+    --tema-primary-hover: #b70221;
+    --tema-primary-escuro: #fd4565;
+    --tema-primary-escuro-hover: #fe6e86;
+    --tema-primary-preenchimento: #ed022b;
+    --color-primary-light: #f9ecee;
+    --color-primary-border: #ecc0c8;
+}
+
+[data-theme="sky"] {
+    --tema-primary: #0273ae;
+    --tema-primary-hover: #015c8a;
+    --tema-primary-escuro: #0291db;
+    --tema-primary-escuro-hover: #0aaafd;
+    --tema-primary-preenchimento: #027cbb;
+    --color-primary-light: #ebf4f9;
+    --color-primary-border: #bedeee;
+}
+
+[data-theme="stone"] {
+    --tema-primary: #776b63;
+    --tema-primary-hover: #635a53;
+    --tema-primary-escuro: #968a81;
+    --tema-primary-escuro-hover: #a89e97;
+    --tema-primary-preenchimento: #847366;
+    --color-primary-light: #f3f2f2;
+    --color-primary-border: #d7d6d5;
+}
+
+[data-theme="brown"] {
+    --tema-primary: #8f3701;
+    --tema-primary-hover: #6c2a01;
+    --tema-primary-escuro: #ef5c02;
+    --tema-primary-escuro-hover: #fd721e;
+    --tema-primary-preenchimento: #ca4e02;
+    --color-primary-light: #f8f1ec;
+    --color-primary-border: #ead1c2;
+}
+
+[data-theme="navy"] {
+    --tema-primary: #09309f;
+    --tema-primary-hover: #07267d;
+    --tema-primary-escuro: #6087f6;
+    --tema-primary-escuro-hover: #86a4f8;
+    --tema-primary-preenchimento: #134ef7;
+    --color-primary-light: #eef0f7;
+    --color-primary-border: #c6cfe6;
+}
+
+[data-theme="zinc"] {
+    --tema-primary: #4d4d5b;
+    --tema-primary-hover: #3c3c48;
+    --tema-primary-escuro: #8a8a9d;
+    --tema-primary-escuro-hover: #a0a0b0;
+    --tema-primary-preenchimento: #727292;
+    --color-primary-light: #f2f2f3;
+    --color-primary-border: #d5d5d7;
+}
+
+/* O knob do toggle "Vista" era `white` fixo. Em fundo escuro ele já é o tom
+   certo, então em vez de deixar o branco puro (queofuscaria a borda da tela)
+   ele vira um branco suave. */
+:root {
+    --control-knob: #ffffff;
+}
+
+[data-mode="dark"] {
+    --control-knob: #e2e8f0;
 }
 
 * {
@@ -109,7 +354,7 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
     background-color: var(--color-bg);
     color: var(--color-text);
-    line-height: 2;
+    line-height: 1.5;
     min-height: 100vh;
 }
 
@@ -119,37 +364,147 @@ body {
     padding: 1.5rem var(--container-padding);
 }
 
-/* Theme Selector */
-.theme-selector {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 0.75rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    flex-wrap: wrap;
+/* Dropdown de tema: o modo fica em cima, as cores embaixo. */
+.theme-picker {
+    position: relative;
 }
 
-.theme-selector-label {
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-family: inherit;
     font-size: 0.8125rem;
     font-weight: 500;
     color: var(--color-text-secondary);
-    white-space: nowrap;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition);
 }
 
-.theme-options {
+.theme-toggle:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* O ícone mostra a cor escolhida; é a cor de destaque que o botão usa. */
+.theme-toggle-icon {
+    width: 1rem;
+    height: 1rem;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    border: 2px solid var(--color-surface);
+    box-shadow: 0 0 0 1px var(--color-border);
+    flex-shrink: 0;
+}
+
+.theme-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 30;
+    min-width: 15rem;
+    padding: 0.625rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.15s ease;
+}
+
+.theme-menu-section + .theme-menu-section {
+    margin-top: 0.625rem;
+    padding-top: 0.625rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.theme-menu-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* Opção 1: claro/escuro. Fica no topo porque é a que muda a leitura da tela
+   inteira, então precisa ser encontrada antes das cores. */
+.mode-toggle {
     display: flex;
-    gap: 0.375rem;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
+    width: 100%;
+    padding: 0.5rem 0.625rem;
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition);
+}
+
+.mode-toggle:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-border);
+}
+
+.mode-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.mode-toggle-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    background: currentColor;
+    /* Lua/estrela desenhados com máscara para não depender de duas imagens. */
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+/* A lua é o desenho padrão da regra, e não uma classe: o ícone é pintado por
+   `background: currentColor`, então sem máscara ele viraria um quadrado cheio na
+   cor do texto. Com a lua na regra base, qualquer estado em que o JS não
+   chegue a alternar as classes mostra um ícone em vez de um bloco. */
+.mode-toggle-icon,
+.mode-toggle-icon.moon {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z'/%3E%3C/svg%3E");
+}
+
+.mode-toggle-icon.sun {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E");
+}
+
+/* Opção 2: as cores. */
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
 }
 
 .theme-option {
-    width: 26px;
-    height: 26px;
+    width: 100%;
+    aspect-ratio: 1;
+    min-width: 26px;
     border-radius: var(--radius-full);
     border: 2px solid transparent;
     cursor: pointer;
@@ -158,8 +513,13 @@ body {
 }
 
 .theme-option:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
     border-color: var(--color-text);
+}
+
+.theme-option:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 .theme-option.active {
@@ -167,37 +527,9 @@ body {
     box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-text);
 }
 
-.theme-option::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: var(--radius-full);
-    border: 2px solid transparent;
-}
-
-@media (min-width: 480px) {
-    .theme-selector {
-        width: auto;
-        justify-content: flex-end;
-    }
-    
-    .theme-options {
-        justify-content: flex-start;
-    }
-}
-
 @media (min-width: 640px) {
-    .theme-selector {
-        padding: 1rem;
-    }
-    
-    .theme-selector-label {
+    .theme-toggle {
         font-size: 0.875rem;
-    }
-    
-    .theme-option {
-        width: 28px;
-        height: 28px;
     }
 }
 
@@ -245,14 +577,25 @@ body {
     }
 }
 
-/* Tabs */
+/* Tabs
+   `.tabs-row` é a linha inteira: as abas à esquerda e, no fim, o botão de
+   descartadas. O `margin-bottom` fica no row para os dois ficarem na mesma
+   linha de base com o mesmo respiro. */
+.tabs-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
 .tabs {
     display: flex;
-    border-bottom: 2px solid var(--color-border);
-    margin-bottom: 1.25rem;
     overflow-x: auto;
     gap: 0.125rem;
     padding-bottom: 2px;
+    min-width: 0;
 }
 
 .tab-btn {
@@ -267,6 +610,7 @@ body {
     transition: all var(--transition);
     white-space: nowrap;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
+    font-family: inherit;
 }
 
 .tab-btn:hover {
@@ -280,12 +624,64 @@ body {
     background-color: var(--color-primary-light);
 }
 
+.tab-descartadas {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 2px;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+.tab-descartadas:hover,
+.tab-descartadas.active {
+    color: var(--color-primary);
+}
+
+.tab-descartadas-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.tab-descartadas-count {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-full);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.tab-descartadas-count:empty {
+    display: none;
+}
+
+/* Só para leitores de tela: o botão é um ícone, o texto dá o nome. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 @media (min-width: 640px) {
-    .tabs {
+    .tabs-row {
         margin-bottom: 1.5rem;
+        gap: 0.75rem;
+    }
+
+    .tabs {
         gap: 0.25rem;
     }
-    
+
     .tab-btn {
         padding: 0.875rem 1.5rem;
         font-size: 0.875rem;
@@ -318,8 +714,8 @@ body {
 }
 
 .subtab-btn.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-primary-preenchimento);
+    border-color: var(--color-primary-preenchimento);
     color: white;
 }
 
@@ -388,8 +784,8 @@ body {
 }
 
 .filter-pill.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-primary-preenchimento);
+    border-color: var(--color-primary-preenchimento);
     color: white;
 }
 
@@ -441,28 +837,30 @@ body {
     }
 }
 
-/* Vacancies Grid */
+/* Vacancies Grid
+   minmax(0, 1fr) no lugar de 1fr: sem o 0, a coluna cresce até a largura
+   mínima do conteúdo e um card com título longo desalinha a fileira. */
 .vacancies-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--card-gap);
 }
 
 @media (min-width: 640px) {
     .vacancies-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (min-width: 1024px) {
     .vacancies-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 @media (min-width: 1400px) {
     .vacancies-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
@@ -486,7 +884,7 @@ body {
 
 .vacancy-card.applied {
     border-color: var(--color-success);
-    background: #f0fdf4;
+    background: var(--color-success-light);
 }
 
 .vacancy-card-content {
@@ -527,13 +925,13 @@ body {
 }
 
 .vacancy-badge.remote {
-    background: #dcfce7;
-    color: #166534;
+    background: var(--badge-remote-bg);
+    color: var(--badge-remote-text);
 }
 
 .vacancy-badge.onsite {
-    background: #dbeafe;
-    color: #1e40af;
+    background: var(--badge-onsite-bg);
+    color: var(--badge-onsite-text);
 }
 
 .vacancy-topic {
@@ -614,7 +1012,7 @@ body {
     left: 3px;
     width: 20px;
     height: 20px;
-    background: white;
+    background: var(--control-knob);
     border-radius: 50%;
     box-shadow: var(--shadow-md);
     transition: transform var(--transition);
@@ -660,8 +1058,8 @@ body {
 
 .apply-btn:hover {
     color: white;
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-primary-preenchimento);
+    border-color: var(--color-primary-preenchimento);
     text-decoration: none;
 }
 
@@ -725,7 +1123,7 @@ body {
 .desc-backdrop {
     position: fixed;
     inset: 0;
-    background: rgb(15 23 42 / 0.45);
+    background: var(--overlay);
     opacity: 0;
     visibility: hidden;
     transition: opacity 220ms ease, visibility 0s linear 220ms;
@@ -1191,7 +1589,7 @@ body.drawer-open {
 }
 
 .btn-primary {
-    background: var(--color-primary);
+    background: var(--color-primary-preenchimento);
     color: white;
 }
 
@@ -1218,8 +1616,12 @@ body.drawer-open {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* min-width: 0 deixa o card encolher dentro da coluna do grid. Sem isso, um
+   título longo (vagas de ecommerce truncam o nome com cidade e estado) força a
+   coluna a ficar mais larga que a vizinha e quebra o alinhamento da fileira. */
 .vacancies-grid > * {
     animation: fadeIn 0.3s ease backwards;
+    min-width: 0;
 }
 
 .vacancies-grid > *:nth-child(1) { animation-delay: 0ms; }
@@ -1230,6 +1632,145 @@ body.drawer-open {
 .vacancies-grid > *:nth-child(6) { animation-delay: 150ms; }
 .vacancies-grid > *:nth-child(7) { animation-delay: 180ms; }
 .vacancies-grid > *:nth-child(8) { animation-delay: 210ms; }
+
+/* Card de descarte
+   Mais enxuto que o card comum: sem "Vista" e sem "Ver descrição" — a
+   descrição de uma vaga descartada não é coletada. O motivo do corte fica
+   visível no card, que é a informação que justifica a lista inteira.
+   As mesmas regras de caixa do .vacancy-card (flex + min-height) mantêm os
+   cards de descarte com a mesma altura e o rodapé grudado embaixo. */
+.card-descartada {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+}
+
+.card-descartada:hover {
+    border-color: var(--color-primary-border);
+    box-shadow: var(--shadow-md);
+}
+
+.card-descartada-content {
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
+}
+
+.motivo-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    align-self: flex-start;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.motivo-tag.motivo-cargo {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    border-color: var(--color-primary-border);
+}
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.footer-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.footer-text {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 32ch;
+}
+
+.footer-heading {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.625rem;
+}
+
+.footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.footer-list li {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* O número antes do rótulo ("127 vagas de tecnologia") usa algarismos
+   tabulares para a coluna não pular conforme o valor muda a cada dia. */
+.footer-key {
+    display: inline-block;
+    min-width: 2.25rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text);
+}
+
+.footer-note {
+    margin-top: 0.625rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.footer-note code {
+    font-size: 0.6875rem;
+    padding: 0.0625rem 0.25rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    word-break: break-all;
+}
+
+@media (min-width: 640px) {
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-inner {
+        grid-template-columns: 1.2fr 1fr 1fr;
+    }
+}
 
 /* General Vacancies Sections */
 .vagas-section {

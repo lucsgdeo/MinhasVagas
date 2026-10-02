@@ -15,51 +15,87 @@
                 <h1 class="title">MinhasVagas</h1>
                 <p class="subtitle">Dashboard de vagas do Gupy</p>
             </div>
-            <div class="theme-selector" role="group" aria-label="Selecionar tema de cor">
-                <span class="theme-selector-label">Tema:</span>
-                <div class="theme-options">
-                    <button class="theme-option active" data-theme="red" style="background: #dc2626;" aria-label="Vermelho" title="Vermelho"></button>
-                    <button class="theme-option" data-theme="blue" style="background: #2563eb;" aria-label="Azul" title="Azul"></button>
-                    <button class="theme-option" data-theme="green" style="background: #16a34a;" aria-label="Verde" title="Verde"></button>
-                    <button class="theme-option" data-theme="purple" style="background: #9333ea;" aria-label="Roxo" title="Roxo"></button>
-                    <button class="theme-option" data-theme="orange" style="background: #ea580c;" aria-label="Laranja" title="Laranja"></button>
-                    <button class="theme-option" data-theme="teal" style="background: #0d9488;" aria-label="Verde-azulado" title="Verde-azulado"></button>
-                    <button class="theme-option" data-theme="indigo" style="background: #4f46e5;" aria-label="Índigo" title="Índigo"></button>
-                    <button class="theme-option" data-theme="pink" style="background: #db2777;" aria-label="Rosa" title="Rosa"></button>
+            <!-- Tema: dropdown com modo (claro/escuro) e cores -->
+            <div class="theme-picker">
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu">
+                    <span id="theme-toggle-icon" class="theme-toggle-icon" aria-hidden="true"></span>
+                    <span class="theme-toggle-label">Tema</span>
+                </button>
+                <div id="theme-menu" class="theme-menu" role="menu" hidden>
+                    <!-- Primeira opção do dropdown: o modo. Fica acima das cores
+                         porque é a escolha que muda a leitura da tela inteira. -->
+                    <div class="theme-menu-section">
+                        <button type="button" id="mode-toggle" class="mode-toggle" role="menuitemcheckbox" aria-checked="false">
+                            <span class="mode-toggle-icon" aria-hidden="true"></span>
+                            <span class="mode-toggle-text">Modo escuro</span>
+                        </button>
+                    </div>
+                    <!-- Segunda opção: as cores. -->
+                    <div class="theme-menu-section">
+                        <p class="theme-menu-title">Cores</p>
+                        <div class="theme-options" id="theme-options" role="group" aria-label="Cor de destaque"></div>
+                    </div>
                 </div>
             </div>
         </header>
 
         <!-- Tabs -->
-        <div class="tabs" role="tablist">
-            <button id="tab-tech" role="tab" aria-selected="true" class="tab-btn active" data-tab="tech">Vagas Tech</button>
-            <button id="tab-geral" role="tab" aria-selected="false" class="tab-btn" data-tab="geral">Vagas Gerais</button>
-            <button id="tab-schedule" role="tab" aria-selected="false" class="tab-btn" data-tab="schedule">Horários de Postagem</button>
+        <div class="tabs-row">
+            <div class="tabs" role="tablist">
+                <button id="tab-tech" role="tab" aria-selected="true" class="tab-btn active" data-tab="tech">Vagas Tech</button>
+                <button id="tab-geral" role="tab" aria-selected="false" class="tab-btn" data-tab="geral">Vagas Gerais</button>
+                <button id="tab-schedule" role="tab" aria-selected="false" class="tab-btn" data-tab="schedule">Horários de Postagem</button>
+            </div>
+            <!-- Auditoria do corte dos filtros. Fica no fim da linha e é só um
+                 ícone: é uma conferência, não uma aba de trabalho. -->
+            <button id="tab-descartadas" role="tab" aria-selected="false" class="tab-btn tab-descartadas" data-tab="descartadas" title="Vagas descartadas pelos filtros">
+                <svg class="tab-descartadas-icon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M8 6V4h8v2m1 0v14a1 1 0 01-1 1H8a1 1 0 01-1-1V6m3 5v6m4-6v6"/>
+                </svg>
+                <span class="tab-descartadas-count" id="descartadas-count"></span>
+                <span class="sr-only">Vagas descartadas</span>
+            </button>
         </div>
 
         <!-- Sub-tabs (only for Vagas Tech / Vagas Gerais) -->
         <div id="subtabs" class="subtabs" role="tablist" aria-label="Filtro de período e candidaturas">
-            <button class="subtab-btn active" data-subtab="recentes" role="tab" aria-selected="true" title="Vagas publicadas hoje ou ontem em que você ainda não se candidatou">Últimos 2 dias</button>
+            <button class="subtab-btn active" data-subtab="recentes" role="tab" aria-selected="true" title="Vagas publicadas hoje ou ontem em que você ainda não marcou como vista">Últimos 2 dias</button>
             <button class="subtab-btn" data-subtab="nao-candidatas" role="tab" aria-selected="false" title="Todas as vagas que você ainda não marcou como vistas, sem limite de data">Não Vistas</button>
             <button class="subtab-btn" data-subtab="todas" role="tab" aria-selected="false">Todas</button>
+        </div>
+
+        <!-- Filtros da aba de descartadas: as mesmas áreas de tech, sem "Todas".
+             "Todas" não faria sentido aqui — sem ela o botão é justamente as
+             vagas que nenhum botão de área mostrou. -->
+        <div id="descartadas-filters" class="filters hidden" role="group" aria-label="Área das vagas descartadas">
+            <div class="filter-pills" id="descartadas-filter-pills">
+                <button class="filter-pill" data-filter="estagio">Estágio</button>
+                <button class="filter-pill" data-filter="suporte">Suporte</button>
+                <button class="filter-pill" data-filter="dev">Dev</button>
+                <button class="filter-pill" data-filter="ti">TI</button>
+                <button class="filter-pill" data-filter="outras">Outras</button>
+            </div>
         </div>
 
         <!-- Filters (only for vacancy list tabs) -->
         <div id="filters-container" class="filters">
             <input type="text" id="search-input" placeholder="Buscar por título..." class="search-input">
             <div class="filter-pills" id="tech-filter-pills">
-                <button class="filter-pill active" data-filter="suporte">Suporte</button>
+                <button class="filter-pill active" data-filter="todas" title="Todas as vagas de tecnologia, menos estágio">Todas</button>
                 <button class="filter-pill" data-filter="estagio">Estágio</button>
+                <button class="filter-pill" data-filter="suporte">Suporte</button>
                 <button class="filter-pill" data-filter="dev">Dev</button>
                 <button class="filter-pill" data-filter="ti">TI</button>
                 <button class="filter-pill" data-filter="outras">Outras</button>
             </div>
             <div class="filter-pills hidden" id="geral-filter-pills">
-                <button class="filter-pill active" data-filter="assistente">Assistente</button>
+                <button class="filter-pill active" data-filter="abc" title="Todas as vagas publicadas no ABC Paulista">ABC</button>
+                <button class="filter-pill" data-filter="banco de talentos">Banco de Talentos</button>
+                <button class="filter-pill" data-filter="administrativo">Administrativo</button>
+                <button class="filter-pill" data-filter="almoxarifado">Almoxarifado</button>
                 <button class="filter-pill" data-filter="junior">Júnior</button>
                 <button class="filter-pill" data-filter="auxiliar">Auxiliar</button>
                 <button class="filter-pill" data-filter="remoto">Remoto</button>
-                <button class="filter-pill" data-filter="presencial">Presencial</button>
             </div>
         </div>
 
@@ -119,6 +155,35 @@
             <p id="error-message" class="error-text"></p>
             <button id="retry-btn" class="btn btn-primary">Tentar novamente</button>
         </div>
+
+        <!-- Footer. Tudo aqui é verificável no repositório: o nome do
+             projeto, o que os dados são, e o código que os produz. -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <p class="footer-title">MinhasVagas</p>
+                    <p class="footer-text">Monitoramento de vagas na plataforma Gupy, com histórico versionado e dashboard próprio.</p>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-heading">Dados</p>
+                    <ul class="footer-list">
+                        <li><span class="footer-key" id="footer-tech">—</span> vagas de tecnologia</li>
+                        <li><span class="footer-key" id="footer-geral">—</span> vagas gerais</li>
+                        <li><span class="footer-key" id="footer-descartadas">—</span> descartadas pelos filtros</li>
+                    </ul>
+                    <p class="footer-note">Retenção de 7 dias. Fontes: <code>data/vagas_recentes.json</code>, <code>data/vagas_gerais.json</code> e <code>data/vagas_descartadas.json</code>.</p>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-heading">Como funciona</p>
+                    <ul class="footer-list">
+                        <li>Coleta diária às 18h30 pelo GitHub Actions</li>
+                        <li>API pública da Gupy, sem autenticação</li>
+                        <li>Marcação de "vista" guardada só no seu navegador</li>
+                    </ul>
+                    <p class="footer-note">Nenhuma candidatura é enviada por aqui — o botão leva você direto à vaga.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Descrição da vaga: sobreposição que entra pela direita -->

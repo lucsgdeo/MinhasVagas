@@ -1,18 +1,57 @@
 const STORAGE_KEY = 'minhasvagas_applied';
 const THEME_STORAGE_KEY = 'minhasvagas_theme';
+const MODE_STORAGE_KEY = 'minhasvagas_mode';
 
 // Aba "Últimos 2 dias": vagas publicadas hoje ou ontem (dias do calendário,
 // no fuso horário local do navegador) e sem candidatura registrada.
 const ROTULO_JANELA_RECENTE = 'hoje e ontem';
 
+// As cores disponíveis no dropdown. `cor` é o que o botão mostra e precisa
+// bater com `--tema-primary` de `[data-theme="..."]` em styles.css — é a única
+// parte do tema que o JS precisa conhecer. Cada tema define ainda uma variante
+// escura e um preenchimento, mas o botão mostra sempre a clara, que é a cor da
+// família: é o que faz o usuário reconhecer o tema.
+const CORES = [
+    { id: 'red', nome: 'Vermelho', cor: '#dc0202' },
+    { id: 'crimson', nome: 'Carmim', cor: '#ba022f' },
+    { id: 'rose', nome: 'Rosa', cor: '#da0227' },
+    { id: 'pink', nome: 'Fúcsia', cor: '#d70261' },
+    { id: 'fuchsia', nome: 'Magenta', cor: '#ba05d0' },
+    { id: 'purple', nome: 'Roxo', cor: '#8d11fd' },
+    { id: 'violet', nome: 'Violeta', cor: '#7525fd' },
+    { id: 'indigo', nome: 'Índigo', cor: '#3a2efd' },
+    { id: 'blue', nome: 'Azul', cor: '#0e59fd' },
+    { id: 'sky', nome: 'Azul-céu', cor: '#0273ae' },
+    { id: 'navy', nome: 'Marinho', cor: '#09309f' },
+    { id: 'cyan', nome: 'Ciano', cor: '#027895' },
+    { id: 'teal', nome: 'Verde-azulado', cor: '#017c71' },
+    { id: 'emerald', nome: 'Esmeralda', cor: '#018059' },
+    { id: 'green', nome: 'Verde', cor: '#018030' },
+    { id: 'lime', nome: 'Verde-limão', cor: '#437501' },
+    { id: 'amber', nome: 'Âmbar', cor: '#a55902' },
+    { id: 'orange', nome: 'Laranja', cor: '#c14302' },
+    { id: 'brown', nome: 'Marrom', cor: '#8f3701' },
+    { id: 'slate', nome: 'Ardosia', cor: '#484f58' },
+    { id: 'zinc', nome: 'Zinco', cor: '#4d4d5b' },
+    { id: 'stone', nome: 'Pedra', cor: '#776b63' }
+];
+
 const state = {
     techVagas: [],
     geralVagas: [],
+    descartadasVagas: [],
     currentTab: 'tech',
     currentSubTab: 'recentes', // padrão: abre em "Últimos 2 dias" (hoje + ontem, sem candidatura)
-    currentTechFilter: 'suporte',
-    currentGeralFilter: 'assistente',
+    // Padrão: "Todas", que é tudo de tecnologia menos estágio. É o primeiro
+    // botão e o que abre a página — o resto do agrupamento é para quando se quer
+    // afinar por área.
+    currentTechFilter: 'todas',
+    // ABC primeiro: é o botão padrão e o lugar onde a pessoa quer trabalhar.
+    currentGeralFilter: 'abc',
     currentScheduleFilter: 'suporte',
+    // Na aba de descartadas nenhum filtro começa ativo, para a lista abrir
+    // mostrando tudo. Clicar num deles filtra; clicar de novo limpa.
+    currentDescartadasFilter: null,
     searchTerm: '',
     appliedIds: new Set(),
     // Instantâneos fixados no carregamento da página.
@@ -21,7 +60,8 @@ const state = {
     appliedAtLoad: new Set(),
     janelaRecente: null,
     currentTheme: 'red',
-    // Índice id -> vaga das duas listas, para o painel de descrição não
+    currentMode: 'light',
+    // Índice id -> vaga das três listas, para o painel de descrição não
     // depender do card (que é recriado a cada filtro).
     vagasPorId: new Map(),
     // Mapa id -> seções, baixado de `descricoes.json` só no primeiro clique
@@ -38,6 +78,7 @@ function init() {
         tabTech: document.getElementById('tab-tech'),
         tabGeral: document.getElementById('tab-geral'),
         tabSchedule: document.getElementById('tab-schedule'),
+        tabDescartadas: document.getElementById('tab-descartadas'),
         subTabs: document.getElementById('subtabs'),
         subTabBtns: document.querySelectorAll('.subtab-btn'),
         searchInput: document.getElementById('search-input'),
@@ -45,7 +86,14 @@ function init() {
         geralFilterPillsContainer: document.getElementById('geral-filter-pills'),
         techFilterPills: document.querySelectorAll('#tech-filter-pills .filter-pill'),
         geralFilterPills: document.querySelectorAll('#geral-filter-pills .filter-pill'),
+        descartadasFilterPills: document.querySelectorAll('#descartadas-filter-pills .filter-pill'),
+        descartadasFilters: document.getElementById('descartadas-filters'),
+        descartadasCount: document.getElementById('descartadas-count'),
         scheduleFilterPills: document.querySelectorAll('#schedule-filter-pills .filter-pill'),
+        themeToggle: document.getElementById('theme-toggle'),
+        themeMenu: document.getElementById('theme-menu'),
+        themeOptions: document.getElementById('theme-options'),
+        modeToggle: document.getElementById('mode-toggle'),
         vacanciesGrid: document.getElementById('vacancies-grid'),
         scheduleContainer: document.getElementById('schedule-container'),
         scheduleBars: document.getElementById('schedule-bars'),
@@ -61,7 +109,6 @@ function init() {
         retryBtn: document.getElementById('retry-btn'),
         stats: document.getElementById('stats'),
         statTotal: document.getElementById('stat-total'),
-        themeOptions: document.querySelectorAll('.theme-option'),
         descBackdrop: document.getElementById('desc-backdrop'),
         descDrawer: document.getElementById('desc-drawer'),
         descDrawerTitle: document.getElementById('desc-drawer-title'),
@@ -69,10 +116,15 @@ function init() {
         descDrawerBody: document.getElementById('desc-drawer-body'),
         descDrawerApply: document.getElementById('desc-drawer-apply'),
         descDrawerClose: document.getElementById('desc-drawer-close'),
-        descricaoAbertaBotao: null
+        descricaoAbertaBotao: null,
+        footerTech: document.getElementById('footer-tech'),
+        footerGeral: document.getElementById('footer-geral'),
+        footerDescartadas: document.getElementById('footer-descartadas')
     };
 
+    buildThemeOptions();
     loadThemeFromStorage();
+    loadModeFromStorage();
     loadAppliedFromStorage();
     loadVagas();
     setupEventListeners();
@@ -82,6 +134,7 @@ function setupEventListeners() {
     if (els.tabTech) els.tabTech.addEventListener('click', () => switchTab('tech'));
     if (els.tabGeral) els.tabGeral.addEventListener('click', () => switchTab('geral'));
     if (els.tabSchedule) els.tabSchedule.addEventListener('click', () => switchTab('schedule'));
+    if (els.tabDescartadas) els.tabDescartadas.addEventListener('click', () => switchTab('descartadas'));
 
     els.subTabBtns.forEach(btn => {
         btn.addEventListener('click', () => switchSubTab(btn.dataset.subtab));
@@ -108,6 +161,24 @@ function setupEventListeners() {
             els.geralFilterPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             state.currentGeralFilter = pill.dataset.filter;
+            renderVagas();
+        });
+    });
+
+    // Filtros de descarte: clicar no mesmo botão de novo limpa o filtro. Não há
+    // botão "Todas" nessa lista (sem ele a aba seria vazia por definição), então
+    // o estado sem filtro é o que mostra tudo.
+    els.descartadasFilterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const filtro = pill.dataset.filter;
+            const jaAtivo = state.currentDescartadasFilter === filtro;
+            els.descartadasFilterPills.forEach(p => p.classList.remove('active'));
+            if (jaAtivo) {
+                state.currentDescartadasFilter = null;
+            } else {
+                pill.classList.add('active');
+                state.currentDescartadasFilter = filtro;
+            }
             renderVagas();
         });
     });
@@ -153,16 +224,59 @@ function setupEventListeners() {
     if (els.descDrawerClose) els.descDrawerClose.addEventListener('click', fecharDescricao);
     if (els.descBackdrop) els.descBackdrop.addEventListener('click', fecharDescricao);
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && state.descricaoAbertaId) fecharDescricao();
+        if (e.key === 'Escape') {
+            // O Esc fecha o que estiver aberto, do mais raso pro mais fundo.
+            if (!els.themeMenu.hidden) fecharMenuTema();
+            else if (state.descricaoAbertaId) fecharDescricao();
+        }
     });
 
-    // Theme selector
-    els.themeOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            const theme = option.dataset.theme;
-            setTheme(theme);
+    // Dropdown de tema: abre/fecha, fecha no clique fora e escolhe cor.
+    if (els.themeToggle) {
+        els.themeToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            alternarMenuTema();
         });
-    });
+    }
+    if (els.themeMenu) {
+        els.themeMenu.addEventListener('click', (e) => e.stopPropagation());
+    }
+    if (els.modeToggle) {
+        els.modeToggle.addEventListener('click', () => setMode(state.currentMode === 'dark' ? 'light' : 'dark'));
+    }
+    document.addEventListener('click', () => fecharMenuTema());
+
+    // A grade de cores é montada em `buildThemeOptions`, então este listener vai
+    // no container e não em cada botão: delegar funciona para as cores que ainda
+    // não existem no momento do bind.
+    if (els.themeOptions) {
+        els.themeOptions.addEventListener('click', (e) => {
+            const option = e.target.closest('.theme-option');
+            if (option) setTheme(option.dataset.theme);
+        });
+    }
+}
+
+// Monta a grade de cores do dropdown a partir de `CORES`.
+function buildThemeOptions() {
+    if (!els.themeOptions) return;
+    els.themeOptions.innerHTML = CORES.map(c => `
+        <button type="button" class="theme-option${c.id === state.currentTheme ? ' active' : ''}"
+                data-theme="${escapeHtml(c.id)}" style="background: ${c.cor};"
+                aria-label="${escapeHtml(c.nome)}" title="${escapeHtml(c.nome)}"></button>
+    `).join('');
+}
+
+function alternarMenuTema() {
+    if (!els.themeMenu) return;
+    els.themeMenu.hidden = !els.themeMenu.hidden;
+    els.themeToggle.setAttribute('aria-expanded', els.themeMenu.hidden ? 'false' : 'true');
+}
+
+function fecharMenuTema() {
+    if (!els.themeMenu || els.themeMenu.hidden) return;
+    els.themeMenu.hidden = true;
+    if (els.themeToggle) els.themeToggle.setAttribute('aria-expanded', 'false');
 }
 
 function loadAppliedFromStorage() {
@@ -185,18 +299,17 @@ function loadAppliedFromStorage() {
 }
 
 function loadThemeFromStorage() {
+    let stored = null;
     try {
-        const stored = localStorage.getItem(THEME_STORAGE_KEY);
-        if (stored) {
-            state.currentTheme = stored;
-            applyTheme(stored);
-        } else {
-            applyTheme('red');
-        }
+        stored = localStorage.getItem(THEME_STORAGE_KEY);
     } catch (e) {
         console.warn('Erro ao ler tema do localStorage:', e);
-        applyTheme('red');
     }
+    // Uma cor salva que não existe mais em `CORES` deixaria a página sem
+    // `--tema-primary` (o atributo aponta para um bloco que não está no CSS).
+    // Cai no primeiro tema em vez disso.
+    const valida = CORES.some(c => c.id === stored);
+    setTheme(valida ? stored : 'red', { persistir: false });
 }
 
 function saveThemeToStorage() {
@@ -207,19 +320,69 @@ function saveThemeToStorage() {
     }
 }
 
-function setTheme(theme) {
+function setTheme(theme, opcoes = {}) {
     state.currentTheme = theme;
     applyTheme(theme);
-    saveThemeToStorage();
     updateThemeOptions(theme);
+    if (opcoes.persistir !== false) saveThemeToStorage();
 }
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
 }
 
+// Modo claro/escuro. Vive em `data-mode` no `<html>`, separado do `data-theme`
+// da cor — são eixos independentes: 22 cores × 2 modos. Misturar os dois em
+// um único atributo exigiria duplicar cada tema no CSS.
+function loadModeFromStorage() {
+    let modo = null;
+    try {
+        modo = localStorage.getItem(MODE_STORAGE_KEY);
+    } catch (e) {
+        console.warn('Erro ao ler modo do localStorage:', e);
+    }
+    // Sem preferência salva, segue o sistema. Uma vez escolhido, o vale do
+    // usuário manda e o sistema não mais mexe: ele muda de tema ao amanhecer
+    // e isso viraria uma troca de tema sozinha, sem ninguém pedir.
+    if (modo !== 'dark' && modo !== 'light') {
+        modo = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+    }
+    setMode(modo, { persistir: false });
+}
+
+function saveModeToStorage() {
+    try {
+        localStorage.setItem(MODE_STORAGE_KEY, state.currentMode);
+    } catch (e) {
+        console.warn('Erro ao salvar modo no localStorage:', e);
+    }
+}
+
+function setMode(modo, opcoes = {}) {
+    state.currentMode = modo === 'dark' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-mode', state.currentMode);
+    if (els.modeToggle) {
+        const escuro = state.currentMode === 'dark';
+        els.modeToggle.setAttribute('aria-checked', escuro ? 'true' : 'false');
+        const icone = els.modeToggle.querySelector('.mode-toggle-icon');
+        // O ícone mostra o estado atual, então mostra o sol quando está escuro.
+        // As duas classes são alternadas sempre, e não só a lua: o desenho vem
+        // da máscara do CSS, e um ícone sem classe nenhuma ficaria invisível.
+        if (icone) {
+            icone.classList.toggle('moon', !escuro);
+            icone.classList.toggle('sun', escuro);
+        }
+        const texto = els.modeToggle.querySelector('.mode-toggle-text');
+        if (texto) texto.textContent = escuro ? 'Modo claro' : 'Modo escuro';
+    }
+    if (opcoes.persistir !== false) saveModeToStorage();
+}
+
 function updateThemeOptions(activeTheme) {
-    els.themeOptions.forEach(option => {
+    if (!els.themeOptions) return;
+    els.themeOptions.querySelectorAll('.theme-option').forEach(option => {
         option.classList.toggle('active', option.dataset.theme === activeTheme);
     });
 }
@@ -264,7 +427,7 @@ function switchSubTab(subTab) {
 function switchTab(tab) {
     state.currentTab = tab;
 
-    [els.tabTech, els.tabGeral, els.tabSchedule].forEach(btn => {
+    [els.tabTech, els.tabGeral, els.tabSchedule, els.tabDescartadas].forEach(btn => {
         if (btn) {
             btn.classList.remove('active');
             btn.setAttribute('aria-selected', 'false');
@@ -280,14 +443,21 @@ function switchTab(tab) {
     const isSchedule = tab === 'schedule';
     const isTech = tab === 'tech';
     const isGeral = tab === 'geral';
+    const isDescartadas = tab === 'descartadas';
 
     els.vacanciesGrid.classList.toggle('hidden', isSchedule);
     els.scheduleContainer.classList.toggle('hidden', !isSchedule);
-    els.filtersContainer.classList.toggle('hidden', isSchedule);
-    els.scheduleFiltersContainer.classList.toggle('hidden', !isSchedule);
     els.stats.classList.toggle('hidden', isSchedule);
     els.emptyState.classList.add('hidden');
-    if (els.subTabs) els.subTabs.classList.toggle('hidden', isSchedule);
+    // Na auditoria o container de filtros continua visível — só os dois grupos
+    // de botões de área saem, porque nenhum deles é o filtro certo lá. O que
+    // fica é o campo de busca, que faz sentido em qualquer aba. Os filtros
+    // próprios da auditoria são os de tech sem "Todas".
+    els.filtersContainer.classList.toggle('hidden', isSchedule);
+    els.descartadasFilters.classList.toggle('hidden', !isDescartadas);
+    els.scheduleFiltersContainer.classList.toggle('hidden', !isSchedule);
+    // As sub-abas são de período e de "vista", que não existem na auditoria.
+    if (els.subTabs) els.subTabs.classList.toggle('hidden', isSchedule || isDescartadas);
 
     if (els.techFilterPillsContainer) els.techFilterPillsContainer.classList.toggle('hidden', !isTech);
     if (els.geralFilterPillsContainer) els.geralFilterPillsContainer.classList.toggle('hidden', !isGeral);
@@ -308,22 +478,18 @@ async function loadVagas() {
     hideEmpty();
 
     try {
-        const [resTech, resGeral] = await Promise.allSettled([
+        // A auditoria entra no mesmo `allSettled`: o arquivo ainda não existe
+        // em quem rodou o programa antes desta mudança, e um 404 ali não pode
+        // derrubar as duas listas que são o essencial.
+        const [resTech, resGeral, resDescartadas] = await Promise.allSettled([
             fetch('data/vagas_recentes.json'),
-            fetch('data/vagas_gerais.json')
+            fetch('data/vagas_gerais.json'),
+            fetch('data/vagas_descartadas.json')
         ]);
 
-        if (resTech.status === 'fulfilled' && resTech.value.ok) {
-            state.techVagas = await resTech.value.json();
-        } else {
-            state.techVagas = [];
-        }
-
-        if (resGeral.status === 'fulfilled' && resGeral.value.ok) {
-            state.geralVagas = await resGeral.value.json();
-        } else {
-            state.geralVagas = [];
-        }
+        state.techVagas = await lerVagas(resTech);
+        state.geralVagas = await lerVagas(resGeral);
+        state.descartadasVagas = await lerVagas(resDescartadas);
 
         if (state.currentTab === 'schedule') {
             renderSchedule();
@@ -331,6 +497,7 @@ async function loadVagas() {
             renderVagas();
         }
 
+        atualizarContadoresFooter();
         indexarVagas();
     } catch (err) {
         console.error('Erro ao carregar vagas:', err);
@@ -340,10 +507,36 @@ async function loadVagas() {
     }
 }
 
+// Uma resposta ausente ou quebrada vale lista vazia: cada aba é independente e
+// um erro em uma não pode apagar as outras.
+async function lerVagas(resultado) {
+    if (resultado.status !== 'fulfilled' || !resultado.value.ok) return [];
+    try {
+        const dados = await resultado.value.json();
+        return Array.isArray(dados) ? dados : [];
+    } catch (err) {
+        console.warn('Não foi possível ler um dos arquivos de vagas:', err);
+        return [];
+    }
+}
+
+// Os números do footer e o contador do botão de auditoria. Vêm do tamanho das
+// listas já carregadas — é a contagem do que está em tela hoje, com a retenção
+// de 7 dias já aplicada.
+function atualizarContadoresFooter() {
+    const formatar = n => n.toLocaleString('pt-BR');
+    if (els.descartadasCount) els.descartadasCount.textContent = formatar(state.descartadasVagas.length);
+    if (els.footerTech) els.footerTech.textContent = formatar(state.techVagas.length);
+    if (els.footerGeral) els.footerGeral.textContent = formatar(state.geralVagas.length);
+    if (els.footerDescartadas) els.footerDescartadas.textContent = formatar(state.descartadasVagas.length);
+}
+
 // Índice id -> vaga, usado pelo painel de descrição para não depender do card.
+// As descartadas entram também: é o que permite abrir a descrição de uma vaga
+// que foi para a auditoria mas ainda está no histórico.
 function indexarVagas() {
     state.vagasPorId = new Map();
-    [...state.techVagas, ...state.geralVagas].forEach(vaga => {
+    [...state.techVagas, ...state.geralVagas, ...state.descartadasVagas].forEach(vaga => {
         state.vagasPorId.set(String(vaga.id || ''), vaga);
     });
 }
@@ -352,6 +545,29 @@ function isVagaRemota(vaga) {
     const modalidade = (vaga.workplaceType || '').toLowerCase();
     const topic = (vaga.topic || '').toLowerCase();
     return modalidade === 'remote' || modalidade === 'remoto' || topic.includes('remoto');
+}
+
+// A aba "Vagas Tech" tem dois grupos de botões: a lista de vagas e o gráfico de
+// "Horários de Postagem". Os dois filtram pelas mesmas áreas, então o `switch`
+// vive aqui — duplicado, os dois começariam a divergir na primeira área nova.
+//
+// `todas` é a exceção que precisa de um nome: em "Vagas Tech" o botão "Todas"
+// significa "tudo menos estágio", porque estágio tem botão próprio e chega por
+// busca por radical (traz RH, jurídico, pedagogia). Excluir pelo rótulo é o que
+// separa os dois conjuntos; o "todas" do gráfico já usava o mesmo sentido.
+function passaNoFiltroTech(vaga, filtro) {
+    const topic = (vaga.topic || '').toLowerCase();
+    const ehEstagio = topic.includes('estágio') || topic.includes('estagio');
+    switch (filtro) {
+        case 'todas': return !ehEstagio;
+        case 'suporte': return topic.includes('suporte');
+        case 'estagio': return ehEstagio;
+        // O botão "Dev" engloba também as vagas de sistemas.
+        case 'dev': return topic.includes('desenvolvimento') || topic.includes('sistemas');
+        case 'ti': return topic.includes('ti');
+        case 'outras': return topic.startsWith('outras');
+        default: return true;
+    }
 }
 
 function getPublishedTimestamp(vaga) {
@@ -428,20 +644,26 @@ function filterVagas() {
             );
         }
 
-        filtered = filtered.filter(v => {
-            const topic = (v.topic || '').toLowerCase();
-            switch (state.currentTechFilter) {
-                case 'suporte': return topic.includes('suporte');
-                case 'estagio': return topic.includes('estágio') || topic.includes('estagio');
-                // O botão "Dev" engloba também as vagas de sistemas.
-                case 'dev': return topic.includes('desenvolvimento') || topic.includes('sistemas');
-                case 'ti': return topic.includes('ti');
-                case 'outras': return topic.startsWith('outras');
-                default: return true;
-            }
-        });
+        filtered = filtered.filter(v => passaNoFiltroTech(v, state.currentTechFilter));
 
         return aplicarFiltroSubTab(filtered);
+    }
+
+    if (state.currentTab === 'descartadas') {
+        let filtered = state.descartadasVagas;
+
+        if (state.searchTerm) {
+            filtered = filtered.filter(v =>
+                (v.name || '').toLowerCase().includes(state.searchTerm)
+            );
+        }
+
+        // Sem filtro ativo a lista mostra tudo, que é o padrão ao abrir a aba.
+        if (state.currentDescartadasFilter) {
+            filtered = filtered.filter(v => passaNoFiltroTech(v, state.currentDescartadasFilter));
+        }
+
+        return ordenarPorDataDecrescente(filtered);
     }
 
     if (state.currentTab === 'geral') {
@@ -453,33 +675,34 @@ function filterVagas() {
             );
         }
 
-        switch (state.currentGeralFilter) {
-            case 'presencial':
-                filtered = filtered.filter(v => !isVagaRemota(v));
-                break;
+        // Os botões de cargo decidem pelo rótulo; "Remoto" decide pela
+        // modalidade, então alcança também as remotas que os termos de cargo já
+        // rotularam. Por isso ele é o último e não um termo da lista.
+        const rotulo = state.currentGeralFilter;
+        switch (rotulo) {
             case 'remoto':
                 filtered = filtered.filter(v => isVagaRemota(v));
                 break;
-            case 'assistente':
-                filtered = filtered.filter(v => (v.topic || '').toLowerCase().includes('assistente'));
-                filtered = ordenarPorDataDecrescente(filtered);
-                break;
-            // O botão "Júnior" unifica as vagas de "jr" e de "Júnior": as duas
-            // buscas gravam o mesmo rótulo, então um único teste cobre as duas.
             case 'junior':
+                // "jr" e "Júnior" gravam o mesmo rótulo, então um teste cobre as
+                // duas buscas.
                 filtered = filtered.filter(v => {
                     const topic = (v.topic || '').toLowerCase();
                     return topic.includes('júnior') || topic.includes('junior');
                 });
-                filtered = ordenarPorDataDecrescente(filtered);
-                break;
-            case 'auxiliar':
-                filtered = filtered.filter(v => (v.topic || '').toLowerCase().includes('auxiliar'));
-                filtered = ordenarPorDataDecrescente(filtered);
                 break;
             default:
-                break;
+                // Os demais casam por substring do rótulo. O de "ABC" é exato
+                // porque ele é geografia e não nome de cargo: nenhum outro
+                // rótulo deveria casar com "ABC" por acidente.
+                if (rotulo === 'abc') {
+                    filtered = filtered.filter(v => (v.topic || '').toLowerCase() === 'abc');
+                } else {
+                    filtered = filtered.filter(v => (v.topic || '').toLowerCase().includes(rotulo));
+                }
         }
+
+        filtered = ordenarPorDataDecrescente(filtered);
 
         return aplicarFiltroSubTab(filtered);
     }
@@ -502,7 +725,41 @@ function renderVagas() {
     hideEmpty();
     showStats(filtered);
 
-    els.vacanciesGrid.innerHTML = filtered.map(vaga => createCard(vaga)).join('');
+    els.vacanciesGrid.innerHTML = state.currentTab === 'descartadas'
+        ? filtered.map(vaga => createCardDescartada(vaga)).join('')
+        : filtered.map(vaga => createCard(vaga)).join('');
+}
+
+// Card da aba de auditoria. É mais enxuto que o card comum de propósito: sem
+// o toggle "Vista" e sem "Ver descrição". A descrição de uma vaga descartada não
+// é coletada pelo programa, e o botão apareceria para prometer algo que não
+// existe. O motivo do corte vai no lugar do rótulo — é a informação que
+// justifica a lista inteira.
+function createCardDescartada(vaga) {
+    const vagaId = String(vaga.id || '');
+    const motivo = vaga.motivo || 'fora do escopo';
+    const ehCargo = motivo === 'cargo avançado';
+    const link = vaga.jobUrl || '#';
+    const dataPub = formatDateTime(vaga.publishedDate);
+    const empresa = vaga.companyName || vaga.careerPageName || '';
+
+    return `
+        <article class="card-descartada" data-vaga-id="${escapeHtml(vagaId)}">
+            <div class="card-descartada-content">
+                <div class="vacancy-header">
+                    <h3 class="vacancy-title">${escapeHtml(vaga.name || 'Sem título')}</h3>
+                </div>
+                <span class="motivo-tag${ehCargo ? ' motivo-cargo' : ''}">${escapeHtml(motivo)}</span>
+                ${empresa ? `<span class="vacancy-company">${escapeHtml(empresa)}</span>` : ''}
+                <div class="vacancy-footer">
+                    <span class="vacancy-date">${escapeHtml(dataPub)}</span>
+                    <div class="vacancy-actions">
+                        <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="apply-btn">Candidatar-se →</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    `;
 }
 
 function createCard(vaga) {
@@ -678,19 +935,9 @@ function renderBlocos(blocos) {
 function renderSchedule() {
     let filtered = state.techVagas;
 
-    if (state.currentScheduleFilter !== 'todas') {
-        filtered = filtered.filter(v => {
-            const topic = (v.topic || '').toLowerCase();
-            switch (state.currentScheduleFilter) {
-                case 'suporte': return topic.includes('suporte');
-                case 'estagio': return topic.includes('estágio') || topic.includes('estagio');
-                case 'dev': return topic.includes('desenvolvimento') || topic.includes('sistemas');
-                case 'ti': return topic.includes('ti');
-                case 'outras': return topic.startsWith('outras');
-                default: return true;
-            }
-        });
-    }
+    // O mesmo `switch` da lista de vagas: o botão "Todas" do gráfico também
+    // exclui estágio, para os dois lugares não contarem números diferentes.
+    filtered = filtered.filter(v => passaNoFiltroTech(v, state.currentScheduleFilter));
 
     const hourCounts = Array(24).fill(0);
     filtered.forEach(vaga => {
@@ -764,7 +1011,11 @@ function rotuloSubTab() {
 
 function showStats(vagas) {
     const total = vagas.length;
-    const base = `${total} vaga${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`;
+    const plural = total !== 1;
+    const rotulo = state.currentTab === 'descartadas'
+        ? `vaga${plural ? 's' : ''} descartada${plural ? 's' : ''}`
+        : `vaga${plural ? 's' : ''} encontrada${plural ? 's' : ''}`;
+    const base = `${total} ${rotulo}`;
     els.statTotal.textContent = rotuloSubTab()
         ? `${base} · ${rotuloSubTab()}`
         : base;
@@ -815,7 +1066,16 @@ function showEmpty() {
     let titulo = 'Nenhuma vaga encontrada';
     let texto = 'Tente ajustar os filtros ou a busca';
 
-    if (state.currentSubTab === 'recentes') {
+    if (state.currentTab === 'descartadas') {
+        // O arquivo nasce na primeira rodada depois da mudança, então lista
+        // vazia aqui é o caso normal de quem ainda não rodou o programa.
+        titulo = state.descartadasVagas.length === 0
+            ? 'Nenhuma descarte registrada'
+            : 'Nada com esse filtro';
+        texto = state.descartadasVagas.length === 0
+            ? 'Os filtros ainda não cortaram vaga nenhuma — ou o arquivo ainda não foi gerado'
+            : 'Nenhuma vaga descartada com essa área';
+    } else if (state.currentSubTab === 'recentes') {
         titulo = 'Nenhuma vaga nova';
         texto = `Nada publicado ${ROTULO_JANELA_RECENTE} ainda não visto`;
     } else if (state.currentSubTab === 'nao-candidatas') {
