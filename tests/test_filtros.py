@@ -1,6 +1,6 @@
 """Testa os dois filtros de descarte: cargo avançado e escopo de área.
 
-    python3 -m unittest discover -s . -p 'test_filtros.py' -v
+    uv run python -m unittest discover -s tests -p 'test_filtros.py' -v
 
 Os casos são títulos reais que apareceram no histórico (`data/`), não exemplos
 inventados: a lista de áreas do filtro de escopo saiu deles, e um teste com
@@ -12,13 +12,18 @@ import os
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timedelta, timezone
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "monitor"))
+# Este arquivo mora em `tests/`, então a raiz do projeto é um nível acima: são
+# ela que precisam entrar no path, para `monitor/` e para `data/`.
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(RAIZ, "monitor"))
 
 import common  # noqa: E402
 import descricoes  # noqa: E402
+from common import FUSO_SP  # noqa: E402
 
-PASTA_DADOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+PASTA_DADOS = os.path.join(RAIZ, "data")
 
 
 class FiltroDeCargo(unittest.TestCase):
@@ -232,31 +237,52 @@ class HistoricoReal(unittest.TestCase):
         sobras = [v["name"] for v in self.geral if common.vaga_para_descartar(v, destino="geral")]
         self.assertEqual(sobras, [])
 
+    @staticmethod
+    def vaga_de_exemplo(id_, nome, topic="Estágio"):
+        """Vaga mínima no formato do histórico, com data dentro da janela.
+
+        O teste precisa de uma data fresca de propósito: a limpeza apaga por
+        cargo, por escopo **e** por idade, e uma vaga de oito dias sairia pelo
+        motivo errado, sem provar nada sobre o filtro.
+        """
+        agora = datetime.now(FUSO_SP) - timedelta(hours=2)
+        return {
+            "id": id_,
+            "name": nome,
+            "topic": topic,
+            "publishedDate": agora.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+        }
+
     def test_a_limpeza_tira_as_sobras_do_tecnico(self):
-        # O `data/` de hoje foi gravado antes do filtro de escopo existir, então
-        # ainda tem estágio de RH dentro dele. O que interessa é a próxima
-        # execução limpá-lo — é ela que apaga do histórico o que já está gravado.
+        # A limpeza da próxima execução é o que apaga do histórico o que foi
+        # gravado antes do filtro existir. O teste monta esse histórico ele
+        # mesmo — com um resto de estágio de RH e um de cargo avançado ao lado
+        # de duas vagas de tech legítimas — em vez de confiar no estado do
+        # `data/`: assim ele não esvazia quando o CI roda o monitoramento.
         # Roda numa pasta temporária: `salvar_vagas_recentes` escreve no disco.
-        antes = [v["name"] for v in self.tech if common.vaga_para_descartar(v, destino="tech")]
-        self.assertGreater(len(antes), 0, "nada para limpar: o filtro já estaria aplicado")
+        fora_do_escopo = "Estágio em Recursos Humanos | Gente e Gestão - SP"
+        cargo = "Analista de Dados PL"
+        historico = [
+            self.vaga_de_exemplo("1", fora_do_escopo),
+            self.vaga_de_exemplo("2", cargo),
+            self.vaga_de_exemplo("3", "Estágio em TI"),
+            self.vaga_de_exemplo("4", "Analista de Suporte", topic="Suporte"),
+        ]
 
         with tempfile.TemporaryDirectory() as pasta:
-            historico = os.path.join(pasta, "vagas_recentes.json")
-            with open(historico, "w", encoding="utf-8") as f:
-                json.dump(self.tech, f, ensure_ascii=False)
+            arquivo = os.path.join(pasta, "vagas_recentes.json")
+            with open(arquivo, "w", encoding="utf-8") as f:
+                json.dump(historico, f, ensure_ascii=False)
             # Lista vazia = só a limpeza, que é o caminho de quem não achou
             # vaga nova nesta rodada.
-            common.salvar_vagas_recentes([], "Estágio", historico, destino="tech")
-            with open(historico, encoding="utf-8") as f:
+            common.salvar_vagas_recentes([], "Estágio", arquivo, destino="tech")
+            with open(arquivo, encoding="utf-8") as f:
                 depois = json.load(f)
 
-        nomes_depois = {v["name"] for v in depois}
-        for nome in antes:
-            self.assertNotIn(nome, nomes_depois)
-        # E o que é de tech fica.
-        for nome in ("Estágio em TI", "Estagiário(a) de TI - São Paulo"):
-            if any(v["name"] == nome for v in self.tech):
-                self.assertIn(nome, nomes_depois)
+        self.assertEqual(
+            sorted(v["name"] for v in depois),
+            ["Analista de Suporte", "Estágio em TI"],
+        )
 
     def test_gerais_nao_perde_estagio_fora_do_escopo(self):
         # A pasta temporária acima tem nome de "vagas_recentes.json", mas o
@@ -273,15 +299,31 @@ class HistoricoReal(unittest.TestCase):
 
     def test_o_escopo_muda_a_aba_de_estagio(self):
         # O motivo do filtro novo: sem ele, a aba "Estágio" da "Vagas Tech"
-        # mostrava estágio de RH, jurídico e pedagogia junto com o de TI.
-        estagios = [v for v in self.tech if v["topic"].startswith("Estágio")]
-        fora = [v for v in estagios if descricoes.estagio_fora_do_escopo(v["name"])]
-        dentro = [v for v in estagios if not descricoes.estagio_fora_do_escopo(v["name"])]
-        self.assertGreater(len(fora), 0, "nenhum estágio fora do escopo: o filtro não age")
-        self.assertGreater(len(dentro), 0, "o filtro comeu todos os estágios de tech")
-        # O caso é concreto: o histórico tem estágio de RH e de TI ao mesmo tempo.
-        self.assertTrue(any("recursos humanos" in v["name"].lower() for v in fora))
-        self.assertTrue(any(v["name"].strip().endswith("em TI") for v in estagios))
+        # mostrava estágio de RH, jurídico e pedagogia junto com o de TI. Os
+        # títulos são reais (saíram do histórico), mas a lista é montada aqui
+        # para o teste não depender do que o `data/` tem gravado hoje.
+        estagios = [
+            "Estágio em Recursos Humanos | Gente e Gestão - SP",
+            "Estágio em Jurídico",
+            "Estágio de Pedagogia (TARDE)",
+            "Estágio em TI",
+            "Estagiário(a) de TI - São Paulo",
+        ]
+        fora = [t for t in estagios if descricoes.estagio_fora_do_escopo(t)]
+        dentro = [t for t in estagios if not descricoes.estagio_fora_do_escopo(t)]
+        self.assertEqual(len(fora), 3, "o filtro tem de pegar RH, jurídico e pedagogia")
+        self.assertEqual(len(dentro), 2, "o filtro não pode comer o estágio de TI")
+
+    def test_a_aba_de_estagio_do_tech_nao_tem_areas_de_fora(self):
+        # O mesmo filtro conferido contra o `data/` de verdade: o que a aba
+        # mostra hoje não pode ter nenhum título de área fora de tech. Aqui a
+        # lista vazia é o estado esperado, então o teste não esvazia.
+        fora = [
+            v["name"]
+            for v in self.tech
+            if v["topic"].startswith("Estágio") and descricoes.estagio_fora_do_escopo(v["name"])
+        ]
+        self.assertEqual(fora, [])
 
 
 if __name__ == "__main__":
