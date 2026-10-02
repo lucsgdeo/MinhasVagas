@@ -6,6 +6,7 @@ from common import (
     carregar_env,
     executar_monitoramento,
 )
+from consola import configurar as configurar_consola
 from consultas import DESTINOS, gerar_consultas
 
 ARQUIVOS = {
@@ -25,6 +26,9 @@ GRUPOS_DO_RESUMO = {
 
 
 def main():
+    # Primeiro de tudo, e antes de qualquer `print`: no Windows o console é
+    # cp1252 e morre no primeiro emoji sem isto.
+    configurar_consola()
     carregar_env()
     print("=" * 60)
     print("🚀 INICIANDO MONITORAMENTO DE VAGAS GUPY")

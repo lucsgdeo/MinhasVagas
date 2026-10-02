@@ -1,3 +1,7 @@
 .env
 __pycache__/
 *.pyc
+
+# Ambiente virtual do uv. O `uv.lock` fica versionado de propósito: ele é o que
+# garante que todas as máquinas peguem as mesmas versões.
+.venv/

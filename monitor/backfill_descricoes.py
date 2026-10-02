@@ -24,6 +24,7 @@ from common import (
     carregar_env,
     consultar_api_gupy,
 )
+from consola import configurar as configurar_consola
 from consultas import gerar_consultas
 from descricoes import DESCRICOES_FILE, descrever_vagas, salvar_descricoes
 
@@ -32,6 +33,7 @@ INTERVALO_ENTRE_CONSULTAS = 1
 
 
 def main():
+    configurar_consola()
     carregar_env()
 
     # 1. Vagas que ainda importam (o histórico guarda 7 dias).

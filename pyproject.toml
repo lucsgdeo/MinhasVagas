@@ -1,0 +1,21 @@
+[project]
+name = "minhasvagas"
+version = "0.1.0"
+description = "Monitor de vagas da Gupy com dashboard em HTML, CSS e JS puros"
+requires-python = ">=3.10"
+
+# Uma única dependência, e só no Windows: `zoneinfo` (biblioteca padrão desde o
+# 3.9) não embute o banco de fuso horário, ele lê o do sistema operacional. No
+# Linux e no macOS o dado existe em /usr/share/zoneinfo; no Windows não existe
+# nesse formato, e sem este pacote `ZoneInfo("America/Sao_Paulo")` levanta
+# ZoneInfoNotFoundError no import, antes de o programa imprimir qualquer coisa.
+# Declarado aqui, o `uv sync` instala no Windows e não instala nada no Linux.
+dependencies = [
+    "tzdata; sys_platform == 'win32'",
+]
+
+[tool.uv]
+# `false` porque isto não é um pacote distribuível: é um programa que se roda da
+# raiz do repositório, com `monitor/` no path por estar ao lado do script. Sem
+# isso o uv esperaria um layout com `src/` e um backend de build.
+package = false

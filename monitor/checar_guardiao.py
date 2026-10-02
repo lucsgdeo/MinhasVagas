@@ -13,6 +13,10 @@ unitários não mostram juntas:
 
 from datetime import date, datetime, time, timedelta, timezone
 
+# O Python já põe a pasta do script no `sys.path`, então o import direto funciona
+# tanto rodando `python monitor/checar_guardiao.py` quanto importado pelos testes.
+from consola import configurar as configurar_consola
+
 UTC = timezone.utc
 HORA_DO_CRON = time(21, 30)
 GRACE_CRON = 0
@@ -79,6 +83,8 @@ def mostrar(titulo, dia, cron_descartado=False, sentinela_inicial=None, mostrar_
 
 
 def main():
+    # A linha do tempo é cheia de "→" e "—", que o console do Windows não tem.
+    configurar_consola()
     dia = date(2026, 9, 28)
     # Regime permanente: o cron do dia anterior já registrou 27/09.
     ontem = (dia - timedelta(days=1)).isoformat()

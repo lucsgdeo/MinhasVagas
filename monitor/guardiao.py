@@ -25,6 +25,8 @@ import os
 from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
+from consola import configurar as configurar_consola
+
 # Espelha o `schedule` de main.yml: 21:30 UTC = 18:30 em Brasília. Fica
 # duplicado em vez de importado porque o YAML não é importável, e a alternativa
 # seria o guardião ler o próprio workflow procurando o cron, que é frágil.
@@ -123,6 +125,10 @@ def emitir_outputs(**valores) -> None:
 
 
 def main() -> int:
+    # O guardião é o único script que roda no CI e imprime pouco, mas roda em
+    # máquina de quem chama na mão também. Custa uma linha e evita o mesmo
+    # UnicodeEncodeError dos outros.
+    configurar_consola()
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="comando", required=True)
 
