@@ -1,370 +1,207 @@
-# 🤖 MinhasVagas - Dashboard e Monitoramento de Vagas Gupy
+# ðŸ¤– MinhasVagas - Dashboard e Monitoramento de Vagas Gupy
 
-Sistema automatizado em Python para monitoramento periódico de vagas na plataforma **Gupy**, com deduplicação global e **Dashboard Web interativo** hospedado no GitHub Pages.
+Sistema automatizado em Python para monitoramento periÃ³dico de vagas na plataforma **Gupy**, com deduplicaÃ§Ã£o global e **Dashboard Web interativo** hospedado no GitHub Pages.
+
+> **Primeira vez aqui?** Comece por **[docs/instalacao.md](docs/instalacao.md)** â€” passo a passo para Linux, Windows e macOS, da instalaÃ§Ã£o do Python atÃ© a rodagem do dashboard.
 
 ---
 
-## 📌 Funcionalidades
+## ðŸ“Œ Funcionalidades
 
 - **Dashboard Web Moderno**:
-  - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia com filtros rápidos por área (**Suporte**, **Estágio**, **Dev**, **TI**, **Outras**) e busca textual em tempo real. O botão **Dev** engloba também as vagas de sistemas; o botão **Outras** agrupa Infraestrutura, Help Desk e Service Desk.
-  - **Aba "Vagas Gerais"**: Exibe vagas gerais da Grande SP e Remotas em arquivo dedicado (`vagas_gerais.json`), com separação clara entre vagas **Presenciais** e **Remotas** e visualização agrupada em seções.
-  - **Sub-abas "Últimos 2 dias" / "Não candidatadas" / "Todas"**: Disponíveis dentro de "Vagas Tech" e "Vagas Gerais", nessa ordem, com **"Últimos 2 dias"** como padrão ao abrir a página.
-    - **Últimos 2 dias**: combina os filtros de cargo com a janela de **hoje + ontem** (dias do calendário, calculada em `calcularJanelaRecente()` em `assets/app.js` com o fuso horário local do navegador — do início de ontem até o início de amanhã), mostrando apenas vagas publicadas nesse período e para as quais você ainda **não** se candidatou, ordenadas da mais recente para a mais antiga.
-    - **Não candidatadas**: o mesmo conjunto da aba **Todas** (sem corte de data e sem reordenar), removendo apenas as vagas para as quais você já se candidatou.
-    - **Todas**: histórico completo, sem nenhum filtro de data ou candidatura.
-  - **Aba "Horários de Postagem"**: Gráfico analítico de distribuição de publicações por hora, pico e períodos do dia, calculado estritamente com base nas **vagas de tecnologia**.
-  - **Personalização de Temas**: 8 opções de cores de tema persistidas no navegador (Vermelho, Azul, Verde, Roxo, Laranja, Teal, Índigo, Rosa).
-  - **Marcação de Candidaturas**: Controle local com checkbox "Candidatei-me" salvo no `localStorage`.
-    - As listas de "Últimos 2 dias" e "Não candidatadas" são **instantâneos do carregamento da página**: marcar/desmarcar "Candidatei-me" (ou clicar em "Candidatar-se") mantém o card visível na tela e apenas o destaca, sem removê-lo da lista. A vaga só desaparece dessas abas no **próximo carregamento da página** (F5), momento em que o snapshot `state.appliedAtLoad` é refeito a partir do `localStorage`. Na aba **Todas** a vaga permanece visível sempre.
-  - **Painel de Descrição da Vaga**: O botão **"Ver descrição"** no rodapé de cada card abre uma sobreposição pela direita com a vaga organizada em seções — **Responsabilidades**, **Requisitos**, **Informações adicionais**, **Benefícios**, **Salário**, **Jornada de trabalho** e **Local de trabalho** — em lista formatada. O texto vem do campo `description` da API, lido a partir de "Responsabilidades e Atribuições" até o fim da descrição.
-    - O arquivo `data/descricoes.json` é baixado **sob demanda**, só no primeiro clique: ele pesa ~380 KB (gzip) e não é necessário para listar as vagas, então o carregamento da página continua igual.
-    - Fecha pelo botão **✕**, pelo clique fora do painel ou pela tecla **Esc**.
-    - ~8% das vagas não trazem a seção "Responsabilidades" em texto (usam "Sobre a oportunidade", "O que buscamos?"…): nesses casos o painel avisa e mantém o botão **Candidatar-se →** para a vaga original.
-- **Buscas Configuráveis**: Todos os termos monitorados ficam centralizados em uma única lista (`BUSCAS` em `monitor/consultas.py`). Cada termo gera uma consulta presencial e uma remota a partir de duas URLs padrão.
-- **Isolamento de Dados**: Separação física entre o histórico de tech (`vagas_recentes.json`) e vagas gerais (`vagas_gerais.json`).
-- **Ordem de Execução**: Os termos de tech rodam primeiro, garantindo prioridade no registro do cache (`vagas_vistas.json`) e evitando que vagas técnicas sejam duplicadas na listagem geral.
-- **Deduplicação Global**: Armazena o ID original de cada vaga no arquivo de histórico (`vagas_vistas.json`). Se a mesma vaga for encontrada por termos diferentes, ela só é registrada na primeira consulta que a encontrar.
-- **Filtro de Cargo**: Vagas de nível avançado são descartadas antes de entrar no histórico: **sênior/sr**, **pleno/pl**, **especialista**, **gerente**, **diretor**, **coordenador**, **supervisor** e **líder**. O corte é pelo **título** da vaga, em `cargo_para_descartar()` (`monitor/descricoes.py`) — a API da Gupy não aceita exclusão (`excludeTerms` é ignorado, e `jobName=dev -senior` devolve outro conjunto).
-  - O título da vaga mistura **cargo** e **área**, e errar para o lado de descartar apaga oportunidade sem a pessoa nunca ver. Por isso o filtro tem três partes: o **cargo** (`Coordenador de Compras`, `Supervisor`, incluindo feminino e plural), a **área** (`Coordenação`, `Supervisão`, `Gerência`) e o **PL** (que só conta quando não é `PL/SQL`, dialeto de banco). Tudo com acento ignorado e palavra inteira, senão "Sr" casaria dentro de outras palavras.
-  - Duas regras evitam falso positivo: quem aceita os dois níveis é mantido (`Fullstack AI Engineer - (JR/PL)`, `Advogado(a) Júnior/Pleno`), e **cargo de entrada no começo do título** também (`Assistente de Coordenação Pedagógica` é vaga de assistente, não de coordenador). Esse cargo de entrada é reconhecido com ou sem o prefixo `Pessoa` que boa parte das vagas da Gupy usa (`Pessoa Assistente de Coordenação`), e o termo de estágio vale para os dois gêneros (`Estagiária` tanto quanto `Estagiário`).
-  - A vaga descartada entra no `vagas_vistas.json` para não ser re-avaliada a cada rodada, mas não vai para o histórico nem para o dashboard. O terminal avisa o motivo: `Descartadas N vaga(s) por cargo avançado`.
-  - O corte também roda na limpeza do histórico, então as vagas de cargo avançado que já estavam gravadas saem na próxima execução.
-- **Filtro de Escopo de Área**: as buscas `estagio` e `estagiario` são por radical e não aceitam filtro de área, então elas traziam **todo** estágio publicado nas cidades monitoradas — RH, jurídico, marketing, pedagogia, engenharia civil, suprimentos — para a aba **Vagas Tech**. Das 62 vagas de estágio do histórico, só 11 eram de tecnologia. O corte é em `estagio_fora_do_escopo()` (`monitor/descricoes.py`), pelas mesmas três regras do filtro de cargo:
-  - **Só vaga de estágio entra na conta.** `Analista de Suporte` é suporte de verdade, e o rótulo já a coloca na aba certa.
-  - **Tecnologia no título vence sempre.** `Estágio em Suprimentos com SAP` é vaga de SAP, não de compras. É a válvula de escape, e é ela que segura o erro mais caro do filtro: apagar uma vaga de tecnologia.
-  - **O resto sai se citar uma área que não é de tecnologia.** A lista (`AREAS_FORA_DE_TECH`) é explícita em vez de "tudo que não for tech", por isso qualquer área que ninguém tenha catalogado passa e a vaga aparece. Títulos sem área (`Estagiário`, `Estágio Universitário`) também passam: o título não diz, e o filtro não adivinha. **Administrativo não está na lista** — vaga de administrativo é procurada.
-  - Vale **só na aba Vagas Tech**. Em **Vagas Gerais**, estágio de RH ou de compras é justamente o que a aba procura — o destino vem explícito do `main.py` até o filtro.
-  - A vaga descartada entra no cache e some do histórico, como no filtro de cargo. O terminal avisa: `Descartadas N vaga(s) por estágio fora da área de tech`.
-- **Filtro de Recorrência**: Considera apenas vagas publicadas nos últimos 4 dias e limpa automaticamente registros do cache com mais de 7 dias.
-- **Resiliência e Retentativas**: Sistema de retentativas automáticas (`retry`) com tolerância a falhas na API da Gupy.
-- **Zero configuração por termo**: Adicionar ou remover uma busca é uma linha na lista, sem criar arquivos.
-- **Zero Dependências Externas**: Utiliza estritamente a biblioteca padrão do Python (`urllib`, `json`, `datetime`, `zoneinfo`) e Vanilla JS/CSS no frontend.
-- **CI/CD com GitHub Actions**: Roda na nuvem e comita os históricos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`) de volta no repositório.
+  - **Aba "Vagas Tech"**: Exibe exclusivamente as vagas de tecnologia com filtros rÃ¡pidos por Ã¡rea (**Todas**, **EstÃ¡gio**, **Suporte**, **Dev**, **TI**, **Outras**) e busca textual em tempo real. O botÃ£o **Todas** mostra todas as vagas de tecnologia **menos estÃ¡gio**, e Ã© o filtro padrÃ£o. O botÃ£o **Dev** engloba tambÃ©m as vagas de sistemas; o botÃ£o **Outras** agrupa Infraestrutura, Help Desk, Service Desk e e-commerce.
+  - **Aba "Vagas Gerais"**: Exibe vagas gerais da Grande SP e Remotas em arquivo dedicado (`vagas_gerais.json`), com separaÃ§Ã£o clara entre vagas **Presenciais** e **Remotas** e visualizaÃ§Ã£o agrupada em seÃ§Ãµes. O filtro padrÃ£o Ã© **ABC** â€” todas as vagas publicadas no ABC Paulista (Santo AndrÃ©, SÃ£o Bernardo do Campo, Diadema e SÃ£o Caetano do Sul), sem SÃ£o Paulo capital.
+  - **Sub-abas "Ãšltimos 2 dias" / "NÃ£o Vistas" / "Todas"**: DisponÃ­veis dentro de "Vagas Tech" e "Vagas Gerais", nessa ordem, com **"Ãšltimos 2 dias"** como padrÃ£o ao abrir a pÃ¡gina.
+    - **Ãšltimos 2 dias**: combina os filtros de cargo com a janela de **hoje + ontem** (dias do calendÃ¡rio, calculada em `calcularJanelaRecente()` em `assets/app.js` com o fuso horÃ¡rio local do navegador â€” do inÃ­cio de ontem atÃ© o inÃ­cio de amanhÃ£), mostrando apenas vagas publicadas nesse perÃ­odo e para as quais vocÃª ainda **nÃ£o** se candidatou, ordenadas da mais recente para a mais antiga.
+    - **NÃ£o Vistas**: o mesmo conjunto da aba **Todas** (sem corte de data e sem reordenar), removendo apenas as vagas que vocÃª jÃ¡ marcou.
+    - **Todas**: histÃ³rico completo, sem nenhum filtro de data ou marcaÃ§Ã£o.
+  - **Aba "HorÃ¡rios de Postagem"**: GrÃ¡fico analÃ­tico de distribuiÃ§Ã£o de publicaÃ§Ãµes por hora, pico e perÃ­odos do dia, calculado estritamente com base nas **vagas de tecnologia**.
+  - **Aba "Descartadas"** (Ã­cone de lixeira no fim da linha de abas): auditoria dos dois filtros â€” as vagas que saÃ­ram do histÃ³rico, com o **motivo** do corte em cada card. LÃª `vagas_descartadas.json`, que tem a mesma retenÃ§Ã£o de 7 dias do histÃ³rico e nÃ£o guarda a descriÃ§Ã£o da vaga. Ver [docs/buscas-e-filtros.md](docs/buscas-e-filtros.md).
+  - **PersonalizaÃ§Ã£o de Temas**: dropdown Ãºnico com **22 cores** de destaque e **modo claro/escuro** (22 Ã— 2 combinaÃ§Ãµes), as duas escolhas persistidas no navegador. Sem preferÃªncia salva, o modo segue o sistema.
+  - **MarcaÃ§Ã£o de Vistas**: Controle local com toggle "Vista" salvo no `localStorage`.
+    - As listas de "Ãšltimos 2 dias" e "NÃ£o Vistas" sÃ£o **instantÃ¢neos do carregamento da pÃ¡gina**: marcar/desmarcar "Vista" (ou clicar em "Candidatar-se") mantÃ©m o card visÃ­vel na tela e apenas o destaca, sem removÃª-lo da lista. A vaga sÃ³ desaparece dessas abas no **prÃ³ximo carregamento da pÃ¡gina** (F5), momento em que o snapshot `state.appliedAtLoad` Ã© refeito a partir do `localStorage`. Na aba **Todas** a vaga permanece visÃ­vel sempre.
+  - **Painel de DescriÃ§Ã£o da Vaga**: O botÃ£o **"Ver descriÃ§Ã£o"** no rodapÃ© de cada card abre uma sobreposiÃ§Ã£o pela direita com a vaga organizada em seÃ§Ãµes â€” **Responsabilidades**, **Requisitos**, **InformaÃ§Ãµes adicionais**, **BenefÃ­cios**, **SalÃ¡rio**, **Jornada de trabalho** e **Local de trabalho** â€” em lista formatada.
+    - O arquivo `data/descricoes.json` Ã© baixado **sob demanda**, sÃ³ no primeiro clique: ele pesa ~380 KB (gzip) e nÃ£o Ã© necessÃ¡rio para listar as vagas, entÃ£o o carregamento da pÃ¡gina continua igual.
+    - Fecha pelo botÃ£o **âœ•**, pelo clique fora do painel ou pela tecla **Esc**.
+    - ~8% das vagas nÃ£o trazem a seÃ§Ã£o "Responsabilidades" em texto (usam "Sobre a oportunidade", "O que buscamos?"â€¦): nesses casos o painel avisa e mantÃ©m o botÃ£o **Candidatar-se â†’** para a vaga original.
+- **Buscas ConfigurÃ¡veis**: Todos os termos monitorados ficam centralizados em uma Ãºnica lista (`BUSCAS` em `monitor/consultas.py`). Cada termo gera uma consulta presencial e uma remota a partir de duas URLs padrÃ£o.
+- **Isolamento de Dados**: SeparaÃ§Ã£o fÃ­sica entre o histÃ³rico de tech (`vagas_recentes.json`) e vagas gerais (`vagas_gerais.json`).
+- **Ordem de ExecuÃ§Ã£o**: Os termos de tech rodam primeiro, garantindo prioridade no registro do cache (`vagas_vistas.json`) e evitando que vagas tÃ©cnicas sejam duplicadas na listagem geral.
+- **DeduplicaÃ§Ã£o Global**: Armazena o ID original de cada vaga no arquivo de histÃ³rico (`vagas_vistas.json`). Se a mesma vaga for encontrada por termos diferentes, ela sÃ³ Ã© registrada na primeira consulta que a encontrar.
+- **Filtro de Cargo**: Vagas de nÃ­vel avanÃ§ado sÃ£o descartadas antes de entrar no histÃ³rico (sÃªnior/pleno/especialista/gerente/diretor/coordenador/supervisor/lÃ­der). O corte Ã© pelo **tÃ­tulo** da vaga, em `cargo_para_descartar()` (`monitor/descricoes.py`) â€” a API da Gupy nÃ£o aceita exclusÃ£o (`excludeTerms` Ã© ignorado, e `jobName=dev -senior` devolve outro conjunto). Detalhes em [docs/buscas-e-filtros.md](docs/buscas-e-filtros.md).
+- **Filtro de Escopo de Ãrea**: as buscas `estagio` e `estagiario` sÃ£o por radical e nÃ£o aceitam filtro de Ã¡rea, entÃ£o o corte Ã© em `estagio_fora_do_escopo()` (`monitor/descricoes.py`). Ele vale **sÃ³ na aba Vagas Tech** â€” em **Vagas Gerais**, estÃ¡gio de RH Ã© justamente o que a aba procura. Detalhes em [docs/buscas-e-filtros.md](docs/buscas-e-filtros.md).
+- **Filtro de RecorrÃªncia**: Considera apenas vagas publicadas nos Ãºltimos 4 dias e limpa automaticamente registros do cache com mais de 7 dias.
+- **ResiliÃªncia e Retentativas**: Sistema de retentativas automÃ¡ticas (`retry`) com tolerÃ¢ncia a falhas na API da Gupy.
+- **Zero configuraÃ§Ã£o por termo**: Adicionar ou remover uma busca Ã© uma linha na lista, sem criar arquivos.
+- **Zero DependÃªncias Externas**: Utiliza estritamente a biblioteca padrÃ£o do Python (`urllib`, `json`, `datetime`, `zoneinfo`) e Vanilla JS/CSS no frontend. A Ãºnica dependÃªncia declarada em `pyproject.toml` Ã© `tzdata`, e **sÃ³ no Windows** (`sys_platform == 'win32'`), porque o sistema operacional de lÃ¡ nÃ£o tem banco de fuso horÃ¡rio â€” ver [docs/instalacao.md](docs/instalacao.md).
+- **Mesmo ambiente nas trÃªs plataformas**: o [uv](https://docs.astral.sh/uv/) resolve Python, venv e dependÃªncias em um comando, e a versÃ£o do interpretador fica fixada em `.python-version` â€” a mesma do CI. `uv run monitor/main.py` funciona igual no Windows, no Linux e no macOS.
+- **CI/CD com GitHub Actions**: Roda na nuvem e comita os histÃ³ricos atualizados (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`, `vagas_descartadas.json`) de volta no repositÃ³rio.
 
 ---
 
-## 📁 Estrutura de Pastas
+## ðŸ“š DocumentaÃ§Ã£o
 
-A raiz do repositório é o que o **GitHub Pages serve**, então o `index.html` precisa ficar nela. O resto é separado: o front em `assets/`, os dados em `data/` e o programa de monitoramento em `monitor/`.
+| Documento | ConteÃºdo |
+|---|---|
+| **[docs/instalacao.md](docs/instalacao.md)** | Tutorial completo: instalar o uv, clonar, preparar o ambiente, rodar o monitoramento, servir o dashboard, testes e problemas comuns. |
+| **[docs/buscas-e-filtros.md](docs/buscas-e-filtros.md)** | As buscas configuradas e as duas URLs padrÃ£o, os filtros de cargo e de escopo de Ã¡rea, e como adicionar ou remover buscas e Ã¡reas. |
+| **[docs/descricoes.md](docs/descricoes.md)** | As duas fontes de descriÃ§Ã£o (HTML da pÃ¡gina e texto da API), o formato do `descricoes.json` e o `backfill_descricoes.py`. |
+| **[docs/automacao-ci-cd.md](docs/automacao-ci-cd.md)** | O workflow principal, o guardiÃ£o que recupera execuÃ§Ãµes descartadas, o heartbeat externo e como depurar tudo na mÃ£o. |
+
+---
+
+## ðŸ“ Estrutura de Pastas
+
+A raiz do repositÃ³rio Ã© o que o **GitHub Pages serve**, entÃ£o o `index.html` precisa ficar nela. O resto Ã© separado: o front em `assets/`, os dados em `data/`, o programa de monitoramento em `monitor/` e a documentaÃ§Ã£o em `docs/`.
 
 ```text
 MinhasVagas/
-├── .github/
-│   └── workflows/
-│       └── main.yml               # Pipeline de monitoramento e commit (GitHub Actions)
-├── monitor/                       # O programa (roda com `python monitor/main.py`)
-│   ├── consultas.py               # LISTA DE BUSCAS (jobName, destino, rótulo) + URLs padrão
-│   ├── common.py                  # API Gupy, cache, histórico, limpeza e os dois filtros
-│   ├── descricoes.py              # Filtros de cargo e de escopo + seções da descrição e o descricoes.json
-│   ├── backfill_descricoes.py     # Preenche o descricoes.json das vagas que já estão no histórico
-│   └── main.py                    # Orquestrador: itera as consultas e imprime o resumo
-├── index.html                     # Interface do Dashboard (GitHub Pages) — precisa ficar na raiz
-├── assets/                        # O resto do front
-│   ├── styles.css                 # Estilos visuais e temas
-│   └── app.js                     # Lógica do Dashboard, filtros, temas, gráficos e painel de descrição
-├── data/                          # Os dados que o app.js busca
-│   ├── vagas_vistas.json          # Cache de controle de IDs já processados
-│   ├── vagas_recentes.json        # Histórico dos últimos 7 dias (Vagas Tech)
-│   ├── vagas_gerais.json          # Histórico dos últimos 7 dias (Vagas Gerais)
-│   └── descricoes.json            # {id: {fonte, secoes}} — a partir de "Responsabilidades"
-├── .env                           # Configurações locais (ignorado no Git)
-├── .gitignore                     # Configuração de arquivos ignorados pelo Git
-├── test_filtros.py                # Testes dos filtros de cargo e de escopo
-├── test_guardiao.py               # Testes da conta de datas do guardião
-└── README.md                      # Documentação do projeto
+â”œâ”€â”€ .github/
+â”‚   â””â”€â”€ workflows/
+â”‚       â”œâ”€â”€ main.yml                 # Pipeline de monitoramento e commit (GitHub Actions)
+â”‚       â””â”€â”€ guardiao.yml             # Recupera o disparo que o GitHub descartou
+â”œâ”€â”€ docs/                            # DocumentaÃ§Ã£o (esta pasta)
+â”‚   â”œâ”€â”€ instalacao.md                # Tutorial de setup e uso â€” COMECE POR AQUI
+â”‚   â”œâ”€â”€ buscas-e-filtros.md          # Buscas configuradas e filtros
+â”‚   â”œâ”€â”€ descricoes.md                # DescriÃ§Ãµes das vagas
+â”‚   â””â”€â”€ automacao-ci-cd.md           # AutomaÃ§Ã£o no GitHub Actions
+â”œâ”€â”€ monitor/                         # O programa (roda com `uv run monitor/main.py`)
+â”‚   â”œâ”€â”€ consultas.py                 # LISTA DE BUSCAS (jobName, destino, rÃ³tulo, ajustes) + URLs padrÃ£o
+â”‚   â”œâ”€â”€ common.py                    # API Gupy, cache, histÃ³ricos, auditoria dos descartes e os dois filtros
+â”‚   â”œâ”€â”€ descricoes.py                # Filtros de cargo e de escopo + seÃ§Ãµes da descriÃ§Ã£o
+â”‚   â”œâ”€â”€ backfill_descricoes.py       # Preenche o descricoes.json das vagas jÃ¡ no histÃ³rico
+â”‚   â”œâ”€â”€ guardiao.py                  # Sentinela de frescor do disparo diÃ¡rio
+â”‚   â”œâ”€â”€ checar_guardiao.py           # Simula as 24h de um dia contra os dois workflows
+â”‚   â”œâ”€â”€ consola.py                   # UTF-8 no console (o do Windows Ã© cp1252)
+â”‚   â””â”€â”€ main.py                      # Orquestrador: itera as consultas e imprime o resumo
+â”œâ”€â”€ index.html                       # Interface do Dashboard (GitHub Pages) â€” precisa ficar na raiz
+â”œâ”€â”€ assets/                          # O resto do front
+â”‚   â”œâ”€â”€ styles.css                   # Estilos visuais e temas
+â”‚   â””â”€â”€ app.js                       # LÃ³gica do Dashboard, filtros, temas, grÃ¡ficos e painel de descriÃ§Ã£o
+â”œâ”€â”€ data/                            # Os dados que o app.js busca
+â”‚   â”œâ”€â”€ vagas_vistas.json            # Cache de controle de IDs jÃ¡ processados
+â”‚   â”œâ”€â”€ vagas_recentes.json          # HistÃ³rico dos Ãºltimos 7 dias (Vagas Tech)
+â”‚   â”œâ”€â”€ vagas_gerais.json            # HistÃ³rico dos Ãºltimos 7 dias (Vagas Gerais)
+â”‚   â”œâ”€â”€ vagas_descartadas.json       # Auditoria: o que os filtros cortaram, com o motivo
+â”‚   â”œâ”€â”€ descricoes.json              # {id: {fonte, secoes}} â€” a partir de "Responsabilidades"
+â”‚   â””â”€â”€ ultimo_monitoramento.json    # Sentinela do guardiÃ£o (data do disparo coberto)
+â”œâ”€â”€ pyproject.toml                   # Projeto uv: versÃ£o do Python e dependÃªncias
+â”œâ”€â”€ uv.lock                          # VersÃµes travadas (versionado de propÃ³sito)
+â”œâ”€â”€ .python-version                  # Python do projeto â€” o mesmo do CI
+â”œâ”€â”€ .env                             # ConfiguraÃ§Ãµes locais (ignorado no Git)
+â”œâ”€â”€ .gitignore                       # ConfiguraÃ§Ã£o de arquivos ignorados pelo Git
+â”œâ”€â”€ tests/                           # Testes do programa
+â”‚   â”œâ”€â”€ test_filtros.py            # Testes dos filtros de cargo e de escopo
+â”‚   â”œâ”€â”€ test_descartadas.py        # Testes do arquivo de auditoria dos descartes
+â”‚   â””â”€â”€ test_guardiao.py           # Testes da conta de datas do guardião
+â””â”€â”€ README.md                        # Este arquivo
 ```
 
-Os testes rodam sem rede e sem tocar em `data/`:
+---
+
+## ðŸš€ Como Executar
+
+O tutorial completo, com as diferenÃ§as entre Linux, Windows e macOS, estÃ¡ em
+**[docs/instalacao.md](docs/instalacao.md)**. O resumo, vÃ¡lido nos trÃªs sistemas:
 
 ```bash
-python3 -m unittest discover -s . -p 'test_*.py'
+# 1. Instalar o uv (uma vez por mÃ¡quina) e preparar o ambiente
+winget install astral-sh.uv   # Windows
+uv sync
+
+# 2. Rodar o monitoramento, a partir da raiz do repositÃ³rio
+uv run monitor/main.py
+
+# 3. Servir o dashboard (fetch() nÃ£o funciona em file://)
+uv run python -m http.server 8000
 ```
 
----
+O `uv run` Ã© o mesmo nos trÃªs sistemas e nÃ£o precisa de `.venv` ativado. Ele
+tambÃ©m baixa o Python 3.11 sozinho â€” a versÃ£o fica em `.python-version` e Ã© a
+mesma do CI.
 
-## 🧭 Buscas Configuradas
+O orquestrador percorre todas as consultas (cada termo Ã— presencial e remoto, com
+a exceÃ§Ã£o do botÃ£o **ABC**, que Ã© sÃ³ presencial), com 1 segundo de intervalo
+entre elas, e exibe um resumo ao final. Rodar duas vezes seguidas nÃ£o duplica
+nada: o cache `vagas_vistas.json` filtra os IDs jÃ¡ processados.
 
-Todas as buscas vivem na lista `BUSCAS` de `monitor/consultas.py`. Cada linha gera **duas** consultas: uma presencial (Grande SP) e uma remota.
+> O `monitor/consola.py` reconfigura `stdout`/`stderr` para UTF-8 no comeÃ§o de
+> cada script, entÃ£o os emojis do log aparecem corretamente tambÃ©m no console do
+> Windows, que por padrÃ£o Ã© `cp1252` e quebraria o `print`.
 
-**A ordem da lista importa.** A primeira busca que encontra uma vaga define o rótulo dela — as demais são ignoradas pela deduplicação de ID. Por isso a lista segue a ordem dos botões do dashboard: tech primeiro, gerais depois, e a busca ampla por último.
-
-#### Botões da aba "Vagas Tech" — `Suporte · Estágio · Dev · TI · Outras`
-
-| Termo (`jobName`) | Destino | Rótulo no card | Botão |
-|---|---|---|---|
-| `Suporte` | `tech` | `Suporte` / `Suporte Remoto` | Suporte |
-| `estagio` | `tech` | `Estágio` / `Estágio Remoto` | Estágio |
-| `estagiario` | `tech` | `Estágio` / `Estágio Remoto` | Estágio |
-| `desenvolvedor` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
-| `desenvolvimento` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
-| `dev` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
-| `software` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
-| `devops` | `tech` | `Desenvolvimento` / `Desenvolvimento Remoto` | Dev |
-| `sistemas` | `tech` | `Sistemas` / `Sistemas Remoto` | Dev |
-| `TI` | `tech` | `TI` / `TI Remoto` | TI |
-| `tecnologia` | `tech` | `TI` / `TI Remoto` | TI |
-| `infra` | `tech` | `Outras` / `Outras Remoto` | Outras |
-| `help desk` | `tech` | `Outras` / `Outras Remoto` | Outras |
-| `service desk` | `tech` | `Outras` / `Outras Remoto` | Outras |
-
-#### Botões da aba "Vagas Gerais" — `Assistente · Júnior · Auxiliar · Remoto · Presencial`
-
-| Termo (`jobName`) | Destino | Rótulo no card | Botão |
-|---|---|---|---|
-| `assistente` | `geral` | `Assistente Presencial` / `Assistente Remoto` | Assistente |
-| `jr` | `geral` | `Júnior` / `Júnior Remoto` | Júnior |
-| `Júnior` | `geral` | `Júnior` / `Júnior Remoto` | Júnior |
-| `auxiliar` | `geral` | `Auxiliar Presencial` / `Auxiliar Remoto` | Auxiliar |
-| *(vazio)* | `geral` | `Geral Presencial` / `Geral Remoto` | Remoto / Presencial |
-
-> O termo vazio (`None`) não usa `jobName` na URL: é a busca ampla, que captura qualquer vaga publicada nas cidades monitoradas, inclusive as que nenhum outro termo encontra. Por vir por último, ela só rotula as vagas que sobraram — as vagas de um cargo específico já foram rotuladas antes e não caem aqui.
-
-### Termos que a API resolve sozinha
-
-A busca da Gupy é por radical e ignora acentos, o que evita variantes duplicadas:
-
-| Termo usado | Cobre automaticamente | Como foi verificado |
-|---|---|---|
-| `desenvolvedor` | `desenvolvedora` | conjuntos de IDs idênticos |
-| `sistemas` | `sistema` | conjuntos de IDs idênticos |
-
-Já `estagiario`, `desenvolvimento` e `dev` **não** são cobertos por `estagio` e `desenvolvedor` — os conjuntos de IDs são totalmente disjuntos, então cada um precisa de busca própria. É por isso que o botão **Estágio** usa `estagio` + `estagiario`, e o botão **Dev** usa `desenvolvedor` + `desenvolvimento` + `dev` + `software` + `devops`.
-
-### As duas URLs padrão
+No log, cada consulta aparece com o **termo pesquisado** e o rÃ³tulo que ela grava
+(`"devops" â†’ Desenvolvimento`), porque vÃ¡rias buscas compartilham o mesmo rÃ³tulo.
+O **resumo final** Ã© separado por destino e agrupado por Ã¡rea:
 
 ```text
-Presencial: https://portal.gupy.io/api/job-search/jobs?limit=100&offset=0&city=<CIDADES>&state=São Paulo
-Remoto:     https://portal.gupy.io/api/job-search/jobs?limit=100&offset=0&workplaceType=remote
-```
+Descartadas 8 vaga(s) por estÃ¡gio fora da Ã¡rea de tech para ["estagio" â†’ EstÃ¡gio].
+Descartadas 3 vaga(s) por cargo avanÃ§ado para ["Suporte" â†’ Suporte].
 
-O `jobName` é acrescentado a uma delas conforme o termo. O `limit=100` é o teto aceito pela API (acima disso retorna HTTP 400) e, como os resultados vêm ordenados por data de publicação, `offset=0` já traz as vagas mais recentes.
-
----
-
-## ⚙️ Configuração do Ambiente
-
-O projeto **não depende de nenhuma credencial externa**. A API da Gupy é consultada sem autenticação e os resultados são gravados em arquivos JSON versionados no repositório.
-
-A única configuração opcional é o `.env` na raiz, carregado por `carregar_env()` em `monitor/common.py`. Como não há mais integração com o Telegram, ele pode ser removido com segurança, assim como o bloco `env:` correspondente em `.github/workflows/main.yml`.
-
----
-
-## 🚀 Como Executar
-
-```bash
-python monitor/main.py
-```
-
-Rode a partir da raiz do repositório: o programa lê e escreve os `.json` dali, e é assim que o GitHub Actions chama (`python monitor/main.py`).
-
-O orquestrador percorre todas as consultas (cada termo × presencial e remoto), com 1 segundo de intervalo entre elas, e exibe um resumo ao final. Rodar duas vezes seguidas não duplica nada: o cache `vagas_vistas.json` filtra os IDs já processados.
-
-No log, cada consulta aparece com o **termo pesquisado** e o rótulo que ela grava (`"devops" → Desenvolvimento`), porque várias buscas compartilham o mesmo rótulo. O **resumo final** é separado por destino e agrupado por área:
-
-```text
-Descartadas 8 vaga(s) por estágio fora da área de tech para ["estagio" → Estágio].
-Descartadas 3 vaga(s) por cargo avançado para ["Suporte" → Suporte].
-
-📊 VAGAS TECH — novas por área (data/vagas_recentes.json)
+ðŸ“Š VAGAS TECH â€” novas por Ã¡rea (vagas_recentes.json)
 ============================================================
-  • Desenvolvimento         72      <- dev + software + devops + sistemas
-  • Estágio                 66      <- estagio + estagiario
-  • Suporte                 24
-  • TI                      14
+  â€¢ Desenvolvimento         72      <- dev + software + devops + sistemas
+  â€¢ EstÃ¡gio                66      <- estagio + estagiario
+  â€¢ Suporte                24
+  â€¢ TI                     14
+============================================================
 ```
 
-"Sistemas" entra dentro de "Desenvolvimento" porque o botão **Dev** do dashboard já cobre os dois. Se uma busca falhar, a área aparece marcada como `(N busca(s) com erro)` e o detalhe continua na linha da consulta.
+"Sistemas" entra dentro de "Desenvolvimento" porque o botÃ£o **Dev** do dashboard
+jÃ¡ cobre os dois. Se uma busca falhar, a Ã¡rea aparece marcada como
+`(N busca(s) com erro)` e o detalhe continua na linha da consulta.
 
-As linhas de "Descartadas" dizem **o motivo** e não só o total, porque os dois filtros descartam por razões diferentes: é assim que se vê se o número grande vem do cargo avançado ou do estágio fora da área de tech.
+As linhas de "Descartadas" dizem **o motivo** e nÃ£o sÃ³ o total, porque os dois
+filtros descartam por razÃµes diferentes: Ã© assim que se vÃª se o nÃºmero grande vem
+do cargo avanÃ§ado ou do estÃ¡gio fora da Ã¡rea de tech.
 
-Para inspecionar as URLs que serão consultadas, sem chamar a API:
+### Testes
+
+Rodam sem rede e sem tocar em `data/`:
 
 ```bash
-cd monitor
-python -c "
-from consultas import gerar_consultas
-for c in gerar_consultas():
-    print(c.rotulo_exibicao, '->', c.url)
-"
+python -m unittest discover -s tests -p 'test_*.py'
 ```
 
 ---
 
-## 📄 Descrições das Vagas
+## âš™ï¸ ConfiguraÃ§Ã£o do Ambiente
 
-O campo `description` da API não vai para `vagas_recentes.json`/`vagas_gerais.json`. A descrição é organizada em seções por `monitor/descricoes.py` e gravada em `descricoes.json`:
+O projeto **nÃ£o depende de nenhuma credencial externa**. A API da Gupy Ã©
+consultada sem autenticaÃ§Ã£o e os resultados sÃ£o gravados em arquivos JSON
+versionados no repositÃ³rio.
 
-```json
-{
-  "12459795": {
-    "fonte": "html",
-    "secoes": [
-      { "titulo": "Responsabilidades", "blocos": [
-        { "tipo": "item", "texto": "O estagiário dará suporte às ações de Desenvolvimento:" },
-        { "tipo": "item", "texto": "Entendimento das demandas;" } ] },
-      { "titulo": "Requisitos", "blocos": [
-        { "tipo": "subtitulo", "texto": "Obrigatório" },
-        { "tipo": "item", "texto": "Cursando Ensino Superior" } ] }
-    ]
-  }
-}
-```
-
-O painel mostra cada seção com seu título e cada bloco como foi escrito na vaga: `item` vira bullet, `subtitulo` vira rótulo em negrito e `texto` vira parágrafo.
-
-### As duas fontes, e por que
-
-**1. O HTML da página da vaga (`fonte: "html"`, ~70% dos casos).** O `jobUrl` da vaga publica a descrição em HTML no JSON-LD `JobPosting` (schema.org) — o mesmo HTML que a Gupy renderiza, com `<h2>` de seção, `<li>` de item e `<strong>` de subtítulo. É essa fonte que reproduz a leitura original.
-
-**2. O texto `description` da API (`fonte: "texto"`, o resto).** Mesmo conteúdo, mas "achatado": os títulos viram texto colado no item anterior e a marcação some. Exemplo real de uma reserva:
-
-```text
-…Responsabilidades e atribuiçõesO estagiário dará suporte às ações de
-Desenvolvimento:Entendimento das demandas;Realizar documentações técnicas;
-Desenvolvimento em Java/.NET (C#);…Requisitos e qualificaçõesObrigatório…
-```
-
-Nessa fonte a leitura é feita por texto, em três passos de `extrair_secoes_texto()`:
-
-1. **Começa** em "Responsabilidades e Atribuições" (com ou sem acento, "Principais responsabilidades") e vai **até o fim da descrição** — é isso que dá responsável, requisitos, informações adicionais e benefícios.
-2. **Quebra em seções** nos títulos conhecidos ("Requisitos e qualificações", "Informações adicionais", "Benefícios", "Salário", "Jornada de trabalho", "Local de trabalho"), aceitando com ou sem acento e renomeando para um título único no painel.
-3. **Quebra em itens** por `;`, quebra de linha, marcadores (`•`, `➢`), fim de frase seguido de maiúscula e `&nbsp;` — esse último só quando o trecho anterior já parece completo, para não cortar frase ao meio.
-
-Em ambos os casos a leitura só começa em "Responsabilidades": o texto de marketing que vem antes fica de fora. Vagas que não têm a seção (poucas) mostram um aviso no painel com o link para a vaga original.
-
-O arquivo é reescrito a cada execução de `main.py` com **apenas os IDs que continuam nos dois históricos** (`sincronizar_descricoes()`), então ele acompanha a retenção de 7 dias e não cresce para sempre.
-
-### Por que as páginas são buscadas em paralelo
-
-Cada vaga é uma requisição independente, e a espera é de rede, não de CPU: medido, um lote de 60 vagas consome **6,6% de um núcleo** enquanto 8 workers esperam resposta. Threads são a ferramenta certa para isso — e `asyncio` só ganharia algo se trocássemos `urllib` por uma dependência externa, o que o projeto não faz.
-
-| | por vaga | 600 vagas |
-|---|---|---|
-| sequencial | 0,57 s | ~5,7 min |
-| 8 workers | **0,07 s** | **~45 s** (medido) |
-
-O número está em `TRABALHADORES_PAGINA`, em `monitor/descricoes.py`; baixe para 4 se algum dia aparecer erro de requisição em massa. Nada mais na execução usa threads: as 40 buscas da API continuam sequenciais com 1 s de intervalo, porque ali o intervalo é proteção contra rate limit.
-
-> Um portal fora do ar não trava a execução: o `timeout` é de 12 s e, depois de 2 falhas no mesmo domínio, o código desiste dele e usa o texto da API.
-
-> Os portais que não publicam o JSON-LD (Itaú, Stefanini, Atento, Clicksign…) também não expõem a descrição por API: o `__NEXT_DATA__` do Next.js devolve só a introduction, truncada. Por isso essas vagas usam o texto da API — usar a versão truncada apagaria requisitos e benefícios.
-
-### Recarregar as vagas que já estão no histórico
-
-A descrição só é lida no instante em que a vaga é nova — depois a deduplicação de `vagas_vistas.json` impede a vaga de voltar da API. Para preencher as vagas que já estavam no histórico:
-
-```bash
-python monitor/backfill_descricoes.py
-```
-
-O script refaz as mesmas buscas de `monitor/consultas.py`, casa o resultado por ID, busca o HTML de cada página e grava o que encontrar. São ~600 requisições (uma por vaga, com intervalo), então leva alguns minutos. É seguro rodar quantas vezes quiser: ele não toca nos dois arquivos de histórico, só reescreve o `descricoes.json`. Vale a pena rodar de novo sempre que a extração melhorar.
+A Ãºnica configuraÃ§Ã£o opcional Ã© o `.env` na raiz, carregado por `carregar_env()`
+em `monitor/common.py`. Como nÃ£o hÃ¡ mais integraÃ§Ã£o com o Telegram, ele pode ser
+removido com seguranÃ§a, assim como o bloco `env:` correspondente em
+`.github/workflows/main.yml`.
 
 ---
 
-## 🔄 Automação Contínua (CI/CD)
+## ðŸ”„ AutomaÃ§Ã£o ContÃ­nua (CI/CD)
 
-O workflow em `.github/workflows/main.yml` roda **todo dia às 18h30** (horário de Brasília) e também pode ser disparado manualmente pela aba **Actions**:
+O workflow em `.github/workflows/main.yml` roda **todo dia Ã s 18h30** (horÃ¡rio de
+BrasÃ­lia) e tambÃ©m pode ser disparado manualmente pela aba **Actions**: faz
+checkout, configura Python 3.11, roda `python monitor/main.py`, registra o
+disparo e comita os arquivos atualizados de `data/` de volta no repositÃ³rio.
 
-1. Faz checkout do código.
-2. Configura o ambiente Python 3.11.
-3. Executa `python monitor/main.py`.
-4. Salva e comita automaticamente os arquivos atualizados de `data/` (`vagas_vistas.json`, `vagas_recentes.json`, `vagas_gerais.json`, `descricoes.json`) no repositório.
-
-Três detalhes do agendamento:
-
-- **O cron é em UTC.** No arquivo está `30 21 * * *`, porque o Brasil é UTC−3. O Brasil não tem horário de verão desde 2019, então o deslocamento é fixo o ano todo.
-- **Só roda a partir do branch padrão.** O GitHub lê o agendamento do workflow no `master`, então a mudança só entra em vigor depois do merge para lá.
-- **18h30 é mais ou menos.** O GitHub agenda jobs com uma pequena fila; em horário de pico o início pode atrasar alguns minutos.
+Um segundo workflow, `guardiao.yml`, roda a cada 3 horas para recuperar os
+disparos que o GitHub descarta. Os detalhes de ambos, e do heartbeat externo, estÃ£o
+em **[docs/automacao-ci-cd.md](docs/automacao-ci-cd.md)**.
 
 ---
 
-## 🛠️ Como Adicionar ou Remover uma Busca
+## ðŸ› ï¸ Modificando o Projeto
 
-Basta editar a lista `BUSCAS` em `monitor/consultas.py`. **Nenhum arquivo novo é preciso.**
+- **Adicionar ou remover uma busca**: uma linha na lista `BUSCAS` em
+  `monitor/consultas.py`. Ver [docs/buscas-e-filtros.md](docs/buscas-e-filtros.md).
+- **Adicionar ou remover uma Ã¡rea do filtro**: editar `AREAS_FORA_DE_TECH` em
+  `monitor/descricoes.py`. Ver [docs/buscas-e-filtros.md](docs/buscas-e-filtros.md).
+- **Criar um botÃ£o novo no dashboard**: a linha em `BUSCAS`, o `<button>` em
+  `index.html` e o `case` correspondente no `switch` de `assets/app.js`.
 
-Uma ressalva sobre o termo `estagiario`: ele é o que mais traz vaga fora da aba, porque a busca é por radical e a API não filtra por área. É o `estagiario` que faz o dashboard receber estágio de RH e de jurídico, e é o filtro de escopo que corta.
-
-## 🧩 Como Adicionar ou Remover uma Área do Filtro
-
-Áreas não se ajustam na lista `BUSCAS` acima, e sim em `AREAS_FORA_DE_TECH`, no `monitor/descricoes.py`. É uma string multilinha, **uma linha por área**, com os termos que a nomeiam separados por `|`:
-
-```python
-AREAS_FORA_DE_TECH = r"""
-    recursos?\s+humanos?|gente\s+e\s+gestao|departamento\s+pessoal
-  | remuneracao|folha\s+de\s+pagamento|recrutament\w*|selecao
-  | juridic\w*|advogad\w*|contencioso|arbitragem|tributari\w*|regulatori\w*
-  | pedagog\w*|ensino\s+medio|ensino\s+fundamental|licenciatura|geografia
-  ...
-"""
-```
-
-Três coisas para saber antes de editar:
-
-**O texto vai sem acento.** A comparação passa por `_sem_acento()`, que normaliza para minúsculas e remove os acentos. Escreva `juridic\w*` e não `jurídic*`; um acento no meio faz a alternativa nunca casar e o termo fica morto na lista, sem erro nenhum.
-
-**A palavra `\w*` no fim é o que pega a variação.** `juridic\w*` cobre `jurídico`, `jurídica`, `jurídicos` e `jurídicas` de uma vez. Sem ele, teria de escrever cada gênero. Use `\s+` entre palavras de nomes compostos (`ensino\s+medio`) e `\b` só quando a palavra puder grudar na seguinte (`\bpcp\b`, `\bobras?\b`).
-
-**Para *remover* uma área, é só apagar a linha.** Não existe lista negativa. E é por isso que administrativo não aparece ali: vaga de administrativo é procurada, e basta tirá-lo da lista para ele voltar. Vale notar que a palavra "administração" continua aparecendo em vários títulos dentro de parênteses (`Estágio em SUPRIMENTOS (ADMINISTRAÇÃO, LOGÍSTICA)`) — essas seguem descartadas, mas pelo termo da área de verdade, que vem antes do parêntese.
-
-Depois de mexer, confira o efeito antes de deixar valer:
-
-```bash
-python3 -c "
-import sys; sys.path.insert(0, 'monitor')
-from descricoes import estagio_fora_do_escopo as f
-for t in ['Estágio em Jurídico', 'Estágio em TI', 'Estagiário']:
-    print(f(t), t)
-"
-python3 -m unittest discover -s . -p 'test_filtros.py'
-```
-
-Para ver o efeito em massa, o histórico atual é a melhor amostra — são as vagas reais que a aba vai mostrar:
-
-```bash
-python3 -c "
-import json, sys; sys.path.insert(0, 'monitor')
-from descricoes import estagio_fora_do_escopo as f
-v = [x for x in json.load(open('data/vagas_recentes.json')) if x['topic'].startswith('Estágio')]
-for x in sorted(v, key=lambda x: x['publishedDate'], reverse=True):
-    print(('  MANTE' if not f(x['name']) else '  some '), x['name'][:70])
-"
-```
-
-O filtro só age no que entra a partir da próxima execução do `main.py`; o histórico já gravado é limpo por ela (é o mesmo caminho que apaga cargo avançado).
-
-```python
-BUSCAS = [
-    # tech, na ordem dos botões: Suporte > Estágio > Dev > TI > Outras
-    ("Suporte",         "tech",  "Suporte"),
-    ("estagio",         "tech",  "Estágio"),
-    ("estagiario",      "tech",  "Estágio"),
-    ("desenvolvedor",   "tech",  "Desenvolvimento"),
-    ("desenvolvimento", "tech",  "Desenvolvimento"),
-    ("dev",             "tech",  "Desenvolvimento"),
-    ("software",        "tech",  "Desenvolvimento"),
-    ("devops",          "tech",  "Desenvolvimento"),
-    ("sistemas",        "tech",  "Sistemas"),
-    ("TI",              "tech",  "TI"),
-    ("tecnologia",      "tech",  "TI"),
-    ("infra",           "tech",  "Outras"),
-    ("help desk",       "tech",  "Outras"),
-    ("service desk",    "tech",  "Outras"),
-    # gerais, na ordem dos botões: Assistente > Júnior > Auxiliar > Remoto > Presencial
-    ("assistente",      "geral", "Assistente Presencial"),
-    ("jr",              "geral", "Júnior"),
-    ("Júnior",          "geral", "Júnior"),
-    ("auxiliar",        "geral", "Auxiliar Presencial"),
-    (None,              "geral", "Geral Presencial"),
-]
-```
-
-Cada linha é `(jobName, destino, rótulo presencial)`:
-
-* **`jobName`** — termo enviado como `?jobName=`. Use `None` para a busca ampla, sem filtro de nome.
-* **`destino`** — `"tech"` grava em `data/vagas_recentes.json` (aba **Vagas Tech**); `"geral"` grava em `data/vagas_gerais.json` (aba **Vagas Gerais**).
-* **`rótulo`** — texto exibido no card e usado pelos filtros do dashboard. A variante remota é derivada automaticamente: `"Suporte"` → `"Suporte Remoto"`, `"Assistente Presencial"` → `"Assistente Remoto"`.
-
-Vários termos podem compartilhar o mesmo rótulo: é assim que `infra`, `help desk` e `service desk` aparecem juntos no botão **Outras**, e como `jr` e `Júnior` se fundem no botão **Júnior**. Para criar um botão novo no dashboard, além da linha em `BUSCAS` é preciso adicionar o `<button>` em `index.html` e o `case` correspondente no `switch` de `assets/app.js`.
-
-> **Importante:** o dashboard filtra as vagas pelo campo `topic`, que recebe esse rótulo. Ao criar um termo novo, escolha um rótulo que não colida com os filtros de cargo já existentes (`suporte`, `ti`, `infra`, `service desk`, `júnior`, `help desk`, `jr`, `assistente`, `auxiliar`) — o filtro de "Vagas Tech" faz busca por substring e poderia capturar o termo novo por acidente.
+> **Importante:** o dashboard filtra as vagas pelo campo `topic`, que recebe o
+> rÃ³tulo definido em `BUSCAS`. Ao criar um termo novo, escolha um rÃ³tulo que nÃ£o
+> colida com os filtros de cargo jÃ¡ existentes (`suporte`, `ti`, `infra`,
+> `service desk`, `jÃºnior`, `help desk`, `jr`, `auxiliar`, `abc`, `banco de
+> talentos`, `administrativo`, `almoxarifado`) â€” o filtro de "Vagas Tech" faz
+> busca por substring e poderia capturar o termo novo por acidente.

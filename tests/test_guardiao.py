@@ -1,6 +1,6 @@
 """Testa a conta de datas do guardião contra os cenários que importam.
 
-    python3 -m unittest discover -s . -p 'test_guardiao.py' -v
+    uv run python -m unittest discover -s tests -p 'test_guardiao.py' -v
 """
 
 import datetime as dt
@@ -8,7 +8,10 @@ import os
 import sys
 import unittest
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "monitor"))
+# `monitor/` é irmão de `tests/`, então precisa ser um nível acima.
+sys.path.insert(
+    0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "monitor")
+)
 
 import guardiao  # noqa: E402
 
