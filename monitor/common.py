@@ -23,6 +23,10 @@ FUSO_SP = ZoneInfo("America/Sao_Paulo")
 CACHE_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_vistas.json")
 VAGAS_RECENTES_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_recentes.json")
 VAGAS_GERAIS_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_gerais.json")
+# Arquivo de auditoria: as vagas que os filtros cortaram. Vai à parte por dois
+# motivos — o histórico é o que o dashboard mostra, e este é o que a pessoa
+# consulta quando desconfia do corte.
+VAGAS_DESCARTADAS_FILE_DEFAULT = os.path.join(PASTA_DADOS, "vagas_descartadas.json")
 MAX_DIAS_PUBLICACAO_DEFAULT = 4
 DIAS_RETENCAO_CACHE_DEFAULT = 7
 
@@ -172,6 +176,87 @@ def carregar_e_limpar_vagas_recentes(
         return []
 
 
+def carregar_descartadas(descartadas_file: str = VAGAS_DESCARTADAS_FILE_DEFAULT) -> list:
+    """Lê o arquivo de auditoria. Ausente/corrompido vira lista vazia.
+
+    Não repete o corte por data como `carregar_e_limpar_vagas_recentes`: aqui a
+    poda acontece na gravação, onde a data de publicação já está em mãos.
+    """
+    if not os.path.exists(descartadas_file):
+        return []
+
+    try:
+        with open(descartadas_file, "r", encoding="utf-8") as f:
+            conteudo = f.read().strip()
+        dados = json.loads(conteudo) if conteudo else []
+        return dados if isinstance(dados, list) else []
+    except Exception as err:
+        print(f"⚠️ Erro ao ler vagas descartadas: {err}. Recomeçando.")
+        return []
+
+
+def salvar_descartadas(
+    novas: list,
+    descartadas_file: str = VAGAS_DESCARTADAS_FILE_DEFAULT,
+    dias_retencao: int = DIAS_RETENCAO_CACHE_DEFAULT,
+):
+    """Grava as vagas recém-descartadas e poda o que saiu da janela.
+
+    O arquivo guarda só o que a pessoa precisa para auditar o corte: título,
+    empresa, motivo, data e link. **A descrição não vem junto** — seriam centenas
+    de requisições a mais por rodada para um texto que ninguém lê nessa aba, e
+    é justamente a lista de vagas que o filtro mandou embora.
+
+    A retenção é a mesma do histórico (7 dias): passados 7 dias a vaga já saiu
+    do dashboard, então mantê-la aqui só guardaria lixo.
+    """
+    # A projeção é feita aqui, e não no chamador, para a garantia ser do
+    # arquivo e não de quem chama: `description` é o campo grande da vaga (dezenas
+    # de KB por vaga) e a lista de auditoria é a única que não precisa dele.
+    # Passar a vaga inteira "por garantia" faria o arquivo crescer sem limite.
+    campos = (
+        "id", "name", "careerPageName", "topic", "motivo",
+        "publishedDate", "data_formatada_br", "jobUrl", "workplaceType",
+    )
+
+    # Junta o que já estava com o que chegou e deduplica por ID. A mesma vaga
+    # pode ser descartada por termos diferentes — o `jobName` é por radical e
+    # "analista de suporte sênior" casa em mais de uma busca — e o arquivo é
+    # reescrito a cada rodada, então sem isso ela apareceria repetida.
+    # Um dict também resolve a ordem: a inserção preserva a primeira ocorrência.
+    unicas = {}
+    for vaga in carregar_descartadas(descartadas_file) + (novas or []):
+        vaga_id = str(vaga.get("id", ""))
+        if not vaga_id:
+            continue
+        entrada = {campo: vaga.get(campo, "") for campo in campos}
+        if vaga_id not in unicas:
+            unicas[vaga_id] = entrada
+
+    agora_br = datetime.now(FUSO_SP)
+    data_limite = agora_br - timedelta(days=dias_retencao)
+    mantidas = []
+    for vaga in unicas.values():
+        raw_date = vaga.get("publishedDate")
+        if not raw_date:
+            continue
+        try:
+            data_br = datetime.fromisoformat(raw_date.replace("Z", "+00:00")).astimezone(FUSO_SP)
+        except (ValueError, TypeError):
+            continue
+        if data_br > data_limite:
+            mantidas.append(vaga)
+
+    mantidas.sort(key=lambda v: v.get("publishedDate", ""), reverse=True)
+
+    try:
+        os.makedirs(os.path.dirname(descartadas_file), exist_ok=True)
+        with open(descartadas_file, "w", encoding="utf-8") as f:
+            json.dump(mantidas, f, indent=2, ensure_ascii=False)
+    except Exception as err:
+        print(f"❌ Erro ao salvar vagas descartadas: {err}")
+
+
 def ids_no_historico(vagas_recentes_file: str) -> set:
     """IDs de vagas presentes nos DOIS históricos (tech + gerais).
 
@@ -276,6 +361,7 @@ def executar_monitoramento(
     vagas_recentes_file: str = VAGAS_RECENTES_FILE_DEFAULT,
     rotulo_exibicao: str = "",
     destino: str = "tech",
+    descartadas_file: str = VAGAS_DESCARTADAS_FILE_DEFAULT,
 ) -> int:
     """
     Executa o fluxo de busca na API da Gupy, filtragem por data e cache global com IDs puros,
@@ -304,6 +390,9 @@ def executar_monitoramento(
         # "51 descartadas" não deixa claro se o filtro de cargo ou o de área
         # é que está pegando.
         descartadas = {"cargo avançado": 0, "estágio fora da área de tech": 0}
+        # As que vão para o arquivo de auditoria. `salvar_descartadas` escolhe
+        # quais campos gravar, então aqui basta a vaga como veio da API.
+        para_auditoria = []
 
         for vaga in vagas:
             vaga_id = str(vaga.get("id"))
@@ -327,6 +416,8 @@ def executar_monitoramento(
             if motivo:
                 if vaga_id not in cache_vagas:
                     cache_vagas[vaga_id] = agora_br.isoformat()
+                    # O motivo é o que responde "por que essa vaga sumiu?".
+                    para_auditoria.append({**vaga, "motivo": motivo, "topic": rotulo})
                 descartadas[motivo] += 1
                 continue
 
@@ -334,6 +425,11 @@ def executar_monitoramento(
             if vaga_id not in cache_vagas:
                 novas_vagas.append(vaga)
                 cache_vagas[vaga_id] = agora_br.isoformat()
+
+        # A poda do arquivo de auditoria roda sempre, mesmo sem vaga nova: é o
+        # mesmo caminho de `salvar_vagas_recentes`, e sem ele o arquivo só
+        # cresceria. A lista vazia faz a gravação reescrever com o que sobrou.
+        salvar_descartadas(para_auditoria, descartadas_file)
 
         for motivo, total in descartadas.items():
             if total:
