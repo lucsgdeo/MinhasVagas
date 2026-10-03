@@ -171,614 +171,6 @@
       }
     ]
   },
-  "12608333": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Encantar os clientes no processo de vendas de Produtos Financeiros, auxiliando sempre que necessário;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Executar atividades relacionadas à área de crédito da empresa, tais como, liberação de crédito, emissão de cartões e prestar informações a clientes;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atualizar os dados cadastrais dos clientes e atuar com a qualidade da venda de produtos financeiros;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Responsável pela organização e solicitação de materiais de divulgação dos produtos financeiros."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino Médio completo;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificação com Moda;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gostar de atendimento ao público;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificação com a área de produtos financeiros;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ter facilidade com as ferramentas digitais;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ter facilidade com oferta de produtos financeiros"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Fique por dentro dos nossos benefícios!"
-          },
-          {
-            "tipo": "texto",
-            "texto": "*Consulte elegibilidade do seu cargo."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Para facilitar o seu dia a dia:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Transporte e/ou Fretado para vagas dos nossos CDs*;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Refeição/Alimentação;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Cesta de Natal;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxílio Home Office (para contratos de trabalho híbrido ou remoto)*;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão de crédito multicompras;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desconto de Colaborador nas nossas lojas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Para sua saúde e bem-estar:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Dr. Be (telemedicina, telepsicologia, coaching nutricional e coaching esportivo)*;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Wellhub (Gympass);"
-          },
-          {
-            "tipo": "item",
-            "texto": "Programas e Campanhas desenvolvidos para promover o autocuidado da saúde e bem-estar dos nossos colaboradores e seus familiares."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Para sua flexibilidade e rotina:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Metodologia Balance aplicada junto a liderança e time fortalecendo a comunicação e reconhecimento, bem-estar e estilo de trabalho/ferramentas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Conheça nossa SER (Associação dos Colaboradores Renner S.A.) que dá acesso à mais benefícios:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Plano odontológico;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Univers - desconto nas farmácias Raia e Drogasil;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Convênio de saúde para Pets;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assessoria de Corrida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desconto em universidades, escolas, cursos de idioma e profissionalizantes;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ingressos de cinemas, parques e muito mais."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Pessoas com deficiência são bem-vindas em todas as nossas oportunidades."
-          }
-        ]
-      }
-    ]
-  },
-  "12608324": {
-    "fonte": "texto",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Encantar nossos clientes com atendimento personalizado"
-          },
-          {
-            "tipo": "item",
-            "texto": "Fazer a tratativa com cliente e atendimento via Whatsapp"
-          },
-          {
-            "tipo": "item",
-            "texto": "Fazer postagens e vídeos para publicações das roupas nos stories"
-          },
-          {
-            "tipo": "item",
-            "texto": "Fazer organização das rotinas e demandas do Whatsapp"
-          },
-          {
-            "tipo": "item",
-            "texto": "Concluir o atendimento junto ao cliente pelo link de pagamento"
-          },
-          {
-            "tipo": "item",
-            "texto": "Acompanhar os resultados de vendas"
-          },
-          {
-            "tipo": "item",
-            "texto": "Fazer contato com transportadora para agendar a retirada dos produtos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Fazer o pós venda."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino Médio Completo"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gostar de atendimento personalizado ao público"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificação com moda"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificação com Ferramentas Digitais."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Fique por dentro dos nossos benefícios! *Consulte elegibilidade do seu cargo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Para facilitar o seu dia a dia:Vale-Transporte"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Refeição/Alimentação"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desconto de Colaborador nas nossas lojas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Para sua saúde e bem-estar:Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Dr."
-          },
-          {
-            "tipo": "item",
-            "texto": "Be (telemedicina, telepsicologia, coaching nutricional e coaching esportivo)*"
-          },
-          {
-            "tipo": "item",
-            "texto": "Wellhub (Gympass)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Programas e Campanhas desenvolvidos para promover o autocuidado da saúde e bem-estar dos nossos colaboradores e seus familiares."
-          },
-          {
-            "tipo": "item",
-            "texto": "Para sua flexibilidade e rotina:Metodologia Balance aplicada junto a liderança e time fortalecendo a comunicação e reconhecimento, bem-estar e estilo de trabalho/ferramentas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Conheça nossa SER (Associação dos Colaboradores Renner S."
-          },
-          {
-            "tipo": "item",
-            "texto": "A.) que dá acesso à mais benefícios:Plano odontológico"
-          },
-          {
-            "tipo": "item",
-            "texto": "Univers - desconto nas farmácias Raia e Drogasil"
-          },
-          {
-            "tipo": "item",
-            "texto": "Convênio de saúde para Pets"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assessoria de Corrida"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desconto em universidades, escolas, cursos de idioma e profissionalizantes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ingressos de cinemas, parques e muito mais."
-          },
-          {
-            "tipo": "item",
-            "texto": "Pessoas com deficiência são bem-vindas em todas as nossas oportunidades."
-          }
-        ]
-      }
-    ]
-  },
-  "12608173": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "Monitorar e analisar as interações dos clientes nas redes sociais, identificando tendências, comportamentos e pontos de atenção;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Elaborar relatórios mensais de monitoramento, consolidando dados, aprendizados e principais insights;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Apoiar a apresentação dos relatórios e análises para clientes;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Desenvolver insights e recomendações para estratégias de conteúdo e comunicação;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Realizar análises de concorrentes e acompanhar movimentos relevantes no ambiente digital;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Trabalhar em parceria com as equipes de atendimento, conteúdo e planejamento."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "Ensino superior completo em Comunicação, Marketing, Publicidade, Jornalismo, Relações Públicas ou áreas correlatas;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Experiência prévia com atendimento ao público, SAC ou relacionamento com clientes;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Conhecimento de Microsoft Office, especialmente Excel e PowerPoint;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Diferenciais"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Conhecimento de plataformas de monitoramento e social listening;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Experiência com análise de dados, relatórios ou métricas de redes sociais;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Vivência em agências, comunicação ou marketing."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "Cartão Flash - aqui na Rái, não usamos mais às nomenclaturas VR, VA e VT. Utilizamos os benefícios flexíveis, que podem ser usados em categorias de educação, saúde, refeição, alimentação, mobilidade e cultura;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Refeitório no local;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Day off de aniversário, para você comemorar como quiser;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Dresscode (vestuário) flexível;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Carteira SESC totalmente gratuito;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Planos de saúde Porto Seguro;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Planos odontológicos Porto Seguro;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Seguro de vida."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Outras Informações:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Horário de trabalho de segunda a sexta-feira, das 09:00 às 19:00, com 1h30 de intervalo para almoço. Sendo 4x presencial e 1x home office."
-          }
-        ]
-      }
-    ]
-  },
-  "12607624": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "O QUE VOCÊ FARÁ ASSUMINDO O CARGO"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Limpar"
-          },
-          {
-            "tipo": "texto",
-            "texto": "todas as áreas designadas:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Garantir que todos os espaços"
-          },
-          {
-            "tipo": "texto",
-            "texto": "atribuídos estejam limpos e organizados, seguindo um cronograma"
-          },
-          {
-            "tipo": "texto",
-            "texto": "estabelecido."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Utilizar"
-          },
-          {
-            "tipo": "texto",
-            "texto": "produtos de limpeza com segurança:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Garantir a segurança da saúde"
-          },
-          {
-            "tipo": "texto",
-            "texto": "ao empregar produtos de limpeza, seguindo a utilização dos EPI´s para"
-          },
-          {
-            "tipo": "texto",
-            "texto": "prevenir danos aos materiais e possíveis riscos à saúde."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Monitorar"
-          },
-          {
-            "tipo": "texto",
-            "texto": "e reabastecer materiais de limpeza:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Manter um controle dos"
-          },
-          {
-            "tipo": "texto",
-            "texto": "materiais de limpeza e garantir que haja suprimentos adequados"
-          },
-          {
-            "tipo": "texto",
-            "texto": "disponíveis, reabastecendo conforme necessário."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Cooperar"
-          },
-          {
-            "tipo": "texto",
-            "texto": "com a equipe para manter um ambiente seguro:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Trabalhar em"
-          },
-          {
-            "tipo": "texto",
-            "texto": "conjunto com colegas para garantir um ambiente de trabalho seguro e"
-          },
-          {
-            "tipo": "texto",
-            "texto": "colaborativo, contribuindo com sugestões para melhorias contínuas."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "O QUE É ESSENCIAL PARA SE DESTACAR"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino fundamental completo/ incompleto;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Habilidades: Energia para fazer acontecer, disciplina, organização, pontualidade e gentileza com as pessoas"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "T"
-          },
-          {
-            "tipo": "texto",
-            "texto": "ransparência"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "O"
-          },
-          {
-            "tipo": "texto",
-            "texto": "rganização"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "R"
-          },
-          {
-            "tipo": "texto",
-            "texto": "espeito"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "R"
-          },
-          {
-            "tipo": "texto",
-            "texto": "esiliência"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "A"
-          },
-          {
-            "tipo": "texto",
-            "texto": "gilidade"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "MAIS INFORMAÇÕES QUE FAZEM TODA A DIFERENÇA!"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🍱Vale alimentação (Cartão Swile)"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🚎Vale transporte"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🛍️Desconto em produtos e serviços Swile Shopping"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🫂Atendimento psicológico com 40% desconto | Vittude"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🍽️Cozinha equipada para alimentação"
-          },
-          {
-            "tipo": "texto",
-            "texto": "💼Contratação CLT | Prazo determinado"
-          },
-          {
-            "tipo": "texto",
-            "texto": "⏲️Jornada diária de 7h20 + 1h de almoço"
-          },
-          {
-            "tipo": "texto",
-            "texto": "📚Treinamento no cargo"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🥼Uniforme Torra"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🎉Esta vaga oferece a possibilidade de efetivação!"
-          }
-        ]
-      }
-    ]
-  },
   "12609564": {
     "fonte": "html",
     "secoes": [
@@ -1002,2276 +394,6 @@
           {
             "tipo": "subtitulo",
             "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608428": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608426": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608417": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Atender clientes de forma cortês e eficiente, oferecendo assistência quando necessário;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Registrar produtos corretamente no caixa e processar pagamentos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Manter a área de trabalho limpa, organizada e abastecida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxiliar na reposição de mercadorias nas prateleiras;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Verificar a validade dos produtos e remover itens vencidos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Prestar informações sobre produtos, ofertas e promoções aos clientes;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Colaborar com a equipe para garantir a eficiência operacional da loja;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de treinamentos para aprimorar habilidades e conhecimentos."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino fundamental"
-          },
-          {
-            "tipo": "item",
-            "texto": "Capacidade de trabalhar em equipe e em um ambiente de ritmo acelerado."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios"
-          },
-          {
-            "tipo": "item",
-            "texto": "Saúde e Bem-estar para você e seus(suas) dependentes:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de Vida"
-          },
-          {
-            "tipo": "item",
-            "texto": "Parceria com academias (GymPass e TotalPass)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Como empresa cidadã, também oferecemos extensão da Licença Maternidade/Parentalidade e Paternidade"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão da Mamãe: Valor mensal oferecido as colaboradoras que são mães, com filhos entre 6 meses e 1 ano,11 meses e 29 dias, para aquisição de produtos alimentícios e infantis nas lojas GPA."
-          },
-          {
-            "tipo": "item",
-            "texto": "SESC: Para você e sua família aproveitarem os benefícios nas áreas de educação, saúde, cultura e lazer."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Na empresa:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale refeição ou refeição no local (CDs)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão Alimentação Cesta Básica"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR: Programa Anual de Participação nos Resultados"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Transporte"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que só o GPA tem:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Universidade do Varejo GPA: Valorizamos o protagonismo e incentivamos o autodesenvolvimento dos nossos(as) colaboradores(as) e você poderá ter acesso a ferramentas, conteúdos e soluções educacionais atuais e de excelente qualidade para o seu desenvolvimento."
-          },
-          {
-            "tipo": "item",
-            "texto": "Prosin: Programa de recrutamento interno com oportunidades que contribuem para o desenvolvimento da sua carreira."
-          },
-          {
-            "tipo": "item",
-            "texto": "Programa VEM: Para você aproveitar os descontos em produtos das marcas próprias do GPA."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Serviço Social:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atendimento gratuito com psicólogos e assistentes sociais, para você e seus familiares, 7 dias por semana, 24 horas por dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Você também pode optar por:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cooperativa de Crédito (participantes da Cooperativa possuem descontos exclusivos com empresas parceiras)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Previdência Privada"
-          }
-        ]
-      }
-    ]
-  },
-  "12608409": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608364": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608363": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608337": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Atuar junto ao cliente no processo de finalização da compra;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Sugerir vendas adicionais, executando o registro das mercadorias vendidas;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Recebimento de valores, realizar a abertura e fechamento de caixa;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar oferta de serviços financeiros como cartão e parcelamentos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar processos de trocas;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Estimular os clientes na saída da loja a deixarem sua opinião do atendimento no Encantômetro;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atendimento ao público."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino Médio completo;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gostar de atendimento ao público;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificação com rotinas de caixa;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificação com Moda;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ter facilidade com as ferramentas digitais;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ter facilidades com ofertas de produtos financeiros."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Fique por dentro dos nossos benefícios!"
-          },
-          {
-            "tipo": "texto",
-            "texto": "*Consulte elegibilidade do seu cargo."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Para facilitar o seu dia a dia:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Transporte e/ou Fretado para vagas dos nossos CDs*;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Refeição/Alimentação;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale-Cesta de Natal;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxílio Home Office (para contratos de trabalho híbrido ou remoto)*;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão de crédito multicompras;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desconto de Colaborador nas nossas lojas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Para sua saúde e bem-estar:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Dr. Be (telemedicina, telepsicologia, coaching nutricional e coaching esportivo)*;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Wellhub (Gympass);"
-          },
-          {
-            "tipo": "item",
-            "texto": "Programas e Campanhas desenvolvidos para promover o autocuidado da saúde e bem-estar dos nossos colaboradores e seus familiares."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Para sua flexibilidade e rotina:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Metodologia Balance aplicada junto a liderança e time fortalecendo a comunicação e reconhecimento, bem-estar e estilo de trabalho/ferramentas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Conheça nossa SER (Associação dos Colaboradores Renner S.A.) que dá acesso à mais benefícios:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Plano odontológico;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Univers - desconto nas farmácias Raia e Drogasil;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Convênio de saúde para Pets;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assessoria de Corrida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desconto em universidades, escolas, cursos de idioma e profissionalizantes;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ingressos de cinemas, parques e muito mais."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Pessoas com deficiência são bem-vindas em todas as nossas oportunidades."
-          }
-        ]
-      }
-    ]
-  },
-  "12608295": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Quais serão suas responsabilidades?"
-          },
-          {
-            "tipo": "texto",
-            "texto": "🎯"
-          },
-          {
-            "tipo": "texto",
-            "texto": "# Atuar no atendimento com foco na experiência do cliente, seguindo a padronização T&F"
-          },
-          {
-            "tipo": "texto",
-            "texto": "# Impulsionar fidelização através do relacionamento com o cliente, usando as ferramentas digitais"
-          },
-          {
-            "tipo": "texto",
-            "texto": "# Manter a organização da loja, através da reposição das sessões e execução das orientações de VM"
-          },
-          {
-            "tipo": "texto",
-            "texto": "# Atuar na venda externa através de delivery, consignados e utilizar as plataformas digitais de Omnicanalidade para potenciar os resultados"
-          },
-          {
-            "tipo": "texto",
-            "texto": "# Realizar os treinamentos na plataforma online, garantindo constante aprendizado e se mantendo atualizado nas diretrizes da marca"
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Perfil que buscamos 🔎"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Buscamos uma pessoa colaborativa para impulsionar os resultados do time. Focada para superar metas e desafios. Engajada para aprender novas práticas."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Habilidades"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Conhecimentos em atendimento ao cliente"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Experiência em vendas"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "O que você precisa ter:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Ensino Médio Completo"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Disponibilidade de horário"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Local 🏢"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Shopping Cidade Jardim"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "#PapoReto 👁️"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Nossa seleção já está rolando! E aí, vem com a gente?"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Inscrição e análise de currículos"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Entrevistas"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Feedbacks e/ou proposta, retorno sobre o processo."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "#"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Conheça mais de nossos processos seletivos acompanhando nossa pagina de carreira: https://tfcarreira.gupy.io/"
-          }
-        ]
-      }
-    ]
-  },
-  "12608302": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Wellhub;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos resultados."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608250": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608125": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12608016": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Gerenciar o parque tecnológico do SAMU-SP durante todo o ciclo de vida dos equipamentos médico-hospitalares, desde a especificação técnica, aquisição, recebimento, instalação, validação, utilização, manutenção até a substituição ou descarte."
-          },
-          {
-            "tipo": "item",
-            "texto": "Elaborar pareceres técnicos e descritivos para aquisição, renovação e incorporação de tecnologias em saúde, observando critérios técnicos, regulatórios, assistenciais e econômico-financeiros."
-          },
-          {
-            "tipo": "item",
-            "texto": "Avaliar a introdução de novas tecnologias médicas aplicáveis ao atendimento pré-hospitalar móvel, considerando protocolos assistenciais, indicadores operacionais e necessidades institucionais."
-          },
-          {
-            "tipo": "item",
-            "texto": "Coordenar e monitorar os contratos de manutenção preventiva, corretiva, calibração, qualificação e validação dos equipamentos médico-hospitalares utilizados nas ambulâncias, bases descentralizadas e Central de Regulação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Planejar, implementar e acompanhar programas de manutenção preventiva, assegurando a disponibilidade operacional dos equipamentos críticos utilizados no atendimento de urgência e emergência."
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar inspeções técnicas periódicas nas unidades operacionais, verificando condições de funcionamento, segurança elétrica, integridade física, rastreabilidade e conformidade dos equipamentos."
-          },
-          {
-            "tipo": "item",
-            "texto": "Fiscalizar e orientar os processos de instalação, operação e utilização dos equipamentos médico-hospitalares, garantindo conformidade com as normas da ANVISA, ABNT, Ministério da Saúde e demais legislações aplicáveis."
-          },
-          {
-            "tipo": "item",
-            "texto": "Elaborar indicadores gerenciais e relatórios técnicos relacionados à gestão tecnológica, manutenção, disponibilidade operacional, custos, produtividade e desempenho dos contratos."
-          },
-          {
-            "tipo": "item",
-            "texto": "Atuar tecnicamente em projetos de implantação, ampliação, reforma e adequação de bases descentralizadas, centrais de regulação e demais estruturas vinculadas ao SAMU-SP, emitindo pareceres técnicos sobre infraestrutura necessária para instalação de tecnologias em saúde."
-          },
-          {
-            "tipo": "item",
-            "texto": "Acompanhar processos de recebimento técnico de equipamentos e validação de conformidade junto a fabricantes, fornecedores e prestadores de serviços especializados."
-          },
-          {
-            "tipo": "item",
-            "texto": "Promover e coordenar treinamentos técnicos para equipes assistenciais e operacionais quanto à correta utilização, conservação e segurança dos equipamentos médicos."
-          },
-          {
-            "tipo": "item",
-            "texto": "Atuar no gerenciamento de riscos tecnológicos, investigando falhas, eventos adversos e incidentes relacionados a equipamentos médico-hospitalares, propondo ações corretivas e preventivas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Assegurar a atualização e manutenção dos inventários de equipamentos, registros de manutenção, certificados de calibração, histórico técnico e documentação regulatória."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de processos de acreditação, auditorias internas e externas, inspeções sanitárias e avaliações de conformidade relacionadas à engenharia clínica e tecnologias em saúde."
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoiar tecnicamente os setores de Suprimentos, Compras, Patrimônio, Infraestrutura, Qualidade, Segurança do Trabalho e Assistência, promovendo integração dos processos relacionados às tecnologias em saúde."
-          },
-          {
-            "tipo": "item",
-            "texto": "Garantir o cumprimento das políticas institucionais de Proteção de Dados Pessoais (LGPD), confidencialidade das informações e segurança dos ativos tecnológicos sob sua responsabilidade."
-          },
-          {
-            "tipo": "item",
-            "texto": "Executar demais atividades correlatas ao cargo, conforme diretrizes institucionais, necessidades operacionais do serviço e determinações da gestão."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Superior completo em Engenharia reconhecida pelo MEC, com registro ativo e"
-          },
-          {
-            "tipo": "texto",
-            "texto": "regular junto ao CREA."
-          },
-          {
-            "tipo": "item",
-            "texto": "Desejável:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Pós-graduação em Engenharia Clínica, Engenharia Biomédica, Gestão de"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Tecnologias em Saúde ou áreas correlatas;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência"
-          },
-          {
-            "tipo": "texto",
-            "texto": "mínima de 06 meses em Engenharia Clínica, gerenciamento de tecnologias em"
-          },
-          {
-            "tipo": "texto",
-            "texto": "saúde, manutenção de equipamentos médico-hospitalares ou atividades correlatas,"
-          },
-          {
-            "tipo": "texto",
-            "texto": "preferencialmente em serviços de urgência e emergência, atendimento"
-          },
-          {
-            "tipo": "texto",
-            "texto": "pré-hospitalar móvel, hospitais ou centrais de regulação."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "SAMU- SP"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios"
-          },
-          {
-            "tipo": "texto",
-            "texto": "e Parcerias:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Refeição;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Alimentação;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Disponibilizamos"
-          },
-          {
-            "tipo": "texto",
-            "texto": "parcerias com Wellhub (Gympass), SESC, Zenklub, faculdades, universidades"
-          },
-          {
-            "tipo": "texto",
-            "texto": "e farmácias."
-          }
-        ]
-      }
-    ]
-  },
-  "12577703": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Preparar massas para pães, bolos, biscoitos e outros produtos de panificação;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Modelar e dar forma à massa de acordo com as receitas e padrões estabelecidos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Operar e manter equipamentos de panificação, como fornos, misturadores e divisores;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Garantir a qualidade dos produtos, monitorando tempo de cozimento e temperatura;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desenvolver novas receitas e adaptar receitas existentes conforme necessário;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Manter a área de trabalho limpa e organizada, seguindo normas de higiene e segurança alimentar;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Colaborar com a equipe de produção para atender às demandas diárias;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos pedidos dos clientes e preparar produtos especiais conforme solicitações."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Imprescindível experiência mínima de 6 meses como Padeiro(a)."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios"
-          },
-          {
-            "tipo": "item",
-            "texto": "Saúde e Bem-estar para você e seus(suas) dependentes:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de Vida"
-          },
-          {
-            "tipo": "item",
-            "texto": "Parceria com academias (GymPass e TotalPass)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Como empresa cidadã, também oferecemos extensão da Licença Maternidade/Parentalidade e Paternidade"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão da Mamãe: Valor mensal oferecido as colaboradoras que são mães, com filhos entre 6 meses e 1 ano,11 meses e 29 dias, para aquisição de produtos alimentícios e infantis nas lojas GPA."
-          },
-          {
-            "tipo": "item",
-            "texto": "SESC: Para você e sua família aproveitarem os benefícios nas áreas de educação, saúde, cultura e lazer."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Na empresa:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale refeição ou refeição no local (CDs)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão Alimentação Cesta Básica"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR: Programa Anual de Participação nos Resultados"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Transporte"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que só o GPA tem:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Universidade do Varejo GPA: Valorizamos o protagonismo e incentivamos o autodesenvolvimento dos nossos(as) colaboradores(as) e você poderá ter acesso a ferramentas, conteúdos e soluções educacionais atuais e de excelente qualidade para o seu desenvolvimento."
-          },
-          {
-            "tipo": "item",
-            "texto": "Prosin: Programa de recrutamento interno com oportunidades que contribuem para o desenvolvimento da sua carreira."
-          },
-          {
-            "tipo": "item",
-            "texto": "Programa VEM: Para você aproveitar os descontos em produtos das marcas próprias do GPA."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Serviço Social:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atendimento gratuito com psicólogos e assistentes sociais, para você e seus familiares, 7 dias por semana, 24 horas por dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Você também pode optar por:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cooperativa de Crédito (participantes da Cooperativa possuem descontos exclusivos com empresas parceiras)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Previdência Privada"
-          }
-        ]
-      }
-    ]
-  },
-  "12607982": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12607981": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12607980": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12607969": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como será o seu dia a dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
-          },
-          {
-            "tipo": "item",
-            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
-          },
-          {
-            "tipo": "item",
-            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
-          },
-          {
-            "tipo": "item",
-            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
-          },
-          {
-            "tipo": "item",
-            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Ingrediente que não pode faltar 🍔"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensino médio cursando ou completo."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Refeição no local;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Gympass;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR - Participação nos lucros."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
-          }
-        ]
-      }
-    ]
-  },
-  "12607446": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Realizar a separação dos produtos vendidos pelo site/app, garantindo agilidade e precisão;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conferir os pedidos com atenção, respeitando prazos e especificações dos clientes;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Organizar os itens no espaço destinado à expedição e manter o ambiente limpo e organizado;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Colaborar com a equipe de transporte para garantir cumprimento dos prazos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Sinalizar divergências de estoque, avarias ou indisponibilidades;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Contatar o cliente em caso de indisponibilidade de produtos, propondo soluções ou trocas."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino Fundamental completo;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento básico de tecnologia (uso de sistema ou aplicativo para separação)."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios"
-          },
-          {
-            "tipo": "item",
-            "texto": "Saúde e Bem-estar para você e seus(suas) dependentes:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de Vida"
-          },
-          {
-            "tipo": "item",
-            "texto": "Parceria com academias (GymPass e TotalPass)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Como empresa cidadã, também oferecemos extensão da Licença Maternidade/Parentalidade e Paternidade"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão da Mamãe: Valor mensal oferecido as colaboradoras que são mães, com filhos entre 6 meses e 1 ano,11 meses e 29 dias, para aquisição de produtos alimentícios e infantis nas lojas GPA."
-          },
-          {
-            "tipo": "item",
-            "texto": "SESC: Para você e sua família aproveitarem os benefícios nas áreas de educação, saúde, cultura e lazer."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Na empresa:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale refeição ou refeição no local (CDs)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Cartão Alimentação Cesta Básica"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR: Programa Anual de Participação nos Resultados"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Transporte"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Benefícios que só o GPA tem:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Universidade do Varejo GPA: Valorizamos o protagonismo e incentivamos o autodesenvolvimento dos nossos(as) colaboradores(as) e você poderá ter acesso a ferramentas, conteúdos e soluções educacionais atuais e de excelente qualidade para o seu desenvolvimento."
-          },
-          {
-            "tipo": "item",
-            "texto": "Prosin: Programa de recrutamento interno com oportunidades que contribuem para o desenvolvimento da sua carreira."
-          },
-          {
-            "tipo": "item",
-            "texto": "Programa VEM: Para você aproveitar os descontos em produtos das marcas próprias do GPA."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Serviço Social:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Atendimento gratuito com psicólogos e assistentes sociais, para você e seus familiares, 7 dias por semana, 24 horas por dia"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Você também pode optar por:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cooperativa de Crédito (participantes da Cooperativa possuem descontos exclusivos com empresas parceiras)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Previdência Privada"
-          }
-        ]
-      }
-    ]
-  },
-  "12607406": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Principais Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Manage"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "optical fiber network maintenance"
-          },
-          {
-            "tipo": "texto",
-            "texto": "and field operations."
-          },
-          {
-            "tipo": "item",
-            "texto": "Lead teams responsible for"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "24×7 fault response and emergency restoration"
-          },
-          {
-            "tipo": "texto",
-            "texto": "."
-          },
-          {
-            "tipo": "item",
-            "texto": "Coordinate field technicians, operational resources, and external service providers."
-          },
-          {
-            "tipo": "item",
-            "texto": "Monitor"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "SLA, MTTR, response times, and maintenance performance"
-          },
-          {
-            "tipo": "texto",
-            "texto": "."
-          },
-          {
-            "tipo": "item",
-            "texto": "Coordinate fiber fault localization, repair, and restoration activities."
-          },
-          {
-            "tipo": "item",
-            "texto": "Oversee"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "fiber splicing and optical cable maintenance"
-          },
-          {
-            "tipo": "texto",
-            "texto": "."
-          },
-          {
-            "tipo": "item",
-            "texto": "Coordinate maintenance of"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "aerial and underground fiber networks"
-          },
-          {
-            "tipo": "texto",
-            "texto": "."
-          },
-          {
-            "tipo": "item",
-            "texto": "Support activities involving ducts, underground infrastructure, and directional drilling when required."
-          },
-          {
-            "tipo": "item",
-            "texto": "Manage operational resources including vehicles, tools, equipment, materials, and storage facilities."
-          },
-          {
-            "tipo": "item",
-            "texto": "Coordinate subcontractors and monitor service quality and performance."
-          },
-          {
-            "tipo": "item",
-            "texto": "Ensure appropriate staffing and resource allocation for regional operations."
-          },
-          {
-            "tipo": "item",
-            "texto": "Support major incidents and ensure timely service restoration."
-          },
-          {
-            "tipo": "item",
-            "texto": "Identify operational issues and implement improvements to field efficiency."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Proven experience in optical fiber / OSP network maintenance."
-          },
-          {
-            "tipo": "item",
-            "texto": "Experience managing regional field operations or telecommunications maintenance teams."
-          },
-          {
-            "tipo": "item",
-            "texto": "Strong practical knowledge of: Fiber optic maintenance, Fiber splicing, OTDR , Aerial fiber networks, Underground fiber networks, Duct infrastructure, Directional drilling / MND, Emergency fiber restoration"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experience managing SLA and MTTR in a network maintenance environment."
-          },
-          {
-            "tipo": "item",
-            "texto": "Experience coordinating both internal field teams and subcontractors."
-          },
-          {
-            "tipo": "item",
-            "texto": "Experience managing field equipment, vehicles, materials, and operational resources."
-          },
-          {
-            "tipo": "item",
-            "texto": "Strong knowledge of telecommunications field operations in Brazil."
-          },
-          {
-            "tipo": "item",
-            "texto": "Fluent Portuguese."
-          },
-          {
-            "tipo": "item",
-            "texto": "Availability for regional travel and emergency operational support."
-          }
-        ]
-      }
-    ]
-  },
-  "12607373": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Principais Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Provide technical support for DWDM/OTN optical transmission networks."
-          },
-          {
-            "tipo": "item",
-            "texto": "Perform troubleshooting and fault isolation for network equipment and services."
-          },
-          {
-            "tipo": "item",
-            "texto": "Analyze alarms and identify hardware, configuration, and software-related issues."
-          },
-          {
-            "tipo": "item",
-            "texto": "Support equipment recovery, configuration restoration, and module/board replacement."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participate in software and firmware upgrades."
-          },
-          {
-            "tipo": "item",
-            "texto": "Support RMA and equipment repair processes."
-          },
-          {
-            "tipo": "item",
-            "texto": "Coordinate technical escalations with internal and external technical teams."
-          },
-          {
-            "tipo": "item",
-            "texto": "Support critical incidents and service restoration activities."
-          },
-          {
-            "tipo": "item",
-            "texto": "Provide remote and on-site technical assistance when required."
-          },
-          {
-            "tipo": "item",
-            "texto": "Maintain technical documentation and operational procedures."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Principais"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Requisitos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Degree or technical background in Telecommunications, Electronics, Networking, or a related field."
-          },
-          {
-            "tipo": "item",
-            "texto": "Proven hands-on experience with DWDM/OTN optical transmission systems."
-          },
-          {
-            "tipo": "item",
-            "texto": "Experience in network operations and maintenance in a live/production environment."
-          },
-          {
-            "tipo": "item",
-            "texto": "Strong troubleshooting and fault-isolation capabilities."
-          },
-          {
-            "tipo": "item",
-            "texto": "Experience with equipment configuration, alarms, software/firmware, and hardware troubleshooting."
-          },
-          {
-            "tipo": "item",
-            "texto": "Familiarity with NMS/EMS and optical transmission management systems."
-          },
-          {
-            "tipo": "item",
-            "texto": "Ability to work with technical documentation in English."
-          },
-          {
-            "tipo": "item",
-            "texto": "Portuguese proficiency for technical communication."
-          },
-          {
-            "tipo": "item",
-            "texto": "Availability for critical incident support when required."
           }
         ]
       }
@@ -48534,130 +45656,6 @@
           {
             "tipo": "item",
             "texto": "Assistência médica e odontológica após período de experiência"
-          }
-        ]
-      }
-    ]
-  },
-  "12608119": {
-    "fonte": "texto",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Prestar informações sobre produtos e serviços oferecidos, visando qualificar o atendimento e efetivar negócios"
-          },
-          {
-            "tipo": "item",
-            "texto": "Oferecer orientação ou demonstração aos associados sobre a utilização do autoatendimento, com o objetivo de fomentar a adesão a esses canais e oferecer um atendimento mais ágil"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificar e fomentar novos negócios junto aos associados e direcioná-los ao atendimento, a fim de apresentar soluções financeiras que atendam suas necessidades"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desempenhar funções relacionadas ao relacionamento com os nossos associados"
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar a gestão de negócios, identificando suas necessidades financeiras e apresentando as soluções com os produtos e serviços ofertados pela cooperativa"
-          },
-          {
-            "tipo": "item",
-            "texto": "Comercializações e vendas tanto na plataforma interna da agência, como em visitas de manutenção do relacionamento dos associados"
-          },
-          {
-            "tipo": "item",
-            "texto": "Aprendizado contínuo na gestão de carteira, técnicas de vendas"
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Formação superior concluída ou em andamento em Administração de Empresas, Contabilidade ou afins"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desejável vivência profissional em atividades de Atendimento Comercial"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimentos básicos sobre produtos e serviços bancários"
-          },
-          {
-            "tipo": "item",
-            "texto": "Profissionais com habilidades comerciais, com facilidade para atender e se relacionar com o público"
-          },
-          {
-            "tipo": "item",
-            "texto": "Perfil resiliente, colaborativo e flexível"
-          },
-          {
-            "tipo": "item",
-            "texto": "Facilidade de aprendizagem"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência em Instituições Financeiras será considerado um diferencial"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "No Sicredi você vai ter:Vale Alimentação e Vale Refeição – com flexibilidade de % nos cartões VA/VR, sem coparticipação"
-          },
-          {
-            "tipo": "item",
-            "texto": "PPR – Participação dos Resultados (de 2 até 5 salários, conforme política de remuneração interna)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Médica (conforme politica interna) – Subsídio de 80% da mensalidade, plano nacional Sulamerica"
-          },
-          {
-            "tipo": "item",
-            "texto": "Assistência Odontológica - 100% subsídio da cooperativa para o colaborador"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxilio creche/babá - crianças de até 06 anos e 11 meses"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida"
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoio atividade física (Wellhub)Adicional tempo de serviçoHospital Vitta( Telemedicina, nutrição, descontos em farmácia)Optun- um serviço com atendimento especializado, confidencial e sigiloso para orientações psicológicas e jurídicas, disponível 24h, sete dias por semana"
-          },
-          {
-            "tipo": "item",
-            "texto": "Previdência Privada (plano de contribuição também por parte da Cooperativa com valor equivalente)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Plataforma de Treinamentos – Sicredi Aprende, com diversos cursos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxílio Pós Graduação - Subsídio de 70% da mensalidade após um ano de registro (conforme política interna)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Carga horária de 40h semanais – Utilizando sistema de banco de horas semestral"
-          },
-          {
-            "tipo": "item",
-            "texto": "Zenklub (Plataforma online de saúde emocional com psicólogos, psicanalistas, nutricionistas e terapeutas)"
           }
         ]
       }
@@ -152855,6 +149853,1542 @@
           {
             "tipo": "texto",
             "texto": "Kit onboarding personalizado incluindo equipamentos para trabalho (notebook e celular)"
+          }
+        ]
+      }
+    ]
+  },
+  "12673199": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Realizar a implementação e orientação de todos os padrões solicitados pelo Merchandising juntamente com a equipe de lideranças da loja;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Responsável pelo treinamento de novos colaboradores;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desenvolver colaboradores quanto à produção de moda e padrões do Visual Merchandising;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ministrar treinamentos específicos juntamente com as lideranças da loja;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Encantar os clientes no processo de vendas, atendendo e auxiliando sempre que necessário, proporcionando a melhor experiência de compra;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atendimento ao público em geral."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Ensino Médio completo;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gostar de atendimento ao público;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Identificação com moda;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desejável vivência na área de Visual Merchandising."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Fique por dentro dos nossos benefícios!"
+          },
+          {
+            "tipo": "texto",
+            "texto": "*Consulte elegibilidade do seu cargo."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Para facilitar o seu dia a dia:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Transporte e/ou Fretado para vagas dos nossos CDs*;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Refeição/Alimentação;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Cesta de Natal;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Auxílio Home Office (para contratos de trabalho híbrido ou remoto)*;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Cartão de crédito multicompras;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desconto de Colaborador nas nossas lojas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Para sua saúde e bem-estar:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Dr. Be (telemedicina, telepsicologia, coaching nutricional e coaching esportivo)*;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Wellhub (Gympass);"
+          },
+          {
+            "tipo": "item",
+            "texto": "Programas e Campanhas desenvolvidos para promover o autocuidado da saúde e bem-estar dos nossos colaboradores e seus familiares."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Para sua flexibilidade e rotina:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Metodologia Balance aplicada junto a liderança e time fortalecendo a comunicação e reconhecimento, bem-estar e estilo de trabalho/ferramentas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conheça nossa SER (Associação dos Colaboradores Renner S.A.) que dá acesso à mais benefícios:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Plano odontológico;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Univers - desconto nas farmácias Raia e Drogasil;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Convênio de saúde para Pets;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assessoria de Corrida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desconto em universidades, escolas, cursos de idioma e profissionalizantes;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ingressos de cinemas, parques e muito mais."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Pessoas com deficiência são bem-vindas em todas as nossas oportunidades."
+          }
+        ]
+      }
+    ]
+  },
+  "12673150": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Coleta de produtos na área de vendas/estoque;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Empacotamento de produtos;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Emissão de notas fiscais;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Despache de pedidos;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Abastecimento de Insumos"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Disponibilidade para trabalhar 8 horas diárias, conforme convocação, com escala prevista de até 3 dias por semana;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Identificação com o ambiente de loja/varejo;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino Médio completo;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Proatividade;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Disponibilidade total de horários;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ser ágil e resolutivo;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Facilidade para trabalho em equipe."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Vale-Refeição;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-Transporte conforme os dias de convocação;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Salário família conforme os limites legais, se aplicável;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Auxílio creche conforme CCT local, se aplicável;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Convênio com academia - Wellhub (GYMPASS);"
+          }
+        ]
+      }
+    ]
+  },
+  "12673321": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Buscamos Advogado(a) Júnior para atuação em Contencioso Trabalhista e/ou Cível, com experiência prática na área jurídica e interesse em desenvolver sua carreira no ambiente corporativo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Principais responsabilidadesAtuar no acompanhamento de demandas de contencioso trabalhista e/ou cível"
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de audiências e atividades relacionadas à pauta processual"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar na preparação e acompanhamento de prepostos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar a análise de defesas e demais demandas processuais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar o trabalho de escritórios externos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar interface com áreas internas, incluindo:RH, Departamento Pessoal e Ambulatório, nas demandas trabalhistas"
+          },
+          {
+            "tipo": "item",
+            "texto": "Financeiro, Cobrança e Vendas, nas demandas cíveis"
+          },
+          {
+            "tipo": "item",
+            "texto": "Elaborar e acompanhar notificações extrajudiciais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar em demandas relacionadas a ações de cobrança"
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar defesas em ações anulatórias e declaratórias"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar controles de pauta e prazos processuais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Utilizar Excel para organização e controles da rotina"
+          },
+          {
+            "tipo": "item",
+            "texto": "Utilizar e ter interesse em tecnologia e Inteligência Artificial aplicada às atividades jurídicas."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "O que precisamos que você tenha de conhecimento:Formação:Bacharelado em Direito"
+          },
+          {
+            "tipo": "item",
+            "texto": "OAB ativa."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência jurídica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência em contencioso trabalhista e/ou cível"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vivência em audiências, pauta, preposto, análise de defesa e acompanhamento de escritórios externos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência inicial em escritório jurídico, com atividades como pesquisa, notificações e processos menos complexos, seguida de atuação em empresa"
+          },
+          {
+            "tipo": "item",
+            "texto": "Organização para acompanhamento de pautas e prazos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Bom uso de Excel"
+          },
+          {
+            "tipo": "item",
+            "texto": "Interesse por tecnologia e Inteligência Artificial."
+          },
+          {
+            "tipo": "item",
+            "texto": "Diferenciais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Estudos complementares em:Gestão"
+          },
+          {
+            "tipo": "item",
+            "texto": "Recursos Humanos/Direito do Trabalho"
+          },
+          {
+            "tipo": "item",
+            "texto": "Contratos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Processo Civil"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gestão do Contencioso"
+          },
+          {
+            "tipo": "item",
+            "texto": "Legal Operations."
+          },
+          {
+            "tipo": "item",
+            "texto": "Informações adicionais🍛 Vale-alimentação ou vale-refeição"
+          },
+          {
+            "tipo": "item",
+            "texto": "👨🏼‍🎓 Desconto em cursos, universidades e instituições de idiomas"
+          },
+          {
+            "tipo": "item",
+            "texto": "📚 Academia Stefanini — plataforma com cursos on-line, gratuitos, atualizados e com certificado"
+          },
+          {
+            "tipo": "item",
+            "texto": "🗣 Mentoring"
+          },
+          {
+            "tipo": "item",
+            "texto": "💉 Clube de vantagens para consultas e exames"
+          },
+          {
+            "tipo": "item",
+            "texto": "🏥 Assistência médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "🦷 Assistência odontológica"
+          },
+          {
+            "tipo": "item",
+            "texto": "💰 Clube de vantagens e descontos nos melhores estabelecimentos"
+          },
+          {
+            "tipo": "item",
+            "texto": "🛫 Clube de viagens"
+          },
+          {
+            "tipo": "item",
+            "texto": "🐶 Convênio para pets."
+          }
+        ]
+      }
+    ]
+  },
+  "12673291": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Buscamos Advogado(a) Júnior para atuação em Contencioso Trabalhista e/ou Cível, com experiência prática na área jurídica e interesse em desenvolver sua carreira no ambiente corporativo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Principais responsabilidadesAtuar no acompanhamento de demandas de contencioso trabalhista e/ou cível"
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de audiências e atividades relacionadas à pauta processual"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar na preparação e acompanhamento de prepostos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar a análise de defesas e demais demandas processuais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar o trabalho de escritórios externos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar interface com áreas internas, incluindo:RH, Departamento Pessoal e Ambulatório, nas demandas trabalhistas"
+          },
+          {
+            "tipo": "item",
+            "texto": "Financeiro, Cobrança e Vendas, nas demandas cíveis"
+          },
+          {
+            "tipo": "item",
+            "texto": "Elaborar e acompanhar notificações extrajudiciais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar em demandas relacionadas a ações de cobrança"
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar defesas em ações anulatórias e declaratórias"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar controles de pauta e prazos processuais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Utilizar Excel para organização e controles da rotina"
+          },
+          {
+            "tipo": "item",
+            "texto": "Utilizar e ter interesse em tecnologia e Inteligência Artificial aplicada às atividades jurídicas."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "O que precisamos que você tenha de conhecimento:Formação:Bacharelado em Direito"
+          },
+          {
+            "tipo": "item",
+            "texto": "OAB ativa."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência jurídica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência em contencioso trabalhista e/ou cível"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vivência em audiências, pauta, preposto, análise de defesa e acompanhamento de escritórios externos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência inicial em escritório jurídico, com atividades como pesquisa, notificações e processos menos complexos, seguida de atuação em empresa"
+          },
+          {
+            "tipo": "item",
+            "texto": "Organização para acompanhamento de pautas e prazos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Bom uso de Excel"
+          },
+          {
+            "tipo": "item",
+            "texto": "Interesse por tecnologia e Inteligência Artificial."
+          },
+          {
+            "tipo": "item",
+            "texto": "Diferenciais"
+          },
+          {
+            "tipo": "item",
+            "texto": "Estudos complementares em:Gestão"
+          },
+          {
+            "tipo": "item",
+            "texto": "Recursos Humanos/Direito do Trabalho"
+          },
+          {
+            "tipo": "item",
+            "texto": "Contratos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Processo Civil"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gestão do Contencioso"
+          },
+          {
+            "tipo": "item",
+            "texto": "Legal Operations."
+          },
+          {
+            "tipo": "item",
+            "texto": "Informações adicionais🍛 Vale-alimentação ou vale-refeição"
+          },
+          {
+            "tipo": "item",
+            "texto": "👨🏼‍🎓 Desconto em cursos, universidades e instituições de idiomas"
+          },
+          {
+            "tipo": "item",
+            "texto": "📚 Academia Stefanini — plataforma com cursos on-line, gratuitos, atualizados e com certificado"
+          },
+          {
+            "tipo": "item",
+            "texto": "🗣 Mentoring"
+          },
+          {
+            "tipo": "item",
+            "texto": "💉 Clube de vantagens para consultas e exames"
+          },
+          {
+            "tipo": "item",
+            "texto": "🏥 Assistência médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "🦷 Assistência odontológica"
+          },
+          {
+            "tipo": "item",
+            "texto": "💰 Clube de vantagens e descontos nos melhores estabelecimentos"
+          },
+          {
+            "tipo": "item",
+            "texto": "🛫 Clube de viagens"
+          },
+          {
+            "tipo": "item",
+            "texto": "🐶 Convênio para pets."
+          }
+        ]
+      }
+    ]
+  },
+  "12673510": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Trabalho de atendimento ao publico, operacional de loja ."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Ser comunicativa."
+          },
+          {
+            "tipo": "item",
+            "texto": "Trabalhar com abordagem e fechamento de vendas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Trabalho em equipe, agilidade e disposição para aprendizado."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Trabalho com publico e atendimento e rotinas de loja ."
+          }
+        ]
+      }
+    ]
+  },
+  "12673265": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Quais serão suas responsabilidades?"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🎯"
+          },
+          {
+            "tipo": "texto",
+            "texto": "# Atuar no atendimento com foco na experiência do cliente, seguindo a padronização T&F"
+          },
+          {
+            "tipo": "texto",
+            "texto": "# Impulsionar fidelização através do relacionamento com o cliente, usando as ferramentas digitais"
+          },
+          {
+            "tipo": "texto",
+            "texto": "# Manter a organização da loja, através da reposição das sessões e execução das orientações de VM"
+          },
+          {
+            "tipo": "texto",
+            "texto": "# Atuar na venda externa através de delivery, consignados e utilizar as plataformas digitais de Omnicanalidade para potenciar os resultados"
+          },
+          {
+            "tipo": "texto",
+            "texto": "# Realizar os treinamentos na plataforma online, garantindo constante aprendizado e se mantendo atualizado nas diretrizes da marca"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Perfil que buscamos 🔎"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Buscamos uma pessoa colaborativa para impulsionar os resultados do time. Focada para superar metas e desafios. Engajada para aprender novas práticas."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Habilidades"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conhecimentos em atendimento ao cliente"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Experiência em vendas"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "O que você precisa ter:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Ensino Médio Completo"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Disponibilidade de horário"
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Local 🏢"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Cristiano Viana - Pinheiros"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "#PapoReto 👁️"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Nossa seleção já está rolando! E aí, vem com a gente?"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Inscrição e análise de currículos"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Entrevistas"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Feedbacks e/ou proposta, retorno sobre o processo."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "#"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Conheça mais de nossos processos seletivos acompanhando nossa pagina de carreira: https://tfcarreira.gupy.io/"
+          }
+        ]
+      }
+    ]
+  },
+  "12666944": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Responsável por manter as gôndolas abastecidas e limpas"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assegurar que as mercadorias estejam precificadas, organizadas e seguras"
+          },
+          {
+            "tipo": "item",
+            "texto": "Verificação de data de validade e organização dos produtos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Prestar atendimento aos clientes"
+          },
+          {
+            "tipo": "item",
+            "texto": "Efetua a limpeza dos balcões, gôndolas e produtos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar da realização dos inventários periódicos da seção"
+          },
+          {
+            "tipo": "item",
+            "texto": "Pode atuar nas áreas: Hortifruti, Laticínios, Frios/Embutidos/Seca Doce/Seca Salgada/Bebidas/Bazar/Depósito."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Formação acadêmica mínima: Ensino Médio Completo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Faixa etária: mínimo 18 anos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência: não é necessário experiência na funçãoInformações adicionaisBenefícios:🩺 Assistência Médica e Odontológica💳 Vale-compras Assaí🍴 Refeição no local de trabalho👩‍🍼 Extensão da Licença Maternidade🚌 Vale Transporte🏋️‍♀️🏋️‍♂️ Parcerias com academias Wellhub e TotalPass📈 Plano de Carreira E muito mais"
+          }
+        ]
+      }
+    ]
+  },
+  "12668083": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Abordar os clientes para oferecer os produtos e serviços do Passaí"
+          },
+          {
+            "tipo": "item",
+            "texto": "Esclarecendo dúvidas quanto a utilização, taxas, facilidades e vantagens, datas de fechamento de faturas e pagamento"
+          },
+          {
+            "tipo": "item",
+            "texto": "Apresentar os serviços agregados ao cartão, para incremento da venda e atingimento da meta mensal."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Formação acadêmica mínima: ensino médio completo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Faixa etária: mínimo 18 anos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência: comprovada na área de vendas, preferencialmente em vendas de cartões, produtos e serviços financeiros, trabalhando com abordagem ao cliente e metas de vendas, vivência e atuação colaborativa em ambientes competitivos."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Benefícios:🩺 Assistência Médica e Odontológica💳 Vale-compras Assaí🍴 Refeição no local de trabalho👩‍🍼 Extensão da Licença Maternidade👶 Enxoval do Bebê🚌 Vale Transporte🏋️‍♀️🏋️‍♂️ Parcerias com academias Wellhub e TotalPass📈 Plano de Carreira E muito mais"
+          }
+        ]
+      }
+    ]
+  },
+  "12672829": {
+    "fonte": "texto",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Responsável por manter as gôndolas abastecidas e limpas"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assegurar que as mercadorias estejam precificadas, organizadas e seguras"
+          },
+          {
+            "tipo": "item",
+            "texto": "Verificação de data de validade e organização dos produtos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Prestar atendimento aos clientes"
+          },
+          {
+            "tipo": "item",
+            "texto": "Efetua a limpeza dos balcões, gôndolas e produtos"
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar da realização dos inventários periódicos da seção"
+          },
+          {
+            "tipo": "item",
+            "texto": "Pode atuar nas áreas: Hortifruti, Laticínios, Frios/Embutidos/Seca Doce/Seca Salgada/Bebidas/Bazar/Depósito."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Formação acadêmica mínima: Ensino Médio Completo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Faixa etária: mínimo 18 anos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência: não é necessário experiência na funçãoInformações adicionaisBenefícios:🩺 Assistência Médica e Odontológica💳 Vale-compras Assaí🍴 Refeição no local de trabalho👩‍🍼 Extensão da Licença Maternidade🚌 Vale Transporte🏋️‍♀️🏋️‍♂️ Parcerias com academias Wellhub e TotalPass📈 Plano de CarreiraE muito mais"
+          }
+        ]
+      }
+    ]
+  },
+  "12673037": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Prestar atendimento aos clientes nos pontos de vendas;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar sanduíches, bebidas e sobremesas, dentro de padrões de qualidade, higiene, limpeza e segurança pré-definidas;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar a limpeza e higienização das estações de trabalho, pisos, cadeiras, mesas e instalações do restaurante, de acordo com orientações recebidas e manual de operação."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio completo ou cursando."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "A gente vai amar muito se você... 😍"
+          },
+          {
+            "tipo": "item",
+            "texto": "Faz questão de tornar as coisas mais fáceis para as pessoas"
+          },
+          {
+            "tipo": "item",
+            "texto": "Adora gerar sorrisos 😀"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ama contato pessoal e sempre busca oportunidades para interação 🗨"
+          },
+          {
+            "tipo": "item",
+            "texto": "Entende que as necessidades das pessoas são mais importantes do que qualquer tarefa"
+          },
+          {
+            "tipo": "item",
+            "texto": "É comprometido com o bom tratamento entre as pessoas e coloca o respeito acima de tudo"
+          },
+          {
+            "tipo": "item",
+            "texto": "Celebra as diferenças e acredita que cada cliente e cada experiência são únicos!"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12673027": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Prestar atendimento aos clientes nos pontos de vendas;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar sanduíches, bebidas e sobremesas, dentro de padrões de qualidade, higiene, limpeza e segurança pré-definidas;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar a limpeza e higienização das estações de trabalho, pisos, cadeiras, mesas e instalações do restaurante, de acordo com orientações recebidas e manual de operação."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio completo ou cursando."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "A gente vai amar muito se você... 😍"
+          },
+          {
+            "tipo": "item",
+            "texto": "Faz questão de tornar as coisas mais fáceis para as pessoas"
+          },
+          {
+            "tipo": "item",
+            "texto": "Adora gerar sorrisos 😀"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ama contato pessoal e sempre busca oportunidades para interação 🗨"
+          },
+          {
+            "tipo": "item",
+            "texto": "Entende que as necessidades das pessoas são mais importantes do que qualquer tarefa"
+          },
+          {
+            "tipo": "item",
+            "texto": "É comprometido com o bom tratamento entre as pessoas e coloca o respeito acima de tudo"
+          },
+          {
+            "tipo": "item",
+            "texto": "Celebra as diferenças e acredita que cada cliente e cada experiência são únicos!"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12672532": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12672522": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12672496": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
+          }
+        ]
+      }
+    ]
+  },
+  "12672420": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "Buscamos uma pessoas que tenha paixão pela área Comercial;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Que se sinta confortável em trabalhar com metas e possua dinamismo e boa comunicação."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "O que você vai fazer?"
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar a venda de veículos seminovos, identificando a necessidade do cliente, orientando-o com informações referente aos veículos e financiamento."
+          },
+          {
+            "tipo": "item",
+            "texto": "Prospectar clientes através de anúncios."
+          },
+          {
+            "tipo": "item",
+            "texto": "Acompanhar em test-drive, quando necessário."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Para ser Consultor(a) de vendas é importante:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ter vontade de vender e ser motivado por novos desafios."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência na área comercial, preferencialmente em varejo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Habilidade no encantamento de clientes."
+          },
+          {
+            "tipo": "item",
+            "texto": "Ter empatia para inspirar a confiança dos clientes, atingindo o resultado desejado com otimismo e persistência."
+          },
+          {
+            "tipo": "item",
+            "texto": "Habilidade de atuar com metas e orientação para resultados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Ter CNH B - ativa;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio - completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "Convênio Médico;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Convênio Odontológico;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Seguro de Vida;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Vale Transporte;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Vale Refeição e/ou Alimentação;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Cartão Farmácia;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "WellHub;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Clube de Vantagens;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Cartão flex;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Programa de Lucros e Resultados."
           }
         ]
       }
