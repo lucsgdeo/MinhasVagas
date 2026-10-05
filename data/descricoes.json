@@ -152725,5 +152725,97 @@
         ]
       }
     ]
+  },
+  "12674216": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Área de Atuação e Atividades: Administrativo"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Apoio às rotinas administrativas da área, contribuindo para a organização e o bom andamento das atividades da seção."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoio na preparação e organização de malotes, documentos e demais controles administrativos da área."
+          },
+          {
+            "tipo": "item",
+            "texto": "Organização, conferência e manutenção de documentos, arquivos físicos e digitais, assegurando fácil acesso às informações."
+          },
+          {
+            "tipo": "item",
+            "texto": "Controle e monitoramento de prazos relacionados aos fluxos administrativos, garantindo organização e acompanhamento das demandas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Elaboração, atualização e acompanhamento de planilhas e relatórios gerenciais em Excel."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Cursando 3º a 6º semestre em Administração de empresa;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Formação prevista entre 12/2027 a 12/2028;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Pacote office intermediário;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Estudar no período Matutino ou Noturno."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "A empresa oferece:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Bolsa auxílio: R$1.800,40"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale Transporte"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale Refeição"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Horário e local do estágio:"
+          },
+          {
+            "tipo": "item",
+            "texto": "6h/dia com 15min de pausa"
+          },
+          {
+            "tipo": "item",
+            "texto": "2ª a 6ªfeira - 08h às 14h ou 14h às 20h"
+          },
+          {
+            "tipo": "item",
+            "texto": "Consolação/SP"
+          }
+        ]
+      }
+    ]
   }
 }
