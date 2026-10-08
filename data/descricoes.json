@@ -1,544 +1,4 @@
 {
-  "12434431": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "1. Atender e orientar através do canal de chamados Movidesk, na utilização dos softwares e hardware, aplicando as manutenções necessárias, assegurando condições de trabalho a todos os colaboradores;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "2. Configurar equipamentos de informática adequando-os aos programas e aplicativos necessários;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "3. Analisar diariamente se todos os recursos de tecnologia de informação estão em pleno funcionamento na Unidade;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "4. Oferecer suporte técnico, via conexão remota LogMeIn, a usuários;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "5. Acompanhar e solucionar problemas de software referente à instalação e correta utilização, realizando reparos quando necessário;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "6. Realizar, sempre que necessário, manutenção na estrutura da rede sem fios da Unidade fabril;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "7. Acompanhar diariamente a adequada utilização e funcionamento da rede de computadores Internet, antivírus e antispams;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "8. Realizar manutenção preventiva nos equipamentos na periodicidade definida pela área de T.I;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "9. Monitorar, configurar e dar suporte de Ativos de Redes;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "10. Acompanhar e instalar softwares de telefonia;"
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Desejável: Escolaridade Superior Cursando em Análise de Sistemas, Ciência da Computação, Engenharia da Computação e Afins."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como aqui Gostamos de Pessoas, confira nossos benefícios ao fazer parte do time:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Por aqui, você utiliza o valor para alimentação da forma que achar melhor. Distribuir a verba entre Vale Alimentação e Vale Refeição ou escolher apenas um. Você decide!"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cuidamos da sua saúde! Temos Assistência médica e odontológica e o programa Viva+, com todo suporte necessário para o seu bem-estar; Telemedicina."
-          },
-          {
-            "tipo": "item",
-            "texto": "Falando em saúde, temos parceria com o Wellhub; Plataforma de apoio psicológico Wellz;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seu esforço é reconhecido! Temos o Programa de Participação de Resultados todos os anos;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de vida;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Transporte ou Estacionamento, de acordo com a sua rotina."
-          },
-          {
-            "tipo": "item",
-            "texto": "Day Off de aniversário, você merece um dia para celebrar com quem ama;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Celebração por Tempo de Casa, com homenagens e brindes;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Universidade Tirolez, nossa plataforma de educação corporativa que deixa você sempre atualizado por meio de cursos e treinamentos disponíveis para todo o time Tirolez;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Ainda temos parcerias e convênios com instituições em todo o Brasil, para dar um up no seu desenvolvimento;"
-          }
-        ]
-      }
-    ]
-  },
-  "12576158": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Descarregar os caminhões contendo produtos transferidos das fábricas e/ou empresas terceirizadas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Pesar e etiquetar produtos de terceiros que chegam no Centro de Distribuição."
-          },
-          {
-            "tipo": "item",
-            "texto": "Paletizar produtos, anexar etiquetas e encaminhar para setor de estocagem."
-          },
-          {
-            "tipo": "item",
-            "texto": "Separar produtos conforme pedidos."
-          },
-          {
-            "tipo": "item",
-            "texto": "Colaborar na manutenção da limpeza e organização da área de trabalho."
-          },
-          {
-            "tipo": "item",
-            "texto": "Propor melhorias contínuas nos processos de sua área de atuação, bem como das demais áreas/empresa."
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar atividades afins, conforme solicitação e orientação do superior imediato."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Conhecimentos:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Montagem de cargas; descarregamento de caminhões e paletização e separação de produtos."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Escolaridade:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Desejável Ensino Médio Completo"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como aqui Gostamos de Pessoas, confira nossos benefícios ao fazer parte do time:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Por aqui, você utiliza o valor para alimentação da forma que achar melhor. Distribuir a verba entre Vale Alimentação e Vale Refeição ou escolher apenas um. Você decide!"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Cuidamos da sua saúde! Temos Assistência Odontológica e o programa Viva+, com todo suporte necessário para o seu bem-estar; Telemedicina."
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Falando em saúde, temos parceria com o"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Wellhub"
-          },
-          {
-            "tipo": "texto",
-            "texto": "; Plataforma de apoio psicológico"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Wellz"
-          },
-          {
-            "tipo": "texto",
-            "texto": ";"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Seu esforço é reconhecido! Temos o Programa de Participação de Resultados todos os anos;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Vale Transporte ou Estacionamento, de acordo com a sua rotina."
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Day Off de aniversário, você merece um dia para celebrar com quem ama;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "·"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Universidade Tirolez"
-          },
-          {
-            "tipo": "texto",
-            "texto": ", nossa plataforma de educação corporativa que deixa você sempre atualizado por meio de cursos e treinamentos disponíveis para todo o time Tirolez;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Ainda temos parcerias e convênios com instituições em todo o Brasil, para dar um up no seu desenvolvimento;"
-          }
-        ]
-      }
-    ]
-  },
-  "12589449": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Seus desafios serão:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar a paletização, abastecimento das linhas com embalagens e organização do setor;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Manter limpos e organizados utensílios, equipamentos e área de trabalho nas dependências industriais;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Registrar os monitoramentos de processo e as execuções dos procedimentos operacionais de em formulários adequados;"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cumprir os requisitos de sustentabilidade, gestão da qualidade, segurança de alimentos, meio ambiente e segurança e saúde ocupacional."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino médio completo;"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Horário de trabalho:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "De segunda a sexta-feira: das 18h às 00h."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Finais de semana: escala intercalada, conforme descrito abaixo:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "1º final de semana: trabalho no sábado, das 18h às 6h, com folga no domingo."
-          },
-          {
-            "tipo": "texto",
-            "texto": "2º final de semana: folga no sábado e trabalho no domingo, das 18h às 6h."
-          },
-          {
-            "tipo": "texto",
-            "texto": "Essa escala se repete de forma alternada."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Será um diferencial se:"
-          },
-          {
-            "tipo": "item",
-            "texto": "Normas de segurança do trabalho, segurança de alimentos, POPs (procedimentos operacionais padronizados), Noções de Food Defense e Food Fraud."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "texto",
-            "texto": "Junte-se a nós e aproveite benefícios incríveis!"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Saúde e Bem-Estar - Cuide de você e sua família com:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Plano de Saúde com possibilidade de incluir dependentes com condições diferenciadas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Plano Odontológico acessível e com possibilidade de incluir dependentes com condições diferenciadas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Wellhub (antigo Gympass) para acesso a academias, personal trainers e aplicativos de saúde."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Programa para suporte de doenças crônicas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Atendimento psicológico."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Flexibilidade - Adapte sua rotina com:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Folga de Aniversário: Celebre seu dia em grande estilo!"
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Trabalho Híbrido*: Home office até duas vezes por semana."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Horário Flexível*: Início da jornada entre 7h e 9h."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Família - Apoio para momentos importantes:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Licença Paternidade Estendida: 20 dias para apoiar na chegada do novo membro da família."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Modelo híbrido pós licença maternidade*: Iniciativa para facilitar a transição de volta ao trabalho para as colaboradoras que estão retornando da licença maternidade."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Programa de orientação para grávidas e para o primeiro ano de vida do bebê."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Seguro de Vida: Proteção para você e seus dependentes."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Educação - Invista no seu crescimento:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Universidade Corporativa com programas de capacitação contínua, alinhados aos melhores métodos de aprendizagem."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Licença não remunerada de até 12 meses uma pausa para você se dedicar ao aprendizado e desenvolvimento na sua área de atuação."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Financeiro - Benefícios que impulsionam seu bem-estar financeiro:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Participação nos Lucros e Resultados (PLR): Reconhecimento pelo alcance das metas estabelecidas."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Previdência Privada: Possibilidade de reserva financeira com contrapartida da empresa, incentivos fiscais e opções de resgate ou renda futura."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Cesta Básica: Disponibilizada em cartão eletrônico."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Alimentação: Refeitório na empresa ou vale refeição (dependendo da unidade e área de atuação)."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Transporte: Vale transporte ou rota da empresa (dependendo da unidade e área de atuação)."
-          },
-          {
-            "tipo": "texto",
-            "texto": "• Descontos Exclusivos para você e sua família: Aproveite vantagens em produtos e serviços de empresas parceiras, incluindo faculdades, cursos de idiomas, lojas multimarcas, farmácias, planos para pets, óticas e muito mais!"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Venha sonhar, realizar e crescer com a gente!"
-          }
-        ]
-      }
-    ]
-  },
-  "12574047": {
-    "fonte": "html",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Descarregar os caminhões contendo produtos transferidos das fábricas e/ou empresas terceirizadas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Pesar e etiquetar produtos de terceiros que chegam no Centro de Distribuição."
-          },
-          {
-            "tipo": "item",
-            "texto": "Paletizar produtos, anexar etiquetas e encaminhar para setor de estocagem."
-          },
-          {
-            "tipo": "item",
-            "texto": "Separar produtos conforme pedidos."
-          },
-          {
-            "tipo": "item",
-            "texto": "Colaborar na manutenção da limpeza e organização da área de trabalho."
-          },
-          {
-            "tipo": "item",
-            "texto": "Propor melhorias contínuas nos processos de sua área de atuação, bem como das demais áreas/empresa."
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar atividades afins, conforme solicitação e orientação do superior imediato."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Conhecimentos:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Montagem de cargas; descarregamento de caminhões e paletização e separação de produtos."
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Escolaridade:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "Ensino Médio Completo"
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "subtitulo",
-            "texto": "Como aqui Gostamos de Pessoas, confira nossos benefícios ao fazer parte do time:"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Por aqui, você utiliza o valor para alimentação da forma que achar melhor. Distribuir a verba entre Vale Alimentação e Vale Refeição ou escolher apenas um. Você decide!"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Cuidamos da sua saúde! Temos Assistência Odontológica e o programa Viva+, com todo suporte necessário para o seu bem-estar; Telemedicina."
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Falando em saúde, temos parceria com o"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Wellhub"
-          },
-          {
-            "tipo": "texto",
-            "texto": "; Plataforma de apoio psicológico"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Wellz"
-          },
-          {
-            "tipo": "texto",
-            "texto": ";"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Seu esforço é reconhecido! Temos o Programa de Participação de Resultados todos os anos;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Vale Transporte ou Estacionamento, de acordo com a sua rotina."
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Day Off de aniversário, você merece um dia para celebrar com quem ama;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "·"
-          },
-          {
-            "tipo": "subtitulo",
-            "texto": "Universidade Tirolez"
-          },
-          {
-            "tipo": "texto",
-            "texto": ", nossa plataforma de educação corporativa que deixa você sempre atualizado por meio de cursos e treinamentos disponíveis para todo o time Tirolez;"
-          },
-          {
-            "tipo": "texto",
-            "texto": "· Ainda temos parcerias e convênios com instituições em todo o Brasil, para dar um up no seu desenvolvimento;"
-          }
-        ]
-      }
-    ]
-  },
   "12508950": {
     "fonte": "html",
     "secoes": [
@@ -147471,6 +146931,632 @@
           {
             "tipo": "item",
             "texto": "Aqui você ainda terá 🌴Contratação PJ com 30 dias de descanso remunerado Plano de saúde e odontológico com mensalidade 100% paga pela Saipos (Coparticipação em consultas e exames) Seguro de vida Day off no mês do aniversário Wellhub Kit completo de equipamentos Auxílio deslocamento diário (Em caso de vinda presencial) R$ 22 💵 Auxílio home office R$180,00 (Para profissionais que atuem pelo menos 3x por semana remoto) Licença maternidade estendida paternidade estendida"
+          }
+        ]
+      }
+    ]
+  },
+  "12684888": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "O que esperamos que você realize:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Estamos em busca de um(a) Desenvolvedor(a) Back End Sênior (Kotlin) para se juntar ao nosso time. Este profissional será responsável por desenvolver e sustentar soluções tecnológicas, garantindo a entrega de alta qualidade e alinhada às necessidades do negócio."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Principais responsabilidades:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Desenvolver e manter APIs RESTful e arquitetura de microsserviços;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Utilizar Kotlin e Spring Boot EKS para desenvolvimento de soluções;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Trabalhar com Kubernetes e AWS Genos Datadog;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Liderar atividades na squad e promover o uso de skills e harness-kits de IA;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Sustentar o produto desenvolvido (Gen Build and Run)."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "O que precisamos que você tenha de conhecimento:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Mínimo de 5 anos de experiência em back-end;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento em Kotlin e Spring Boot EKS, Kubernetes e AWS Genos Datadog;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência com APIs RESTful e arquitetura de microsserviços;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Inglês avançado."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "🍛 Vale-alimentação ou vale-refeição;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "👨🏼‍🎓 Desconto em cursos, universidades e instituições de idiomas;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "📚 Academia Stefanini — plataforma com cursos on-line, gratuitos, atualizados e com certificado;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🗣 Mentoring;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "💉 Clube de vantagens para consultas e exames;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🏥 Assistência médica;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🦷 Assistência odontológica;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "💰 Clube de vantagens e descontos nos melhores estabelecimentos;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🛫 Clube de viagens;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🐶 Convênio para pets."
+          }
+        ]
+      }
+    ]
+  },
+  "12695798": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "O que você vai fazer"
+          },
+          {
+            "tipo": "item",
+            "texto": "Elaborar análises espaciais, territoriais e quantitativas que apoiem decisões estratégicas, operacionais, ambientais e comerciais."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar estudos de novos negócios, análises de viabilidade e a identificação de oportunidades."
+          },
+          {
+            "tipo": "item",
+            "texto": "Estruturar, integrar e garantir a qualidade de bases geográficas, cadastrais e corporativas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Desenvolver mapas, aplicações WebGIS e dashboards em ArcGIS e Power BI, conectando dados geoespaciais a indicadores de negócio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Automatizar rotinas de tratamento, atualização e disponibilização de dados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Produzir relatórios técnicos e apresentações executivas para a liderança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar em parceria com áreas internas, clientes e fornecedores, traduzindo necessidades em soluções analíticas."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "O que esperamos de você"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino superior completo em Geografia, Engenharia Cartográfica e de Agrimensura, Engenharia Ambiental, Engenharia Florestal, Geologia, Ciência de Dados, Ciência da Computação, Sistemas de Informação, Estatística ou áreas correlatas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência sólida em geoprocessamento, análise espacial, SIG/GIS e produção cartográfica."
+          },
+          {
+            "tipo": "item",
+            "texto": "Domínio de ArcGIS Pro e/ou ArcGIS Online."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência com Python e SQL para tratamento, análise e automação de dados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento em Excel e Power BI."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Será um diferencial"
+          },
+          {
+            "tipo": "item",
+            "texto": "QGIS, Google Earth Engine, ArcPy ou ModelBuilder."
+          },
+          {
+            "tipo": "item",
+            "texto": "APIs e integração de dados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Sensoriamento remoto, drones, GPS/GNSS e análise multicritério."
+          },
+          {
+            "tipo": "item",
+            "texto": "ArcGIS Dashboards, Survey123, Field Maps, Experience Builder e StoryMaps."
+          },
+          {
+            "tipo": "item",
+            "texto": "Inteligência artificial aplicada ao negócio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Vivência em projetos ambientais, territoriais, de conservação ou de ativos naturais."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Seu jeito de trabalhar"
+          },
+          {
+            "tipo": "item",
+            "texto": "Pensamento analítico e foco em resolver problemas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Visão sistêmica da relação entre território, dados e negócio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Comunicação clara, traduzindo o técnico para diferentes públicos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Autonomia para organizar prioridades e prazos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Colaboração, proatividade e orientação para resultados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Curiosidade e vontade de aprender sempre."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Por que fazer parte"
+          },
+          {
+            "tipo": "item",
+            "texto": "Trabalho com propósito real: dados a serviço da conservação e da economia verde."
+          },
+          {
+            "tipo": "item",
+            "texto": "Projetos de grande escala, que unem tecnologia, território e negócio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Espaço para propor soluções e ampliar o uso de dados e de IA na empresa."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência médica Bradesco Saúde, sem mensalidade para o titular + dependentes;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência odontológica Bradesco Dental (opcional);"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida em grupo;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Previdência privada Funsejem, com contrapartida da empresa;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-refeição e vale-alimentação no cartão Flash;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale-transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Wellhub, com desconto;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Telemedicina"
+          },
+          {
+            "tipo": "item",
+            "texto": "Day Off no mês do aniversário;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Home office de 1 a 2 dias por semana;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Programa de Remuneração Variável (conforme elegibilidade)."
+          }
+        ]
+      }
+    ]
+  },
+  "12692011": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "O que esperamos que você realize:"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Estamos buscando um profissional para atuar com foco em três pilares essenciais: Estratégia, CRO Analytics e Gestão de Stakeholders. Este profissional será responsável por atuar como parceiro consultivo da diretoria de CRO e demais lideranças do banco, garantindo que o apetite de risco e as metas de crescimento caminhem lado a lado."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "O que precisamos que você tenha de conhecimento:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência consolidada em Business/Data Analytics, Data Science ou Inteligência de Mercado no segmento financeiro, com habilidade para atuar em estruturas ligadas a Risco/CRO."
+          },
+          {
+            "tipo": "item",
+            "texto": "Domínio prático em elaboração, execução e avaliação estatística de testes A/B / testes controlados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Vivência prática na aplicação de IA Generativa e ferramentas assistidas por IA para automação de análises, extração de inteligência em dados e ganho de produtividade no dia a dia."
+          },
+          {
+            "tipo": "item",
+            "texto": "Domínio sólido de metodologias de pesquisa com clientes para orientar e direcionar estudos de mercado do banco."
+          },
+          {
+            "tipo": "item",
+            "texto": "Compreensão das dinâmicas do ciclo de vida do cliente e de produtos de crédito."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência prática na formulação de hipóteses, construção de backtests, simulação de cenários e mensuração de impacto financeiro."
+          },
+          {
+            "tipo": "item",
+            "texto": "Fluência avançada em SQL e programação voltada para análise de dados (Python), com vivência em ambientes Big Data / Cloud (Databricks, Snowflake etc.)."
+          },
+          {
+            "tipo": "item",
+            "texto": "Domínio da plataforma Databricks e experiência em ferramentas de visualização como PowerBI e Tableau."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Qualificações Diferenciais:"
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência prévia em bancos ou fintechs com interface direta em gestão de risco ou inteligência de portfólio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência prática na condução de pesquisas e estudos de mercado integradas a dados transacionais e gestão de parceiros/institutos externos de pesquisa."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência com utilização de LLMs, engenharia de prompts ou integração de APIs de IA para acelerar o desenvolvimento de analytics avançado."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "🍛 Vale-alimentação ou vale-refeição;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "👨🏼‍🎓 Desconto em cursos, universidades e instituições de idiomas;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "📚 Academia Stefanini — plataforma com cursos on-line, gratuitos, atualizados e com certificado;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🗣 Mentoring;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "💉 Clube de vantagens para consultas e exames;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🏥 Assistência médica;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🦷 Assistência odontológica;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "💰 Clube de vantagens e descontos nos melhores estabelecimentos;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🛫 Clube de viagens;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🐶 Convênio para pets."
+          }
+        ]
+      }
+    ]
+  },
+  "12692135": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "CONSULTOR(A) DE PROJETOS/ BUSINESS PARTNER"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Local: Hibrido SP (Morumbi)"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Estamos em busca de um(a) profissional para atuar na interface entre negócios e tecnologia, garantindo a governança dos processos de TI, gestão de projetos, conformidade, riscos e acompanhamento de demandas estratégicas relacionadas ao ecossistema SAP e iniciativas de transformação digital."
+          },
+          {
+            "tipo": "texto",
+            "texto": "Profissional com atuação em times ágeis com foco em gestão de demandas de Dados, Inteligência Artificial, Machine Learning, Automações, Desenvolvimento de Agentes , Prompts de IA. Obs.: Atuação na implementação de produtos digitais de plataforma"
+          },
+          {
+            "tipo": "texto",
+            "texto": "Certificação : Itil ou Cobit."
+          }
+        ]
+      },
+      {
+        "titulo": "Principais Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Atuar na gestão e governança de serviços de TI, assegurando alinhamento entre as áreas de negócio e tecnologia."
+          },
+          {
+            "tipo": "item",
+            "texto": "Gerenciar demandas, projetos e iniciativas utilizando metodologias ágeis e boas práticas de mercado."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar a governança dos ambientes SAP ECC, SAP S/4HANA e SAP GRC."
+          },
+          {
+            "tipo": "item",
+            "texto": "Realizar acompanhamento de fornecedores, contratos e entregas de serviços de AMS SAP."
+          },
+          {
+            "tipo": "item",
+            "texto": "Conduzir atividades relacionadas a compliance, auditoria ITGC, gestão de acessos e gestão de riscos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Apoiar processos de PMO, gerenciamento de mudanças e melhoria contínua dos processos de TI."
+          },
+          {
+            "tipo": "item",
+            "texto": "Mapear requisitos junto às áreas de negócio, traduzindo necessidades em soluções tecnológicas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Utilizar ferramentas como ServiceNow e Azure DevOps para gestão de demandas, incidentes e projetos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar da implantação e evolução de produtos digitais e plataformas corporativas."
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuar como parceiro estratégico das áreas clientes, promovendo inovação e eficiência operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Ensino Superior completo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência em Governança de TI."
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento em SAP ECC e SAP S/4HANA."
+          },
+          {
+            "tipo": "item",
+            "texto": "Vivência com SAP GRC, AMS SAP, PMO e Gestão de Mudanças."
+          },
+          {
+            "tipo": "item",
+            "texto": "Conhecimento em Compliance, Auditoria ITGC, Gestão de Acessos e Gestão de Riscos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência com metodologias Agile e práticas PMI."
+          },
+          {
+            "tipo": "item",
+            "texto": "Vivência com ServiceNow e Azure DevOps."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência em gestão de fornecedores e levantamento/mapeamento de requisitos."
+          },
+          {
+            "tipo": "item",
+            "texto": "Atuação em ambientes ágeis voltados para Dados, Inteligência Artificial, Machine Learning e Automação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Experiência com desenvolvimento de agentes digitais, IA Generativa e engenharia de prompts."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participação em iniciativas de transformação digital e implementação de produtos digitais de plataforma."
+          },
+          {
+            "tipo": "item",
+            "texto": "Certificações ITIL e/ou COBIT."
+          }
+        ]
+      },
+      {
+        "titulo": "Perfil Comportamental",
+        "blocos": [
+          {
+            "tipo": "item",
+            "texto": "Forte capacidade de relacionamento e influência junto às áreas de negócio."
+          },
+          {
+            "tipo": "item",
+            "texto": "Visão estratégica e orientação para resultados."
+          },
+          {
+            "tipo": "item",
+            "texto": "Perfil colaborativo, analítico e proativo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Excelente comunicação e habilidade de negociação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Facilidade para atuar em ambientes dinâmicos e em constante transformação."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "🍛 Vale-alimentação ou vale-refeição;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "👨🏼‍🎓 Desconto em cursos, universidades e instituições de idiomas;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "📚 Academia Stefanini — plataforma com cursos on-line, gratuitos, atualizados e com certificado;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🗣 Mentoring;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "💉 Clube de vantagens para consultas e exames;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🏥 Assistência médica;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🦷 Assistência odontológica;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "💰 Clube de vantagens e descontos nos melhores estabelecimentos;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🛫 Clube de viagens;"
+          },
+          {
+            "tipo": "texto",
+            "texto": "🐶 Convênio para pets."
           }
         ]
       }
