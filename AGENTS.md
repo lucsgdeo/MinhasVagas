@@ -23,6 +23,7 @@ Projeto em português (código, comentários, commits, UI): mantenha o idioma. O
 - A API da Gupy: `limit` máximo é 100 (acima dá HTTP 400); não aceita exclusão de termos; busca é por radical e ignora acento.
 - `descricoes.json` é regravado a cada execução só com IDs presentes nos dois históricos. `monitor/backfill_descricoes.py` (~600 requisições, lento) preenche vagas antigas.
 - `app.js`: as listas "Últimos 2 dias"/"Não candidatadas" são snapshots do carregamento (`state.appliedAtLoad`); marcar "Candidatei-me" não remove o card até recarregar. Isso é intencional.
+- Temas/dark mode: a cor é `data-theme` no `<html>` e o modo escuro é `data-mode="dark"` (bloco CSS **após** os presets de tema, realces derivados via `color-mix`); cor clara fixa no CSS exige override em `[data-mode="dark"]`. Persistência em `minhasvagas_theme` / `minhasvagas_mode`.
 
 ## Testes
 - `test_filtros.py::HistoricoReal` lê o `data/` real; 3 testes (`test_a_limpeza_tira_as_sobras_do_tecnico`, `test_gerais_nao_perde_estagio_fora_do_escopo`, `test_o_escopo_muda_a_aba_de_estagio`) falham hoje porque o histórico atual não contém os títulos que eles esperam (dependem do conteúdo de `data/`, não de bug no código). Não "conserte" o filtro por causa deles sem verificar.
