@@ -1,272 +1,4 @@
 {
-  "12516586": {
-    "fonte": "texto",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Elaborar e manter atualizada a documentação técnica de sistemas e aplicações, como manuais de usuário, guias de instalação, especificações técnicas e diagramas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoiar as equipes de desenvolvimento e QA na organização e padronização de documentos relacionados ao ciclo de vida do software."
-          },
-          {
-            "tipo": "item",
-            "texto": "Participar de reuniões com times multidisciplinares para entender requisitos e funcionalidades dos sistemas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Garantir que a documentação esteja alinhada com as boas práticas de usabilidade, acessibilidade e conformidade técnica."
-          },
-          {
-            "tipo": "item",
-            "texto": "Realizar revisão textual e estrutural de documentos produzidos por outras áreas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Organizar e versionar documentos em repositórios internos (como Confluence, SharePoint)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoiar na criação de conteúdos para treinamentos e apresentações técnicas."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Ensino superior completo ou em andamento em áreas como Ciência da Computação, Engenharia de Software, Sistemas de Informação, Letras, Comunicação ou áreas correlatas."
-          },
-          {
-            "tipo": "item",
-            "texto": "Boa capacidade de escrita técnica e comunicação clara."
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento básico em ferramentas de documentação (ex: Confluence, Markdown, Google Docs, MS Word)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Noções de desenvolvimento de software e metodologias ágeis (Scrum, Kanban)."
-          },
-          {
-            "tipo": "item",
-            "texto": "Atenção aos detalhes e organização."
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento em edição de vídeos para fins de documentação e treinamento."
-          },
-          {
-            "tipo": "item",
-            "texto": "Familiaridade com ferramentas de edição como CapCut."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Será um diferencial Technical Writing CertificationConhecimento em sistemas Unimed (SGU ou Cardio)Experiencia em documentação técnica de software."
-          },
-          {
-            "tipo": "item",
-            "texto": "Os benefícios de trabalhar na NEXDOM são Plano de Saúde para você e dependentes (sem mensalidade 👀)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Plano Odontológico para você e dependentes (sem mensalidade 👀)"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale Alimentação/Refeição"
-          },
-          {
-            "tipo": "item",
-            "texto": "Totalpass"
-          },
-          {
-            "tipo": "item",
-            "texto": "Programa de Saúde Emocional para você e seus dependentes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Seguro de Vida"
-          },
-          {
-            "tipo": "item",
-            "texto": "Day off no mês do aniversário"
-          },
-          {
-            "tipo": "item",
-            "texto": "Bolsa de estudos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxílio Home Office"
-          },
-          {
-            "tipo": "item",
-            "texto": "Vale transporte"
-          },
-          {
-            "tipo": "item",
-            "texto": "Auxílio Estacionamento"
-          },
-          {
-            "tipo": "item",
-            "texto": "Flexibilidade de trabalho híbrido ou remoto."
-          },
-          {
-            "tipo": "item",
-            "texto": "E mais Ambiente leve e descontraído"
-          },
-          {
-            "tipo": "item",
-            "texto": "Cultura focada em Inovação, Excelência, Comprometimento e Trabalho em Equipe"
-          },
-          {
-            "tipo": "item",
-            "texto": "Empresa em grande desenvolvimento."
-          },
-          {
-            "tipo": "item",
-            "texto": "Aqui na NEXDOM, prezamos pela Diversidade, Equidade e Inclusão."
-          },
-          {
-            "tipo": "item",
-            "texto": "Todas as nossas oportunidades são destinadas a pessoas com deficiência, LGBTQIAP+, pessoas pretas, de diversas culturas e idades."
-          },
-          {
-            "tipo": "item",
-            "texto": "Quanto mais diversidade, melhor. 💚 Se você está participando ou vai participar de um processo seletivo conosco, acesse oAviso de Privacidade para Candidatose conheça como cuidamos das suas informações com transparência e responsabilidade."
-          }
-        ]
-      }
-    ]
-  },
-  "12665458": {
-    "fonte": "texto",
-    "secoes": [
-      {
-        "titulo": "Responsabilidades",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Principais responsabilidadesCriar e evoluir componentes do Design System"
-          },
-          {
-            "tipo": "item",
-            "texto": "Desenvolver bibliotecas e componentes reutilizáveis no Figma"
-          },
-          {
-            "tipo": "item",
-            "texto": "Definir padrões de cores, tipografia, espaçamento e iconografia"
-          },
-          {
-            "tipo": "item",
-            "texto": "Criar variantes e propriedades de componentes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Documentar componentes e padrões de utilização"
-          },
-          {
-            "tipo": "item",
-            "texto": "Garantir consistência visual entre diferentes telas e produtos"
-          },
-          {
-            "tipo": "item",
-            "texto": "Apoiar designers na utilização do Design System"
-          },
-          {
-            "tipo": "item",
-            "texto": "Trabalhar em conjunto com desenvolvedores durante a implementação dos componentes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Identificar oportunidades de melhoria nas interfaces existentes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Contribuir para acessibilidade e responsividade dos produtos."
-          }
-        ]
-      },
-      {
-        "titulo": "Requisitos",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "RequisitosExperiência com UI/UX Design"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento de Design Systems"
-          },
-          {
-            "tipo": "item",
-            "texto": "Domínio do Figma"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento de Auto Layout, Components, Variants e Variables"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento básico sobre Design Tokens"
-          },
-          {
-            "tipo": "item",
-            "texto": "Noções de acessibilidade digital"
-          },
-          {
-            "tipo": "item",
-            "texto": "Organização e atenção aos detalhes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Boa comunicação e trabalho em equipe."
-          },
-          {
-            "tipo": "item",
-            "texto": "DiferenciaisExperiência com Storybook"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento básico de HTML e CSS"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência com documentação de componentes"
-          },
-          {
-            "tipo": "item",
-            "texto": "Conhecimento das diretrizes WCAG"
-          },
-          {
-            "tipo": "item",
-            "texto": "Experiência anterior na construção de Design Systems."
-          }
-        ]
-      },
-      {
-        "titulo": "Informações adicionais",
-        "blocos": [
-          {
-            "tipo": "item",
-            "texto": "Informações da oportunidadeHorário: Segunda a sexta-feira, das 09h às 18hModelo: 100% presencialLocal: São Paulo – SPQuantidade de vagas: 1VAGA FICTÍCIA — CONTEÚDO CRIADO EXCLUSIVAMENTE PARA TESTES."
-          }
-        ]
-      }
-    ]
-  },
   "12555031": {
     "fonte": "html",
     "secoes": [
@@ -145832,6 +145564,315 @@
           {
             "tipo": "item",
             "texto": "Oportunidade de trabalhar em uma empresa multinacional em crescimento, com possibilidade de aprendizado e desenvolvimento profissional."
+          }
+        ]
+      }
+    ]
+  },
+  "12702980": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "-Cumprir o roteiro de visitas, seguir padrões operacionais e executar processos conforme diretrizes da empresa."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Garantir a correta exposição e ativação de materiais promocionais e execução de campanhas de trade marketing."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Manter os produtos bem-organizados, precificados corretamente e garantir disponibilidade no estoque e gôndolas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Identificar oportunidades para aumento de exposição e implementação de pontos extras estratégicos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Construir e manter um bom relacionamento com o time da loja para garantir melhor execução."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Reportar insights do PDV ao time de vendas para ajustes estratégicos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Maximizar espaço de exposição dos produtos da empresa dentro da loja."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Garantir que todas as lojas de seu itinerário semanal possuam uma captura de dados de execução"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "- Ensino Fundamental Completo é obrigatório"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Residir na Zona Sul de SP."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Disponibilidade para atuar em horário comercial (segunda a sexta, e sábado)"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Ter vivência como promotor(a), será um diferencial"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Ter vivência em atividades de Mercados, será um diferencial"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Habilidades de organização, ótimo relacionamento interpessoal e boa comunicação"
+          }
+        ]
+      }
+    ]
+  },
+  "12702975": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "-Cumprir o roteiro de visitas, seguir padrões operacionais e executar processos conforme diretrizes da empresa."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Garantir a correta exposição e ativação de materiais promocionais e execução de campanhas de trade marketing."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Manter os produtos bem-organizados, precificados corretamente e garantir disponibilidade no estoque e gôndolas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Identificar oportunidades para aumento de exposição e implementação de pontos extras estratégicos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Construir e manter um bom relacionamento com o time da loja para garantir melhor execução."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Reportar insights do PDV ao time de vendas para ajustes estratégicos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Maximizar espaço de exposição dos produtos da empresa dentro da loja."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Garantir que todas as lojas de seu itinerário semanal possuam uma captura de dados de execução"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "- Ensino Fundamental Completo é obrigatório"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Residir na Zona Norte de SP."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Disponibilidade para atuar em horário comercial (segunda a sexta, e sábado)"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Ter vivência como promotor(a), será um diferencial"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Ter vivência em atividades de Mercados, será um diferencial"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Habilidades de organização, ótimo relacionamento interpessoal e boa comunicação"
+          }
+        ]
+      }
+    ]
+  },
+  "12702945": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "-Cumprir o roteiro de visitas, seguir padrões operacionais e executar processos conforme diretrizes da empresa."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Garantir a correta exposição e ativação de materiais promocionais e execução de campanhas de trade marketing."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Manter os produtos bem-organizados, precificados corretamente e garantir disponibilidade no estoque e gôndolas."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Identificar oportunidades para aumento de exposição e implementação de pontos extras estratégicos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Construir e manter um bom relacionamento com o time da loja para garantir melhor execução."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Reportar insights do PDV ao time de vendas para ajustes estratégicos."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Maximizar espaço de exposição dos produtos da empresa dentro da loja."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Garantir que todas as lojas de seu itinerário semanal possuam uma captura de dados de execução"
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "texto",
+            "texto": "- Ensino Fundamental Completo é obrigatório"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Residir em Santo André e região."
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Disponibilidade para atuar em horário comercial (segunda a sexta, e sábado)"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Ter vivência como promotor(a), será um diferencial"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Ter vivência em atividades de Mercados, será um diferencial"
+          },
+          {
+            "tipo": "texto",
+            "texto": "- Habilidades de organização, ótimo relacionamento interpessoal e boa comunicação"
+          }
+        ]
+      }
+    ]
+  },
+  "12702838": {
+    "fonte": "html",
+    "secoes": [
+      {
+        "titulo": "Responsabilidades",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Como será o seu dia a dia"
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "(spoiler: gerar muitos sorrisos faz parte do pacote)!"
+          },
+          {
+            "tipo": "item",
+            "texto": "A gente contará com você para as atividades operacionais do restaurante: preparar e montar os pedidos; atendimento ao cliente e, também, garantir que ambiente e equipamentos estejam sempre limpos. Confira detalhes!"
+          },
+          {
+            "tipo": "item",
+            "texto": "Atender aos clientes é uma das partes mais importantes do trabalho: é nossa prioridade gerar sorrisos! Você, como atendente, será responsável pelo atendimento nos nossos restaurantes, com atividades como gerar os pedidos e receber o pagamento, inclusive no nosso Drive-Tudo."
+          },
+          {
+            "tipo": "item",
+            "texto": "Preparar as delícias que saem da nossa cozinha: sanduíches, McFritas, bebidas e sobremesas, como a nossa famosa casquinha. 🍦"
+          },
+          {
+            "tipo": "item",
+            "texto": "Você será treinado para operar equipamentos apropriados e, também, sobre como manter nosso super padrão de qualidade, higiene, limpeza e segurança."
+          },
+          {
+            "tipo": "item",
+            "texto": "Limpar a e higienizar nossos equipamentos, pisos, cadeiras, mesas e instalações do restaurante e arredores, sempre de acordo com as orientações e manual de operação."
+          },
+          {
+            "tipo": "item",
+            "texto": "Participar de nossos programas de treinamento, integração e comunicação por meio de reuniões, webinares, sessões de participação e cursos técnicos. O objetivo é garantir que você esteja sempre atualizado tanto na parte técnica quanto operacional."
+          }
+        ]
+      },
+      {
+        "titulo": "Requisitos",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Ingrediente que não pode faltar 🍔"
+          },
+          {
+            "tipo": "item",
+            "texto": "Ensino médio cursando ou completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Informações adicionais",
+        "blocos": [
+          {
+            "tipo": "subtitulo",
+            "texto": "Benefícios que deixam tudo ainda mais gostoso 😋"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Médica"
+          },
+          {
+            "tipo": "item",
+            "texto": "Assistência Odontológica;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Vale transporte;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Refeição no local;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Gympass;"
+          },
+          {
+            "tipo": "item",
+            "texto": "Seguro de vida;"
+          },
+          {
+            "tipo": "item",
+            "texto": "PPR - Participação nos lucros."
+          },
+          {
+            "tipo": "subtitulo",
+            "texto": "Pronto para uma experiência tão inesquecível quanto um Big Mac? Se inscreva! ⌨"
           }
         ]
       }
