@@ -99,6 +99,47 @@
     --color-border: #fbcfe8;
 }
 
+/* Modo escuro: sobrescreve as variáveis base depois dos temas, então vale
+   para qualquer cor. O realce (`primary-light`/`primary-border`) deriva da
+   cor do tema via color-mix para manter o matiz no escuro. */
+[data-mode="dark"] {
+    color-scheme: dark;
+    --color-secondary: #94a3b8;
+    --color-secondary-hover: #cbd5e1;
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-border: #334155;
+    --color-text: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+    --color-primary-light: #1e293b;
+    --color-primary-light: color-mix(in srgb, var(--color-primary) 22%, #1e293b);
+    --color-primary-border: #334155;
+    --color-primary-border: color-mix(in srgb, var(--color-primary) 45%, #1e293b);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+}
+
+/* Cores fixas claras que precisam de equivalente escuro */
+[data-mode="dark"] .vacancy-card.applied {
+    background: rgb(22 163 74 / 0.12);
+}
+
+[data-mode="dark"] .vacancy-badge.remote {
+    background: rgb(34 197 94 / 0.15);
+    color: #4ade80;
+}
+
+[data-mode="dark"] .vacancy-badge.onsite {
+    background: rgb(59 130 246 / 0.18);
+    color: #93c5fd;
+}
+
+[data-mode="dark"] .desc-backdrop {
+    background: rgb(0 0 0 / 0.6);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -111,6 +152,7 @@ body {
     color: var(--color-text);
     line-height: 2;
     min-height: 100vh;
+    transition: background-color var(--transition), color var(--transition);
 }
 
 .container {
@@ -173,6 +215,39 @@ body {
     inset: -2px;
     border-radius: var(--radius-full);
     border: 2px solid transparent;
+}
+
+.theme-divider {
+    width: 1px;
+    align-self: stretch;
+    min-height: 26px;
+    background: var(--color-border);
+}
+
+.mode-toggle {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition);
+    flex-shrink: 0;
+}
+
+.mode-toggle:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.mode-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 @media (min-width: 480px) {

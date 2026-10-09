@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'minhasvagas_applied';
 const THEME_STORAGE_KEY = 'minhasvagas_theme';
+const MODE_STORAGE_KEY = 'minhasvagas_mode';
 
 // Aba "Últimos 2 dias": vagas publicadas hoje ou ontem (dias do calendário,
 // no fuso horário local do navegador) e sem candidatura registrada.
@@ -21,6 +22,7 @@ const state = {
     appliedAtLoad: new Set(),
     janelaRecente: null,
     currentTheme: 'red',
+    currentMode: 'light',
     // Índice id -> vaga das duas listas, para o painel de descrição não
     // depender do card (que é recriado a cada filtro).
     vagasPorId: new Map(),
@@ -62,6 +64,7 @@ function init() {
         stats: document.getElementById('stats'),
         statTotal: document.getElementById('stat-total'),
         themeOptions: document.querySelectorAll('.theme-option'),
+        modeToggle: document.getElementById('mode-toggle'),
         descBackdrop: document.getElementById('desc-backdrop'),
         descDrawer: document.getElementById('desc-drawer'),
         descDrawerTitle: document.getElementById('desc-drawer-title'),
@@ -73,6 +76,7 @@ function init() {
     };
 
     loadThemeFromStorage();
+    loadModeFromStorage();
     loadAppliedFromStorage();
     loadVagas();
     setupEventListeners();
@@ -163,6 +167,9 @@ function setupEventListeners() {
             setTheme(theme);
         });
     });
+
+    // Alternância claro/escuro
+    if (els.modeToggle) els.modeToggle.addEventListener('click', toggleMode);
 }
 
 function loadAppliedFromStorage() {
@@ -222,6 +229,53 @@ function updateThemeOptions(activeTheme) {
     els.themeOptions.forEach(option => {
         option.classList.toggle('active', option.dataset.theme === activeTheme);
     });
+}
+
+function loadModeFromStorage() {
+    let mode = null;
+    try {
+        mode = localStorage.getItem(MODE_STORAGE_KEY);
+    } catch (e) {
+        console.warn('Erro ao ler modo do localStorage:', e);
+    }
+    if (mode !== 'dark' && mode !== 'light') {
+        mode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ? 'dark'
+            : 'light';
+    }
+    applyMode(mode);
+}
+
+function saveModeToStorage() {
+    try {
+        localStorage.setItem(MODE_STORAGE_KEY, state.currentMode);
+    } catch (e) {
+        console.warn('Erro ao salvar modo no localStorage:', e);
+    }
+}
+
+function applyMode(mode) {
+    state.currentMode = mode;
+    if (mode === 'dark') {
+        document.documentElement.setAttribute('data-mode', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-mode');
+    }
+    updateModeToggle(mode);
+}
+
+function toggleMode() {
+    applyMode(state.currentMode === 'dark' ? 'light' : 'dark');
+    saveModeToStorage();
+}
+
+function updateModeToggle(mode) {
+    if (!els.modeToggle) return;
+    const isDark = mode === 'dark';
+    els.modeToggle.textContent = isDark ? '☀️' : '🌙';
+    const rotulo = isDark ? 'Ativar modo claro' : 'Ativar modo escuro';
+    els.modeToggle.setAttribute('aria-label', rotulo);
+    els.modeToggle.setAttribute('title', rotulo);
 }
 
 function saveAppliedToStorage() {

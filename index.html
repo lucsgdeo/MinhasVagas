@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MinhasVagas - Dashboard de Vagas Gupy</title>
+    <script>
+        // Aplica o modo salvo antes da pintura para evitar flash claro/escuro.
+        try {
+            var modo = localStorage.getItem('minhasvagas_mode');
+            if (!modo && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                modo = 'dark';
+            }
+            if (modo === 'dark') document.documentElement.setAttribute('data-mode', 'dark');
+        } catch (e) {}
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -27,6 +37,8 @@
                     <button class="theme-option" data-theme="indigo" style="background: #4f46e5;" aria-label="Índigo" title="Índigo"></button>
                     <button class="theme-option" data-theme="pink" style="background: #db2777;" aria-label="Rosa" title="Rosa"></button>
                 </div>
+                <div class="theme-divider" aria-hidden="true"></div>
+                <button id="mode-toggle" class="mode-toggle" aria-label="Ativar modo escuro" title="Ativar modo escuro">🌙</button>
             </div>
         </header>
 
