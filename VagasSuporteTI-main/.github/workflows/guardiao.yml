@@ -1,0 +1,80 @@
+name: Guardião do Monitoramento
+
+on:
+  schedule:
+    # A cada 3h, no minuto 17 e na hora 1 (não na hora 0), por dois motivos.
+    #
+    # A hora 1: a janela das 22:17Z precisa cair DEPOIS do cron das 21:30, porque
+    # é ela quem recupera um cron descartado. Com janelas em 0,3,6...21 a última
+    # seria 21:17, antes do cron, e um descarte às 21:30 passaria a noite
+    # inteira sem ninguém. Foi o que a simulação em monitor/checar_guardiao.py
+    # mostrou antes dessa correção.
+    #
+    # O objetivo NÃO é monitorar 8x por dia — isso seria desperdício e, pior,
+    # brigaria com o cron oficial. É estar presente o suficiente para que uma
+    # execução perdida seja notada em no máximo 47min. Rodar mais seguido não
+    # daria mais garantia: os eventos do GitHub somem de forma correlacionada,
+    # então 8 janelas caem juntas num incidente, do mesmo jeito que 1 cairia.
+    # A margem real vem do heartbeat externo, que mora fora do GitHub.
+    - cron: '17 1-23/3 * * *'
+  workflow_dispatch: # Para recuperar na mão, sem esperar a janela
+
+permissions:
+  contents: write
+
+jobs:
+  recuperar:
+    runs-on: ubuntu-latest
+
+    # Grupo com o MESMO nome do main.yml, e por isso declarado no mesmo nível
+    # (job) nos dois arquivos: assim os dois workflows ficam mutuamente
+    # excluídos. Sem isso os dois competiriam pelo push na master e um perderia
+    # o trabalho depois de todo o monitoramento.
+    #
+    # cancel-in-progress: false é o que salva o guardião. Com true, uma janela
+    # nova cancelaria a recuperação em andamento — e a janela de 22:17Z é
+    # justamente a que costuma chegar enquanto o cron das 21:30 se recupera.
+    concurrency:
+      group: monitoramento-gupy
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      # O script escreve em $GITHUB_OUTPUT, que é o mecanismo nativo. As linhas
+      # `echo` só recolocam os mesmos valores no log, que é onde você olha para
+      # responder "isso aqui rodou mesmo?".
+      - name: Verificar se o disparo de hoje já foi coberto
+        id: frescor
+        run: |
+          python3 monitor/guardiao.py verificar
+          cat "$GITHUB_OUTPUT"
+
+      # Sai sem custo quando o cron já cobriu o disparo. Esta é a execução
+      # majoritária: das 8 janelas diárias, 7 devem terminar aqui em ~20s.
+      - name: Já monitorado, nada a fazer
+        if: steps.frescor.outputs.atrasado == 'false'
+        run: |
+          echo "::notice::Disparo de ${{ steps.frescor.outputs.alvo }} já registrado."
+
+      - name: Executar Script de Monitoramento
+        if: steps.frescor.outputs.atrasado == 'true'
+        run: python3 monitor/main.py
+
+      - name: Registrar o disparo como coberto
+        if: steps.frescor.outputs.atrasado == 'true'
+        run: python3 monitor/guardiao.py escrever --origem guardiao --se-vencido
+
+      - name: Salvar histórico no repositório
+        if: steps.frescor.outputs.atrasado == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "Nenhuma vaga nova: nada para commitar."
+            exit 0
+          fi
+          git commit -m "chore: guardiao recupera o disparo de ${{ steps.frescor.outputs.alvo }} [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}

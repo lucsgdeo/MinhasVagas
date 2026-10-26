@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <title>Vagas de Suporte T.I. - Dashboard</title>
+    <script>
+        // Aplica o modo salvo antes da pintura para evitar flash claro/escuro.
+        try {
+            var modo = localStorage.getItem('vagasti_mode');
+            if (!modo && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                modo = 'dark';
+            }
+            if (modo === 'dark') document.documentElement.setAttribute('data-mode', 'dark');
+        } catch (e) {}
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=3">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="title">Vagas de Suporte T.I.</h1>
+                <p class="subtitle">Suporte técnico N1, N2 e Júnior · Help Desk · Gupy, LinkedIn, InfoJobs e Catho</p>
+            </div>
+            <div class="theme-selector" role="group" aria-label="Selecionar tema de cor">
+                <span class="theme-selector-label">Tema:</span>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="red" style="background: #dc2626;" aria-label="Vermelho" title="Vermelho"></button>
+                    <button class="theme-option active" data-theme="blue" style="background: #2563eb;" aria-label="Azul" title="Azul"></button>
+                    <button class="theme-option" data-theme="green" style="background: #16a34a;" aria-label="Verde" title="Verde"></button>
+                    <button class="theme-option" data-theme="purple" style="background: #9333ea;" aria-label="Roxo" title="Roxo"></button>
+                    <button class="theme-option" data-theme="orange" style="background: #ea580c;" aria-label="Laranja" title="Laranja"></button>
+                    <button class="theme-option" data-theme="teal" style="background: #0d9488;" aria-label="Verde-azulado" title="Verde-azulado"></button>
+                    <button class="theme-option" data-theme="indigo" style="background: #4f46e5;" aria-label="Índigo" title="Índigo"></button>
+                    <button class="theme-option" data-theme="pink" style="background: #db2777;" aria-label="Rosa" title="Rosa"></button>
+                </div>
+                <div class="theme-divider" aria-hidden="true"></div>
+                <button id="mode-toggle" class="mode-toggle" aria-label="Ativar modo escuro" title="Ativar modo escuro">🌙</button>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs" role="tablist">
+            <button id="tab-suporte" role="tab" aria-selected="true" class="tab-btn active" data-tab="suporte">Suporte T.I.</button>
+            <button id="tab-geral" role="tab" aria-selected="false" class="tab-btn" data-tab="geral">T.I. em Geral</button>
+            <button id="tab-schedule" role="tab" aria-selected="false" class="tab-btn" data-tab="schedule">Horários de Postagem</button>
+        </div>
+
+        <!-- Sub-tabs (only for Suporte T.I. / T.I. em Geral) -->
+        <div id="subtabs" class="subtabs" role="tablist" aria-label="Filtro de período e candidaturas">
+            <button class="subtab-btn active" data-subtab="recentes" role="tab" aria-selected="true" title="Vagas publicadas nos últimos 7 dias que você ainda não marcou como vistas">Últimos 7 dias</button>
+            <button class="subtab-btn" data-subtab="nao-candidatas" role="tab" aria-selected="false" title="Todas as vagas que você ainda não marcou como vistas, sem limite de data">Não Vistas</button>
+            <button class="subtab-btn" data-subtab="todas" role="tab" aria-selected="false">Todas</button>
+        </div>
+
+        <!-- Filters (only for vacancy list tabs) -->
+        <div id="filters-container" class="filters">
+            <input type="text" id="search-input" placeholder="Buscar por título..." class="search-input">
+            <div class="filter-pills" id="suporte-filter-pills">
+                <button class="filter-pill active" data-filter="todas">Todas</button>
+                <button class="filter-pill" data-filter="n1">Suporte N1</button>
+                <button class="filter-pill" data-filter="n2">Suporte N2</button>
+                <button class="filter-pill" data-filter="jr">Suporte Jr</button>
+                <button class="filter-pill" data-filter="helpdesk">Help Desk</button>
+                <button class="filter-pill" data-filter="outros" title="Vagas de suporte sem nível no título">Sem nível</button>
+            </div>
+            <!-- Plataformas: seleção múltipla. Nenhuma marcada = todas. -->
+            <div class="source-filter" id="source-filter" role="group" aria-label="Filtrar por plataforma">
+                <span class="source-filter-label">Plataformas:</span>
+                <div class="filter-pills">
+                    <button class="filter-pill source-pill" data-fonte="Gupy" aria-pressed="false">Gupy <span class="source-count"></span></button>
+                    <button class="filter-pill source-pill" data-fonte="LinkedIn" aria-pressed="false">LinkedIn <span class="source-count"></span></button>
+                    <button class="filter-pill source-pill" data-fonte="InfoJobs" aria-pressed="false">InfoJobs <span class="source-count"></span></button>
+                    <button class="filter-pill source-pill" data-fonte="Catho" aria-pressed="false">Catho <span class="source-count"></span></button>
+                </div>
+                <button type="button" class="source-clear hidden" id="source-clear">Limpar</button>
+            </div>
+            <div class="filter-pills hidden" id="geral-filter-pills">
+                <button class="filter-pill active" data-filter="todas">Todas</button>
+                <button class="filter-pill" data-filter="infraestrutura">Infraestrutura</button>
+                <button class="filter-pill" data-filter="redes">Redes</button>
+                <button class="filter-pill" data-filter="tecnico">Técnico de Informática</button>
+                <button class="filter-pill" data-filter="analista">Analista de TI</button>
+                <button class="filter-pill" data-filter="assistente">Assistente / Auxiliar</button>
+                <button class="filter-pill" data-filter="remoto">Remoto</button>
+                <button class="filter-pill" data-filter="presencial">Presencial</button>
+            </div>
+        </div>
+
+        <!-- Schedule Filters (only for schedule tab) -->
+        <div id="schedule-filters-container" class="filters hidden">
+            <div class="filter-pills" id="schedule-filter-pills">
+                <button class="filter-pill active" data-filter="todas">Todas</button>
+                <button class="filter-pill" data-filter="n1">Suporte N1</button>
+                <button class="filter-pill" data-filter="n2">Suporte N2</button>
+                <button class="filter-pill" data-filter="jr">Suporte Jr</button>
+                <button class="filter-pill" data-filter="helpdesk">Help Desk</button>
+                <button class="filter-pill" data-filter="outros" title="Vagas de suporte sem nível no título">Sem nível</button>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div id="stats" class="stats hidden">
+            <span id="stat-total"></span>
+        </div>
+
+        <!-- Vacancies Grid -->
+        <div id="vacancies-grid" class="vacancies-grid"></div>
+
+        <!-- Schedule Chart Container -->
+        <div id="schedule-container" class="schedule-container hidden">
+            <div class="card">
+                <h3 class="card-title">Distribuição de Vagas por Hora de Publicação</h3>
+                <div class="schedule-bars" id="schedule-bars"></div>
+                <div class="schedule-summary">
+                    <h4 class="summary-title">Resumo</h4>
+                    <div class="summary-grid" id="schedule-summary"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+            <svg class="empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <h3 class="empty-title">Nenhuma vaga encontrada</h3>
+            <p class="empty-text">Tente ajustar os filtros ou a busca</p>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Carregando vagas...</p>
+        </div>
+
+        <!-- Error -->
+        <div id="error-state" class="error-state hidden">
+            <svg class="error-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            <h3 class="error-title">Erro ao carregar vagas</h3>
+            <p id="error-message" class="error-text"></p>
+            <button id="retry-btn" class="btn btn-primary">Tentar novamente</button>
+        </div>
+    </div>
+
+    <!-- Descrição da vaga: sobreposição que entra pela direita -->
+    <div id="desc-backdrop" class="desc-backdrop" aria-hidden="true"></div>
+    <aside id="desc-drawer" class="desc-drawer" role="dialog" aria-modal="true" aria-labelledby="desc-drawer-title" aria-hidden="true">
+        <header class="desc-drawer-header">
+            <div class="desc-drawer-headings">
+                <h2 id="desc-drawer-title" class="desc-drawer-title">Vaga</h2>
+                <p id="desc-drawer-subtitle" class="desc-drawer-subtitle"></p>
+            </div>
+            <button type="button" id="desc-drawer-close" class="desc-drawer-close" aria-label="Fechar descrição">✕</button>
+        </header>
+        <div id="desc-drawer-body" class="desc-drawer-body">
+            <p class="desc-status">Carregando descrição…</p>
+        </div>
+        <footer class="desc-drawer-footer">
+            <a id="desc-drawer-apply" class="apply-btn" href="#" target="_blank" rel="noopener noreferrer">Candidatar-se →</a>
+        </footer>
+    </aside>
+
+    <script src="assets/app.js?v=3"></script>
+</body>
+</html>
