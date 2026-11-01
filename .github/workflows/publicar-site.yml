@@ -1,0 +1,42 @@
+name: Publicar site
+
+on:
+  push:
+    branches: [master]
+  workflow_call:
+
+concurrency:
+  group: publicacao-do-site
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      # O ramo explícito garante que a publicação pegue o commit de dados recém-criado pela pesquisa.
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: publicacao
+        uses: actions/deploy-pages@v4

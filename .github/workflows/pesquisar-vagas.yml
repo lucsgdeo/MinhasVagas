@@ -1,0 +1,48 @@
+name: Pesquisar vagas
+
+# Roda só sob demanda: pelo botão "Pesquisar vagas" do site ou pela aba Actions.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: pesquisa-de-vagas
+  cancel-in-progress: false
+
+jobs:
+  pesquisar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Pesquisar nas fontes
+        run: npm run pesquisar
+
+      - name: Salvar os dados no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          if git diff --staged --quiet; then
+            echo "Nada novo para salvar."
+            exit 0
+          fi
+          git commit -m "chore: atualiza vagas [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
+
+  # Push feito com GITHUB_TOKEN não dispara outros workflows, então a publicação é chamada aqui.
+  publicar:
+    needs: pesquisar
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/publicar-site.yml

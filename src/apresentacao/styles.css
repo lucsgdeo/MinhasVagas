@@ -1339,3 +1339,25 @@ body.drawer-open {
     background: var(--color-primary-light);
     color: var(--color-primary);
 }
+/* Link para iniciar a pesquisa e identificação do site */
+.header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    max-width: 100%;
+    gap: 12px;
+}
+
+.search-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.vacancy-source {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    opacity: 0.75;
+}
