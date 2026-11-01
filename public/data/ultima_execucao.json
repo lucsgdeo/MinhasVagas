@@ -1,47 +1,47 @@
 {
-  "executadaEm": "2026-11-01T19:03:47.778Z",
+  "executadaEm": "2026-11-01T19:25:46.264Z",
   "resultados": [
     {
       "fonte": "gupy",
-      "encontradas": 1146,
-      "novas": 0,
+      "encontradas": 1227,
+      "novas": 3,
       "consultasComErro": 0,
-      "totalDeConsultas": 28
+      "totalDeConsultas": 44
     },
     {
       "fonte": "infojobs",
-      "encontradas": 160,
-      "novas": 0,
+      "encontradas": 220,
+      "novas": 9,
       "consultasComErro": 0,
-      "totalDeConsultas": 8
+      "totalDeConsultas": 11
     },
     {
       "fonte": "catho",
-      "encontradas": 160,
-      "novas": 0,
+      "encontradas": 220,
+      "novas": 13,
       "consultasComErro": 0,
-      "totalDeConsultas": 8
+      "totalDeConsultas": 11
     },
     {
       "fonte": "vagascom",
-      "encontradas": 79,
+      "encontradas": 132,
       "novas": 0,
       "consultasComErro": 0,
-      "totalDeConsultas": 8
+      "totalDeConsultas": 11
     },
     {
       "fonte": "remotar",
-      "encontradas": 360,
-      "novas": 0,
+      "encontradas": 482,
+      "novas": 16,
       "consultasComErro": 0,
-      "totalDeConsultas": 8
+      "totalDeConsultas": 11
     },
     {
       "fonte": "linkedin",
-      "encontradas": 10,
-      "novas": 3,
-      "consultasComErro": 15,
-      "totalDeConsultas": 16
+      "encontradas": 0,
+      "novas": 0,
+      "consultasComErro": 22,
+      "totalDeConsultas": 22
     }
   ]
 }
