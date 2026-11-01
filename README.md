@@ -65,6 +65,8 @@ Ficam em `src/dominio/filtroDeVagas.ts`, nesta ordem:
 4. **Estágio com área nomeada sem sinal de tecnologia sai**: `Estágio em Processos`.
 5. **Em site de busca aproximada, o título precisa citar tecnologia.** Nas demais fontes, título sem área passa, porque descartar errado esconde a vaga para sempre.
 
+Vagas das empresas em `EMPRESAS_IGNORADAS` (hoje, BairesDev) também saem, inclusive as já gravadas.
+
 Termos são escritos **sem acento**, porque a comparação normaliza o título antes. Presenciais valem para São Paulo, São Bernardo do Campo, Santo André, São Caetano do Sul e Diadema. Remotas valem para qualquer lugar.
 
 Publicadas há mais de 7 dias são ignoradas, e o histórico guarda o mesmo período. Como a pesquisa é manual, uma vaga só é captada se houver uma execução nesse intervalo.

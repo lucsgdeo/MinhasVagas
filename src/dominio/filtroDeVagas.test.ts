@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { atendeLocalizacao, categoriaDaVaga, motivoDeDescarte, textoIndicaRemoto } from './filtroDeVagas';
+import { atendeLocalizacao, categoriaDaVaga, empresaIgnorada, motivoDeDescarte, textoIndicaRemoto } from './filtroDeVagas';
 
 describe('motivoDeDescarte', () => {
   it.each([
@@ -125,6 +125,15 @@ describe('categoriaDaVaga', () => {
     expect(categoriaDaVaga('Analista de Projetos', 'TI')).toBe('TI');
     expect(categoriaDaVaga('Arquiteto de Soluções de IA', 'Estágio')).toBe('TI');
     expect(categoriaDaVaga('Engenheiro de Inteligência Artificial', 'Automação')).toBe('TI');
+  });
+});
+
+describe('empresaIgnorada', () => {
+  it('reconhece as formas do nome e não afeta outras empresas', () => {
+    expect(empresaIgnorada('BairesDev')).toBe(true);
+    expect(empresaIgnorada('BAIRES DEV LLC')).toBe(true);
+    expect(empresaIgnorada('Buenos Aires Tech')).toBe(false);
+    expect(empresaIgnorada('')).toBe(false);
   });
 });
 

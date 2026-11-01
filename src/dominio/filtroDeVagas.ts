@@ -290,6 +290,13 @@ export function categoriaDaVaga(tituloOriginal: string, categoriaDaConsulta: Cat
   return categoriaDaConsulta === 'Estágio' || categoriaDaConsulta === 'Automação' ? 'TI' : categoriaDaConsulta;
 }
 
+const EMPRESAS_IGNORADAS = regexDeTermos(['baires\\s*dev']);
+
+/** Para ignorar outra empresa, basta incluir o nome na lista acima, sem acento. */
+export function empresaIgnorada(empresa: string): boolean {
+  return EMPRESAS_IGNORADAS.test(semAcento(empresa));
+}
+
 const CIDADES_ATENDIDAS = regexDeTermos([
   'sao bernardo do campo',
   'diadema',

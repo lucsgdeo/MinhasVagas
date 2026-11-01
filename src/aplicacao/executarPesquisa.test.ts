@@ -108,6 +108,19 @@ describe('executarPesquisa', () => {
     expect(salvo.vagas?.[0]?.categoria).toBe('Automação');
   });
 
+  it('ignora vagas de empresa bloqueada, novas e já gravadas', async () => {
+    const gravada: Vaga = {
+      id: 'remotar-9', fonte: 'remotar', titulo: 'DevOps Engineer', empresa: 'BairesDev', url: 'https://a',
+      publicadaEm: '2026-11-01T10:00:00.000Z', categoria: 'Desenvolvimento', remota: true, local: '',
+    };
+    const { repositorio, salvo } = repositorioEmMemoria([gravada]);
+    await rodar(
+      [fonte('linkedin', async () => [encontrada({ empresa: 'Baires Dev' }), encontrada({ idOriginal: '2', titulo: 'Analista de QA Jr' })])],
+      repositorio,
+    );
+    expect(salvo.vagas?.map((vaga) => vaga.id)).toEqual(['linkedin-2']);
+  });
+
   it('descarta fora de tecnologia, cargo avançado, cidade fora da região e vaga antiga', async () => {
     const { repositorio, salvo } = repositorioEmMemoria();
     await rodar(

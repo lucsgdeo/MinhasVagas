@@ -1,4 +1,4 @@
-import { atendeLocalizacao, categoriaDaVaga, motivoDeDescarte } from '../dominio/filtroDeVagas';
+import { atendeLocalizacao, categoriaDaVaga, empresaIgnorada, motivoDeDescarte } from '../dominio/filtroDeVagas';
 import { semAcento } from '../dominio/texto';
 import type { Consulta } from '../dominio/consulta';
 import type { IdFonte, MapaDeDescricoes, ResultadoDaFonte, Vaga } from '../dominio/vaga';
@@ -199,6 +199,7 @@ function aceitarVaga(
     vistas[id] = instante.toISOString();
   }
 
+  if (empresaIgnorada(encontrada.empresa)) return null;
   if (motivoDeDescarte(encontrada.titulo, { buscaPrecisa: fonte.buscaPrecisa })) return null;
   if (!atendeLocalizacao(encontrada.remota, encontrada.local)) return null;
 
@@ -225,6 +226,7 @@ function aceitarVaga(
 function continuaNoHistorico(vaga: Vaga, instante: Date): boolean {
   return (
     idadeEmDias(vaga.publicadaEm, instante) <= DIAS_DE_RETENCAO_DAS_VAGAS &&
+    !empresaIgnorada(vaga.empresa) &&
     motivoDeDescarte(vaga.titulo) === null
   );
 }
