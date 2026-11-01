@@ -41,6 +41,7 @@ describe('motivoDeDescarte', () => {
     'Estágio em Mídias Sociais',
     'Assistente Administrativo',
     'SDR (Segmento Tecnologia)',
+    'Estagiário | Penal Empresarial',
   ])('descarta fora de tecnologia: %s', (titulo) => {
     expect(motivoDeDescarte(titulo)).toBe('fora de tecnologia');
   });
@@ -81,6 +82,37 @@ describe('motivoDeDescarte em site de busca aproximada', () => {
   );
 });
 
+describe('automação e RPA', () => {
+  it.each([
+    'Analista de Suporte RPA',
+    'Programador Júnior (RPA)',
+    'Estágio em Automação de Processos Fiscais',
+    'QA Automation Engineer Júnior - REMOTO',
+    'Analista de BI e Automação de Processos',
+    'Assistente Administrativo (Processos de Automação)',
+    'ANALISTA DE AUTOMAÇÃO DE DADOS',
+  ])('mantém: %s', (titulo) => {
+    expect(motivoDeDescarte(titulo, { buscaPrecisa: false })).toBeNull();
+    expect(categoriaDaVaga(titulo, 'TI')).toMatch(/Automação|Estágio/);
+  });
+
+  it.each([
+    'ENFERMEIRO JR - CENTRO CIRURGICO/RPA',
+    'Técnico de Enfermagem RPA - Hospital',
+    'BR - Estágio em Engenharia Automação Industrial',
+    'Técnico(a) de Automação',
+    'Pessoa Técnica de Campo II (Automação)',
+    'ANALISTA CONTÁBIL - SISTEMA PROTHEUS',
+  ])('descarta homônimo: %s', (titulo) => {
+    expect(motivoDeDescarte(titulo)).toBe('fora de tecnologia');
+  });
+
+  it('descarta RPA de nível avançado', () => {
+    expect(motivoDeDescarte('DESENVOLVEDOR RPA SR')).toBe('cargo avançado');
+    expect(motivoDeDescarte('Mid-Level UiPath Test Automation Developer')).toBe('cargo avançado');
+  });
+});
+
 describe('categoriaDaVaga', () => {
   it('prefere o título à consulta', () => {
     expect(categoriaDaVaga('Desenvolvedor(a) Frontend', 'Suporte')).toBe('Desenvolvimento');
@@ -92,6 +124,7 @@ describe('categoriaDaVaga', () => {
   it('usa a consulta quando o título não decide, sem chamar de estágio o que não é', () => {
     expect(categoriaDaVaga('Analista de Projetos', 'TI')).toBe('TI');
     expect(categoriaDaVaga('Arquiteto de Soluções de IA', 'Estágio')).toBe('TI');
+    expect(categoriaDaVaga('Engenheiro de Inteligência Artificial', 'Automação')).toBe('TI');
   });
 });
 

@@ -136,6 +136,8 @@ describe('datas e URLs', () => {
   it('entende datas brasileiras, hoje e ontem', () => {
     expect(dataBrasileiraParaIso('Hoje', AGORA)).toBe(AGORA.toISOString());
     expect(dataBrasileiraParaIso('Ontem', AGORA)).toBe('2026-10-31T12:00:00.000Z');
+    expect(dataBrasileiraParaIso('Há 6 dias', AGORA)).toBe('2026-10-26T12:00:00.000Z');
+    expect(dataBrasileiraParaIso('Há 1 dia', AGORA)).toBe('2026-10-31T12:00:00.000Z');
     expect(dataBrasileiraParaIso('sem data', AGORA)).toBeNull();
   });
 

@@ -1,7 +1,7 @@
 import { atendeLocalizacao, categoriaDaVaga, motivoDeDescarte } from '../dominio/filtroDeVagas';
 import { semAcento } from '../dominio/texto';
 import type { Consulta } from '../dominio/consulta';
-import type { MapaDeDescricoes, ResultadoDaFonte, Vaga } from '../dominio/vaga';
+import type { IdFonte, MapaDeDescricoes, ResultadoDaFonte, Vaga } from '../dominio/vaga';
 import type {
   DescritorDeVagas,
   Espera,
@@ -14,7 +14,8 @@ import type {
 import { FonteBloqueadaError } from './portas';
 
 const DIA_EM_MS = 86_400_000;
-const MAX_DIAS_DE_PUBLICACAO = 4;
+// Igual à retenção: a pesquisa é manual, e uma janela menor perderia vagas entre execuções espaçadas.
+const MAX_DIAS_DE_PUBLICACAO = 7;
 const DIAS_DE_RETENCAO_DAS_VAGAS = 7;
 // Maior que a retenção: vaga sem data não pode "renascer" assim que sai do histórico.
 const DIAS_DE_RETENCAO_DAS_VISTAS = 30;
@@ -26,6 +27,12 @@ interface Coleta {
   achados: { consulta: Consulta; vaga: VagaEncontrada }[];
   consultasComErro: number;
   totalDeConsultas: number;
+}
+
+interface Registros {
+  vistas: VagasVistas;
+  ids: Set<string>;
+  fontesPorChave: Map<string, IdFonte>;
 }
 
 export interface Dependencias {
@@ -58,16 +65,20 @@ export async function executarPesquisa(dependencias: Dependencias): Promise<Resu
     repositorio.carregarDescricoes(),
   ]);
 
-  const vagas = vagasAtuais.filter((vaga) => continuaNoHistorico(vaga, instante));
+  // Reclassifica o histórico para que uma regra nova valha também para as vagas já gravadas.
+  const vagas = vagasAtuais
+    .filter((vaga) => continuaNoHistorico(vaga, instante))
+    .map((vaga) => ({ ...vaga, categoria: categoriaDaVaga(vaga.titulo, vaga.categoria) }));
   const vistas = vistasRecentes(vistasAtuais, instante);
-  const chaves = new Set(vagas.map(chaveDaVaga));
+  const ids = new Set(vagas.map((vaga) => vaga.id));
+  const fontesPorChave = new Map(vagas.map((vaga) => [chaveDaVaga(vaga), vaga.fonte]));
   const novasPorFonte = new Map<string, { vaga: Vaga; encontrada: VagaEncontrada }[]>();
 
   // As fontes rodam em paralelo, mas entram na ordem declarada: em vaga repetida
   // entre sites, a primeira fonte da lista é a que fica.
   for (const { fonte, achados } of coletas) {
     const novas = achados.flatMap(({ consulta, vaga: encontrada }) => {
-      const vaga = aceitarVaga(encontrada, consulta, fonte, vistas, chaves, instante);
+      const vaga = aceitarVaga(encontrada, consulta, fonte, { vistas, ids, fontesPorChave }, instante);
       return vaga ? [{ vaga, encontrada }] : [];
     });
     novasPorFonte.set(fonte.id, novas);
@@ -169,8 +180,7 @@ function aceitarVaga(
   encontrada: VagaEncontrada,
   consulta: Consulta,
   fonte: FonteDeVagas,
-  vistas: VagasVistas,
-  chaves: Set<string>,
+  { vistas, ids, fontesPorChave }: Registros,
   instante: Date,
 ): Vaga | null {
   if (!encontrada.titulo || !encontrada.url) return null;
@@ -179,8 +189,15 @@ function aceitarVaga(
   }
 
   const id = `${fonte.id}-${encontrada.idOriginal}`;
-  if (vistas[id]) return null;
-  vistas[id] = instante.toISOString();
+  if (ids.has(id)) return null;
+  ids.add(id);
+
+  // Vaga com data sai sozinha pela janela de publicação, e reavaliá-la faz um filtro ou uma
+  // busca nova valer para ela. Só a vaga sem data precisa de memória, ou "renasceria" como nova.
+  if (!encontrada.publicadaEm) {
+    if (vistas[id]) return null;
+    vistas[id] = instante.toISOString();
+  }
 
   if (motivoDeDescarte(encontrada.titulo, { buscaPrecisa: fonte.buscaPrecisa })) return null;
   if (!atendeLocalizacao(encontrada.remota, encontrada.local)) return null;
@@ -199,8 +216,9 @@ function aceitarVaga(
   };
 
   const chave = chaveDaVaga(vaga);
-  if (chaves.has(chave)) return null;
-  chaves.add(chave);
+  const fonteDaMesmaVaga = fontesPorChave.get(chave);
+  if (fonteDaMesmaVaga && fonteDaMesmaVaga !== fonte.id) return null;
+  fontesPorChave.set(chave, fonte.id);
   return vaga;
 }
 
@@ -224,10 +242,16 @@ function idadeEmDias(iso: string, instante: Date): number {
   return Number.isNaN(momento) ? Number.POSITIVE_INFINITY : (instante.getTime() - momento) / DIA_EM_MS;
 }
 
-/** Identifica a mesma vaga publicada em sites diferentes. */
+/**
+ * Identifica a mesma vaga em sites diferentes. A empresa entra só pela primeira palavra porque
+ * cada site a escreve de um jeito ("INTERPLAYERS", "Interplayers Solucoes"). Empresa confidencial
+ * não identifica nada, então essas vagas nunca são tratadas como repetidas.
+ */
 function chaveDaVaga(vaga: Vaga): string {
-  const normalizar = (texto: string) => semAcento(texto).replace(/[^a-z0-9]/g, '');
-  return `${normalizar(vaga.titulo)}|${normalizar(vaga.empresa)}|${vaga.remota}`;
+  const empresa = semAcento(vaga.empresa);
+  if (!empresa || empresa.includes('confiden')) return vaga.id;
+  const normalizar = (texto: string) => texto.replace(/[^a-z0-9]/g, '');
+  return `${normalizar(semAcento(vaga.titulo))}|${normalizar(empresa.split(/\s+/)[0] ?? '')}`;
 }
 
 function ordenarPorData(vagas: Vaga[]): Vaga[] {

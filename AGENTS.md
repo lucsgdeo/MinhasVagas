@@ -15,6 +15,8 @@ Projeto em português (código, comentários, commits, UI): mantenha o idioma. D
 
 ## Armadilhas
 - Filtros (`src/dominio/filtroDeVagas.ts`): termos **sem acento**, porque o título é normalizado antes; acento cria uma alternativa morta sem erro. A ordem das regras importa. Descartar errado esconde a vaga para sempre, então confira o efeito em dados reais.
+- `NUNCA_TECNOLOGIA` vence a lista de tecnologia: "RPA" também é recuperação pós-anestésica, e "automação" também é industrial.
+- `vagas_vistas.json` só importa para vaga sem data. Vaga com data é reavaliada a cada pesquisa, para filtros e buscas novas valerem para ela.
 - `buscaPrecisa: false` exige tecnologia no título. Use em sites cuja busca traz cargos de outras áreas.
 - A ordem das consultas define a categoria de reserva, e a ordem em `criarFontes` decide qual fonte fica em vaga repetida.
 - API da Gupy: `limit` máximo é 100 (acima dá HTTP 400), não aceita exclusão de termos e busca por radical, ignorando acento.

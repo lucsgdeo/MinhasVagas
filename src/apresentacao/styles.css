@@ -1361,3 +1361,177 @@ body.drawer-open {
     font-size: 12px;
     opacity: 0.75;
 }
+
+/* Layout: cabeçalho, painel de filtros e rodapé dos cards */
+.header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left { width: auto; flex: 1 1 280px; min-width: 0; }
+.header-actions { flex-wrap: nowrap; gap: 8px; }
+.header-actions .btn { white-space: nowrap; }
+
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    cursor: pointer;
+    list-style: none;
+}
+
+.icon-btn::-webkit-details-marker { display: none; }
+.icon-btn:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+.theme-menu { position: relative; }
+.theme-menu-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--color-primary); }
+
+.theme-menu-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(4, 32px);
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+}
+
+.filter-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-surface);
+}
+
+.filter-row-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px auto;
+    gap: 8px;
+}
+
+.filter-row-main .search-input { width: 100%; height: 40px; }
+
+.site-select {
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+    font-size: 14px;
+}
+
+.segmented {
+    display: flex;
+    height: 40px;
+    padding: 3px;
+    border-radius: 8px;
+    background: var(--color-bg);
+}
+
+.segmented button {
+    flex: 1;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.segmented button.active { background: var(--color-primary); color: #fff; }
+
+.area-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip-count { margin-left: 2px; font-size: 12px; opacity: 0.7; }
+
+.results-count {
+    margin-bottom: 12px;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.vacancy-card { display: flex; }
+.vacancy-card-content { display: flex; flex: 1; flex-direction: column; gap: 8px; min-width: 0; }
+.vacancy-header { margin-bottom: 0; }
+.vacancy-company { margin: 0; overflow-wrap: anywhere; }
+.vacancy-tags { display: flex; align-items: center; gap: 8px; margin: 0; }
+.vacancy-source { margin-left: 0; }
+
+.vacancy-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.vacancy-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.vacancy-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+}
+
+.vacancy-actions .desc-btn,
+.vacancy-actions .apply-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 40px;
+    margin: 0;
+    padding: 0 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.vacancy-actions .apply-btn {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.vacancy-actions .apply-btn:hover { background: var(--color-primary-hover); color: #fff; }
+
+@media (max-width: 760px) {
+    .filter-row-main { grid-template-columns: 1fr; }
+    .site-select { width: 100%; }
+    .segmented button { padding: 0 6px; }
+    .area-chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+    .area-chips .filter-pill { flex-shrink: 0; }
+    .theme-menu-panel { left: 0; }
+    .header-actions { width: 100%; }
+    .header-actions .btn { flex: 1; text-align: center; }
+}
+
+.vacancy-tags .vacancy-topic { margin-bottom: 0; }

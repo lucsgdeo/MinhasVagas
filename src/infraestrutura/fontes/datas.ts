@@ -6,11 +6,14 @@ function meioDiaEmBrasilia(ano: number, mes: number, dia: number): string {
   return new Date(`${ano}-${doisDigitos(mes)}-${doisDigitos(dia)}T12:00:00${FUSO_BRASILIA}`).toISOString();
 }
 
-/** "14/10/2026" → ISO. Aceita também "Hoje" e "Ontem". */
+/** "14/10/2026" → ISO. Aceita também "Hoje", "Ontem" e "Há 6 dias". */
 export function dataBrasileiraParaIso(texto: string, agora: Date): string | null {
   const limpo = texto.trim().toLowerCase();
   if (limpo.includes('hoje')) return agora.toISOString();
   if (limpo.includes('ontem')) return new Date(agora.getTime() - 86_400_000).toISOString();
+
+  const relativa = limpo.match(/h[aá] (\d+) dias?/);
+  if (relativa) return new Date(agora.getTime() - Number(relativa[1]) * 86_400_000).toISOString();
 
   const partes = limpo.match(/(\d{2})\/(\d{2})\/(\d{4})/);
   if (!partes) return null;

@@ -67,7 +67,9 @@ Ficam em `src/dominio/filtroDeVagas.ts`, nesta ordem:
 
 Termos são escritos **sem acento**, porque a comparação normaliza o título antes. Presenciais valem para São Paulo, São Bernardo do Campo, Santo André, São Caetano do Sul e Diadema. Remotas valem para qualquer lugar.
 
-Publicadas há mais de 4 dias são ignoradas, e o histórico guarda 7 dias.
+Publicadas há mais de 7 dias são ignoradas, e o histórico guarda o mesmo período. Como a pesquisa é manual, uma vaga só é captada se houver uma execução nesse intervalo.
+
+**Automação:** RPA, UiPath, Power Automate, Power Platform e low-code têm categoria própria. Homônimos ficam de fora (`NUNCA_TECNOLOGIA`): RPA hospitalar (recuperação pós-anestésica) e automação industrial, predial ou residencial.
 
 ## Comandos
 

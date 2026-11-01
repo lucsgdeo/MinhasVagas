@@ -32,7 +32,7 @@ export function App() {
   const [erro, setErro] = useState('');
   const [aba, setAba] = useState<Aba>('vagas');
   const [subAba, setSubAba] = useState<SubAba>('recentes');
-  const [categoria, setCategoria] = useState<Categoria | typeof TODAS>('Suporte');
+  const [categoria, setCategoria] = useState<Categoria | typeof TODAS>(TODAS);
   const [fonte, setFonte] = useState<IdFonte | typeof TODAS>(TODAS);
   const [busca, setBusca] = useState('');
   const [vagaAberta, setVagaAberta] = useState<Vaga | null>(null);
@@ -56,9 +56,13 @@ export function App() {
     void carregar();
   }, [carregar]);
 
+  const vagasDeTodasAsAreas = useMemo(
+    () => filtrarVagas(vagas, { categoria: TODAS, fonte, busca, subAba, vistasNoCarregamento, janelaRecente }),
+    [vagas, fonte, busca, subAba, vistasNoCarregamento, janelaRecente],
+  );
   const filtradas = useMemo(
-    () => filtrarVagas(vagas, { categoria, fonte, busca, subAba, vistasNoCarregamento, janelaRecente }),
-    [vagas, categoria, fonte, busca, subAba, vistasNoCarregamento, janelaRecente],
+    () => vagasDeTodasAsAreas.filter((vaga) => categoria === TODAS || vaga.categoria === categoria),
+    [vagasDeTodasAsAreas, categoria],
   );
 
   return (
@@ -91,14 +95,13 @@ export function App() {
               aoMudarCategoria={setCategoria}
               aoMudarFonte={setFonte}
               aoMudarBusca={setBusca}
+              vagasDeTodasAsAreas={vagasDeTodasAsAreas}
             />
             {filtradas.length === 0 ? (
               <EstadoVazio subAba={subAba} />
             ) : (
               <>
-                <div className="stats">
-                  <span>{contagem(filtradas.length, ROTULOS_DAS_SUBABAS[subAba])}</span>
-                </div>
+                <p className="results-count">{contagem(filtradas.length, ROTULOS_DAS_SUBABAS[subAba])}</p>
                 <div className="vacancies-grid">
                   {filtradas.map((vaga) => (
                     <CartaoDeVaga

@@ -4,7 +4,7 @@ import type { Categoria } from './vaga';
 export type MotivoDeDescarte = 'cargo avançado' | 'fora de tecnologia';
 
 const NIVEL_AVANCADO =
-  /\b(?:sr|senior|pleno|especialista|gerente|diretor|coordenador\w*|supervisor\w*|lider\w*|staff|lead|principal|manager|head|coordinator)\b/;
+  /\b(?:sr|senior|pleno|especialista|gerente|diretor|coordenador\w*|supervisor\w*|lider\w*|staff|lead|principal|manager|head|coordinator|mid[- ]level)\b/;
 const AREA_DE_GESTAO = /\b(?:coordenacao|supervisao|gerencia|direcao)\b/;
 const PLENO_ABREVIADO = /\bpl\b(?!\s*\/\s*sql)/;
 const NIVEL_DE_ENTRADA = /\b(?:jr|junior|trainee|estagi\w*|aprendiz)\w*/;
@@ -69,6 +69,32 @@ const TECNOLOGIA_INEQUIVOCA = regexDeTermos([
   'desenvolvimento de software',
   'engenharia de dados',
   'geoprocessamento',
+  'rpa',
+  'uipath',
+  'blue prism',
+  'automation anywhere',
+  'power (?:automate|platform|apps|bi)',
+  'low[ -]?code',
+  'hiperautomacao',
+  'automac(?:ao|oes) de (?:processos|testes|dados)',
+  'processos de automacao',
+]);
+
+/**
+ * Homônimos: vencem até a lista acima. "RPA" em hospital é a recuperação pós-anestésica,
+ * e a automação destes cargos é a de fábrica e prédios, não a de software.
+ */
+const NUNCA_TECNOLOGIA = regexDeTermos([
+  'enferm\\w*',
+  'centro cirurgico',
+  'analista contabil',
+  'automacao (?:industrial|predial|residencial)',
+  'tecnic[oa](?:\\(a\\))? de automacao',
+  'tecnica de campo',
+  'mecatronic\\w*',
+  'eletromecanic\\w*',
+  'eletrotecnic\\w*',
+  'instrumentacao',
 ]);
 
 /** Áreas e ocupações que não são de tecnologia, ainda que o título use "suporte" ou "sistemas". */
@@ -82,6 +108,8 @@ const FORA_DE_TECNOLOGIA = regexDeTermos([
   'selecao',
   'people analytics',
   'juridic\\w*',
+  'direito',
+  'penal',
   'advogad\\w*',
   'contencioso',
   'tributari\\w*',
@@ -142,6 +170,14 @@ const FORA_DE_TECNOLOGIA = regexDeTermos([
   'publicitari\\w*',
   'administrativ\\w*',
   'curadoria',
+  'operacoes',
+  'engenharia clinica',
+  'construcao civil',
+  'dho',
+  'inovacao',
+  'comunidade',
+  'media',
+  'farmacia',
   'loja',
   'shopping',
   'varejo',
@@ -159,6 +195,7 @@ const TECNOLOGIA_AMBIGUA = regexDeTermos([
   'redes?',
   'testes?',
   'suporte',
+  'automation',
 ]);
 
 /** Sinais extras aceitos nos sites cuja busca aproximada traz cargos de qualquer área. */
@@ -181,6 +218,7 @@ function ehCargoAvancado(titulo: string): boolean {
 }
 
 function ehForaDeTecnologia(titulo: string): boolean {
+  if (NUNCA_TECNOLOGIA.test(titulo)) return true;
   if (TECNOLOGIA_INEQUIVOCA.test(titulo)) return false;
   if (FORA_DE_TECNOLOGIA.test(titulo)) return true;
   return ESTAGIO_COM_AREA_NOMEADA.test(titulo) && !TECNOLOGIA_AMBIGUA.test(titulo);
@@ -227,6 +265,16 @@ const DESENVOLVIMENTO = regexDeTermos([
   'qa',
   'analista de sistemas',
 ]);
+const AUTOMACAO = regexDeTermos([
+  'rpa',
+  'uipath',
+  'blue prism',
+  'automation\\w*',
+  'automac(?:ao|oes)',
+  'hiperautomacao',
+  'power (?:automate|platform|apps)',
+  'low[ -]?code',
+]);
 const SUPORTE = regexDeTermos(['suporte', 'support']);
 const CENTRAL_DE_ATENDIMENTO = regexDeTermos(['help\\s*desk', 'service\\s*desk', 'infra', 'infraestrutura']);
 
@@ -234,10 +282,12 @@ const CENTRAL_DE_ATENDIMENTO = regexDeTermos(['help\\s*desk', 'service\\s*desk',
 export function categoriaDaVaga(tituloOriginal: string, categoriaDaConsulta: Categoria): Categoria {
   const titulo = semAcento(tituloOriginal);
   if (ESTAGIO.test(titulo)) return 'Estágio';
+  if (AUTOMACAO.test(titulo)) return 'Automação';
   if (CENTRAL_DE_ATENDIMENTO.test(titulo)) return 'Outras';
   if (SUPORTE.test(titulo)) return 'Suporte';
   if (DESENVOLVIMENTO.test(titulo)) return 'Desenvolvimento';
-  return categoriaDaConsulta === 'Estágio' ? 'TI' : categoriaDaConsulta;
+  // Estas duas categorias precisam estar no título; a busca aproximada não basta para afirmá-las.
+  return categoriaDaConsulta === 'Estágio' || categoriaDaConsulta === 'Automação' ? 'TI' : categoriaDaConsulta;
 }
 
 const CIDADES_ATENDIDAS = regexDeTermos([

@@ -1,19 +1,11 @@
 import { TODAS, type SubAba } from '../../aplicacao/filtrarVagas';
-import { CATEGORIAS, NOMES_DAS_FONTES, type Categoria, type IdFonte } from '../../dominio/vaga';
+import { CATEGORIAS, NOMES_DAS_FONTES, type Categoria, type IdFonte, type Vaga } from '../../dominio/vaga';
 
 const SUBABAS: { id: SubAba; rotulo: string; dica?: string }[] = [
   { id: 'recentes', rotulo: 'Últimos 2 dias', dica: 'Vagas publicadas hoje ou ontem que você ainda não marcou como vistas' },
-  { id: 'nao-vistas', rotulo: 'Não Vistas', dica: 'Todas as vagas que você ainda não marcou como vistas, sem limite de data' },
+  { id: 'nao-vistas', rotulo: 'Não vistas', dica: 'Todas as vagas que você ainda não marcou como vistas, sem limite de data' },
   { id: 'todas', rotulo: 'Todas' },
 ];
-
-const ROTULOS_DAS_CATEGORIAS: Record<Categoria, string> = {
-  Suporte: 'Suporte',
-  Estágio: 'Estágio',
-  Desenvolvimento: 'Dev',
-  TI: 'TI',
-  Outras: 'Outras',
-};
 
 const IDS_DAS_FONTES = Object.keys(NOMES_DAS_FONTES) as IdFonte[];
 
@@ -22,6 +14,7 @@ interface Propriedades {
   categoria: Categoria | typeof TODAS;
   fonte: IdFonte | typeof TODAS;
   busca: string;
+  vagasDeTodasAsAreas: Vaga[];
   aoMudarSubAba: (subAba: SubAba) => void;
   aoMudarCategoria: (categoria: Categoria | typeof TODAS) => void;
   aoMudarFonte: (fonte: IdFonte | typeof TODAS) => void;
@@ -29,40 +22,39 @@ interface Propriedades {
 }
 
 export function FiltrosDeVagas(props: Propriedades) {
-  const { subAba, categoria, fonte, busca, aoMudarSubAba, aoMudarCategoria, aoMudarFonte, aoMudarBusca } = props;
+  const { subAba, categoria, fonte, busca, vagasDeTodasAsAreas, aoMudarSubAba, aoMudarCategoria, aoMudarFonte, aoMudarBusca } = props;
+  const areas: { id: Categoria | typeof TODAS; rotulo: string; total: number }[] = [
+    { id: TODAS, rotulo: 'Todas', total: vagasDeTodasAsAreas.length },
+    ...CATEGORIAS.map((id) => ({
+      id,
+      rotulo: id,
+      total: vagasDeTodasAsAreas.filter((vaga) => vaga.categoria === id).length,
+    })),
+  ];
 
   return (
-    <>
-      <div className="subtabs" role="tablist" aria-label="Filtro de período e candidaturas">
-        {SUBABAS.map(({ id, rotulo, dica }) => (
-          <button key={id} type="button" role="tab" title={dica} aria-selected={subAba === id} className={`subtab-btn${subAba === id ? ' active' : ''}`} onClick={() => aoMudarSubAba(id)}>
-            {rotulo}
+    <section className="filter-panel" aria-label="Filtros de vagas">
+      <div className="filter-row-main">
+        <input type="search" className="search-input" placeholder="Buscar por título..." aria-label="Buscar por título" value={busca} onChange={(e) => aoMudarBusca(e.target.value)} />
+        <select className="site-select" aria-label="Filtrar por site" value={fonte} onChange={(e) => aoMudarFonte(e.target.value as IdFonte | typeof TODAS)}>
+          <option value={TODAS}>Todos os sites</option>
+          {IDS_DAS_FONTES.map((id) => <option key={id} value={id}>{NOMES_DAS_FONTES[id]}</option>)}
+        </select>
+        <div className="segmented" role="group" aria-label="Período e vagas vistas">
+          {SUBABAS.map(({ id, rotulo, dica }) => (
+            <button key={id} type="button" title={dica} aria-pressed={subAba === id} className={subAba === id ? 'active' : ''} onClick={() => aoMudarSubAba(id)}>
+              {rotulo}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="area-chips" role="group" aria-label="Filtrar por área">
+        {areas.map(({ id, rotulo, total }) => (
+          <button key={id} type="button" aria-pressed={categoria === id} className={`filter-pill${categoria === id ? ' active' : ''}`} onClick={() => aoMudarCategoria(id)}>
+            {rotulo} <span className="chip-count">{total}</span>
           </button>
         ))}
       </div>
-      <div className="filters">
-        <input type="text" className="search-input" placeholder="Buscar por título..." aria-label="Buscar por título" value={busca} onChange={(e) => aoMudarBusca(e.target.value)} />
-        <div className="filter-pills">
-          {CATEGORIAS.map((opcao) => (
-            <button key={opcao} type="button" aria-pressed={categoria === opcao} className={`filter-pill${categoria === opcao ? ' active' : ''}`} onClick={() => aoMudarCategoria(opcao)}>
-              {ROTULOS_DAS_CATEGORIAS[opcao]}
-            </button>
-          ))}
-          <button type="button" aria-pressed={categoria === TODAS} className={`filter-pill${categoria === TODAS ? ' active' : ''}`} onClick={() => aoMudarCategoria(TODAS)}>
-            Todas
-          </button>
-        </div>
-        <div className="filter-pills" role="group" aria-label="Filtrar por site">
-          <button type="button" aria-pressed={fonte === TODAS} className={`filter-pill${fonte === TODAS ? ' active' : ''}`} onClick={() => aoMudarFonte(TODAS)}>
-            Todos os sites
-          </button>
-          {IDS_DAS_FONTES.map((id) => (
-            <button key={id} type="button" aria-pressed={fonte === id} className={`filter-pill${fonte === id ? ' active' : ''}`} onClick={() => aoMudarFonte(id)}>
-              {NOMES_DAS_FONTES[id]}
-            </button>
-          ))}
-        </div>
-      </div>
-    </>
+    </section>
   );
 }

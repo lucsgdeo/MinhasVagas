@@ -1,4 +1,4 @@
-export const CATEGORIAS = ['Suporte', 'Estágio', 'Desenvolvimento', 'TI', 'Outras'] as const;
+export const CATEGORIAS = ['Suporte', 'Estágio', 'Desenvolvimento', 'Automação', 'TI', 'Outras'] as const;
 export type Categoria = (typeof CATEGORIAS)[number];
 
 export type IdFonte =

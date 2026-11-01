@@ -7,7 +7,7 @@ import type { LeitorDePagina } from './clienteHttp';
 
 const URL_DE_BUSCA = 'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search';
 const ID_DO_BRASIL = '106057199';
-const QUATRO_DIAS = 'r345600';
+const SETE_DIAS = 'r604800';
 const MODALIDADE_REMOTA = '2';
 // Estágio, assistente e júnior: a busca devolve só 10 itens, e sênior seria descartado depois.
 const NIVEIS_DE_ENTRADA = '1,2,3';
@@ -17,7 +17,7 @@ const INTERVALO_PARA_EVITAR_BLOQUEIO_MS = 10_000;
 export function urlDaConsultaLinkedin(consulta: Consulta): string {
   const parametros = new URLSearchParams({
     keywords: consulta.termo,
-    f_TPR: QUATRO_DIAS,
+    f_TPR: SETE_DIAS,
     f_E: NIVEIS_DE_ENTRADA,
     start: '0',
     ...(consulta.remota

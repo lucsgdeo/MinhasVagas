@@ -64,6 +64,50 @@ describe('executarPesquisa', () => {
     expect(salvo.vagas?.map((vaga) => vaga.id)).toEqual(['gupy-1']);
   });
 
+  it('reconhece a mesma vaga com a empresa escrita de outro jeito, mas não vagas iguais no mesmo site', async () => {
+    const { repositorio, salvo } = repositorioEmMemoria();
+    await rodar(
+      [
+        fonte('infojobs', async () => [
+          encontrada({ empresa: 'Interplayers Solucoes' }),
+          encontrada({ idOriginal: '2', empresa: 'Interplayers Solucoes' }),
+        ]),
+        fonte('catho', async () => [encontrada({ idOriginal: '3', empresa: 'INTERPLAYERS' })]),
+      ],
+      repositorio,
+    );
+    expect(salvo.vagas?.map((vaga) => vaga.id).sort()).toEqual(['infojobs-1', 'infojobs-2']);
+  });
+
+  it('não trata empresas confidenciais como a mesma vaga', async () => {
+    const { repositorio, salvo } = repositorioEmMemoria();
+    await rodar(
+      [
+        fonte('infojobs', async () => [encontrada({ empresa: 'Empresa confidencial' })]),
+        fonte('catho', async () => [encontrada({ empresa: 'Empresa Confidencial' })]),
+      ],
+      repositorio,
+    );
+    expect(salvo.vagas).toHaveLength(2);
+  });
+
+  it('reavalia vaga com data já vista, para que uma busca ou filtro novo valha para ela', async () => {
+    const { repositorio, salvo } = repositorioEmMemoria([], { 'gupy-1': '2026-10-31T00:00:00.000Z' });
+    await rodar([fonte('gupy', async () => [encontrada()])], repositorio);
+    expect(salvo.vagas).toHaveLength(1);
+  });
+
+  it('não duplica vaga que já está no histórico e atualiza a categoria dela', async () => {
+    const atual: Vaga = {
+      id: 'gupy-1', fonte: 'gupy', titulo: 'Analista de RPA Jr', empresa: 'ACME', url: 'https://a',
+      publicadaEm: '2026-11-01T10:00:00.000Z', categoria: 'TI', remota: false, local: '',
+    };
+    const { repositorio, salvo } = repositorioEmMemoria([atual]);
+    await rodar([fonte('gupy', async () => [encontrada({ titulo: atual.titulo })])], repositorio);
+    expect(salvo.vagas).toHaveLength(1);
+    expect(salvo.vagas?.[0]?.categoria).toBe('Automação');
+  });
+
   it('descarta fora de tecnologia, cargo avançado, cidade fora da região e vaga antiga', async () => {
     const { repositorio, salvo } = repositorioEmMemoria();
     await rodar(

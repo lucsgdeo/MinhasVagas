@@ -35,10 +35,11 @@ export function Cabecalho({ ultimaExecucao }: { ultimaExecucao: UltimaExecucao |
         <p className="subtitle">{resumoDaExecucao(ultimaExecucao)}</p>
       </div>
       <div className="header-actions">
-        <BotaoDePesquisa />
-        <div className="theme-selector" role="group" aria-label="Selecionar tema de cor">
-          <span className="theme-selector-label">Tema:</span>
-          <div className="theme-options">
+        <details className="theme-menu">
+          <summary className="icon-btn" aria-label="Escolher cor do tema" title="Escolher cor do tema">
+            <span className="theme-menu-dot" />
+          </summary>
+          <div className="theme-menu-panel" role="group" aria-label="Cor do tema">
             {TEMAS.map(({ id, nome, cor }) => (
               <button
                 key={id}
@@ -46,16 +47,17 @@ export function Cabecalho({ ultimaExecucao }: { ultimaExecucao: UltimaExecucao |
                 className={`theme-option${tema === id ? ' active' : ''}`}
                 style={{ background: cor }}
                 aria-label={nome}
+                aria-pressed={tema === id}
                 title={nome}
                 onClick={() => escolherTema(id)}
               />
             ))}
           </div>
-          <div className="theme-divider" aria-hidden="true" />
-          <button type="button" className="mode-toggle" aria-label={rotuloDoModo} title={rotuloDoModo} onClick={alternarModo}>
-            {modo === 'escuro' ? '☀️' : '🌙'}
-          </button>
-        </div>
+        </details>
+        <button type="button" className="icon-btn" aria-label={rotuloDoModo} title={rotuloDoModo} onClick={alternarModo}>
+          {modo === 'escuro' ? '☀️' : '🌙'}
+        </button>
+        <BotaoDePesquisa />
       </div>
     </header>
   );
