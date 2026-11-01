@@ -17,10 +17,10 @@ function resumoDaExecucao(execucao: UltimaExecucao | null): string {
   if (!execucao) return 'Vagas de tecnologia dos principais sites de emprego';
   const quando = new Date(execucao.executadaEm).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
   const comFalha = execucao.resultados
-    .filter(({ consultasComErro, totalDeConsultas }) => consultasComErro === totalDeConsultas)
+    .filter(({ consultasComErro }) => consultasComErro > 0)
     .map(({ fonte }) => NOMES_DAS_FONTES[fonte]);
   return comFalha.length
-    ? `Última pesquisa: ${quando} · sem resposta de ${comFalha.join(', ')}`
+    ? `Última pesquisa: ${quando} · resultado incompleto de ${comFalha.join(', ')}`
     : `Última pesquisa: ${quando}`;
 }
 

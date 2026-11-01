@@ -1,3 +1,5 @@
+import { FonteBloqueadaError } from '../../aplicacao/portas';
+
 const CABECALHOS = {
   'User-Agent':
     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36',
@@ -23,9 +25,13 @@ export const lerPagina: LeitorDePagina = async (url, tempoLimiteMs = TEMPO_LIMIT
         signal: AbortSignal.timeout(tempoLimiteMs),
       });
       if (resposta.ok) return await resposta.text();
+      if (resposta.status === 403 || resposta.status === 429) {
+        throw new FonteBloqueadaError(`HTTP ${resposta.status}`, resposta.status === 429);
+      }
       ultimoErro = new Error(`HTTP ${resposta.status}`);
       if (statusDefinitivo(resposta.status)) break;
     } catch (erro) {
+      if (erro instanceof FonteBloqueadaError) throw erro;
       ultimoErro = erro;
     }
     if (tentativa < MAX_TENTATIVAS) {

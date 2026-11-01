@@ -45,6 +45,13 @@ describe('criarDescritorHttp', () => {
     expect(leituras).toBe(0);
   });
 
+  it('isola a vaga que causa erro ao ser descrita', async () => {
+    const descritor = criarDescritorHttp(async () => paginaCom('<p>Ok</p>'), registro);
+    const resultado = await descritor.descrever([{ ...vaga, url: 'nao-e-uma-url' }, { ...vaga, id: 'b' }]);
+    expect(resultado.has('a')).toBe(false);
+    expect(resultado.has('b')).toBe(true);
+  });
+
   it('desiste do portal depois de duas falhas', async () => {
     let leituras = 0;
     const descritor = criarDescritorHttp(async () => {

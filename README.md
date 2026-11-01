@@ -11,12 +11,12 @@ Painel de vagas de **TI/Tecnologia** de nível de entrada e intermediário, reun
 | Catho | HTML da busca | JSON-LD da página da vaga |
 | Vagas.com | HTML da busca | JSON-LD da página da vaga |
 | Remotar | API pública | Vem na própria API |
-| Programathor | HTML da listagem (sem data de publicação) | JSON-LD da página da vaga |
 | LinkedIn | Endpoint público de visitantes | Só no site original |
 
 Ficam de fora:
 
 - **Indeed e Glassdoor:** respondem 403 a clientes automatizados, e o projeto não contorna bloqueios.
+- **Programathor:** responde 403 aos IPs do GitHub Actions.
 - **BNE:** a listagem só trazia vagas de meses atrás.
 - **Sólides, Trampos e Empregos.com.br:** não têm dados estáveis ou data de publicação na listagem.
 
@@ -25,7 +25,7 @@ Ficam de fora:
 - O `robots.txt` do **LinkedIn** proíbe esse acesso, e o site responde HTTP 429 a parte das buscas. Para desligá-lo, remova `criarFonteLinkedin` de `src/infraestrutura/fontes/index.ts`.
 - Os sites lidos por HTML podem mudar de layout sem aviso. Quando isso acontece, a fonte para de trazer vagas e o log avisa: `<fonte> não trouxe nenhuma vaga`.
 - Sites podem tratar os IPs do GitHub Actions de forma diferente de uma conexão residencial. Confira o resultado por fonte no log da execução e em `public/data/ultima_execucao.json`.
-- O Programathor não informa a data: os cards mostram "Vista em" (primeira vez que a vaga apareceu), e essas vagas ficam fora do gráfico de horários.
+- Se um site responder 403, as demais consultas dele são canceladas. Em 429, a pesquisa pausa 60 s e tenta uma vez; se continuar limitada, cancela as consultas restantes daquele site. O site mostra "resultado incompleto" no topo.
 
 ## Arquitetura
 

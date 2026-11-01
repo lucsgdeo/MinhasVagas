@@ -21,6 +21,16 @@ export interface VagaEncontrada {
   descricaoTexto?: string;
 }
 
+/** O site recusou o acesso. `temporario` indica limite de requisições, que pode passar com uma pausa. */
+export class FonteBloqueadaError extends Error {
+  constructor(
+    mensagem: string,
+    readonly temporario: boolean,
+  ) {
+    super(mensagem);
+  }
+}
+
 export interface FonteDeVagas {
   readonly id: IdFonte;
   /** False quando a página da vaga não pode ser lida para obter a descrição. */

@@ -7,8 +7,7 @@ export type IdFonte =
   | 'infojobs'
   | 'catho'
   | 'vagascom'
-  | 'remotar'
-  | 'programathor';
+  | 'remotar';
 
 export const NOMES_DAS_FONTES: Record<IdFonte, string> = {
   gupy: 'Gupy',
@@ -17,7 +16,6 @@ export const NOMES_DAS_FONTES: Record<IdFonte, string> = {
   catho: 'Catho',
   vagascom: 'Vagas.com',
   remotar: 'Remotar',
-  programathor: 'Programathor',
 };
 
 export interface Vaga {

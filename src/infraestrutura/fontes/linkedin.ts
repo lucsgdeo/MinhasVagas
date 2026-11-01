@@ -11,8 +11,8 @@ const QUATRO_DIAS = 'r345600';
 const MODALIDADE_REMOTA = '2';
 // Estágio, assistente e júnior: a busca devolve só 10 itens, e sênior seria descartado depois.
 const NIVEIS_DE_ENTRADA = '1,2,3';
-// Com 1 s entre consultas, o site respondeu HTTP 429 em 6 de 16 buscas.
-const INTERVALO_PARA_EVITAR_BLOQUEIO_MS = 6000;
+// Com 1 s e com 6 s entre consultas, o site ainda respondeu HTTP 429 em parte das buscas.
+const INTERVALO_PARA_EVITAR_BLOQUEIO_MS = 10_000;
 
 export function urlDaConsultaLinkedin(consulta: Consulta): string {
   const parametros = new URLSearchParams({

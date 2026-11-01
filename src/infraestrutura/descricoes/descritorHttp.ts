@@ -64,7 +64,12 @@ export function criarDescritorHttp(ler: LeitorDePagina, registro: Registro): Des
       const fila = [...vagas];
       const trabalhar = async () => {
         for (let vaga = fila.shift(); vaga; vaga = fila.shift()) {
-          resultado.set(vaga.id, await descrever(vaga));
+          // A descrição é um complemento: um erro nela não pode custar as vagas da pesquisa inteira.
+          try {
+            resultado.set(vaga.id, await descrever(vaga));
+          } catch (erro) {
+            registro.aviso(`Descrição de ${vaga.id} (${vaga.url}) falhou: ${String(erro)}`);
+          }
         }
       };
       await Promise.all(Array.from({ length: TRABALHADORES }, trabalhar));

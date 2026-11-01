@@ -6,7 +6,6 @@ import { dataBrasileiraParaIso, diaMesParaIso } from './datas';
 import { interpretarGupy, urlDaConsultaGupy } from './gupy';
 import { interpretarInfojobs } from './infojobs';
 import { interpretarLinkedin, urlDaConsultaLinkedin } from './linkedin';
-import { interpretarProgramathor } from './programathor';
 import { interpretarRemotar } from './remotar';
 import { interpretarVagasCom } from './vagasCom';
 
@@ -126,22 +125,6 @@ describe('Remotar', () => {
     const vagas = interpretarRemotar(json);
     expect(vagas).toHaveLength(1);
     expect(vagas[0]).toMatchObject({ empresa: 'Insi', remota: true, descricaoHtml: '<p>a</p>' });
-  });
-});
-
-describe('Programathor', () => {
-  it('leva o nível para o título e não inventa data', () => {
-    const html = `<div class="cell-list"><a href="/jobs/33-dev"><h3>Dev Mobile</h3>
-      <div class="cell-list-content-icon"><span><i class="fa fa-briefcase"></i>ACME</span>
-      <span><i class="fas fa-map-marker-alt"></i>Remoto</span>
-      <span><i class="far fa-chart-bar"></i>Sênior</span></div></a></div>`;
-    expect(interpretarProgramathor(html)[0]).toMatchObject({
-      idOriginal: '33',
-      titulo: 'Dev Mobile Sênior',
-      empresa: 'ACME',
-      remota: true,
-      publicadaEm: null,
-    });
   });
 });
 

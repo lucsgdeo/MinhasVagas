@@ -25,6 +25,7 @@ try {
   const novas = resultados.reduce((total, resultado) => total + resultado.novas, 0);
   console.log(`Total de vagas novas: ${novas}`);
 } catch (erro) {
-  console.error(`❌ ${String(erro)}`);
+  // A pilha completa é o que permite diagnosticar uma falha pelo log do GitHub Actions.
+  console.error('❌ A pesquisa falhou:', erro);
   process.exitCode = 1;
 }

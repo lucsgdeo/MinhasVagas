@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Consulta } from '../dominio/consulta';
 import type { IdFonte, UltimaExecucao, Vaga } from '../dominio/vaga';
 import { executarPesquisa, TodasAsFontesFalharamError } from './executarPesquisa';
-import type { FonteDeVagas, RepositorioDeVagas, VagaEncontrada } from './portas';
+import { FonteBloqueadaError, type FonteDeVagas, type RepositorioDeVagas, type VagaEncontrada } from './portas';
 
 const AGORA = new Date('2026-11-01T12:00:00.000Z');
 const CONSULTA: Consulta = { termo: 'dev', categoria: 'Desenvolvimento', remota: false };
@@ -82,14 +82,14 @@ describe('executarPesquisa', () => {
 
   it('usa o instante atual em vaga sem data e não a devolve depois que já foi vista', async () => {
     const primeira = repositorioEmMemoria();
-    await rodar([fonte('programathor', async () => [encontrada({ publicadaEm: null })])], primeira.repositorio);
+    await rodar([fonte('remotar', async () => [encontrada({ publicadaEm: null })])], primeira.repositorio);
     expect(primeira.salvo.vagas?.[0]).toMatchObject({
       publicadaEm: AGORA.toISOString(),
       dataEstimada: true,
     });
 
     const segunda = repositorioEmMemoria([], primeira.salvo.vistas);
-    await rodar([fonte('programathor', async () => [encontrada({ publicadaEm: null })])], segunda.repositorio);
+    await rodar([fonte('remotar', async () => [encontrada({ publicadaEm: null })])], segunda.repositorio);
     expect(segunda.salvo.vagas).toEqual([]);
   });
 
@@ -106,6 +106,58 @@ describe('executarPesquisa', () => {
     );
     expect(resultados[0]).toMatchObject({ fonte: 'linkedin', consultasComErro: 1 });
     expect(salvo.vagas).toHaveLength(1);
+  });
+
+  describe('quando o site recusa o acesso', () => {
+    const consultas = () => [CONSULTA, { ...CONSULTA, termo: 'qa' }, { ...CONSULTA, termo: 'ti' }];
+
+    it('cancela as demais consultas em bloqueio definitivo, sem pausa', async () => {
+      let chamadas = 0;
+      const bloqueada: FonteDeVagas = {
+        ...fonte('catho', async () => {
+          chamadas += 1;
+          throw new FonteBloqueadaError('HTTP 403', false);
+        }),
+        consultas,
+      };
+      const { repositorio } = repositorioEmMemoria();
+      const resultados = await rodar([bloqueada, fonte('gupy', async () => [encontrada()])], repositorio);
+      expect(chamadas).toBe(1);
+      expect(resultados[0]).toMatchObject({ consultasComErro: 3, totalDeConsultas: 3 });
+    });
+
+    it('tenta de novo uma vez após o limite de requisições e segue se passar', async () => {
+      let chamadas = 0;
+      const limitada: FonteDeVagas = {
+        ...fonte('linkedin', async () => {
+          chamadas += 1;
+          if (chamadas === 1) throw new FonteBloqueadaError('HTTP 429', true);
+          return [];
+        }),
+        consultas,
+      };
+      const { repositorio } = repositorioEmMemoria();
+      const resultados = await rodar([limitada], repositorio);
+      expect(chamadas).toBe(4);
+      expect(resultados[0]?.consultasComErro).toBe(0);
+    });
+
+    it('cancela se o limite continuar depois da pausa', async () => {
+      let chamadas = 0;
+      const limitada: FonteDeVagas = {
+        ...fonte('linkedin', async () => {
+          chamadas += 1;
+          if (chamadas > 1) throw new FonteBloqueadaError('HTTP 429', true);
+          return [encontrada()];
+        }),
+        consultas,
+      };
+      const { repositorio, salvo } = repositorioEmMemoria();
+      const resultados = await rodar([limitada], repositorio);
+      expect(chamadas).toBe(3);
+      expect(resultados[0]?.consultasComErro).toBe(2);
+      expect(salvo.vagas).toHaveLength(1);
+    });
   });
 
   it('preserva os dados quando todas as fontes falham', async () => {

@@ -11,6 +11,7 @@ import type {
   VagaEncontrada,
   VagasVistas,
 } from './portas';
+import { FonteBloqueadaError } from './portas';
 
 const DIA_EM_MS = 86_400_000;
 const MAX_DIAS_DE_PUBLICACAO = 4;
@@ -18,6 +19,7 @@ const DIAS_DE_RETENCAO_DAS_VAGAS = 7;
 // Maior que a retenção: vaga sem data não pode "renascer" assim que sai do histórico.
 const DIAS_DE_RETENCAO_DAS_VISTAS = 30;
 const INTERVALO_ENTRE_CONSULTAS_MS = 1000;
+const PAUSA_APOS_LIMITE_DE_REQUISICOES_MS = 60_000;
 
 interface Coleta {
   fonte: FonteDeVagas;
@@ -132,14 +134,34 @@ async function coletar(fonte: FonteDeVagas, dependencias: Dependencias): Promise
   for (const [indice, consulta] of consultas.entries()) {
     if (indice > 0) await espera.aguardar(fonte.intervaloEntreConsultasMs ?? INTERVALO_ENTRE_CONSULTAS_MS);
     try {
-      const vagas = await fonte.buscar(consulta);
+      const vagas = await buscarRespeitandoOLimite(fonte, consulta, espera);
       coleta.achados.push(...vagas.map((vaga) => ({ consulta, vaga })));
     } catch (erro) {
+      if (erro instanceof FonteBloqueadaError) {
+        // Insistir em um site que recusou o acesso só prolonga o bloqueio.
+        coleta.consultasComErro += consultas.length - indice;
+        registro.aviso(`${fonte.id} recusou o acesso (${erro.message}); as demais consultas foram canceladas.`);
+        break;
+      }
       coleta.consultasComErro += 1;
       registro.aviso(`${fonte.id} falhou em "${consulta.termo}": ${String(erro)}`);
     }
   }
   return coleta;
+}
+
+async function buscarRespeitandoOLimite(
+  fonte: FonteDeVagas,
+  consulta: Consulta,
+  espera: Espera,
+): Promise<VagaEncontrada[]> {
+  try {
+    return await fonte.buscar(consulta);
+  } catch (erro) {
+    if (!(erro instanceof FonteBloqueadaError && erro.temporario)) throw erro;
+    await espera.aguardar(PAUSA_APOS_LIMITE_DE_REQUISICOES_MS);
+    return fonte.buscar(consulta);
+  }
 }
 
 /** Devolve a vaga pronta para entrar no histórico, ou `null` se ela não deve entrar. */
