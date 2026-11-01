@@ -706,6 +706,28 @@
     "local": ""
   },
   {
+    "id": "linkedin-4485380742",
+    "fonte": "linkedin",
+    "titulo": "L3 Field Support",
+    "empresa": "Tata Consultancy Services",
+    "url": "https://br.linkedin.com/jobs/view/l3-field-support-at-tata-consultancy-services-4485380742",
+    "publicadaEm": "2026-10-30",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo, Brasil"
+  },
+  {
+    "id": "linkedin-4483904281",
+    "fonte": "linkedin",
+    "titulo": "Analista de Sustentação de Sistemas Híbrido – Sistema Função",
+    "empresa": "GFT Technologies",
+    "url": "https://br.linkedin.com/jobs/view/analista-de-sustenta%C3%A7%C3%A3o-de-sistemas-h%C3%ADbrido-%E2%80%93-sistema-fun%C3%A7%C3%A3o-%09-at-gft-technologies-4483904281",
+    "publicadaEm": "2026-10-30",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo, Brasil"
+  },
+  {
     "id": "remotar-168794",
     "fonte": "remotar",
     "titulo": "Analista de QA",
@@ -1023,6 +1045,17 @@
     "categoria": "Desenvolvimento",
     "remota": false,
     "local": "São Paulo - SP"
+  },
+  {
+    "id": "linkedin-4483093195",
+    "fonte": "linkedin",
+    "titulo": "Analista de suporte",
+    "empresa": "Emphasys IT Services",
+    "url": "https://br.linkedin.com/jobs/view/analista-de-suporte-at-emphasys-it-services-4483093195",
+    "publicadaEm": "2026-10-29",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo, Brasil"
   },
   {
     "id": "remotar-168662",
