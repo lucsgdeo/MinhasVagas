@@ -1,0 +1,47 @@
+{
+  "executadaEm": "2026-11-01T18:59:26.257Z",
+  "resultados": [
+    {
+      "fonte": "gupy",
+      "encontradas": 1146,
+      "novas": 0,
+      "consultasComErro": 0,
+      "totalDeConsultas": 28
+    },
+    {
+      "fonte": "infojobs",
+      "encontradas": 160,
+      "novas": 15,
+      "consultasComErro": 0,
+      "totalDeConsultas": 8
+    },
+    {
+      "fonte": "catho",
+      "encontradas": 160,
+      "novas": 9,
+      "consultasComErro": 0,
+      "totalDeConsultas": 8
+    },
+    {
+      "fonte": "vagascom",
+      "encontradas": 79,
+      "novas": 2,
+      "consultasComErro": 0,
+      "totalDeConsultas": 8
+    },
+    {
+      "fonte": "remotar",
+      "encontradas": 360,
+      "novas": 46,
+      "consultasComErro": 0,
+      "totalDeConsultas": 8
+    },
+    {
+      "fonte": "linkedin",
+      "encontradas": 0,
+      "novas": 0,
+      "consultasComErro": 16,
+      "totalDeConsultas": 16
+    }
+  ]
+}

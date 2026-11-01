@@ -1,5 +1,172 @@
 [
   {
+    "id": "vagascom-2841065",
+    "fonte": "vagascom",
+    "titulo": "Assistente de Tecnologia da Informação",
+    "empresa": "Confidencial",
+    "url": "https://www.vagas.com.br/vagas/v2841065/assistente-de-tecnologia-da-informacao",
+    "publicadaEm": "2026-11-01T18:59:26.257Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo / SP",
+    "dataEstimada": true
+  },
+  {
+    "id": "vagascom-2841588",
+    "fonte": "vagascom",
+    "titulo": "Grupo Fleury - Analista de Suporte Júnior",
+    "empresa": "Grupo Fleury",
+    "url": "https://www.vagas.com.br/vagas/v2841588/grupo-fleury-analista-de-suporte-junior",
+    "publicadaEm": "2026-11-01T18:59:26.257Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo / SP",
+    "dataEstimada": true
+  },
+  {
+    "id": "remotar-169467",
+    "fonte": "remotar",
+    "titulo": "Workday Integration Support Analyst (inglês avançado)",
+    "empresa": "Insi",
+    "url": "https://insi.jobs.recrut.ai/careers/job/FNZC8R?utm_source=remotar",
+    "publicadaEm": "2026-10-31T21:20:23.972-03:00",
+    "categoria": "Suporte",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169463",
+    "fonte": "remotar",
+    "titulo": "Salesforce Business Analyst (Inglês Avançado)",
+    "empresa": "Insi",
+    "url": "https://insi.jobs.recrut.ai/careers/job/HKBPYJ?utm_source=remotar",
+    "publicadaEm": "2026-10-31T21:17:41.251-03:00",
+    "categoria": "Suporte",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169461",
+    "fonte": "remotar",
+    "titulo": "QA Salesforce (Inglês Avançado)",
+    "empresa": "Insi",
+    "url": "https://insi.jobs.recrut.ai/careers/job/BYW5J3?utm_source=remotar",
+    "publicadaEm": "2026-10-31T21:15:55.197-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169453",
+    "fonte": "remotar",
+    "titulo": "Data Engineer GCP (inglês avançado)",
+    "empresa": "Insi",
+    "url": "https://insi.jobs.recrut.ai/careers/job/2JSLRI?utm_source=remotar",
+    "publicadaEm": "2026-10-31T20:58:20.555-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169449",
+    "fonte": "remotar",
+    "titulo": "Desenvolvedor(a) Frontend (React / React Native)",
+    "empresa": "Insi",
+    "url": "https://insi.jobs.recrut.ai/vagas/job/O3HAL6?utm_source=remotar",
+    "publicadaEm": "2026-10-31T20:55:42.310-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169447",
+    "fonte": "remotar",
+    "titulo": "Pessoa Arquiteto de Soluções e Adoção de IA",
+    "empresa": "Datum TI",
+    "url": "https://datum.jobs.recrut.ai/job/NEI1TI?utm_source=remotar",
+    "publicadaEm": "2026-10-31T20:52:16.075-03:00",
+    "categoria": "TI",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169433",
+    "fonte": "remotar",
+    "titulo": "Junior Forward Deployed Data & Analytics Specialist",
+    "empresa": "JOPY",
+    "url": "https://jobs.quickin.io/joynrh/jobs/6ae29cb35746520013149763?utm_source=remotar",
+    "publicadaEm": "2026-10-31T18:00:14.805-03:00",
+    "categoria": "Suporte",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169431",
+    "fonte": "remotar",
+    "titulo": "AI Solutions Specialist",
+    "empresa": "JOPY",
+    "url": "https://jobs.quickin.io/joynrh/jobs/6ae11cd71e439700133a0e9e?utm_source=remotar",
+    "publicadaEm": "2026-10-31T17:56:28.138-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169401",
+    "fonte": "remotar",
+    "titulo": "Analista de Testes /QA",
+    "empresa": "Supernova",
+    "url": "https://oportunidades.mindsight.com.br/supernova/75?utm_source=remotar",
+    "publicadaEm": "2026-10-31T13:25:48.990-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169396",
+    "fonte": "remotar",
+    "titulo": "Analista de Suporte / Infraestrutura Bilíngue (N2)",
+    "empresa": "CSP Tech",
+    "url": "https://csptech.inhire.app/vagas/d301c818-2be3-4ba5-8bbc-cf3ed1b23da6/analista-de-suporte-infraestrutura-bilingue-n2",
+    "publicadaEm": "2026-10-31T12:45:20.176-03:00",
+    "categoria": "Outras",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169390",
+    "fonte": "remotar",
+    "titulo": "Arquiteto(a) de Pré-Vendas | Dados, Analytics & IA",
+    "empresa": "Dadoteca",
+    "url": "https://www.linkedin.com/jobs/view/4473488760/?utm_source=remotar",
+    "publicadaEm": "2026-10-31T08:55:14.549-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "infojobs-12176064",
+    "fonte": "infojobs",
+    "titulo": "Analista De QA",
+    "empresa": "PAPJR RECURSOS HUMANOS",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-qa-em-sao-paulo__12176064.aspx",
+    "publicadaEm": "2026-10-31T04:21:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "remotar-169358",
+    "fonte": "remotar",
+    "titulo": "Analista de Implantação (ERP) – Onboarding de Clientes",
+    "empresa": "MK Solutions",
+    "url": "https://mksolutions.inhire.app/vagas/244c7f64-533f-4c83-b6d2-dd75f6c10cfe/analista-de-implantacao-erp-onboarding-de-clientes",
+    "publicadaEm": "2026-10-30T20:41:45.662-03:00",
+    "categoria": "TI",
+    "remota": true,
+    "local": ""
+  },
+  {
     "id": "gupy-12816323",
     "fonte": "gupy",
     "titulo": "Software Engineer Backend (.Net/React)",
@@ -8,17 +175,6 @@
     "publicadaEm": "2026-10-30T20:36:27.492Z",
     "categoria": "Desenvolvimento",
     "remota": true,
-    "local": ""
-  },
-  {
-    "id": "gupy-12784201",
-    "fonte": "gupy",
-    "titulo": "Assistente Suporte Vendas",
-    "empresa": "CVC Corp",
-    "url": "https://cvccorp.gupy.io/job/eyJqb2JJZCI6MTI3ODQyMDEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T20:28:27.607Z",
-    "categoria": "Suporte",
-    "remota": false,
     "local": ""
   },
   {
@@ -33,17 +189,6 @@
     "local": ""
   },
   {
-    "id": "gupy-12816525",
-    "fonte": "gupy",
-    "titulo": "Estágio - Curadoria",
-    "empresa": "Museu de Arte de São Paulo Assis Chateaubriand - MASP",
-    "url": "https://masp.gupy.io/job/eyJqb2JJZCI6MTI4MTY1MjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T20:08:49.557Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
     "id": "gupy-12816326",
     "fonte": "gupy",
     "titulo": "ANALISTA DE SERVICE DESK JR - BILÍNGUE",
@@ -52,50 +197,6 @@
     "publicadaEm": "2026-10-30T19:47:59.821Z",
     "categoria": "Outras",
     "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12816188",
-    "fonte": "gupy",
-    "titulo": "Nube | Oportunidade de Estágio na Área Administrativa - 384579",
-    "empresa": "Nube - Vagas",
-    "url": "https://nubevagasefetivas.gupy.io/job/eyJqb2JJZCI6MTI4MTYxODgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T19:31:34.569Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12816100",
-    "fonte": "gupy",
-    "titulo": "TÉCNICO(A) DE MANUTENÇÃO EM SISTEMAS DE ENERGIA",
-    "empresa": "Trivia Trens",
-    "url": "https://triviatrens.gupy.io/job/eyJqb2JJZCI6MTI4MTYxMDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T19:29:25.136Z",
-    "categoria": "Desenvolvimento",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12816069",
-    "fonte": "gupy",
-    "titulo": "Nube | Oportunidade de Estágio em Atendimento ao Cliente - 356080",
-    "empresa": "Nube - Vagas",
-    "url": "https://nubevagasefetivas.gupy.io/job/eyJqb2JJZCI6MTI4MTYwNjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T19:17:57.844Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12814560",
-    "fonte": "gupy",
-    "titulo": "Estágio em Mídias Sociais | CRM | Remoto",
-    "empresa": "Elifegroup",
-    "url": "https://elife.gupy.io/job/eyJqb2JJZCI6MTI4MTQ1NjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T19:09:09.613Z",
-    "categoria": "Estágio",
-    "remota": true,
     "local": ""
   },
   {
@@ -132,14 +233,69 @@
     "local": ""
   },
   {
-    "id": "gupy-12794340",
-    "fonte": "gupy",
-    "titulo": "Estágio em Planejamento (Controle de Custos) | São Paulo/SP",
-    "empresa": "Geração Cyrela",
-    "url": "https://geracaocyrela.gupy.io/job/eyJqb2JJZCI6MTI3OTQzNDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T16:38:42.014Z",
-    "categoria": "Estágio",
-    "remota": false,
+    "id": "remotar-169258",
+    "fonte": "remotar",
+    "titulo": "Desenvolvedor(a) de Dashboards e Soluções Copilot (Power BI) |",
+    "empresa": "Pantheon",
+    "url": "https://pantheon.inhire.app/vagas/3cb298d8-948f-4c20-8683-adac87880a7d/desenvolvedora-de-dashboards-e-solucoes-copilot-power-bi-or",
+    "publicadaEm": "2026-10-30T16:40:57.784-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169257",
+    "fonte": "remotar",
+    "titulo": "Software Engineer, DevOps",
+    "empresa": "Atria Health and Research Institute",
+    "url": "https://apply.workable.com/atria-health/j/9B48F62113/?utm_source=remotar",
+    "publicadaEm": "2026-10-30T16:40:46.725-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169218",
+    "fonte": "remotar",
+    "titulo": "AI Engineer",
+    "empresa": "Reflow",
+    "url": "https://jobs.ashbyhq.com/reflow/cd4b3752-b07d-4c33-acb3-169a3562d71a/application?utm_source=remotar",
+    "publicadaEm": "2026-10-30T16:22:29.745-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169216",
+    "fonte": "remotar",
+    "titulo": "DevOps & Security Engineer",
+    "empresa": "Reflow",
+    "url": "https://jobs.ashbyhq.com/reflow/1ca2e414-f45f-48ff-89ce-4249b2f92a32/application?utm_source=remotar",
+    "publicadaEm": "2026-10-30T16:21:47.017-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169195",
+    "fonte": "remotar",
+    "titulo": "AI Platform Engineer",
+    "empresa": "Curotec",
+    "url": "https://curotec.recruitee.com/o/ai-platform-engineer-1?utm_source=remotar",
+    "publicadaEm": "2026-10-30T16:02:09.869-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169194",
+    "fonte": "remotar",
+    "titulo": "Work From Home Azure DevOps Engineer (Terraform) / Ref. 1116E",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/1116/302522/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=Remote-20261030",
+    "publicadaEm": "2026-10-30T16:01:55.942-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
@@ -154,6 +310,94 @@
     "local": ""
   },
   {
+    "id": "infojobs-12173304",
+    "fonte": "infojobs",
+    "titulo": "Analista Help Desk",
+    "empresa": "Empresa confidencial",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-help-desk-em-sao-paulo__12173304.aspx",
+    "publicadaEm": "2026-10-30T15:11:00.000Z",
+    "categoria": "Outras",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "catho-39057453",
+    "fonte": "catho",
+    "titulo": "Assistente de TI",
+    "empresa": "Empresa Confidencial",
+    "url": "https://www.catho.com.br/vagas/assistente-de-ti/39057453",
+    "publicadaEm": "2026-10-30T15:00:00.000Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-39062284",
+    "fonte": "catho",
+    "titulo": "Estágio em TI Service Desk e Infraestrutura",
+    "empresa": "INTERPLAYERS",
+    "url": "https://www.catho.com.br/vagas/estagio-em-ti-service-desk-e-infraestrutura/39062284",
+    "publicadaEm": "2026-10-30T15:00:00.000Z",
+    "categoria": "Estágio",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-39057405",
+    "fonte": "catho",
+    "titulo": "Técnico de Suporte",
+    "empresa": "V2 LOCADORA",
+    "url": "https://www.catho.com.br/vagas/tecnico-de-suporte/39057405",
+    "publicadaEm": "2026-10-30T15:00:00.000Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-39060193",
+    "fonte": "catho",
+    "titulo": "Estágio na área da Qualidade- Engenharia, Tecnologia ou Farmácia",
+    "empresa": "Empresa de engenharia",
+    "url": "https://www.catho.com.br/vagas/estagio-na-area-da-qualidade-engenharia-tecnologia-ou-farmacia/39060193",
+    "publicadaEm": "2026-10-30T15:00:00.000Z",
+    "categoria": "Estágio",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-38734366",
+    "fonte": "catho",
+    "titulo": "Analista de Sistemas",
+    "empresa": "Tecla T",
+    "url": "https://www.catho.com.br/vagas/analista-de-sistemas/38734366",
+    "publicadaEm": "2026-10-30T15:00:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-38651449",
+    "fonte": "catho",
+    "titulo": "Analista de Sistemas JR",
+    "empresa": "ARGOS GLOBAL PARTNER SERVICES",
+    "url": "https://www.catho.com.br/vagas/analista-de-sistemas-jr/38651449",
+    "publicadaEm": "2026-10-30T15:00:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "infojobs-12173212",
+    "fonte": "infojobs",
+    "titulo": "Atendente Suporte",
+    "empresa": "Empresa confidencial",
+    "url": "https://www.infojobs.com.br/vaga-de-atendente-suporte-em-sao-paulo__12173212.aspx",
+    "publicadaEm": "2026-10-30T14:54:00.000Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
     "id": "gupy-12811933",
     "fonte": "gupy",
     "titulo": "Técnico de Suporte Jr",
@@ -163,6 +407,17 @@
     "categoria": "Suporte",
     "remota": false,
     "local": ""
+  },
+  {
+    "id": "infojobs-12173095",
+    "fonte": "infojobs",
+    "titulo": "Técnico De Help Desk",
+    "empresa": "Empresa confidencial",
+    "url": "https://www.infojobs.com.br/vaga-de-tecnico-help-desk-em-sao-paulo__12173095.aspx",
+    "publicadaEm": "2026-10-30T14:35:00.000Z",
+    "categoria": "Outras",
+    "remota": false,
+    "local": "São Paulo - SP"
   },
   {
     "id": "gupy-12799407",
@@ -176,25 +431,113 @@
     "local": ""
   },
   {
-    "id": "gupy-12810817",
-    "fonte": "gupy",
-    "titulo": "Mafra | Suporte Comercial | São Paulo",
-    "empresa": "Viveo",
-    "url": "https://viveo.gupy.io/job/eyJqb2JJZCI6MTI4MTA4MTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T13:29:21.026Z",
-    "categoria": "Suporte",
-    "remota": false,
+    "id": "remotar-169116",
+    "fonte": "remotar",
+    "titulo": "Work From Home Salesforce Release Administrator",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/117/304260/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T13:41:44.003-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
-    "id": "gupy-12810982",
-    "fonte": "gupy",
-    "titulo": "Estagiário(a) de Planejamento & Performance | Operações e Indicadores",
-    "empresa": "Cinemark Brasil",
-    "url": "https://cinemark.gupy.io/job/eyJqb2JJZCI6MTI4MTA5ODIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-30T12:50:01.599Z",
-    "categoria": "Estágio",
+    "id": "infojobs-12172679",
+    "fonte": "infojobs",
+    "titulo": "Analista De TI",
+    "empresa": "Empresa confidencial",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-ti-em-sao-paulo__12172679.aspx",
+    "publicadaEm": "2026-10-30T13:34:00.000Z",
+    "categoria": "TI",
     "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "remotar-169109",
+    "fonte": "remotar",
+    "titulo": "Desenvolvedor(a) VTEX/IO",
+    "empresa": "Skelt Beauty Brands",
+    "url": "https://skeltbeautybrands.vagas.solides.com.br/vaga/939392?origem=remotar",
+    "publicadaEm": "2026-10-30T13:27:35.497-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169104",
+    "fonte": "remotar",
+    "titulo": "Pessoa Desenvolvedora Full Stack - Go (Golang e React)",
+    "empresa": "MK Solutions",
+    "url": "https://mksolutions.inhire.app/vagas/2e7a943b-1c1a-4c13-8582-04af3e3e14cd/pessoa-desenvolvedora-full-stack-go-golang-e-react",
+    "publicadaEm": "2026-10-30T13:24:09.809-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169101",
+    "fonte": "remotar",
+    "titulo": "Work From Home Terraform DevOps Engineer",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/262/303059/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=-20261030",
+    "publicadaEm": "2026-10-30T13:21:17.808-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169100",
+    "fonte": "remotar",
+    "titulo": "Work From Home Salesforce Engineer",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/102/302053/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T13:20:47.109-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169098",
+    "fonte": "remotar",
+    "titulo": "Work From Home Terraform Cloud Engineer (Azure)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/1116/302523/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=-20261030",
+    "publicadaEm": "2026-10-30T13:19:59.380-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169080",
+    "fonte": "remotar",
+    "titulo": "Work From Home Release Engineer (Java & Spinnaker)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/3/289558/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T13:07:40.034-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169079",
+    "fonte": "remotar",
+    "titulo": "Work From Home Release Engineer (Horde & Build Acceleration)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/117/304267/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T13:06:38.058-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-169069",
+    "fonte": "remotar",
+    "titulo": "Work From Home Python Release Engineer",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/117/304272/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T13:02:04.044-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
@@ -209,6 +552,72 @@
     "local": ""
   },
   {
+    "id": "remotar-168957",
+    "fonte": "remotar",
+    "titulo": "Work From Home Offensive Security Engineer (DAST & Penetration Testing)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/117/305615/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T12:08:02.327-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168952",
+    "fonte": "remotar",
+    "titulo": "Work From Home MLOps Engineer (Python)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/1205/303063/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T11:58:43.236-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168938",
+    "fonte": "remotar",
+    "titulo": "Work From Home Kubernetes DevOps Engineer",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/240/302508/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T11:37:59.050-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168933",
+    "fonte": "remotar",
+    "titulo": "Work From Home Java CI/CD Engineer (Spinnaker)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/3/304310/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T11:32:30.821-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168930",
+    "fonte": "remotar",
+    "titulo": "Work From Home Infrastructure Automation Engineer",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/682/304247/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T11:30:15.247-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168929",
+    "fonte": "remotar",
+    "titulo": "Work From Home Infrastructure as Code Engineer (Terraform)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/262/303060/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T11:29:38.264-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
+    "local": ""
+  },
+  {
     "id": "gupy-12810273",
     "fonte": "gupy",
     "titulo": "ANALISTA DE ATENDIMENTO TI I",
@@ -220,69 +629,91 @@
     "local": ""
   },
   {
-    "id": "gupy-12807343",
-    "fonte": "gupy",
-    "titulo": "Nube - Oportunidade de Estágio em Manutenção - 387513",
-    "empresa": "Nube - Vagas",
-    "url": "https://nubevagasefetivas.gupy.io/job/eyJqb2JJZCI6MTI4MDczNDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T19:40:54.873Z",
-    "categoria": "Estágio",
-    "remota": false,
+    "id": "remotar-168884",
+    "fonte": "remotar",
+    "titulo": "Work From Home DevOps Engineer",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/121/302047/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T10:14:54.083-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
-    "id": "gupy-12807108",
-    "fonte": "gupy",
-    "titulo": "Estagiário(a) de People Analytics",
-    "empresa": "RD Saúde",
-    "url": "https://rdsaude-corporativo.gupy.io/job/eyJqb2JJZCI6MTI4MDcxMDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T19:17:15.215Z",
-    "categoria": "Estágio",
-    "remota": false,
+    "id": "remotar-168883",
+    "fonte": "remotar",
+    "titulo": "Work From Home DevOps Engineer (Terraform & CI/CD)",
+    "empresa": "BairesDev",
+    "url": "https://applicants.bairesdev.com/job/682/304246/apply?utm_source=remotar&utm_medium=jobposting&utm_campaign=RiodeJaneiro,Brazil-20261030",
+    "publicadaEm": "2026-10-30T10:14:17.855-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
-    "id": "gupy-12806120",
-    "fonte": "gupy",
-    "titulo": "Estágio de Nutrição | Cozinha Delivery - Pinheiros",
-    "empresa": "OVAL - VAGAS",
-    "url": "https://oval.gupy.io/job/eyJqb2JJZCI6MTI4MDYxMjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T18:31:57.305Z",
+    "id": "infojobs-12175225",
+    "fonte": "infojobs",
+    "titulo": "Estágio Em TI | Service Desk E Infraestrutura",
+    "empresa": "Interplayers Solucoes Integradas SA",
+    "url": "https://www.infojobs.com.br/vaga-de-estagio-ti-service-desk-infraestrutura-em-sao-paulo__12175225.aspx",
+    "publicadaEm": "2026-10-30T08:11:00.000Z",
     "categoria": "Estágio",
     "remota": false,
-    "local": ""
+    "local": "São Paulo - SP"
   },
   {
-    "id": "gupy-12781952",
-    "fonte": "gupy",
-    "titulo": "Analista de Importação Junior - Suporte ao cliente",
-    "empresa": "VAGAS CONFIDENCIAIS",
-    "url": "https://vagasconfi.gupy.io/job/eyJqb2JJZCI6MTI3ODE5NTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T18:31:47.615Z",
+    "id": "infojobs-12126915",
+    "fonte": "infojobs",
+    "titulo": "Técnico De Suporte N1 Jr.",
+    "empresa": "Penso",
+    "url": "https://www.infojobs.com.br/vaga-de-tecnico-suporte-n1-jr-em-sao-paulo__12126915.aspx",
+    "publicadaEm": "2026-10-30T08:02:00.000Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "infojobs-12174730",
+    "fonte": "infojobs",
+    "titulo": "Técnico (A) De Monitoramento - Zabbix",
+    "empresa": "Empresa confidencial",
+    "url": "https://www.infojobs.com.br/vaga-de-tecnico-monitoramento-zabbix-em-sao-paulo__12174730.aspx",
+    "publicadaEm": "2026-10-30T07:21:00.000Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "remotar-168860",
+    "fonte": "remotar",
+    "titulo": "Analista de Comunidade & Suporte",
+    "empresa": "Soso",
+    "url": "https://www.sosoapp.com.br/pt-br/vagas/analista-de-comunidade-e-suporte?utm_source=remotar",
+    "publicadaEm": "2026-10-30T00:15:25.967-03:00",
     "categoria": "Suporte",
     "remota": true,
     "local": ""
   },
   {
-    "id": "gupy-12805049",
-    "fonte": "gupy",
-    "titulo": "Estágio em Assessoria de Imprensa (PR)",
-    "empresa": "Fundação Cásper Líbero",
-    "url": "https://fcl.gupy.io/job/eyJqb2JJZCI6MTI4MDUwNDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T18:10:18.270Z",
-    "categoria": "Estágio",
-    "remota": false,
+    "id": "remotar-168857",
+    "fonte": "remotar",
+    "titulo": "Microsoft Dynamics 365 Contact Center (L2 Support & Administration)",
+    "empresa": "Marlabs",
+    "url": "https://www.marlabs.com/pt-br/vaga?id=870&utm_source=remotar",
+    "publicadaEm": "2026-10-30T00:03:37.953-03:00",
+    "categoria": "Suporte",
+    "remota": true,
     "local": ""
   },
   {
-    "id": "gupy-12805882",
-    "fonte": "gupy",
-    "titulo": "Agente Comercial e Suporte-Escriturário | São Bernardo do Campo/SP",
-    "empresa": "Faça parte do time Mercantil",
-    "url": "https://mercantil.gupy.io/job/eyJqb2JJZCI6MTI4MDU4ODIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T17:38:00.486Z",
-    "categoria": "Suporte",
-    "remota": false,
+    "id": "remotar-168794",
+    "fonte": "remotar",
+    "titulo": "Analista de QA",
+    "empresa": "Giro.Tech",
+    "url": "https://girotech.gupy.io/job/eyJqb2JJZCI6MTI4MDQyNzcsInNvdXJjZSI6InJlbW90YXIifQ==?jobBoardSource=remotar",
+    "publicadaEm": "2026-10-29T18:03:56.279-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
@@ -294,6 +725,39 @@
     "publicadaEm": "2026-10-29T17:25:39.340Z",
     "categoria": "TI",
     "remota": false,
+    "local": ""
+  },
+  {
+    "id": "remotar-168776",
+    "fonte": "remotar",
+    "titulo": "Paid Media Support",
+    "empresa": "Marlabs",
+    "url": "https://www.marlabs.com/pt-br/vaga?id=869&utm_source=remotar",
+    "publicadaEm": "2026-10-29T16:51:48.489-03:00",
+    "categoria": "Suporte",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168759",
+    "fonte": "remotar",
+    "titulo": "Analista de Dados",
+    "empresa": "Tech6 Group",
+    "url": "https://tech6group.inhire.app/vagas/a32cf976-1c5a-4f8f-b9f9-e68700305e1f/analista-de-dados",
+    "publicadaEm": "2026-10-29T16:40:02.526-03:00",
+    "categoria": "TI",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168757",
+    "fonte": "remotar",
+    "titulo": "Desenvolvedor GIS Smallworld Magik",
+    "empresa": "Semantix",
+    "url": "https://carreiras-semantix.inhire.app/vagas/9e536428-ed40-4c72-8174-e2d878ae5359/desenvolvedor-gis-smallworld-magik",
+    "publicadaEm": "2026-10-29T16:39:35.540-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
@@ -352,15 +816,37 @@
     "local": ""
   },
   {
-    "id": "gupy-12804495",
-    "fonte": "gupy",
-    "titulo": "Estagiário em Portfólio de Crédito",
-    "empresa": "BANCO INDUSTRIAL DO BRASIL",
-    "url": "https://bib.gupy.io/job/eyJqb2JJZCI6MTI4MDQ0OTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T14:28:36.138Z",
+    "id": "catho-39042885",
+    "fonte": "catho",
+    "titulo": "Estágio em TI (Sustentação)",
+    "empresa": "INTERPLAYERS",
+    "url": "https://www.catho.com.br/vagas/estagio-em-ti-sustentacao/39042885",
+    "publicadaEm": "2026-10-29T15:00:00.000Z",
     "categoria": "Estágio",
     "remota": false,
-    "local": ""
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-39042910",
+    "fonte": "catho",
+    "titulo": "Estagiario TI",
+    "empresa": "Empresa Confidencial",
+    "url": "https://www.catho.com.br/vagas/estagiario-ti/39042910",
+    "publicadaEm": "2026-10-29T15:00:00.000Z",
+    "categoria": "Estágio",
+    "remota": false,
+    "local": "São Paulo"
+  },
+  {
+    "id": "catho-39035188",
+    "fonte": "catho",
+    "titulo": "Help Desk",
+    "empresa": "Empresa Confidencial",
+    "url": "https://www.catho.com.br/vagas/help-desk/39035188",
+    "publicadaEm": "2026-10-29T15:00:00.000Z",
+    "categoria": "Outras",
+    "remota": false,
+    "local": "São Paulo"
   },
   {
     "id": "gupy-12666454",
@@ -396,6 +882,28 @@
     "local": ""
   },
   {
+    "id": "remotar-168724",
+    "fonte": "remotar",
+    "titulo": "Analista de Suporte Nível 1 e Nível 2",
+    "empresa": "THERA CONSULTING",
+    "url": "https://jobs.recrutei.com.br/thera-consulting/vacancy/163568-analista-de-suporte-nivel-1-e-nivel-2?utm_source=remotar",
+    "publicadaEm": "2026-10-29T14:00:31.684-03:00",
+    "categoria": "Suporte",
+    "remota": true,
+    "local": ""
+  },
+  {
+    "id": "remotar-168723",
+    "fonte": "remotar",
+    "titulo": "Consultor SAP CPQ/Vendavo",
+    "empresa": "THERA CONSULTING",
+    "url": "https://jobs.recrutei.com.br/thera-consulting/vacancy/163574-consultor-sap-cpqvendavo?utm_source=remotar",
+    "publicadaEm": "2026-10-29T14:00:18.431-03:00",
+    "categoria": "Suporte",
+    "remota": true,
+    "local": ""
+  },
+  {
     "id": "gupy-12783125",
     "fonte": "gupy",
     "titulo": "Atendimento - Suporte Helpper",
@@ -418,14 +926,14 @@
     "local": ""
   },
   {
-    "id": "gupy-12802180",
-    "fonte": "gupy",
-    "titulo": "Banco de Talentos | Estágio de Verão",
-    "empresa": "Grupo Yamaha Brasil",
-    "url": "https://yamaha.gupy.io/job/eyJqb2JJZCI6MTI4MDIxODAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T12:58:15.109Z",
-    "categoria": "Estágio",
-    "remota": false,
+    "id": "remotar-168696",
+    "fonte": "remotar",
+    "titulo": "Application Change Management Engineer",
+    "empresa": "Pantheon",
+    "url": "https://pantheon.inhire.app/vagas/3d5b6b54-6360-4498-aefa-b75bce50cffb/application-change-management-engineer",
+    "publicadaEm": "2026-10-29T12:34:18.912-03:00",
+    "categoria": "Desenvolvimento",
+    "remota": true,
     "local": ""
   },
   {
@@ -440,58 +948,102 @@
     "local": ""
   },
   {
-    "id": "gupy-12624445",
-    "fonte": "gupy",
-    "titulo": "ESTAGIARIO DE PRECIFICAÇÃO | ITAIM BIBI, SP.",
-    "empresa": "Movida Aluguel de Carros",
-    "url": "https://movida.gupy.io/job/eyJqb2JJZCI6MTI2MjQ0NDUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-29T11:53:57.809Z",
-    "categoria": "Estágio",
+    "id": "infojobs-11949009",
+    "fonte": "infojobs",
+    "titulo": "Analista Desenvolvedor ADVPL",
+    "empresa": "SAFETY GESTAO E SERVICOS EMPRESARIAIS",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-desenvolvedor-advpl-em-sao-paulo__11949009.aspx",
+    "publicadaEm": "2026-10-29T12:03:00.000Z",
+    "categoria": "Desenvolvimento",
     "remota": false,
+    "local": "São Bernardo do Campo - SP"
+  },
+  {
+    "id": "infojobs-12171253",
+    "fonte": "infojobs",
+    "titulo": "Analista De Sistemas / Negócios - JUNIOR / PLENO",
+    "empresa": "GALILEU SISTEMAS",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-sistemas-negocios-junior-pleno-em-sao-paulo__12171253.aspx",
+    "publicadaEm": "2026-10-29T09:03:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "infojobs-12167295",
+    "fonte": "infojobs",
+    "titulo": "Desenvolvedor .NET",
+    "empresa": "Detsoft",
+    "url": "https://www.infojobs.com.br/vaga-de-desenvolvedor-net-em-sao-paulo__12167295.aspx",
+    "publicadaEm": "2026-10-29T08:24:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "infojobs-11842164",
+    "fonte": "infojobs",
+    "titulo": "Analista De Help Desk Jr.",
+    "empresa": "BM Vagas",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-help-desk-jr-em-sao-paulo__11842164.aspx",
+    "publicadaEm": "2026-10-29T07:23:00.000Z",
+    "categoria": "Outras",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "infojobs-12167285",
+    "fonte": "infojobs",
+    "titulo": "Técnico De Suporte",
+    "empresa": "3AM IT Services",
+    "url": "https://www.infojobs.com.br/vaga-de-tecnico-suporte-em-sao-paulo__12167285.aspx",
+    "publicadaEm": "2026-10-29T07:02:00.000Z",
+    "categoria": "Suporte",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "infojobs-12129929",
+    "fonte": "infojobs",
+    "titulo": "Analista De Projetos De Tecnologia E Sistemas",
+    "empresa": "Empresa confidencial",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-projetos-tecnologia-sistemas-em-sao-paulo__12129929.aspx",
+    "publicadaEm": "2026-10-29T06:33:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "infojobs-12144724",
+    "fonte": "infojobs",
+    "titulo": "ANALISTA CONTÁBIL - SISTEMA PROTHEUS",
+    "empresa": "Confirp Contabilidade",
+    "url": "https://www.infojobs.com.br/vaga-de-analista-contabil-sistema-protheus-em-sao-paulo__12144724.aspx",
+    "publicadaEm": "2026-10-29T06:03:00.000Z",
+    "categoria": "Desenvolvimento",
+    "remota": false,
+    "local": "São Paulo - SP"
+  },
+  {
+    "id": "remotar-168662",
+    "fonte": "remotar",
+    "titulo": "Consultor de Soluções Digitais | Genesys Cloud CX",
+    "empresa": "Stefanini Group",
+    "url": "https://stefanini.gupy.io/job/eyJqb2JJZCI6MTI2OTU0NDUsInNvdXJjZSI6InJlbW90YXIifQ==?jobBoardSource=remotar",
+    "publicadaEm": "2026-10-28T21:57:44.196-03:00",
+    "categoria": "Outras",
+    "remota": true,
     "local": ""
   },
   {
-    "id": "gupy-12799945",
-    "fonte": "gupy",
-    "titulo": "Estagiária(o) de Implantação",
-    "empresa": "Finnet",
-    "url": "https://finnet.gupy.io/job/eyJqb2JJZCI6MTI3OTk5NDUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T20:18:15.703Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12686976",
-    "fonte": "gupy",
-    "titulo": "ESTAGIÁRIO DE CUSTOS",
-    "empresa": "Even Construtora e Incorporadora",
-    "url": "https://sejaeven.gupy.io/job/eyJqb2JJZCI6MTI2ODY5NzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T20:12:48.491Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12799893",
-    "fonte": "gupy",
-    "titulo": "Estagiária(o) de Operações | Onboarding",
-    "empresa": "Finnet",
-    "url": "https://finnet.gupy.io/job/eyJqb2JJZCI6MTI3OTk4OTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T20:11:00.803Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12753692",
-    "fonte": "gupy",
-    "titulo": "Estágio em Processos - SP",
-    "empresa": "Valid",
-    "url": "https://validcarreiras-jovenstalentos.gupy.io/job/eyJqb2JJZCI6MTI3NTM2OTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T19:54:20.849Z",
-    "categoria": "Estágio",
-    "remota": false,
+    "id": "remotar-168632",
+    "fonte": "remotar",
+    "titulo": "Analista de Suporte N1 e N2",
+    "empresa": "Jump",
+    "url": "https://jump.inhire.app/vagas/1660858c-5486-4d0b-ba96-1faad050f420/analista-de-suporte-n1-e-n2",
+    "publicadaEm": "2026-10-28T20:30:45.357-03:00",
+    "categoria": "Suporte",
+    "remota": true,
     "local": ""
   },
   {
@@ -502,17 +1054,6 @@
     "url": "https://rocontec.gupy.io/job/eyJqb2JJZCI6MTI4MDExNDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
     "publicadaEm": "2026-10-28T19:51:43.364Z",
     "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12787509",
-    "fonte": "gupy",
-    "titulo": "Encarregado III - Sistemas Complexos - ETE São Miguel",
-    "empresa": "Sabesp",
-    "url": "https://vemprasabesp.gupy.io/job/eyJqb2JJZCI6MTI3ODc1MDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T19:42:39.960Z",
-    "categoria": "Desenvolvimento",
     "remota": false,
     "local": ""
   },
@@ -547,17 +1088,6 @@
     "publicadaEm": "2026-10-28T18:26:28.693Z",
     "categoria": "Suporte",
     "remota": true,
-    "local": ""
-  },
-  {
-    "id": "gupy-12776252",
-    "fonte": "gupy",
-    "titulo": "Estágio em Supply Chain (Transportes) - Vaga Afirmativa p/pessoas pretas, pardas e/ou indígenas",
-    "empresa": "BAT Brasil",
-    "url": "https://bat.gupy.io/job/eyJqb2JJZCI6MTI3NzYyNTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T17:03:46.589Z",
-    "categoria": "Estágio",
-    "remota": false,
     "local": ""
   },
   {
@@ -660,45 +1190,12 @@
     "local": ""
   },
   {
-    "id": "gupy-12795961",
-    "fonte": "gupy",
-    "titulo": "Agente de Suporte Acadêmico",
-    "empresa": "Fundação São Paulo",
-    "url": "https://fundasp.gupy.io/job/eyJqb2JJZCI6MTI3OTU5NjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T12:32:18.246Z",
-    "categoria": "Suporte",
-    "remota": false,
-    "local": ""
-  },
-  {
     "id": "gupy-12784819",
     "fonte": "gupy",
     "titulo": "ESTAGIÁRIO DHO",
     "empresa": "vemprotimefarmarcas",
     "url": "https://vemprotimefarmarcas.gupy.io/job/eyJqb2JJZCI6MTI3ODQ4MTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
     "publicadaEm": "2026-10-28T12:07:27.094Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12795766",
-    "fonte": "gupy",
-    "titulo": "Estagiário(a) de Psicologia – Apoio à Inclusão Escolar",
-    "empresa": "Escola do Futuro",
-    "url": "https://escoladofuturo.gupy.io/job/eyJqb2JJZCI6MTI3OTU3NjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T11:54:16.201Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12609839",
-    "fonte": "gupy",
-    "titulo": "ESTÁGIARIO EM COMEX AÉREO IMPORTAÇÃO",
-    "empresa": "Craft Group",
-    "url": "https://craft.gupy.io/job/eyJqb2JJZCI6MTI2MDk4MzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T11:46:43.241Z",
     "categoria": "Estágio",
     "remota": false,
     "local": ""
@@ -715,17 +1212,6 @@
     "local": ""
   },
   {
-    "id": "gupy-12740132",
-    "fonte": "gupy",
-    "titulo": "Pessoa Estagiária de Contas",
-    "empresa": "AlmapBBDO",
-    "url": "https://almapbbdo.gupy.io/job/eyJqb2JJZCI6MTI3NDAxMzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-28T04:47:43.931Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
     "id": "gupy-12786914",
     "fonte": "gupy",
     "titulo": "ANALISTA SUPORTE JR N1",
@@ -734,17 +1220,6 @@
     "publicadaEm": "2026-10-27T22:12:12.184Z",
     "categoria": "Suporte",
     "remota": true,
-    "local": ""
-  },
-  {
-    "id": "gupy-12726808",
-    "fonte": "gupy",
-    "titulo": "Estágio em Representação de Mercados - Distribuição",
-    "empresa": "Programa de Estágio Anbima 2026",
-    "url": "https://estagioanbima.gupy.io/job/eyJqb2JJZCI6MTI3MjY4MDgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-27T21:08:04.171Z",
-    "categoria": "Estágio",
-    "remota": false,
     "local": ""
   },
   {
@@ -767,28 +1242,6 @@
     "publicadaEm": "2026-10-27T20:50:24.372Z",
     "categoria": "Desenvolvimento",
     "remota": true,
-    "local": ""
-  },
-  {
-    "id": "gupy-12758739",
-    "fonte": "gupy",
-    "titulo": "Estágio de Férias HSI | 2027",
-    "empresa": "HSI",
-    "url": "https://hsi.gupy.io/job/eyJqb2JJZCI6MTI3NTg3MzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-27T20:01:05.587Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12696741",
-    "fonte": "gupy",
-    "titulo": "Encanador de Infra | Fundação",
-    "empresa": "Construtora Tenda",
-    "url": "https://tenda.gupy.io/job/eyJqb2JJZCI6MTI2OTY3NDEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-27T19:17:00.521Z",
-    "categoria": "Outras",
-    "remota": false,
     "local": ""
   },
   {
@@ -858,17 +1311,6 @@
     "local": ""
   },
   {
-    "id": "gupy-12790293",
-    "fonte": "gupy",
-    "titulo": "Auxiliar de Desenvolvimento Infantil | Bom Retiro, São Paulo/SP",
-    "empresa": "Legião Da Boa Vontade",
-    "url": "https://vagaslbv.gupy.io/job/eyJqb2JJZCI6MTI3OTAyOTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-27T16:24:00.377Z",
-    "categoria": "Desenvolvimento",
-    "remota": false,
-    "local": ""
-  },
-  {
     "id": "gupy-12789952",
     "fonte": "gupy",
     "titulo": "Analista de Suporte de TI Junior",
@@ -877,17 +1319,6 @@
     "publicadaEm": "2026-10-27T15:21:53.151Z",
     "categoria": "Suporte",
     "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12788654",
-    "fonte": "gupy",
-    "titulo": "Estágio em Mídias Sociais | Monitoramento | Remoto",
-    "empresa": "Elifegroup",
-    "url": "https://elife.gupy.io/job/eyJqb2JJZCI6MTI3ODg2NTQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-27T13:40:10.597Z",
-    "categoria": "Estágio",
-    "remota": true,
     "local": ""
   },
   {
@@ -921,17 +1352,6 @@
     "publicadaEm": "2026-10-27T12:57:47.800Z",
     "categoria": "Desenvolvimento",
     "remota": true,
-    "local": ""
-  },
-  {
-    "id": "gupy-12784333",
-    "fonte": "gupy",
-    "titulo": "Estágio - Área de Fundos de Crédito (FIDC)",
-    "empresa": "Ouribank",
-    "url": "https://ouribank.gupy.io/job/eyJqb2JJZCI6MTI3ODQzMzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-27T12:57:05.493Z",
-    "categoria": "Estágio",
-    "remota": false,
     "local": ""
   },
   {
@@ -1045,28 +1465,6 @@
     "local": ""
   },
   {
-    "id": "gupy-12784866",
-    "fonte": "gupy",
-    "titulo": "Estágio em Pessoas e Cultura",
-    "empresa": "Protiviti",
-    "url": "https://protiviti.gupy.io/job/eyJqb2JJZCI6MTI3ODQ4NjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T18:50:40.593Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12784559",
-    "fonte": "gupy",
-    "titulo": "Estagiário(a) de Planejamento & Performance",
-    "empresa": "Cinemark Brasil",
-    "url": "https://cinemark.gupy.io/job/eyJqb2JJZCI6MTI3ODQ1NTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T18:17:53.580Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
     "id": "gupy-12783143",
     "fonte": "gupy",
     "titulo": "Estagiário | Penal Empresarial",
@@ -1078,28 +1476,6 @@
     "local": ""
   },
   {
-    "id": "gupy-12783991",
-    "fonte": "gupy",
-    "titulo": "AEROPORTO I ESTAGIÁRIO(A) DE PLANEJAMENTO",
-    "empresa": "Motiva",
-    "url": "https://motiva.gupy.io/job/eyJqb2JJZCI6MTI3ODM5OTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T17:35:56.306Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12761333",
-    "fonte": "gupy",
-    "titulo": "Analista Facilities Júnior - Desenvolvimento de Projetos de Arquitetura",
-    "empresa": "Construtora Tenda",
-    "url": "https://tenda.gupy.io/job/eyJqb2JJZCI6MTI3NjEzMzMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T17:34:29.492Z",
-    "categoria": "Desenvolvimento",
-    "remota": false,
-    "local": ""
-  },
-  {
     "id": "gupy-12783951",
     "fonte": "gupy",
     "titulo": "Trainee | Tecnologia da Informação (TI)",
@@ -1107,17 +1483,6 @@
     "url": "https://programatraineesolvi.gupy.io/job/eyJqb2JJZCI6MTI3ODM5NTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
     "publicadaEm": "2026-10-26T17:17:57.388Z",
     "categoria": "TI",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12783425",
-    "fonte": "gupy",
-    "titulo": "Suporte de Pós Venda (Cartões de Benefícios) - Unidade Santana",
-    "empresa": "Atento Brasil",
-    "url": "https://atento.gupy.io/job/eyJqb2JJZCI6MTI3ODM0MjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T16:56:48.269Z",
-    "categoria": "Suporte",
     "remota": false,
     "local": ""
   },
@@ -1141,61 +1506,6 @@
     "publicadaEm": "2026-10-26T15:51:58.142Z",
     "categoria": "Desenvolvimento",
     "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12782653",
-    "fonte": "gupy",
-    "titulo": "Estágio em Facilities",
-    "empresa": "Software.com.br",
-    "url": "https://software.gupy.io/job/eyJqb2JJZCI6MTI3ODI2NTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T14:51:03.692Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12782524",
-    "fonte": "gupy",
-    "titulo": "Professor(a) Regente Ensino Fundamental II | 6º ao 9º anos | Tecnologia e Maker - Língua Inglesa",
-    "empresa": "Oportunidades Confidenciais",
-    "url": "https://oportunidadesconfidenciais.gupy.io/job/eyJqb2JJZCI6MTI3ODI1MjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T14:27:44.073Z",
-    "categoria": "TI",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12781859",
-    "fonte": "gupy",
-    "titulo": "Estágio em E-commerce (Operação) | TRACK&FIELD | São Paulo - SP",
-    "empresa": "Programa de Estágio Track&Field",
-    "url": "https://estagiotf.gupy.io/job/eyJqb2JJZCI6MTI3ODE4NTksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T14:01:00.411Z",
-    "categoria": "Estágio",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12741685",
-    "fonte": "gupy",
-    "titulo": "Consultor Tecnológico 6H l SHOPPING ABC MAPPIN/SP",
-    "empresa": "Vem Pra Vivo!",
-    "url": "https://lojasvivo.gupy.io/job/eyJqb2JJZCI6MTI3NDE2ODUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T13:56:40.169Z",
-    "categoria": "TI",
-    "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12781962",
-    "fonte": "gupy",
-    "titulo": "ESTAGIARIO(A) DE DIREITO - RECIFE",
-    "empresa": "RMS ADVOGADOS ASSOCIADOS",
-    "url": "https://rmsadvogados.gupy.io/job/eyJqb2JJZCI6MTI3ODE5NjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-26T13:30:22.840Z",
-    "categoria": "Estágio",
-    "remota": true,
     "local": ""
   },
   {
@@ -1229,17 +1539,6 @@
     "publicadaEm": "2026-10-26T10:49:02.729Z",
     "categoria": "Outras",
     "remota": false,
-    "local": ""
-  },
-  {
-    "id": "gupy-12779940",
-    "fonte": "gupy",
-    "titulo": "Estágio em Desenvolvimento de Negócios – Pesados Online",
-    "empresa": "BMC Hyundai",
-    "url": "https://bmchyundai.gupy.io/job/eyJqb2JJZCI6MTI3Nzk5NDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal",
-    "publicadaEm": "2026-10-25T02:58:48.037Z",
-    "categoria": "Estágio",
-    "remota": true,
     "local": ""
   }
 ]
